@@ -1,0 +1,7 @@
+2026-02-11 17:01:59 - M4Validator - INFO - ============================================================
+2026-02-11 17:01:59 - M4Validator - INFO - M4 PINN 基线验收开始
+2026-02-11 17:01:59 - M4Validator - INFO - ============================================================
+2026-02-11 17:01:59 - M4Validator - INFO - 已加载最佳模型: C:\Users\16281\Desktop\cpedc_project\outputs\mk_pinn_dt_v2\ckpt\pinn_best.pt
+2026-02-11 17:01:59 - M4Validator - INFO -   dp_wellbore = 18.0 MPa (地层→井口压差修正)
+2026-02-11 17:01:59 - M4Validator - INFO - 
+>>> 验收 1: SY9 压力趋势可拟合

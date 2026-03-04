@@ -1,0 +1,54 @@
+2026-02-14 13:43:52 - M1_DataProcessor - INFO - 📂 成功定位配置文件: C:\Users\16281\Desktop\cpedc_project\config.yaml
+2026-02-14 13:43:52 - M1_DataProcessor - INFO - ================================================================================
+2026-02-14 13:43:52 - M1_DataProcessor - INFO - M1 数据处理器初始化完成
+2026-02-14 13:43:52 - M1_DataProcessor - INFO - ================================================================================
+2026-02-14 13:43:52 - M1_DataProcessor - INFO - 
+================================================================================
+2026-02-14 13:43:52 - M1_DataProcessor - INFO - 开始执行 M1 数据处理流程
+2026-02-14 13:43:52 - M1_DataProcessor - INFO - ================================================================================
+
+2026-02-14 13:43:52 - M1_DataProcessor - INFO - 正在加载井位数据...
+2026-02-14 13:43:52 - M1_DataProcessor - INFO - 成功加载 7 口井的位置数据
+2026-02-14 13:43:52 - M1_DataProcessor - INFO - 正在计算井眼3D轨迹...
+2026-02-14 13:43:52 - M1_DataProcessor - INFO -   处理 SY9...
+2026-02-14 13:43:52 - M1_DataProcessor - INFO -   处理 SY13...
+2026-02-14 13:43:52 - M1_DataProcessor - WARNING - SY13 井斜首测点MD=500.00m（非0），自动补插井口点（MD=0, TVD=0）
+2026-02-14 13:43:52 - M1_DataProcessor - INFO - SY13 补插井口点后，测点数: 203
+2026-02-14 13:43:52 - M1_DataProcessor - INFO -   处理 SY201...
+2026-02-14 13:43:52 - M1_DataProcessor - WARNING - SY201 井斜首测点MD=500.00m（非0），自动补插井口点（MD=0, TVD=0）
+2026-02-14 13:43:52 - M1_DataProcessor - INFO - SY201 补插井口点后，测点数: 169
+2026-02-14 13:43:52 - M1_DataProcessor - INFO -   处理 SY101...
+2026-02-14 13:43:52 - M1_DataProcessor - INFO -   处理 SY102...
+2026-02-14 13:43:52 - M1_DataProcessor - WARNING - SY102 TVD累计与井斜表tvd_m的最大误差: 1.57m
+2026-02-14 13:43:52 - M1_DataProcessor - INFO -   处理 SY116...
+2026-02-14 13:44:05 - M1_DataProcessor - INFO -   处理 SYX211...
+2026-02-14 13:44:05 - M1_DataProcessor - WARNING - SYX211 井斜首测点MD=525.00m（非0），自动补插井口点（MD=0, TVD=0）
+2026-02-14 13:44:05 - M1_DataProcessor - INFO - SYX211 补插井口点后，测点数: 186
+2026-02-14 13:44:05 - M1_DataProcessor - INFO - 成功计算 7 口井的轨迹，共 44943 个测点
+2026-02-14 13:44:05 - M1_DataProcessor - INFO - 正在加载分层数据...
+2026-02-14 13:44:05 - M1_DataProcessor - INFO - 成功加载 7 口井的分层数据
+2026-02-14 13:44:05 - M1_DataProcessor - INFO - 正在提取MK段代表点...
+2026-02-14 13:44:05 - M1_DataProcessor - INFO - 成功提取 7 口井的MK段代表点
+2026-02-14 13:44:05 - M1_DataProcessor - ERROR - ❌ M1流程执行失败: [Errno 13] Permission denied: 'C:\\Users\\16281\\Desktop\\cpedc_project\\data\\clean\\mk_interval_points.csv'
+Traceback (most recent call last):
+  File "c:\Users\16281\Desktop\cpedc_project\src\m1_data_processor.py", line 777, in run
+    mk_points = self.extract_mk_interval_points(wellpaths, layers)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\16281\Desktop\cpedc_project\src\m1_data_processor.py", line 564, in extract_mk_interval_points
+    mk_df.to_csv(output_path, index=False, encoding='utf-8-sig')  # BOM 便于 Excel 正确显示中文
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\develop\Anaconda3\Lib\site-packages\pandas\util\_decorators.py", line 333, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\develop\Anaconda3\Lib\site-packages\pandas\core\generic.py", line 3967, in to_csv
+    return DataFrameRenderer(formatter).to_csv(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\develop\Anaconda3\Lib\site-packages\pandas\io\formats\format.py", line 1014, in to_csv
+    csv_formatter.save()
+  File "D:\develop\Anaconda3\Lib\site-packages\pandas\io\formats\csvs.py", line 251, in save
+    with get_handle(
+         ^^^^^^^^^^^
+  File "D:\develop\Anaconda3\Lib\site-packages\pandas\io\common.py", line 873, in get_handle
+    handle = open(
+             ^^^^^
+PermissionError: [Errno 13] Permission denied: 'C:\\Users\\16281\\Desktop\\cpedc_project\\data\\clean\\mk_interval_points.csv'

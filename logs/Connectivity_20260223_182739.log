@@ -1,0 +1,23 @@
+2026-02-23 18:27:39 - Connectivity - INFO -   SYX211: 附表3无效, 用附表8补充 k=0.037 mD (气水同层)
+2026-02-23 18:27:39 - Connectivity - INFO -   SY9: 基质k=0.2331 mD → PINN反演k_frac=7.26 mD (裂缝增强)
+2026-02-23 18:27:39 - Connectivity - INFO - 各井渗透率(mD): SY101=0.0584, SY102=0.0122, SY116=0.0215, SY13=0.0444, SY201=0.0904, SY9=7.2635, SYX211=0.0370
+2026-02-23 18:27:39 - Connectivity - INFO -   SY9: RT N=738, geomean=1076.3, min=35.1, P10=325.3 Ω·m
+2026-02-23 18:27:39 - Connectivity - INFO -   SY13: RT N=735, geomean=2757.1, min=293.4, P10=759.2 Ω·m
+2026-02-23 18:27:39 - Connectivity - INFO -   SY201: RT N=716, geomean=3620.8, min=70.9, P10=973.7 Ω·m
+2026-02-23 18:27:39 - Connectivity - INFO -   SY101: RT N=634, geomean=610.0, min=7.9, P10=69.9 Ω·m
+2026-02-23 18:27:39 - Connectivity - INFO -   SY102: RT N=781, geomean=1214.7, min=170.1, P10=373.7 Ω·m
+2026-02-23 18:27:39 - Connectivity - INFO -   SY116: RT N=690, geomean=560.8, min=72.3, P10=215.2 Ω·m
+2026-02-23 18:27:39 - Connectivity - INFO -   SYX211: RT N=1321, geomean=1861.0, min=1.1, P10=124.4 Ω·m
+2026-02-23 18:27:39 - Connectivity - INFO - RT统计量提取完成: 7/7 口井
+2026-02-23 18:27:39 - Connectivity - INFO - ConnectivityAnalyzer 初始化: 7 口井, 网格 80×80, 实测k约束 7 口
+2026-02-23 18:27:39 - Connectivity - INFO - IDW渗透率场构建完成: 7个控制点 (SY9, SY13, SY201, SY101, SY102, SY116, SYX211), k范围 [0.0122, 7.22] mD
+2026-02-23 18:27:39 - Connectivity - INFO - IDW RT场构建完成: 7个控制点 (SY9, SY13, SY201, SY101, SY102, SY116, SYX211), RT范围 [561.2, 3618.7] Ω·m
+2026-02-23 18:27:39 - Connectivity - INFO - RT流体因子校正: α=0.3, RT_ref=1386.3 Ω·m, F_RT范围 [0.765, 1.322]
+2026-02-23 18:27:39 - Connectivity - INFO - 连通性矩阵计算完成: 7×7
+2026-02-23 18:27:39 - Connectivity - INFO - k 场热力图已保存: C:\Users\16281\Desktop\cpedc_project\outputs\mk_pinn_dt_v2\figs\M6_k_field_channels.png
+2026-02-23 18:27:40 - Connectivity - INFO - 连通性热力图已保存: C:\Users\16281\Desktop\cpedc_project\outputs\mk_pinn_dt_v2\figs\M6_connectivity_matrix.png
+2026-02-23 18:27:40 - Connectivity - INFO - Sw 演化图已保存: C:\Users\16281\Desktop\cpedc_project\outputs\mk_pinn_dt_v2\figs\M6_sw_evolution.png
+2026-02-23 18:27:41 - Connectivity - INFO - 流体分带图已保存: C:\Users\16281\Desktop\cpedc_project\outputs\mk_pinn_dt_v2\figs\M6_fluid_zonation.png
+2026-02-23 18:27:42 - Connectivity - INFO - SYX211 RT-Sw剖面图已保存: C:\Users\16281\Desktop\cpedc_project\outputs\mk_pinn_dt_v2\figs\M6_syx211_rt_sw_profile.png
+2026-02-23 18:27:42 - Connectivity - INFO - RT对比柱状图已保存: C:\Users\16281\Desktop\cpedc_project\outputs\mk_pinn_dt_v2\figs\M6_well_rt_comparison.png
+2026-02-23 18:27:42 - Connectivity - INFO - 连通性分析完成! (v3.15: 含RT流体因子 + 流体分带图件)

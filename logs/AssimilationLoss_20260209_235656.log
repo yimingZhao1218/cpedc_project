@@ -1,0 +1,3 @@
+2026-02-09 23:56:56 - AssimilationLoss - INFO - AssimilationLoss 初始化: p_init=76.0 MPa, sw_init=0.26, monotonic=True, smooth_pwf=True
+2026-02-09 23:59:42 - AssimilationLoss - INFO - AssimilationLoss 初始化: p_init=76.0 MPa, sw_init=0.26, monotonic=True, smooth_pwf=True
+2026-02-10 00:02:10 - AssimilationLoss - INFO - AssimilationLoss 初始化: p_init=76.0 MPa, sw_init=0.26, monotonic=True, smooth_pwf=True

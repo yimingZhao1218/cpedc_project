@@ -1,0 +1,644 @@
+# ==========================================================
+# CPEDC 创新组 - PINN 数字孪生系统（终稿级配置 v2）
+# 深层碳酸盐岩（MK组）缝洞型强非均质气藏：数智赋能 + 工程可用
+# ==========================================================
+
+meta:
+  project: "CPEDC16-Innovation-PINN-MK"
+  experiment_name: "mk_pinn_dt_v2"
+  version: "2.0.0"
+  description: "边水-缝洞-强非均质气藏PINN数字孪生：产能/压力/含水耦合预测 + 物理约束反演 + 消融验证"
+  author: "anonymous"          # 匿名评审：请勿写真实个人/学校信息
+  created_at: "2026-02-09"
+  notes:
+    - "配置目标：可复现、可审计、可落地训练/评估/消融"
+    - "禁止在关键几何量（层顶/层底界、构造面）定位中使用不可审计的黑箱插值；需记录插值方法与误差"
+
+reproducibility:
+  seed: 20260209
+  deterministic: true
+  cudnn_benchmark: false
+
+runtime:
+  device: "cuda"              # cuda / cpu
+  mixed_precision: true
+  num_workers: 4
+
+# ----------------------------------------------------------
+# 项目信息（保留你原结构，但更明确）
+# ----------------------------------------------------------
+project:
+  name: "CPEDC_PINN_DigitalTwin"
+  baseline: "B层标准"
+  digital_twin: true
+  pinn: true
+
+# ----------------------------------------------------------
+# 路径（保留你原字段 + 增强输出闭环）
+# ----------------------------------------------------------
+paths:
+  raw_data: "data/raw"
+  staged_data: "data/staged"
+  clean_data: "data/clean"
+  geo_data: "geo"
+
+  outputs: "outputs/${meta.experiment_name}"
+  checkpoints: "outputs/${meta.experiment_name}/ckpt"
+  logs: "outputs/${meta.experiment_name}/logs"
+  reports: "outputs/${meta.experiment_name}/reports"
+  figures: "outputs/${meta.experiment_name}/figs"
+  exports: "outputs/${meta.experiment_name}/exports"
+
+# ----------------------------------------------------------
+# 坐标系统/基准面（保留 + 增强审计字段）
+# ----------------------------------------------------------
+coordinate_system:
+  datum: "MSL"                 # 平均海平面
+  z_convention: "up_positive"  # 向上为正
+  units: "m"
+  gas_water_contact:
+    value: -4385.0
+    unit: "m"
+    meaning: "气水界面标高（用于边水/含水演化约束）"
+  audit:
+    save_transform_matrix: true
+    save_wellhead_reference: true
+
+# ----------------------------------------------------------
+# MK组地层参数（保留 + 允许反演与边界）
+# ----------------------------------------------------------
+mk_formation:
+  name: "MK组"
+  pressure_gradient_MPa_per_100m: 0.27
+  temp_gradient_C_per_100m: 2.69
+  avg_pressure_MPa:
+    value: 76.0
+    trainable: true
+    bounds: [65.0, 85.0]
+    meaning: "中部压力/初始压力先验（可反演）"
+  avg_temperature_C:
+    value: 140.32
+    trainable: false
+    meaning: "中部温度先验（固定）"
+  reservoir_type:
+    - "carbonate"
+    - "fracture-vuggy"
+    - "strong_heterogeneity"
+  sour_gas:
+    enable: true
+    components:
+      h2s: "from_data_if_available"
+      co2: "from_data_if_available"
+    hse_note: "含硫含酸气：需考虑腐蚀/安全约束，参数用于敏感性分析与工程护栏"
+
+# ----------------------------------------------------------
+# 数据总控：把“训练必须的信息”显式化（这是你旧版最缺的）
+# ----------------------------------------------------------
+data:
+  mode: "single_well"     # single_well / multi_well
+  primary_well: "SY9"
+  wells:
+    - "SY9"
+    - "SY13"
+    - "SY201"
+    - "SY101"
+    - "SY102"
+    - "SY116"
+    - "SYX211"
+
+  # 你后续代码只需要从这里读路径，不再硬编码
+  sources:
+    well_location_csv: "${paths.raw_data}/附表1-井位数据.csv"
+    layer_csv: "${paths.raw_data}/附表4-分层数据.csv"
+    log_interp_csv: "${paths.raw_data}/附表8-测井解释成果表.csv"
+    test_oil_gas_csv: "${paths.raw_data}/附表9-试油试采数据.csv"
+    production_daily_csv: "${paths.raw_data}/附表10-SY9单井日生产数据.csv"
+    deviation_csv_map:
+      SY9: "${paths.raw_data}/附表2-井斜数据__SY9.csv"
+      SY13: "${paths.raw_data}/附表2-井斜数据__SY13.csv"
+      SY201: "${paths.raw_data}/附表2-井斜数据__SY201.csv"
+      SY101: "${paths.raw_data}/附表2-井斜数据__SY101.csv"
+      SY102: "${paths.raw_data}/附表2-井斜数据__SY102.csv"
+      SY116: "${paths.raw_data}/附表2-井斜数据__SY116.csv"
+      SYX211: "${paths.raw_data}/附表2-井斜数据__SYX211.csv"
+    pvt:
+      gas_comp_csv: "${paths.raw_data}/附表5-PVT数据__1井流物组成.csv"
+      c_g_csv: "${paths.raw_data}/附表5-PVT数据__3不同温度下的压缩系数.csv"
+      bg_csv: "${paths.raw_data}/附表5-PVT数据__4不同温度下的体积系数.csv"
+      alphaT_csv: "${paths.raw_data}/附表5-PVT数据__5不同温度下的热膨胀系数.csv"
+      density_csv: "${paths.raw_data}/附表5-PVT数据__6不同温度下的密度模拟计算.csv"
+      cce_csv: "${paths.raw_data}/附表5-PVT数据__2油藏流体恒质膨胀数据表.csv"
+    relperm_csv: "${paths.raw_data}/附表7-相对渗透率数据表.csv"
+
+  # 列名映射（你只要改这里就能对齐不同CSV）
+  columns:
+    time: "date"
+    qg: "qg"
+    qw: "qw"               # 如果没有水量列，置为 null，并在loss里关闭qw监督
+    whp: "whp"             # 没有可置 null
+    wht: "wht"             # 可选
+    choke: "choke"         # 可选（没有就置 null）
+    bhp: null              # 井底压力（通常没有，作为隐变量 pwf_hat 反演）
+    # 解释属性（可选）
+    phi: "PHI"
+    perm: "K"
+    h2s: "H2S"
+    co2: "CO2"
+
+  preprocessing:
+    time_unit: "day"
+    t0_date: null          # 自动从primary_well生产数据首日推断（你旧版写在m1_config里，这里集中管理）
+
+    missing:
+      strategy: "interpolate_then_ffill"   # drop / ffill / interpolate_then_ffill
+      max_gap_days: 7
+      audit_save_mask: true
+
+    outlier:
+      enable: true
+      method: "hampel"     # hampel / iqr / zscore
+      window: 7
+      n_sigma: 3.0
+      audit_save_flags: true
+
+    scaling:
+      method: "zscore"
+      fit_on: "train"
+      eps: 1.0e-12
+
+    # 关键：对“层顶/层底界定位”插值策略必须可审计（替代你随手np.interp）
+    stratigraphy_alignment:
+      enable: true
+      method: "piecewise_linear_with_bounds"  # piecewise_linear_with_bounds / spline_monotone
+      enforce_monotone_depth: true
+      save_alignment_report: true
+
+  split:
+    method: "time_based"
+    train_ratio: 0.70
+    val_ratio: 0.15
+    test_ratio: 0.15
+    shuffle: false
+
+# ----------------------------------------------------------
+# M1 数据清洗（保留你原 m1_config 结构，但把关键阈值补全）
+# ----------------------------------------------------------
+m1_config:
+  quality_thresholds:
+    coord_outlier_factor: 3.0
+    pressure_min_MPa: 0.0
+    pressure_max_MPa: 100.0
+    temp_min_C: 0.0
+    temp_max_C: 200.0
+    thickness_min_m: 0.1
+    production_nonnegative: true
+
+  audit:
+    save_cleaning_report: true
+    save_before_after_samples: true
+
+# ----------------------------------------------------------
+# M2 地质域构建（保留 + 增强边界/采样与误差闭环）
+# ----------------------------------------------------------
+m2_config:
+  boundary_buffer_distances_m: [500, 1000, 1500]
+  default_buffer_m: 1000
+  thickness_min: 1.0              # 厚度场物理约束下限(m)
+
+  grid:
+    min_resolution_m: 50
+    max_resolution_m: 200
+    well_radius_factor: 10
+
+  well_refinement:
+    radius_m: 300
+    density_factor: 3
+
+  boundary_samples: 512
+
+  kriging:
+    variogram_model: "gaussian"          # LOO-CV对比: gaussian MAE最低 (vs spherical/exponential)
+    nlags: 6
+    enable_crossval: true
+    max_acceptable_error_m: 60.0
+    audit:
+      save_cv_metrics: true
+      save_variogram_fit: true
+
+# ----------------------------------------------------------
+# M3 物性模块配置
+# ----------------------------------------------------------
+m3_config:
+  pvt:
+    temperatures_C: [16.5, 46.5, 78.0, 109.0, 140.32]
+    pressure_unit: "MPa"
+    interpolation_method: "pchip"   # 分段三次Hermite，保持单调
+    temperature_interp: "linear"    # 温度方向线性插值
+    unit_factors:
+      cg: 0.01           # 原始单位 10^{-2}/MPa → 乘以 0.01
+      bg: 0.001          # 原始单位 10^{-3} m³/m³ → 乘以 0.001
+      rho: 1000.0         # g/cm³ → kg/m³
+      alphaT: 0.01        # 原始单位 10^{-2}/℃ → 乘以 0.01
+    clamp_out_of_range: true
+    
+  relperm:
+    sw_is_percent: true     # 原始 Sw 数据为百分比
+    enforce_endpoints: true
+    enforce_monotone: true
+    enforce_nonneg: true
+    interpolation_method: "pchip"
+
+# ----------------------------------------------------------
+# M4 PINN 基线配置
+# ----------------------------------------------------------
+# NaN 调试（默认关闭）：子损失 isfinite 断言 + backward 时 autograd 异常检测 + dump 到 outputs/debug_nan/
+debug_nan: false
+
+m4_config:
+  formulation: "2.5D"           # 面域 + 厚度 h(x,y)
+  variables:
+    input: ["x", "y", "t"]
+    output: ["p", "Sw"]
+  
+  sampling:
+    n_domain: 4096              # 域内配点数/batch (从 2048 增到 4096)
+    n_boundary: 512             # 边界点数/batch
+    n_initial: 512              # 初始点数/batch
+    time_distribution: "adaptive"  # 自适应: 前期 Beta, 后期混合均匀
+    time_beta_a: 1.5
+    time_beta_b: 3.0
+    near_well_ratio: 0.30       # 井周加密比例（30% 井周 + 70% 全域均匀）
+  
+  training_stages:
+    stage_a:                    # 预训练: IC+BC + 微弱 PDE+qg (v3.4: sw_phys 从0→2.0, 防止 Sw 在初期漂移到 tanh 上界 0.88)
+      fraction: 0.10
+      weights: {ic: 15.0, bc: 5.0, pde: 0.01, data: 0.1, sw_phys: 2.0}
+    stage_b:                    # 物理+数据渐进: PDE+qg 逐步加大，sw_phys 促 Sw 缓慢演化（提高 data 以改善 qg 全序列）
+      fraction: 0.25
+      weights_start: {ic: 5.0, bc: 3.0, pde: 0.5, data: 2.0, sw_phys: 0.3}
+      weights_end: {ic: 5.0, bc: 3.0, pde: 2.0, data: 4.0, sw_phys: 0.8}
+    stage_c:                    # 全面同化: 物理+数据+先验（提高 data 强化 qg 拟合，目标 MAPE~14% R²~0.7+）
+      fraction: 0.35
+      weights_start: {ic: 3.0, bc: 2.0, pde: 2.0, data: 6.0, sw_phys: 1.0}
+      weights_end: {ic: 3.0, bc: 2.0, pde: 2.0, data: 6.0, sw_phys: 1.5}
+    stage_d:                    # 微调: 物理+数据并重（略提高 data 避免 qg 回退）
+      fraction: 0.30
+      weights: {ic: 1.0, bc: 1.0, pde: 3.0, data: 6.5, sw_phys: 2.0}
+  
+  acceptance:
+    pressure_mape_threshold: 30.0  # % (基线阈值)
+    sw_must_be_bounded: true       # Sw ∈ [0, 1]
+
+# ----------------------------------------------------------
+# PINN IO 与训练任务（这是你旧版没有的关键模块）
+# ----------------------------------------------------------
+io:
+  inputs:
+    - "t"
+    - "choke"          # 如果 columns.choke 为 null，代码应自动剔除该输入
+  outputs:
+    - "qg_hat"
+    - "pwf_hat"        # 井底流压隐变量/反演变量
+    - "sw_hat"         # 含水饱和度（可选，但建议保留用于边水/含水机制说明）
+
+  supervised_targets:
+    enable: true
+    targets:
+      qg: "qg"
+      qw: "qw"
+      whp: "whp"
+
+# ----------------------------------------------------------
+# 物理约束（创新组“硬核加分点”）
+# ----------------------------------------------------------
+physics:
+  enable: true
+  formulation: "hybrid"         # surrogate_ode / material_balance / radial_diffusivity / hybrid
+
+  priors:
+    p_init_MPa:
+      from: "mk_formation.avg_pressure_MPa"
+    k_eff_mD:
+      value: 0.5
+      trainable: true
+      bounds: [0.01, 50.0]
+      range: [0.1, 10.0]             # 敏感性分析区间
+      meaning: "Peaceman等效均质先验: 附表8 SY9测井解释平均k=36.8mD是局部裂缝峰值, Peaceman等效均质反推0.83mD, 历史收敛3.85mD; 取k_eff=0.5mD(k_frac_init=4mD)作保守先验, k_net负责局部高渗修正"
+
+    k_alt_mD:
+      value: 3.24
+      meaning: "附表7绝对渗透率（3.20×10⁻³ μm² 换算）"
+    phi:
+      value: 0.0216
+      meaning: "孔隙度（附表7相渗实验条件, 2.16%）"
+    mu_ref_mPa_s:
+      value: 0.035
+      range: [0.02, 0.06]
+      meaning: "Lee-Gonzalez-Eakin关联式估算(γg=0.577,ρ=0.271g/cm³,T=140.32°C,p=75.7MPa)→0.0346≈0.035"
+    cg_ref_1_per_MPa:
+      value: 0.013
+      range: [0.008, 0.020]
+      meaning: "参考压缩系数先验（可被M3 PVT在p_ref,T_ref查询覆盖）"
+    c_r_1_per_MPa:
+      value: 0.0
+      meaning: "岩石压缩系数（目前无数据, 置0）"
+    frac_conductivity_factor:
+      value: 16.0
+      trainable: true
+      bounds: [1.0, 100.0]
+      meaning: "裂缝增效因子(v3.12: k_frac=k_eff×f=0.5×16=8mD; PVT修正后Bg≈2×旧值, k_frac需相应提高; 附表8 SY9局部裂缝层k=36.8mD由k_net捕捉)"
+
+  # PDE 域参数与缩放（用于 α_phys 计算与归一化残差）
+  pde:
+    time_unit: "s"                    # PDE 物理时间用秒
+    domain:
+      x_min_m: 18537917.902
+      x_max_m: 18555317.902          # Δx = 17400 m
+      y_min_m: 3346340.360
+      y_max_m: 3357340.360           # Δy = 11000 m
+      t_max_d: 1331                  # t_max_s = 1331 * 86400 = 114998400 s
+
+  constraints:
+    monotonic_qg_vs_pwf:
+      enable: true
+      weight: 1.0
+
+    smooth_pwf_time:
+      enable: true
+      weight: 0.2
+
+    sw_bounds:
+      enable: true
+      weight: 0.5
+
+    material_balance_residual:
+      enable: true
+      weight: 1.0
+
+    relperm_shape:
+      enable: true
+      weight: 0.3
+
+# ----------------------------------------------------------
+# 模型（稳定优先：PINN常用tanh + 规范化）
+# ----------------------------------------------------------
+model:
+  type: "pinn_mlp"
+  architecture:
+    hidden_layers: [256, 256, 256, 256, 256, 256]  # 6×256 增大容量
+    activation: "tanh"
+    dropout: 0.0
+    use_layernorm: true
+    use_fourier: true              # Fourier Feature Encoding (解决频谱偏置)
+    fourier_n_freq: 32             # 频率数
+    fourier_sigma: 1.0             # 频率矩阵标准差
+    use_residual: true             # ResNet 风格残差连接
+    use_k_net: true                # k(x,y) 空间渗透率子网络
+
+  parameterization:
+    trainable_priors: true
+    positivity_constraints:
+      k_eff_mD: "softplus"
+      frac_conductivity_factor: "softplus"
+
+# ----------------------------------------------------------
+# 损失：监督 + 物理残差 + 正则（可做课程学习）
+# ----------------------------------------------------------
+loss:
+  supervised:
+    enable: true
+    weights:
+      qg: 1.2         # v15: 略提高 qg 总权重，恢复全序列 MAPE~14% / R²~0.7+
+      qg_smape: 0.5   # v3.8: 0.8→0.5, 降低SMAPE主导(新增MAPE direct分量补位)
+      qg_log1p: 0.15  # v3.8: 0.2→0.15, 微降
+      qw: 0.7
+      whp: 0.3
+
+  physics:
+    enable: true
+    base_weight: 1.0
+    curriculum:
+      enable: true
+      warmup_steps: 800
+      target_weight: 1.0
+
+  regularization:
+    l2_weight: 1.0e-6
+    grad_clip_norm: 5.0
+
+# ----------------------------------------------------------
+# 训练（可复现 + 可早停 + 可保存最佳）
+# ----------------------------------------------------------
+train:
+  # v3.21: 65/15/20 — train多66条(vs 60/20/20), val有32个开井点(70/15/15的val=0会致best不更新)
+  m5_split: [0.65, 0.15, 0.2]   # [train_ratio, val_ratio, test_ratio]，时间顺序不打乱
+  use_train_only: false          # v12：全量井点反传
+  max_steps: 35000              # v4.7 阶段1: 全训35k复现Run A
+  batch_size: 4096              # GPU 建议 4096, CPU 可降到 512
+  learning_rate: 1.0e-3         # v4.7 阶段1: 全训lr
+
+  # M5 阶段划分与权重覆盖（必须显式设 pde，否则 m4_config.training_stages 的 pde=3.0 会泄漏到 M5 Stage D）
+  training_stages:
+    # v3.21: PDE权重提升10-100×
+    # 根因: v3.20修复PDE量纲后残差从129013→394(↓330×), 但权重未同步提升
+    # 旧权重0.0003使PDE贡献仅占总loss的0.02%, 物理约束名存实亡
+    # 新权重使PDE贡献≈2-12(占qg的0.5-3%), 恢复有意义的物理正则化
+    stage_a: { fraction: 0.08, weights: { pde: 0.005 } }    # v3.21: 0.0001→0.005
+    stage_b: { fraction: 0.20, weights: { pde: 0.01  } }    # v3.21: 0.0002→0.01
+    stage_c:
+      fraction: 0.28                                         # v3.17: 0.30→0.28
+      weights: { pde: 0.02 }
+    stage_d: { fraction: 0.44, weights: { pde: 0.03 } }     # v3.21: 0.0003→0.03
+
+  optimizer:
+    name: "adamw"
+    weight_decay: 1.0e-4
+    inversion_lr_factor: 1.5   # v3.6: 2.0→1.5, dp已加强约束, 降lr防dp过快漂移
+    k_frac_lr_factor: 2.0     # v3.5: 1.5→2.0, PDE已不主导, k_frac需足够lr寻优
+    corey_lr_factor: 0.5       # v4.6: 3.0→0.5, 防ng/nw过快漂移
+
+  scheduler:
+    name: "warmup_cosine"       # Warmup + Cosine Decay
+    warmup_steps: 4000          # v4.7 阶段1: 全训warmup
+    min_lr: 1.0e-6              # 衰减到 1e-6
+
+  early_stopping:
+    enable: true
+    monitor: "val_total_loss"
+    patience: 30
+    min_delta: 1.0e-4
+
+  checkpoint:
+    save_best_only: true
+    monitor: "val_total_loss"
+
+# ----------------------------------------------------------
+# 评估与出图（答辩友好：一眼看出提升与机理合理性）
+# ----------------------------------------------------------
+evaluation:
+  metrics: ["mae", "rmse", "mape", "r2"]
+  plots:
+    enable: true
+    items:
+      - "qg_pred_vs_true"
+      - "pwf_time_series"
+      - "sw_time_series"
+      - "residual_terms_breakdown"
+      - "ablation_comparison"
+
+# ----------------------------------------------------------
+# 消融（创新组强加分：至少3组）
+# ----------------------------------------------------------
+ablation:
+  enable: true
+  min_steps: 20000              # 消融实验最少步数 (而非 4000)
+  experiments:
+    - name: "pure_ml"
+      description: "纯数据驱动, 无物理约束"
+      overrides:
+        physics.enable: false
+        loss.physics.enable: false
+        loss.physics.base_weight: 0.0
+
+    - name: "pinn_const_k"
+      description: "单相 PDE + 常数 k (无 k_net)"
+      overrides:
+        physics.enable: true
+        loss.physics.enable: true
+        loss.physics.base_weight: 1.0
+        model.architecture.use_k_net: false
+
+    - name: "pinn_base"
+      description: "PDE 基础线 (无 k_net 无 Fourier, 2×2 消融基底)"
+      overrides:
+        physics.enable: true
+        loss.physics.enable: true
+        loss.physics.base_weight: 1.0
+        model.architecture.use_k_net: false
+        model.architecture.use_fourier: false
+
+    - name: "pinn_full"
+      description: "完整模型: PDE + k_net + Fourier + 全约束"
+      overrides:
+        physics.enable: true
+        loss.physics.enable: true
+        loss.physics.base_weight: 1.0
+        model.architecture.use_k_net: true
+        model.architecture.use_fourier: true
+
+    - name: "pinn_no_fourier"
+      description: "完整模型但无 Fourier Features (验证 FF 效果)"
+      overrides:
+        physics.enable: true
+        loss.physics.enable: true
+        loss.physics.base_weight: 1.0
+        model.architecture.use_k_net: true
+        model.architecture.use_fourier: false
+
+    - name: "pinn_no_rar"
+      description: "完整模型但无 RAR 自适应采样 (验证 RAR 效果)"
+      overrides:
+        physics.enable: true
+        loss.physics.enable: true
+        loss.physics.base_weight: 1.0
+        model.architecture.use_k_net: true
+        model.architecture.use_fourier: true
+        train.rar.enable: false
+
+# ----------------------------------------------------------
+# 工程安全护栏（含硫高温高压：让评委相信“工程可用”）
+# ----------------------------------------------------------
+safety_guardrails:
+  enable: true
+  limits:
+    pwf_hat_MPa: [30.0, 80.0]    # v3 P2-FIX: 缩窄范围 (v10 改为压差参数化后仅作兼容保留)
+    drawdown_MPa: [0.2, 65.0]    # v12：保留最小压差下限
+    qg_hat: [0.0, 1.0e9]
+    sw_hat: [0.0, 1.0]
+  actions:
+    on_violation: "clip_and_log"
+
+# ----------------------------------------------------------
+# 输出（保留你原 output，并增强可视化/中间结果）
+# ----------------------------------------------------------
+output:
+  figure_dpi: 300
+  figure_format: "png"
+  save_intermediate: true
+  chinese_font: "SimHei"
+  save_config_copy: true
+  export_predictions_csv: true
+  export_inverse_params_yaml: true   # 导出反演参数到 YAML
+
+# ----------------------------------------------------------
+# M5 井—藏耦合 + 同化 + 反演
+# ----------------------------------------------------------
+m5_config:
+  shutin_delta:
+    target_MPa: 0.1
+    min_points: 30
+  qg_nearzero:
+    enable: true             # v13：开启 near-zero 专项损失（关井段约束）
+    threshold_m3d: 1.0
+    q_scale_m3d: 80000.0
+    min_points: 30
+    w_a: 3.0
+    w_b_start: 6.0
+    w_b_end: 9.0
+    w_c: 12.0
+    w_d: 20.0                  # v3.21: 12→20, 增强关井段约束(MAE=136→目标<50)
+
+  inversion_prior:            # k/dp 先验（可配并加强，避免 k/dp 顶飞）
+    k_weight: 0.01           # k 先验权重（对数空间，宽松以允许反演）
+    dp_center_MPa: 13.3       # dp 先验中心（试油实测: WHP=57.93, BHP=71.23, Δp=13.3 MPa）
+    dp_weight: 0.02           # dp 先验权重
+    corey_weight: 0.1           # v4.7: 1.0→0.1回退, corey_weight=1.0是MAPE退化根因
+  
+  well_model:
+    r_w_m: 0.1                      # 井筒半径 (m)
+    skin: 0.0                       # 表皮系数
+    # r_e 由 Peaceman 公式自动估算
+
+  pwf_network:
+    hidden: [64, 64]                # v11: 扩容 (32→64) 增强 δ(t) 表达力，追踪 WHP 动态
+    min_drawdown_MPa: 0.01          # v12：保留最小压差地板
+    dp_min_MPa: 0.01                # v14: 允许低产段压差更小，避免 qg 低端抬高
+    dp_max_MPa: 40.0                # v14: 压差上限，保留高产段可调空间
+
+  source_term:
+    sigma_norm: 0.05                # 高斯核支撑半径 (归一化空间)
+    cutoff_factor: 3.0              # 截断半径 = cutoff_factor × σ
+
+  relobralo:
+    enable: true
+    temperature: 1.0                # softmax 温度
+    alpha: 0.999                    # EMA 衰减
+    rho: 0.999                      # 随机 lookback 概率
+    warmup_steps: 200               # 预热期使用均匀权重
+
+  rar:
+    enable: true
+    interval: 500                   # 每 N 步执行一次
+    n_candidates: 5000              # 候选池大小
+    n_add: 200                      # 每次加入点数
+    max_total: 8000                 # 最大 RAR 点数
+
+# ----------------------------------------------------------
+# M6 多井 + 域分解 + 不确定性
+# ----------------------------------------------------------
+m6_config:
+  domain_decomposition: "none"      # none / xpinn / apinn
+
+  xpinn:
+    n_subdomains: 2                 # 子域数量
+    subnet_scale: 0.75              # 子网络相对主网络的缩放
+    interface_weight: 10.0          # 界面匹配损失权重
+
+  apinn:
+    n_experts: 3                    # 专家网络数量
+    gate_hidden: 32                 # 门控网络隐层宽度
+
+  uq:
+    n_ensemble: 5                   # ensemble 成员数
+    base_seed: 20260209
+

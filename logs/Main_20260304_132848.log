@@ -1,0 +1,13 @@
+2026-03-04 13:28:50 - Main - INFO - M5 训练设备: cuda
+2026-03-04 13:28:50 - Main - INFO - M5 主井: SY9
+2026-03-04 13:28:50 - Main - INFO -   M5 参数量: {'field_net': 416258, 'well_model': 4418, 'k_net': 15297, 'well_singularity': 1153, 'dp_wellbore': 0, 'total': 437126}
+2026-03-04 16:02:40 - Main - INFO -   反演 k_eff: 9.3425 mD
+2026-03-04 16:02:40 - Main - ERROR - 执行失败: Unknown format code 'f' for object of type 'str'
+Traceback (most recent call last):
+  File "C:\Users\16281\Desktop\cpedc_project\src\main.py", line 488, in main
+    m5_ok = run_m5(config, logger)
+            ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\16281\Desktop\cpedc_project\src\main.py", line 176, in run_m5
+    logger.info(f"  反演 f_frac: {inv.get('f_frac', 'N/A'):.2f}")
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: Unknown format code 'f' for object of type 'str'

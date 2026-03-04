@@ -1,0 +1,2 @@
+2026-02-13 12:36:10 - RARSampler - INFO - RARSampler: enable=True, interval=500, n_candidates=5000, n_add=200, max_total=8000
+2026-02-13 12:37:16 - RARSampler - INFO - [RAR step 500] 加入 200 个高残差点, 总 RAR 点数: 200, 残差统计: mean=4.4102e+02, max=4.9765e+04, median=2.0894e+02

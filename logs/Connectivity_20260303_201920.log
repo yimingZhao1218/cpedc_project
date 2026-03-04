@@ -1,0 +1,44 @@
+2026-03-03 20:19:20 - Connectivity - INFO -   SYX211: 附表3无效, 用附表8补充 k=0.037 mD (气水同层)
+2026-03-03 20:19:20 - Connectivity - INFO -   SY9: 基质k=0.2331 mD → PINN反演k_frac=14.27 mD (裂缝增强)
+2026-03-03 20:19:20 - Connectivity - INFO - 各井渗透率(mD): SY101=0.0584, SY102=0.0122, SY116=0.0215, SY13=0.0444, SY201=0.0904, SY9=14.2726, SYX211=0.0370
+2026-03-03 20:19:20 - Connectivity - INFO -   SY101: Sw_avg=20.0% (有效储厚加权, h_total=41.7m)
+2026-03-03 20:19:20 - Connectivity - INFO -   SY13: Sw_avg=11.8% (有效储厚加权, h_total=41.7m)
+2026-03-03 20:19:20 - Connectivity - INFO -   SY201: Sw_avg=12.2% (有效储厚加权, h_total=37.9m)
+2026-03-03 20:19:20 - Connectivity - INFO -   SY9: Sw_avg=15.0% (有效储厚加权, h_total=48.4m)
+2026-03-03 20:19:20 - Connectivity - INFO -   SY102: Sw_avg=16.8% (有效储厚加权, h_total=45.4m)
+2026-03-03 20:19:20 - Connectivity - INFO -   SY116: Sw_avg=27.0% (有效储厚加权, h_total=39.3m)
+2026-03-03 20:19:20 - Connectivity - INFO -   SYX211: Sw_avg=30.3% (有效储厚加权, h_total=6.0m)
+2026-03-03 20:19:20 - Connectivity - INFO - 附表8 Sw提取完成: 7 口井
+2026-03-03 20:19:20 - Connectivity - INFO -   SY101: RT N=402 (有效段[4592.5,4638.8] + [4642.0,4645.8]), geomean=287.5, min=7.9, P10=47.8 Ω·m
+2026-03-03 20:19:20 - Connectivity - INFO -   SY13: RT N=339 (有效段[4574.5,4579.8] + [4592.9,4604.4] + [4607.6,4633.5]), geomean=2369.3, min=459.6, P10=749.3 Ω·m
+2026-03-03 20:19:20 - Connectivity - INFO -   SY201: RT N=326 (有效段[4548.2,4555.5] + [4575.5,4608.8]), geomean=2009.7, min=70.9, P10=758.7 Ω·m
+2026-03-03 20:19:20 - Connectivity - INFO -   SY9: RT N=408 (有效段[4548.6,4564.9] + [4573.4,4607.9]), geomean=668.9, min=35.1, P10=235.0 Ω·m
+2026-03-03 20:19:20 - Connectivity - INFO -   SY102: RT N=395 (有效段[4626.8,4676.0]), geomean=801.5, min=172.2, P10=307.6 Ω·m
+2026-03-03 20:19:20 - Connectivity - INFO -   SY116: RT N=378 (有效段[4631.6,4637.1] + [4639.0,4680.5]), geomean=381.4, min=72.3, P10=223.2 Ω·m
+2026-03-03 20:19:20 - Connectivity - INFO -   SYX211: RT N=330 (有效段[5004.5,5029.8] + [5030.8,5046.5]), geomean=160.7, min=39.5, P10=81.0 Ω·m
+2026-03-03 20:19:20 - Connectivity - INFO - RT统计量提取完成(有效储层段): 7 口井
+2026-03-03 20:19:20 - Connectivity - INFO - 各井MK底海拔: SYX211=-4417.2m, SY116=-4396.5m, SY13=-4370.4m, SY102=-4364.8m, SY101=-4361.1m, SY201=-4323.7m, SY9=-4310.6m
+2026-03-03 20:19:20 - Connectivity - INFO - M2构造面重采样: MK底海拔 [-4419.9, -4301.7]m, GWC=-4385.0m, 低于GWC网格占比=11.0%
+2026-03-03 20:19:20 - Connectivity - INFO - M2厚度场重采样: h ∈ [83.0, 95.4]m (sampler复用)
+2026-03-03 20:19:20 - Connectivity - INFO - ConnectivityAnalyzer 初始化: 7 口井, 网格 80×80, 实测k约束 7 口, Sw约束 7 口, 构造约束 7 口, GWC=-4385.0m
+2026-03-03 20:19:20 - Connectivity - INFO - IDW渗透率场构建完成: 7个控制点 (SY9, SY13, SY201, SY101, SY102, SY116, SYX211), k范围 [0.0122, 14.18] mD
+2026-03-03 20:19:20 - Connectivity - INFO - IDW Sw场构建完成: 7个控制点 (SY9, SY13, SY201, SY101, SY102, SY116, SYX211), Sw范围 [11.8, 30.3] %
+2026-03-03 20:19:20 - Connectivity - INFO - Sw流体因子校正: Sw_ref=15.0% (5口纯气井中位数, 排除SYX211+SY102), F_Sw范围 [0.823, 1.034]
+2026-03-03 20:19:20 - Connectivity - INFO -   SY101: Sw=20.0% → F_Sw=0.941
+2026-03-03 20:19:20 - Connectivity - INFO -   SY102: Sw=16.8% → F_Sw=0.978
+2026-03-03 20:19:20 - Connectivity - INFO -   SY116: Sw=27.0% → F_Sw=0.859
+2026-03-03 20:19:20 - Connectivity - INFO -   SY13: Sw=11.8% → F_Sw=1.037
+2026-03-03 20:19:20 - Connectivity - INFO -   SY201: Sw=12.2% → F_Sw=1.032
+2026-03-03 20:19:20 - Connectivity - INFO -   SY9: Sw=15.0% → F_Sw=1.000
+2026-03-03 20:19:20 - Connectivity - INFO -   SYX211: Sw=30.3% → F_Sw=0.820
+2026-03-03 20:19:20 - Connectivity - INFO - 构造阻力因子: γ=1.0, scale=50.0m, S_factor ∈ [1.000, 5.294]
+2026-03-03 20:19:20 - Connectivity - INFO - 连通性矩阵计算完成: 7×7
+2026-03-03 20:19:20 - Connectivity - INFO - 水侵风险指数 WIRI (v3.19):
+2026-03-03 20:19:20 - Connectivity - INFO -   权重: 构造位置40% + C(→SYX211)30% + Sw30% | SYX211强制=1.0, SY102=公式+0.3加分
+2026-03-03 20:19:20 - Connectivity - INFO -   #1 SYX211: WIRI=1.000 [气水同层→强制1.0] (构造=0.834[-32.2m], C_syx=1.000, Sw=30.3%)
+2026-03-03 20:19:20 - Connectivity - INFO -   #2 SY102: WIRI=0.568 [底水气水井→公式+0.3加分] (构造=0.267[+20.2m], C_syx=0.130, Sw=16.8%)
+2026-03-03 20:19:20 - Connectivity - INFO -   #3 SY116: WIRI=0.434 (构造=0.640[-11.5m], C_syx=0.323, Sw=27.0%)
+2026-03-03 20:19:20 - Connectivity - INFO -   #4 SY13: WIRI=0.357 (构造=0.325[+14.6m], C_syx=0.637, Sw=11.8%)
+2026-03-03 20:19:20 - Connectivity - INFO -   #5 SY101: WIRI=0.263 (构造=0.232[+23.9m], C_syx=0.368, Sw=20.0%)
+2026-03-03 20:19:20 - Connectivity - INFO -   #6 SY9: WIRI=0.241 (构造=0.024[+74.4m], C_syx=0.624, Sw=15.0%)
+2026-03-03 20:19:20 - Connectivity - INFO -   #7 SY201: WIRI=0.150 (构造=0.045[+61.3m], C_syx=0.320, Sw=12.2%)

@@ -1,0 +1,47 @@
+2026-02-09 15:44:49 - M1_DataProcessor - INFO - ================================================================================
+2026-02-09 15:44:49 - M1_DataProcessor - INFO - M1 数据处理器初始化完成
+2026-02-09 15:44:49 - M1_DataProcessor - INFO - ================================================================================
+2026-02-09 15:44:49 - M1_DataProcessor - INFO - 
+================================================================================
+2026-02-09 15:44:49 - M1_DataProcessor - INFO - 开始执行 M1 数据处理流程
+2026-02-09 15:44:49 - M1_DataProcessor - INFO - ================================================================================
+
+2026-02-09 15:44:49 - M1_DataProcessor - INFO - 正在加载井位数据...
+2026-02-09 15:44:49 - M1_DataProcessor - INFO - 成功加载 7 口井的位置数据
+2026-02-09 15:44:49 - M1_DataProcessor - INFO - 正在计算井眼3D轨迹...
+2026-02-09 15:44:49 - M1_DataProcessor - INFO -   处理 SY9...
+2026-02-09 15:44:49 - M1_DataProcessor - INFO -   处理 SY13...
+2026-02-09 15:44:49 - M1_DataProcessor - INFO -   处理 SY201...
+2026-02-09 15:44:49 - M1_DataProcessor - INFO -   处理 SY101...
+2026-02-09 15:44:49 - M1_DataProcessor - INFO -   处理 SY102...
+2026-02-09 15:44:49 - M1_DataProcessor - INFO -   处理 SY116...
+2026-02-09 15:45:02 - M1_DataProcessor - INFO -   处理 SYX211...
+2026-02-09 15:45:02 - M1_DataProcessor - INFO - 成功计算 7 口井的轨迹，共 44912 个测点
+2026-02-09 15:45:02 - M1_DataProcessor - INFO - 正在加载分层数据...
+2026-02-09 15:45:02 - M1_DataProcessor - INFO - 成功加载 7 口井的分层数据
+2026-02-09 15:45:02 - M1_DataProcessor - INFO - 正在提取MK段代表点...
+2026-02-09 15:45:02 - M1_DataProcessor - WARNING - SY9 MK顶底界数据缺失
+2026-02-09 15:45:02 - M1_DataProcessor - WARNING - SY13 MK顶底界数据缺失
+2026-02-09 15:45:02 - M1_DataProcessor - WARNING - SY201 MK顶底界数据缺失
+2026-02-09 15:45:02 - M1_DataProcessor - WARNING - SY101 MK顶底界数据缺失
+2026-02-09 15:45:02 - M1_DataProcessor - WARNING - SY102 MK顶底界数据缺失
+2026-02-09 15:45:02 - M1_DataProcessor - WARNING - SY116 MK顶底界数据缺失
+2026-02-09 15:45:02 - M1_DataProcessor - WARNING - SYX211 MK顶底界数据缺失
+2026-02-09 15:45:02 - M1_DataProcessor - INFO - 成功提取 0 口井的MK段代表点
+2026-02-09 15:45:02 - M1_DataProcessor - INFO - 正在加载 SY9 生产数据...
+2026-02-09 15:45:02 - M1_DataProcessor - INFO - 成功加载 1332 天的生产数据
+2026-02-09 15:45:02 - M1_DataProcessor - INFO - 正在生成数据质量报告...
+2026-02-09 15:45:02 - M1_DataProcessor - ERROR - ❌ M1流程执行失败: 'mk_thickness'
+Traceback (most recent call last):
+  File "C:\Users\16281\Desktop\cpedc_project\src\m1_data_processor.py", line 544, in run
+    report_path = self.generate_data_quality_report(
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\16281\Desktop\cpedc_project\src\m1_data_processor.py", line 492, in generate_data_quality_report
+    f"- 平均厚度: {mk_points['mk_thickness'].mean():.2f} m",
+                   ~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "C:\Users\16281\Desktop\cpedc_project\.venv\Lib\site-packages\pandas\core\frame.py", line 4378, in __getitem__
+    indexer = self.columns.get_loc(key)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\16281\Desktop\cpedc_project\.venv\Lib\site-packages\pandas\core\indexes\range.py", line 525, in get_loc
+    raise KeyError(key)
+KeyError: 'mk_thickness'

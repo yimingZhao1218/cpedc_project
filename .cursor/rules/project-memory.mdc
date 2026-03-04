@@ -1,0 +1,74 @@
+---
+description: 项目关键信息与架构记忆（CPEDC PINN 数字孪生）
+alwaysApply: true
+---
+
+# CPEDC 创新组 — 项目记忆
+
+## 项目定位
+
+- **名称**：CPEDC_PINN_DigitalTwin（CPEDC16-Innovation-PINN-MK）
+- **领域**：深层碳酸盐岩（MK 组）缝洞型强非均质气藏，边水-缝洞数字孪生
+- **技术**：PINN 物理信息神经网络 + 产能/压力/含水耦合预测 + 物理约束反演
+- **配置**：全项目统一参数在 `config.yaml`，实验名 `meta.experiment_name`（默认 `mk_pinn_dt_v2`）
+
+## 目录与路径
+
+| 用途 | 路径 |
+|------|------|
+| 源码入口 | `src/main.py`（M1~M7 分阶段） |
+| 主配置 | `config.yaml`（meta、paths、data、m1~m7_config、train、model、loss、physics 等） |
+| 原始数据 | `data/raw/`（附表 1~10 等 CSV） |
+| 清洗数据 | `data/clean/`（M1 输出） |
+| 地质数据 | `geo/`（M2 输出） |
+| 输出/日志 | `outputs/${experiment_name}/`（ckpt、logs、reports、figs、exports） |
+| 仪表盘 | `app/`（Streamlit） |
+| 测试 | `tests/` |
+
+路径变量从 `config.yaml` 的 `paths`、`data.sources` 读取，不硬编码。
+
+## 模块职责（M1~M7）
+
+| 模块 | 职责 | 关键产出 |
+|------|------|----------|
+| **M1** | 数据层与坐标统一 | 井轨迹、MK 段代表点、SY9 生产数据 |
+| **M2** | 弱空间地质域构建 | 顶底面 Kriging、厚度场、PINN 配点网格 |
+| **M3** | 物性（PVT + 相渗） | GasPVT / RelPermGW API，`src/physics/`（CPU） |
+| **M4** | PINN 增强基线 | Fourier Features + 6×256 ResNet + tanh，`src/pinn/`（GPU） |
+| **M5** | 井—藏耦合同化 + k(x,y) 反演 | Bg 修复、k-net 反演、WHP→p_wf、ReLoBRaLo v2 |
+| **M6** | 消融(5 组) + UQ + 连通性 | C_ij 矩阵、主控通道、k(x,y) 热力图 |
+| **M7** | 水侵预警 + 制度优化 | R_w 风险指数、见水时间、稳产/阶梯/控压方案 |
+
+依赖顺序：M1 → M2 → M4/M5；M5 可续跑不重跑 M1~M4。
+
+## 技术栈与约定
+
+- **语言**：Python 3，虚拟环境 `.venv`
+- **深度学习**：PyTorch（CUDA），PINN 在 `src/pinn/`
+- **科学计算**：NumPy、SciPy、Pandas、SymPy；物性在 `src/physics/`
+- **地质/空间**：Kriging、Shapely、PyKrige、GSTools
+- **超参**：Optuna；复现 `reproducibility.seed`、`deterministic` 在 config
+- **坐标**：MSL 基准面，z 向上为正，单位 m；气水界面等见 `coordinate_system`、`mk_formation`
+
+## 常用命令
+
+```bash
+# 全流程 / 单阶段
+python src/main.py --stage all
+python src/main.py --stage m1   # 或 m2, m3, m4, m5, m6, m7
+
+# 推荐专用脚本
+python src/m4/run_m4_baseline.py --steps 50000 --device cuda
+python src/m5/run_m5_single_well.py --well SY9 --steps 50000 --device cuda
+python src/m6/run_ablation_suite.py --steps 20000 --device cuda
+python src/m6/run_uq_ensemble.py --n 5 --device cuda
+
+# 仅验收
+python src/main.py --validate-only
+```
+
+## 编码与评审约定
+
+- 响应使用**简体中文**；数据与结论需有据可查。
+- 关键几何量（层顶/层底、构造面）不用不可审计的黑箱插值，需记录方法与误差。
+- 匿名评审：不在代码或配置中写真实个人/学校信息（`config.meta.author` 保持匿名）。

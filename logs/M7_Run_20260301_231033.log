@@ -1,0 +1,20 @@
+2026-03-01 23:10:35 - M7_Run - INFO - ============================================================
+2026-03-01 23:10:35 - M7_Run - INFO - M7 水侵预警与制度优化
+2026-03-01 23:10:35 - M7_Run - INFO - ============================================================
+2026-03-01 23:10:35 - M7_Run - INFO -   设备: cuda
+2026-03-01 23:10:35 - M7_Run - INFO -   输出目录: C:\Users\Administrator\Desktop\cpedc_project\outputs\mk_pinn_dt_v2
+2026-03-01 23:10:35 - M7_Run - INFO - 加载 M5 PINN checkpoint...
+2026-03-01 23:10:42 - M7_Run - INFO - M5 checkpoint 加载完成
+2026-03-01 23:10:51 - M7_Run - INFO - ============================================================
+2026-03-01 23:10:51 - M7_Run - INFO - M7 全部输出生成完毕，耗时 9.6s
+2026-03-01 23:10:51 - M7_Run - INFO - ============================================================
+2026-03-01 23:10:51 - M7_Run - INFO - 输出文件:
+2026-03-01 23:10:51 - M7_Run - INFO -   [✓] figs/M7_water_invasion_dashboard.png
+2026-03-01 23:10:51 - M7_Run - INFO -   [✓] figs/M7_strategy_comparison.png
+2026-03-01 23:10:51 - M7_Run - INFO -   [✓] figs/M7_sw_vs_tds_validation.png
+2026-03-01 23:10:51 - M7_Run - INFO -   [✓] figs/M7_multiwell_tds_dashboard.png
+2026-03-01 23:10:51 - M7_Run - INFO -   [✓] figs/M7_tds_vs_wiri_crossvalidation.png
+2026-03-01 23:10:51 - M7_Run - INFO -   [✓] figs/M7_water_type_timeline.png
+2026-03-01 23:10:51 - M7_Run - INFO -   [✓] figs/M7_pareto_frontier.png
+2026-03-01 23:10:51 - M7_Run - INFO -   [✓] figs/M7_sensitivity_tornado.png
+2026-03-01 23:10:51 - M7_Run - INFO -   [报告] reports/M7_water_invasion_report.md

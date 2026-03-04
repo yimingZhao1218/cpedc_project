@@ -1,0 +1,41 @@
+2026-02-09 16:55:17 - M2_GeoDomainBuilder - INFO - ================================================================================
+2026-02-09 16:55:17 - M2_GeoDomainBuilder - INFO - M2 地质域构建器初始化完成
+2026-02-09 16:55:17 - M2_GeoDomainBuilder - INFO - ================================================================================
+2026-02-09 16:55:17 - M2_GeoDomainBuilder - INFO - 
+================================================================================
+2026-02-09 16:55:17 - M2_GeoDomainBuilder - INFO - 开始执行 M2 地质域构建流程
+2026-02-09 16:55:17 - M2_GeoDomainBuilder - INFO - ================================================================================
+
+2026-02-09 16:55:17 - M2_GeoDomainBuilder - INFO - 加载了 7 个MK段代表点
+2026-02-09 16:55:17 - M2_GeoDomainBuilder - INFO - 正在创建模型边界...
+2026-02-09 16:55:17 - M2_GeoDomainBuilder - INFO -   使用外扩距离: 1000 m
+2026-02-09 16:55:17 - M2_GeoDomainBuilder - INFO -   边界范围: X=[18537717.9, 18555431.8], Y=[3346139.4, 3357349.6]
+2026-02-09 16:55:17 - M2_GeoDomainBuilder - INFO -   边界面积: 113.58 km²
+2026-02-09 16:55:17 - M2_GeoDomainBuilder - INFO - 顶面插值使用顶界交点坐标...
+2026-02-09 16:55:17 - M2_GeoDomainBuilder - INFO - 正在使用Kriging插值 mk_top_z 曲面（基于x_top,y_top）...
+2026-02-09 16:55:17 - M2_GeoDomainBuilder - INFO -   使用 7 个有效点进行插值
+2026-02-09 16:55:17 - M2_GeoDomainBuilder - INFO -   Kriging插值成功，网格尺寸: (103, 168)
+2026-02-09 16:55:17 - M2_GeoDomainBuilder - INFO -   曲面数据已保存: geo\surfaces\mk_top_surface.csv
+2026-02-09 16:55:17 - M2_GeoDomainBuilder - INFO - 底面插值使用底界交点坐标...
+2026-02-09 16:55:17 - M2_GeoDomainBuilder - INFO - 正在使用Kriging插值 mk_bot_z 曲面（基于x_bot,y_bot）...
+2026-02-09 16:55:17 - M2_GeoDomainBuilder - INFO -   使用 7 个有效点进行插值
+2026-02-09 16:55:17 - M2_GeoDomainBuilder - INFO -   Kriging插值成功，网格尺寸: (102, 167)
+2026-02-09 16:55:17 - M2_GeoDomainBuilder - ERROR - ❌ M2流程执行失败: All arrays must be of the same length
+Traceback (most recent call last):
+  File "C:\Users\16281\Desktop\cpedc_project\src\m2_geo_builder.py", line 895, in run
+    self.save_surface(XI, YI, Z_bot, 'mk_bot_surface')
+  File "C:\Users\16281\Desktop\cpedc_project\src\m2_geo_builder.py", line 382, in save_surface
+    df = pd.DataFrame({
+         ^^^^^^^^^^^^^^
+  File "C:\Users\16281\Desktop\cpedc_project\.venv\Lib\site-packages\pandas\core\frame.py", line 769, in __init__
+    mgr = dict_to_mgr(data, index, columns, dtype=dtype, copy=copy)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\16281\Desktop\cpedc_project\.venv\Lib\site-packages\pandas\core\internals\construction.py", line 447, in dict_to_mgr
+    return arrays_to_mgr(arrays, columns, index, dtype=dtype, consolidate=copy)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\16281\Desktop\cpedc_project\.venv\Lib\site-packages\pandas\core\internals\construction.py", line 112, in arrays_to_mgr
+    index = _extract_index(arrays)
+            ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\16281\Desktop\cpedc_project\.venv\Lib\site-packages\pandas\core\internals\construction.py", line 620, in _extract_index
+    raise ValueError("All arrays must be of the same length")
+ValueError: All arrays must be of the same length

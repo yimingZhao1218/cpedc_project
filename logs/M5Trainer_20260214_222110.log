@@ -1,0 +1,117 @@
+2026-02-14 22:21:10 - M5Trainer - INFO -   torch.compile 已跳过 (Triton 不支持 Windows, 使用 eager 模式)
+2026-02-14 22:21:10 - M5Trainer - INFO - k_frac 独立参数组: lr=1.00e-02 (factor=10.0)
+2026-02-14 22:21:11 - M5Trainer - INFO - k_net 学习率: 1.00e-04 (factor=0.1, warmup=2000 steps)
+2026-02-14 22:21:11 - M5Trainer - INFO -   井 SY9: 1025 条同化数据
+2026-02-14 22:21:11 - M5Trainer - INFO -   M3 PVT cg(76.0, 140.32) = 0.009744
+2026-02-14 22:21:11 - M5Trainer - INFO -   M3 PVT Bg(76.0, 140.32) = 0.002577
+2026-02-14 22:21:11 - M5Trainer - INFO -   PDE 缩放: αx=0.029719, αy=0.074361
+2026-02-14 22:21:11 - M5Trainer - INFO - M5Trainer 初始化完成: device=cuda, lr=0.001, max_steps=5000, relobralo=True, rar=True
+2026-02-14 22:21:11 - M5Trainer - INFO - ============================================================
+2026-02-14 22:21:11 - M5Trainer - INFO - M5 PINN 井—藏耦合同化训练开始
+2026-02-14 22:21:11 - M5Trainer - INFO - ============================================================
+2026-02-14 22:21:11 - M5Trainer - INFO - 训练阶段: A[0-500] B[500-1750] C[1750-3500] D[3500-5000]
+2026-02-14 22:21:11 - M5Trainer - INFO - --- M5 单位/量纲诊断 (train 第 1 步前) ---
+2026-02-14 22:21:11 - M5Trainer - INFO -   qg_obs 范围: 0.00e+00 ~ 8.39e+05 m³/d, 均值: 3.86e+05 m³/d
+2026-02-14 22:21:11 - M5Trainer - INFO -   qg_pred 范围: 1.20e+07 ~ 1.20e+07
+2026-02-14 22:21:11 - M5Trainer - INFO -   p_wf 范围: 5.35e+01 ~ 5.35e+01 MPa
+2026-02-14 22:21:11 - M5Trainer - INFO -   p_field @ well: 7.50e+01 MPa
+2026-02-14 22:21:11 - M5Trainer - INFO -   k_frac = 5.4020 mD
+2026-02-14 22:21:11 - M5Trainer - INFO -   WI_raw = 4.309845e-13 [检查单位]
+2026-02-14 22:21:11 - M5Trainer - INFO -   dp_wellbore = 12.00 MPa
+2026-02-14 22:21:11 - M5Trainer - INFO -   Bg_ref = 2.576898e-03
+2026-02-14 22:21:11 - M5Trainer - INFO - --- 诊断结束 ---
+2026-02-14 22:21:12 - M5Trainer - INFO -   ✅ k_frac_mD.grad = 4.031732e+00 (PDE梯度贯通)
+2026-02-14 22:21:12 - M5Trainer - INFO -   ✅ k_net: 18 组参数收到梯度
+2026-02-14 22:21:12 - M5Trainer - INFO -   [梯度验收] SY9: qg_obs range=[0.0, 838700.0]
+2026-02-14 22:21:12 - M5Trainer - INFO -   [Sw监控] SY9: Sw=[0.2600, 0.2600, 0.2600], krg_min=6.751000e-01
+2026-02-14 22:21:12 - M5Trainer - INFO - [Step     0/5000] Stage A | L=1.5813e+07 (IC=1.000e+00, BC=1.000e+00, PDE=1.581e+09, Qg=4.023e+03, SwB=0.000e+00) | k_frac=5.4015 mD, dp=12.00 MPa | Sw=[0.260,0.260] | 0.8s
+2026-02-14 22:21:12 - M5Trainer - INFO -   [k_frac诊断] grad=4.0317e+00, k_frac=5.401474 mD
+2026-02-14 22:21:29 - M5Trainer - INFO - [Step   100/5000] Stage A | L=2.0166e+05 (IC=2.089e+01, BC=2.426e+01, PDE=2.009e+07, Qg=4.033e+01, SwB=7.857e-03) | k_frac=5.3023 mD, dp=11.98 MPa | Sw=[0.135,0.701] | 17.7s
+2026-02-14 22:21:52 - M5Trainer - INFO -   [梯度验收] SY9: qg_obs range=[0.0, 838700.0]
+2026-02-14 22:21:52 - M5Trainer - INFO - [Step   200/5000] Stage A | L=1.6011e+01 (IC=1.650e-01, BC=1.361e-01, PDE=2.430e+03, Qg=9.040e-01, SwB=4.581e-02) | k_frac=4.8829 mD, dp=11.87 MPa | Sw=[0.156,0.879] | 41.0s
+2026-02-14 22:22:13 - M5Trainer - INFO - [Step   300/5000] Stage A | L=9.4362e-01 (IC=3.112e-02, BC=2.895e-02, PDE=3.971e+04, Qg=7.270e-01, SwB=3.533e-03) | k_frac=4.7141 mD, dp=11.76 MPa | Sw=[0.196,0.428] | 62.0s
+2026-02-14 22:22:29 - M5Trainer - INFO -   [梯度验收] SY9: qg_obs range=[0.0, 838700.0]
+2026-02-14 22:22:29 - M5Trainer - INFO - [Step   400/5000] Stage A | L=8.1991e-01 (IC=1.020e-02, BC=8.221e-03, PDE=2.935e+04, Qg=7.338e-01, SwB=3.377e-03) | k_frac=4.6515 mD, dp=11.66 MPa | Sw=[0.204,0.410] | 78.1s
+2026-02-14 22:22:45 - M5Trainer - INFO -   [Sw监控] SY9: Sw=[0.8483, 0.8709, 0.8749], krg_min=5.940362e-03
+2026-02-14 22:22:45 - M5Trainer - INFO - [Step   500/5000] Stage B | L=9.9270e+00 (IC=4.649e-03, BC=6.358e-03, PDE=9.061e+03, Qg=7.757e-01, SwB=1.738e-04) | k_frac=4.6162 mD, dp=11.55 MPa | Sw=[0.206,0.432] | 94.1s
+2026-02-14 22:22:45 - M5Trainer - INFO -   [k_frac诊断] grad=1.0405e-03, k_frac=4.616159 mD
+2026-02-14 22:23:01 - M5Trainer - INFO -   [梯度验收] SY9: qg_obs range=[0.0, 838700.0]
+2026-02-14 22:23:01 - M5Trainer - INFO - [Step   600/5000] Stage B | L=1.3676e+01 (IC=4.721e-03, BC=2.224e-03, PDE=6.482e+03, Qg=8.041e-01, SwB=7.401e-04) | k_frac=4.6050 mD, dp=11.52 MPa | Sw=[0.209,0.491] | 109.4s
+2026-02-14 22:23:16 - M5Trainer - INFO - [Step   700/5000] Stage B | L=1.7514e+01 (IC=2.781e-03, BC=1.821e-03, PDE=6.284e+03, Qg=8.141e-01, SwB=4.264e-04) | k_frac=4.5985 mD, dp=11.52 MPa | Sw=[0.198,0.362] | 124.9s
+2026-02-14 22:23:31 - M5Trainer - INFO -   [梯度验收] SY9: qg_obs range=[0.0, 838700.0]
+2026-02-14 22:23:31 - M5Trainer - INFO - [Step   800/5000] Stage B | L=2.1546e+01 (IC=1.972e-03, BC=1.591e-03, PDE=5.431e+03, Qg=8.188e-01, SwB=6.370e-05) | k_frac=4.5900 mD, dp=11.51 MPa | Sw=[0.219,0.570] | 140.3s
+2026-02-14 22:23:47 - M5Trainer - INFO - [Step   900/5000] Stage B | L=2.3124e+01 (IC=1.716e-03, BC=1.490e-03, PDE=4.966e+03, Qg=8.214e-01, SwB=4.170e-04) | k_frac=4.5790 mD, dp=11.51 MPa | Sw=[0.207,0.386] | 156.2s
+2026-02-14 22:24:04 - M5Trainer - INFO -   [梯度验收] SY9: qg_obs range=[0.0, 838700.0]
+2026-02-14 22:24:04 - M5Trainer - INFO -   [Sw监控] SY9: Sw=[0.8732, 0.8766, 0.8776], krg_min=5.451693e-03
+2026-02-14 22:24:04 - M5Trainer - INFO - [Step  1000/5000] Stage B | L=2.5868e+01 (IC=1.709e-03, BC=1.338e-03, PDE=3.366e+03, Qg=8.237e-01, SwB=3.692e-04) | k_frac=4.5644 mD, dp=11.50 MPa | Sw=[0.207,0.345] | 172.6s
+2026-02-14 22:24:04 - M5Trainer - INFO -   [k_frac诊断] grad=3.9279e-04, k_frac=4.564379 mD
+2026-02-14 22:24:20 - M5Trainer - INFO - [Step  1100/5000] Stage B | L=2.9146e+01 (IC=1.594e-03, BC=1.210e-03, PDE=3.764e+03, Qg=8.179e-01, SwB=4.262e-04) | k_frac=4.5542 mD, dp=11.49 MPa | Sw=[0.192,0.368] | 188.7s
+2026-02-14 22:24:36 - M5Trainer - INFO -   [梯度验收] SY9: qg_obs range=[0.0, 838700.0]
+2026-02-14 22:24:36 - M5Trainer - INFO - [Step  1200/5000] Stage B | L=3.1759e+01 (IC=1.449e-03, BC=1.296e-03, PDE=3.762e+03, Qg=8.195e-01, SwB=1.432e-04) | k_frac=4.5424 mD, dp=11.48 MPa | Sw=[0.207,0.349] | 205.2s
+2026-02-14 22:24:54 - M5Trainer - INFO - [Step  1300/5000] Stage B | L=3.4095e+01 (IC=2.414e-02, BC=8.612e-03, PDE=4.897e+03, Qg=7.989e-01, SwB=8.340e-02) | k_frac=4.3868 mD, dp=11.47 MPa | Sw=[0.126,0.874] | 222.8s
+2026-02-14 22:25:09 - M5Trainer - INFO -   [梯度验收] SY9: qg_obs range=[0.0, 838700.0]
+2026-02-14 22:25:09 - M5Trainer - INFO - [Step  1400/5000] Stage B | L=3.8348e+01 (IC=3.415e-02, BC=2.824e-02, PDE=1.815e+03, Qg=8.671e-01, SwB=1.455e-01) | k_frac=4.2828 mD, dp=11.46 MPa | Sw=[0.120,0.879] | 238.4s
+2026-02-14 22:25:24 - M5Trainer - INFO -   [Sw监控] SY9: Sw=[0.8431, 0.8768, 0.8787], krg_min=5.263279e-03
+2026-02-14 22:25:24 - M5Trainer - INFO - [Step  1500/5000] Stage B | L=3.8607e+01 (IC=1.756e-02, BC=9.104e-03, PDE=2.350e+03, Qg=8.379e-01, SwB=1.126e-01) | k_frac=4.2758 mD, dp=11.45 MPa | Sw=[0.120,0.877] | 253.3s
+2026-02-14 22:25:24 - M5Trainer - INFO -   [k_frac诊断] grad=3.4309e-04, k_frac=4.275800 mD
+2026-02-14 22:25:40 - M5Trainer - INFO -   [梯度验收] SY9: qg_obs range=[0.0, 838700.0]
+2026-02-14 22:25:40 - M5Trainer - INFO - [Step  1600/5000] Stage B | L=4.3841e+01 (IC=9.292e-03, BC=6.690e-03, PDE=2.976e+03, Qg=8.230e-01, SwB=8.827e-02) | k_frac=4.2638 mD, dp=11.43 MPa | Sw=[0.125,0.876] | 268.5s
+2026-02-14 22:25:55 - M5Trainer - INFO - [Step  1700/5000] Stage B | L=5.0414e+01 (IC=7.654e-02, BC=6.460e-02, PDE=1.723e+03, Qg=8.584e-01, SwB=1.550e-01) | k_frac=4.1156 mD, dp=11.42 MPa | Sw=[0.120,0.880] | 284.0s
+2026-02-14 22:26:11 - M5Trainer - INFO -   [梯度验收] SY9: qg_obs range=[0.0, 838700.0]
+2026-02-14 22:26:11 - M5Trainer - INFO - [Step  1800/5000] Stage C | L=8.9719e+01 (IC=2.496e-02, BC=9.467e-03, PDE=2.219e+03, Qg=8.423e-01, SwB=1.268e-01) | k_frac=4.1049 mD, dp=11.41 MPa | Sw=[0.120,0.880] | 299.9s
+2026-02-14 22:26:27 - M5Trainer - INFO - [Step  1900/5000] Stage C | L=9.2240e+01 (IC=2.441e-02, BC=7.701e-03, PDE=2.366e+03, Qg=8.385e-01, SwB=1.139e-01) | k_frac=4.0995 mD, dp=11.40 MPa | Sw=[0.120,0.879] | 315.5s
+2026-02-14 22:26:42 - M5Trainer - INFO -   [Sw监控] SY9: Sw=[0.8696, 0.8778, 0.8796], krg_min=5.111637e-03
+2026-02-14 22:26:42 - M5Trainer - INFO - [Step  2000/5000] Stage C | L=1.0205e+02 (IC=1.296e-02, BC=7.724e-03, PDE=2.065e+03, Qg=8.389e-01, SwB=1.143e-01) | k_frac=4.0897 mD, dp=11.39 MPa | Sw=[0.120,0.878] | 331.3s
+2026-02-14 22:26:42 - M5Trainer - INFO -   [k_frac诊断] grad=2.9849e-04, k_frac=4.089706 mD
+2026-02-14 22:26:58 - M5Trainer - INFO - [Step  2100/5000] Stage C | L=4.1057e+00 (IC=2.215e-01, BC=1.945e-01, PDE=2.347e+03, Qg=8.288e-01, SwB=1.265e-01) | k_frac=3.8856 mD, dp=11.30 MPa | Sw=[0.121,0.875] | 347.0s
+2026-02-14 22:27:14 - M5Trainer - INFO - [Step  2200/5000] Stage C | L=2.5034e+00 (IC=3.340e-02, BC=3.429e-02, PDE=1.711e+03, Qg=8.486e-01, SwB=1.002e-01) | k_frac=3.6642 mD, dp=11.12 MPa | Sw=[0.123,0.879] | 362.8s
+2026-02-14 22:27:30 - M5Trainer - INFO - [Step  2300/5000] Stage C | L=2.4416e+00 (IC=4.678e-02, BC=3.914e-02, PDE=1.503e+03, Qg=8.585e-01, SwB=8.778e-02) | k_frac=3.5305 mD, dp=11.01 MPa | Sw=[0.127,0.879] | 378.5s
+2026-02-14 22:27:45 - M5Trainer - INFO - [Step  2400/5000] Stage C | L=2.4059e+00 (IC=8.170e-02, BC=3.481e-02, PDE=1.010e+03, Qg=8.840e-01, SwB=1.394e-01) | k_frac=3.1577 mD, dp=10.81 MPa | Sw=[0.120,0.880] | 394.3s
+2026-02-14 22:28:01 - M5Trainer - INFO -   [Sw监控] SY9: Sw=[0.6718, 0.8720, 0.8797], krg_min=5.083911e-03
+2026-02-14 22:28:01 - M5Trainer - INFO - [Step  2500/5000] Stage C | L=2.6881e+00 (IC=1.046e-01, BC=6.181e-02, PDE=1.733e+03, Qg=8.580e-01, SwB=1.064e-01) | k_frac=2.8853 mD, dp=10.54 MPa | Sw=[0.127,0.880] | 410.0s
+2026-02-14 22:28:01 - M5Trainer - INFO -   [k_frac诊断] grad=5.4268e-03, k_frac=2.885264 mD
+2026-02-14 22:28:17 - M5Trainer - INFO - [Step  2600/5000] Stage C | L=2.3152e+00 (IC=4.148e-02, BC=2.561e-02, PDE=8.078e+02, Qg=8.848e-01, SwB=1.201e-01) | k_frac=2.6090 mD, dp=10.30 MPa | Sw=[0.151,0.879] | 426.2s
+2026-02-14 22:28:34 - M5Trainer - INFO - [Step  2700/5000] Stage C | L=2.5190e+00 (IC=9.407e-02, BC=8.285e-02, PDE=6.421e+02, Qg=8.950e-01, SwB=1.141e-01) | k_frac=2.3329 mD, dp=10.12 MPa | Sw=[0.126,0.879] | 442.4s
+2026-02-14 22:28:50 - M5Trainer - INFO - [Step  2800/5000] Stage C | L=2.7040e+00 (IC=1.992e-02, BC=1.248e-02, PDE=6.034e+02, Qg=8.969e-01, SwB=1.107e-01) | k_frac=2.2685 mD, dp=10.06 MPa | Sw=[0.141,0.874] | 458.4s
+2026-02-14 22:29:05 - M5Trainer - INFO - [Step  2900/5000] Stage C | L=2.9929e+00 (IC=1.949e-02, BC=1.749e-02, PDE=6.306e+02, Qg=8.973e-01, SwB=9.050e-02) | k_frac=2.1654 mD, dp=9.98 MPa | Sw=[0.187,0.879] | 473.7s
+2026-02-14 22:29:20 - M5Trainer - INFO -   [Sw监控] SY9: Sw=[0.7903, 0.8772, 0.8786], krg_min=5.276304e-03
+2026-02-14 22:29:20 - M5Trainer - INFO - [Step  3000/5000] Stage C | L=2.9480e+00 (IC=2.882e-02, BC=2.474e-02, PDE=4.341e+02, Qg=9.038e-01, SwB=6.797e-02) | k_frac=2.0552 mD, dp=9.90 MPa | Sw=[0.216,0.874] | 489.0s
+2026-02-14 22:29:20 - M5Trainer - INFO -   [k_frac诊断] grad=1.5709e-03, k_frac=2.055209 mD
+2026-02-14 22:29:36 - M5Trainer - INFO - [Step  3100/5000] Stage C | L=3.4779e+00 (IC=1.570e-02, BC=1.434e-02, PDE=4.033e+02, Qg=9.065e-01, SwB=1.113e-01) | k_frac=1.9037 mD, dp=9.80 MPa | Sw=[0.120,0.879] | 504.8s
+2026-02-14 22:29:52 - M5Trainer - INFO - [Step  3200/5000] Stage C | L=3.2233e+00 (IC=6.556e-02, BC=6.538e-02, PDE=3.663e+02, Qg=9.109e-01, SwB=1.127e-01) | k_frac=1.7582 mD, dp=9.74 MPa | Sw=[0.120,0.879] | 521.1s
+2026-02-14 22:30:08 - M5Trainer - INFO - [Step  3300/5000] Stage C | L=4.1187e+00 (IC=3.692e-02, BC=3.113e-03, PDE=3.038e+02, Qg=9.185e-01, SwB=9.996e-02) | k_frac=1.6016 mD, dp=9.69 MPa | Sw=[0.199,0.878] | 536.8s
+2026-02-14 22:30:23 - M5Trainer - INFO - [Step  3400/5000] Stage C | L=4.0687e+00 (IC=5.856e-02, BC=4.987e-03, PDE=3.018e+02, Qg=9.208e-01, SwB=6.377e-02) | k_frac=1.4755 mD, dp=9.67 MPa | Sw=[0.176,0.868] | 552.2s
+2026-02-14 22:30:39 - M5Trainer - INFO -   [Sw监控] SY9: Sw=[0.8406, 0.8724, 0.8789], krg_min=5.232373e-03
+2026-02-14 22:30:39 - M5Trainer - INFO - [Step  3500/5000] Stage D | L=4.7157e+00 (IC=3.051e-03, BC=2.902e-03, PDE=2.040e+02, Qg=9.280e-01, SwB=7.845e-02) | k_frac=1.3749 mD, dp=9.67 MPa | Sw=[0.169,0.868] | 567.6s
+2026-02-14 22:30:39 - M5Trainer - INFO -   [k_frac诊断] grad=1.2133e-02, k_frac=1.374854 mD
+2026-02-14 22:30:55 - M5Trainer - INFO - [Step  3600/5000] Stage D | L=5.1372e+00 (IC=2.460e-03, BC=1.544e-03, PDE=1.944e+02, Qg=9.284e-01, SwB=1.801e-02) | k_frac=1.3075 mD, dp=9.67 MPa | Sw=[0.174,0.340] | 583.5s
+2026-02-14 22:31:11 - M5Trainer - INFO - [Step  3700/5000] Stage D | L=5.5225e+00 (IC=5.017e-03, BC=1.349e-03, PDE=1.829e+02, Qg=9.281e-01, SwB=1.552e-02) | k_frac=1.2760 mD, dp=9.67 MPa | Sw=[0.144,0.842] | 599.4s
+2026-02-14 22:31:26 - M5Trainer - INFO - [Step  3800/5000] Stage D | L=5.6631e+00 (IC=2.261e-03, BC=1.226e-03, PDE=1.803e+02, Qg=9.339e-01, SwB=3.438e-03) | k_frac=1.2394 mD, dp=9.67 MPa | Sw=[0.214,0.549] | 615.1s
+2026-02-14 22:31:42 - M5Trainer - INFO - [Step  3900/5000] Stage D | L=5.9227e+00 (IC=2.424e-03, BC=1.864e-03, PDE=2.138e+02, Qg=9.243e-01, SwB=2.982e-03) | k_frac=1.2270 mD, dp=9.67 MPa | Sw=[0.199,0.342] | 631.3s
+2026-02-14 22:31:58 - M5Trainer - INFO -   [Sw监控] SY9: Sw=[0.8448, 0.8748, 0.8798], krg_min=5.073566e-03
+2026-02-14 22:31:58 - M5Trainer - INFO - [Step  4000/5000] Stage D | L=6.0336e+00 (IC=2.728e-03, BC=1.857e-03, PDE=1.971e+02, Qg=9.190e-01, SwB=3.378e-03) | k_frac=1.1695 mD, dp=9.69 MPa | Sw=[0.217,0.373] | 647.4s
+2026-02-14 22:31:58 - M5Trainer - INFO -   [k_frac诊断] grad=1.8632e-02, k_frac=1.169476 mD
+2026-02-14 22:32:15 - M5Trainer - INFO - [Step  4100/5000] Stage D | L=6.2902e+00 (IC=2.588e-03, BC=1.695e-03, PDE=1.792e+02, Qg=9.202e-01, SwB=2.181e-03) | k_frac=1.1404 mD, dp=9.70 MPa | Sw=[0.221,0.326] | 663.8s
+2026-02-14 22:32:32 - M5Trainer - INFO - [Step  4200/5000] Stage D | L=6.4086e+00 (IC=3.290e-03, BC=1.757e-03, PDE=1.687e+02, Qg=9.226e-01, SwB=2.144e-03) | k_frac=1.1211 mD, dp=9.71 MPa | Sw=[0.163,0.452] | 680.6s
+2026-02-14 22:32:48 - M5Trainer - INFO - [Step  4300/5000] Stage D | L=6.8281e+00 (IC=2.142e-03, BC=1.334e-03, PDE=1.578e+02, Qg=9.241e-01, SwB=1.451e-03) | k_frac=1.1059 mD, dp=9.71 MPa | Sw=[0.217,0.559] | 697.1s
+2026-02-14 22:33:05 - M5Trainer - INFO - [Step  4400/5000] Stage D | L=6.7602e+00 (IC=2.755e-03, BC=1.623e-03, PDE=1.741e+02, Qg=9.246e-01, SwB=1.456e-03) | k_frac=1.0942 mD, dp=9.71 MPa | Sw=[0.196,0.393] | 713.4s
+2026-02-14 22:33:21 - M5Trainer - INFO -   [Sw监控] SY9: Sw=[0.8307, 0.8741, 0.8798], krg_min=5.074187e-03
+2026-02-14 22:33:21 - M5Trainer - INFO - [Step  4500/5000] Stage D | L=7.1962e+00 (IC=3.022e-03, BC=1.783e-03, PDE=1.338e+02, Qg=9.256e-01, SwB=1.613e-03) | k_frac=1.0872 mD, dp=9.71 MPa | Sw=[0.191,0.551] | 729.9s
+2026-02-14 22:33:21 - M5Trainer - INFO -   [k_frac诊断] grad=6.8087e-03, k_frac=1.087229 mD
+2026-02-14 22:33:38 - M5Trainer - INFO - [Step  4600/5000] Stage D | L=7.3259e+00 (IC=2.282e-03, BC=1.624e-03, PDE=1.414e+02, Qg=9.241e-01, SwB=1.366e-03) | k_frac=1.0837 mD, dp=9.70 MPa | Sw=[0.204,0.390] | 747.1s
+2026-02-14 22:33:56 - M5Trainer - INFO - [Step  4700/5000] Stage D | L=7.4733e+00 (IC=2.320e-03, BC=1.795e-03, PDE=1.450e+02, Qg=9.236e-01, SwB=1.224e-03) | k_frac=1.0808 mD, dp=9.70 MPa | Sw=[0.199,0.518] | 764.4s
+2026-02-14 22:34:14 - M5Trainer - INFO - [Step  4800/5000] Stage D | L=7.7201e+00 (IC=2.135e-03, BC=1.364e-03, PDE=1.404e+02, Qg=9.251e-01, SwB=1.324e-03) | k_frac=1.0791 mD, dp=9.70 MPa | Sw=[0.209,0.428] | 782.7s
+2026-02-14 22:34:32 - M5Trainer - INFO - [Step  4900/5000] Stage D | L=7.7886e+00 (IC=2.635e-03, BC=1.403e-03, PDE=1.369e+02, Qg=9.251e-01, SwB=1.670e-03) | k_frac=1.0785 mD, dp=9.70 MPa | Sw=[0.200,0.350] | 801.3s
+2026-02-14 22:34:50 - M5Trainer - INFO - [Step  4999/5000] Stage D | L=7.9998e+00 (IC=2.222e-03, BC=1.282e-03, PDE=1.375e+02, Qg=9.251e-01, SwB=1.324e-03) | k_frac=1.0783 mD, dp=9.70 MPa | Sw=[0.210,0.500] | 818.5s
+2026-02-14 22:34:50 - M5Trainer - INFO - 
+M5 训练完成! 耗时: 818.5s, 最佳损失: 7.6301e-01
+2026-02-14 22:34:50 - M5Trainer - INFO - 配置快照已保存: C:\Users\16281\Desktop\cpedc_project\outputs\mk_pinn_dt_v2\resolved_config_m5.json
+2026-02-14 22:34:50 - M5Trainer - INFO - 反演参数审计: C:\Users\16281\Desktop\cpedc_project\outputs\mk_pinn_dt_v2\reports\M5_inversion_params.json
+2026-02-14 22:34:50 - M5Trainer - INFO - 已加载 M5 检查点: C:\Users\16281\Desktop\cpedc_project\outputs\mk_pinn_dt_v2\ckpt\m5_pinn_best.pt
+2026-02-14 22:34:50 - M5Trainer - INFO - qg 对比图已保存: C:\Users\16281\Desktop\cpedc_project\outputs\mk_pinn_dt_v2\figs\M5_qg_comparison_SY9.png
+2026-02-14 22:34:50 - M5Trainer - INFO - p_wf 反演图已保存: C:\Users\16281\Desktop\cpedc_project\outputs\mk_pinn_dt_v2\figs\M5_pwf_inversion_SY9.png
+2026-02-14 22:34:51 - M5Trainer - INFO - 训练曲线图已保存: C:\Users\16281\Desktop\cpedc_project\outputs\mk_pinn_dt_v2\figs\M5_training_history.png
+2026-02-14 22:34:51 - M5Trainer - INFO - 残差热力图已保存: C:\Users\16281\Desktop\cpedc_project\outputs\mk_pinn_dt_v2\figs\M5_pde_residual_map.png
+2026-02-14 22:34:53 - M5Trainer - INFO - M6 连通性分析完成
+2026-02-14 22:34:54 - M5Trainer - INFO - M7 水侵预警分析完成
+2026-02-14 22:34:54 - M5Trainer - INFO - M5 验收报告已保存: C:\Users\16281\Desktop\cpedc_project\outputs\mk_pinn_dt_v2\reports\M5_validation_report.md

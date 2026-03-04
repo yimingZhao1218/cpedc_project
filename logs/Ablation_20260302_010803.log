@@ -1,0 +1,47 @@
+2026-03-02 01:08:06 - Ablation - INFO - ============================================================
+2026-03-02 01:08:06 - Ablation - INFO - M6 消融实验套件
+2026-03-02 01:08:06 - Ablation - INFO - ============================================================
+2026-03-02 01:08:07 - Ablation - INFO - 
+==================================================
+2026-03-02 01:08:07 - Ablation - INFO - 消融实验: pure_ml
+2026-03-02 01:08:07 - Ablation - INFO - ==================================================
+2026-03-02 01:54:51 - Ablation - INFO -   pure_ml: RMSE=89314, MAPE=24.7%, Test_MAPE=1.9%, 训练=2799.7s, 推理=2.3ms
+2026-03-02 01:54:51 - Ablation - INFO - 
+==================================================
+2026-03-02 01:54:51 - Ablation - INFO - 消融实验: pinn_const_k
+2026-03-02 01:54:51 - Ablation - INFO - ==================================================
+2026-03-02 03:11:15 - Ablation - INFO -   pinn_const_k: RMSE=82595, MAPE=23.0%, Test_MAPE=1.5%, 训练=4580.4s, 推理=2.9ms
+2026-03-02 03:11:15 - Ablation - INFO - 
+==================================================
+2026-03-02 03:11:15 - Ablation - INFO - 消融实验: pinn_base
+2026-03-02 03:11:15 - Ablation - INFO - ==================================================
+2026-03-02 04:22:58 - Ablation - INFO -   pinn_base: RMSE=93021, MAPE=27.1%, Test_MAPE=2.7%, 训练=4300.2s, 推理=2.3ms
+2026-03-02 04:22:58 - Ablation - INFO - 
+==================================================
+2026-03-02 04:22:58 - Ablation - INFO - 消融实验: pinn_full
+2026-03-02 04:22:58 - Ablation - INFO - ==================================================
+2026-03-02 06:03:52 - Ablation - INFO -   pinn_full: RMSE=79971, MAPE=20.8%, Test_MAPE=1.6%, 训练=6051.5s, 推理=4.1ms
+2026-03-02 06:03:52 - Ablation - INFO - 
+==================================================
+2026-03-02 06:03:52 - Ablation - INFO - 消融实验: pinn_no_fourier
+2026-03-02 06:03:52 - Ablation - INFO - ==================================================
+2026-03-02 07:43:44 - Ablation - INFO -   pinn_no_fourier: RMSE=92411, MAPE=26.9%, Test_MAPE=2.2%, 训练=5989.6s, 推理=1.8ms
+2026-03-02 07:43:44 - Ablation - INFO - 
+==================================================
+2026-03-02 07:43:44 - Ablation - INFO - 消融实验: pinn_no_rar
+2026-03-02 07:43:44 - Ablation - INFO - ==================================================
+2026-03-02 09:25:26 - Ablation - INFO -   pinn_no_rar: RMSE=79971, MAPE=20.8%, Test_MAPE=1.6%, 训练=6098.8s, 推理=1.8ms
+2026-03-02 09:25:26 - Ablation - INFO - 消融对比图已保存: C:\Users\Administrator\Desktop\cpedc_project\outputs\mk_pinn_dt_v2\figs\M6_ablation_qg_comparison.png
+2026-03-02 09:25:26 - Ablation - INFO - 消融指标对比图已保存: C:\Users\Administrator\Desktop\cpedc_project\outputs\mk_pinn_dt_v2\figs\M6_ablation_metrics_comparison.png
+2026-03-02 09:25:28 - Ablation - INFO - 损失收敛对比图已保存: C:\Users\Administrator\Desktop\cpedc_project\outputs\mk_pinn_dt_v2\figs\M6_ablation_loss_convergence.png
+2026-03-02 09:25:28 - Ablation - INFO - 消融报告已保存: C:\Users\Administrator\Desktop\cpedc_project\outputs\mk_pinn_dt_v2\reports\M6_ablation_report.md
+2026-03-02 09:25:28 - Ablation - INFO - 
+============================================================
+2026-03-02 09:25:28 - Ablation - INFO - 消融实验摘要
+2026-03-02 09:25:28 - Ablation - INFO - ============================================================
+2026-03-02 09:25:28 - Ablation - INFO -   pure_ml        : RMSE=   89314, MAPE=  24.7%, Test_MAPE=   1.9%
+2026-03-02 09:25:28 - Ablation - INFO -   pinn_const_k   : RMSE=   82595, MAPE=  23.0%, Test_MAPE=   1.5%
+2026-03-02 09:25:28 - Ablation - INFO -   pinn_base      : RMSE=   93021, MAPE=  27.1%, Test_MAPE=   2.7%
+2026-03-02 09:25:28 - Ablation - INFO -   pinn_full      : RMSE=   79971, MAPE=  20.8%, Test_MAPE=   1.6%
+2026-03-02 09:25:28 - Ablation - INFO -   pinn_no_fourier: RMSE=   92411, MAPE=  26.9%, Test_MAPE=   2.2%
+2026-03-02 09:25:28 - Ablation - INFO -   pinn_no_rar    : RMSE=   79971, MAPE=  20.8%, Test_MAPE=   1.6%

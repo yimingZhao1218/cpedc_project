@@ -1,0 +1,6 @@
+2026-02-18 15:57:20 - Connectivity - INFO - ConnectivityAnalyzer 初始化: 7 口井, 网格 80×80
+2026-02-18 15:57:21 - Connectivity - INFO - 连通性矩阵计算完成: 7×7
+2026-02-18 15:57:21 - Connectivity - INFO - k 场热力图已保存: C:\Users\16281\Desktop\cpedc_project\outputs\mk_pinn_dt_v2\figs\M6_k_field_channels.png
+2026-02-18 15:57:21 - Connectivity - INFO - 连通性热力图已保存: C:\Users\16281\Desktop\cpedc_project\outputs\mk_pinn_dt_v2\figs\M6_connectivity_matrix.png
+2026-02-18 15:57:22 - Connectivity - INFO - Sw 演化图已保存: C:\Users\16281\Desktop\cpedc_project\outputs\mk_pinn_dt_v2\figs\M6_sw_evolution.png
+2026-02-18 15:57:22 - Connectivity - INFO - 连通性分析完成!

@@ -1,0 +1,33 @@
+2026-02-09 15:43:19 - M1_DataProcessor - INFO - ================================================================================
+2026-02-09 15:43:19 - M1_DataProcessor - INFO - M1 数据处理器初始化完成
+2026-02-09 15:43:19 - M1_DataProcessor - INFO - ================================================================================
+2026-02-09 15:43:19 - M1_DataProcessor - INFO - 
+================================================================================
+2026-02-09 15:43:19 - M1_DataProcessor - INFO - 开始执行 M1 数据处理流程
+2026-02-09 15:43:19 - M1_DataProcessor - INFO - ================================================================================
+
+2026-02-09 15:43:19 - M1_DataProcessor - INFO - 正在加载井位数据...
+2026-02-09 15:43:19 - M1_DataProcessor - ERROR - ❌ M1流程执行失败: [Errno 2] No such file or directory: '/mnt/project\\附表1井位数据.csv'
+Traceback (most recent call last):
+  File "C:\Users\16281\Desktop\cpedc_project\src\m1_data_processor.py", line 545, in run
+    wells_df = self.load_well_locations()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\16281\Desktop\cpedc_project\src\m1_data_processor.py", line 56, in load_well_locations
+    df = pd.read_csv(filepath, encoding='utf-8')
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\16281\Desktop\cpedc_project\.venv\Lib\site-packages\pandas\io\parsers\readers.py", line 873, in read_csv
+    return _read(filepath_or_buffer, kwds)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\16281\Desktop\cpedc_project\.venv\Lib\site-packages\pandas\io\parsers\readers.py", line 300, in _read
+    parser = TextFileReader(filepath_or_buffer, **kwds)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\16281\Desktop\cpedc_project\.venv\Lib\site-packages\pandas\io\parsers\readers.py", line 1645, in __init__
+    self._engine = self._make_engine(f, self.engine)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\16281\Desktop\cpedc_project\.venv\Lib\site-packages\pandas\io\parsers\readers.py", line 1904, in _make_engine
+    self.handles = get_handle(
+                   ^^^^^^^^^^^
+  File "C:\Users\16281\Desktop\cpedc_project\.venv\Lib\site-packages\pandas\io\common.py", line 935, in get_handle
+    handle = open(handle, ioargs.mode)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/mnt/project\\附表1井位数据.csv'

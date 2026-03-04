@@ -1,0 +1,27 @@
+2026-02-11 17:04:50 - M4Validator - INFO - ============================================================
+2026-02-11 17:04:50 - M4Validator - INFO - M4 PINN 基线验收开始
+2026-02-11 17:04:50 - M4Validator - INFO - ============================================================
+2026-02-11 17:04:52 - M4Validator - INFO - 已加载最佳模型: C:\Users\16281\Desktop\cpedc_project\outputs\mk_pinn_dt_v2\ckpt\pinn_best.pt
+2026-02-11 17:04:52 - M4Validator - INFO -   dp_wellbore = 18.0 MPa (地层→井口压差修正)
+2026-02-11 17:04:52 - M4Validator - INFO - 
+>>> 验收 1: SY9 压力趋势可拟合
+2026-02-11 17:04:52 - M4Validator - INFO -   模型地层压力范围: [30.09, 75.40] MPa
+2026-02-11 17:04:52 - M4Validator - INFO -   修正后井口压力范围: [12.09, 57.40] MPa
+2026-02-11 17:04:52 - M4Validator - INFO -   观测井口压力范围: [6.51, 63.40] MPa
+2026-02-11 17:04:53 - M4Validator - INFO - 
+>>> 验收 2: Sw 输出在 [0, 1] 内
+2026-02-11 17:04:53 - M4Validator - INFO - 
+>>> 验收 3: 模型结构检查
+2026-02-11 17:04:53 - M4Validator - INFO - M4 验收报告已保存: C:\Users\16281\Desktop\cpedc_project\outputs\mk_pinn_dt_v2\reports\M4_validation_report.md
+2026-02-11 17:04:53 - M4Validator - INFO -   [FAIL] SY9 压力 MAPE = 40.28% (阈值 < 30%, dp_wellbore=18.0MPa)
+2026-02-11 17:04:53 - M4Validator - INFO -   [INFO] RMSE = 28.79 MPa
+2026-02-11 17:04:53 - M4Validator - INFO -   [INFO] Pearson 相关系数 = 0.2787
+2026-02-11 17:04:53 - M4Validator - INFO -   [INFO] 地层压力预测范围: [30.09, 75.40] MPa
+2026-02-11 17:04:53 - M4Validator - INFO -   [INFO] 井口压力预测范围: [12.09, 57.40] MPa
+2026-02-11 17:04:53 - M4Validator - INFO -   [PASS] Sw ∈ [0, 1] (实际范围: [0.260007, 0.260007])
+2026-02-11 17:04:53 - M4Validator - INFO -   [INFO] Sw 使用 sigmoid 输出层，机制上保证 (0, 1)
+2026-02-11 17:04:53 - M4Validator - INFO -   [PASS] 模型参数量: 416,258
+2026-02-11 17:04:53 - M4Validator - INFO -   [PASS] 输出维度: p=torch.Size([10, 1]), Sw=torch.Size([10, 1])
+2026-02-11 17:04:53 - M4Validator - INFO - ============================================================
+2026-02-11 17:04:53 - M4Validator - INFO - M4 验收结果: ❌ 存在未通过项
+2026-02-11 17:04:53 - M4Validator - INFO - ============================================================

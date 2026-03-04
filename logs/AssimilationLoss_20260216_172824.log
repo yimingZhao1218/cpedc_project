@@ -1,0 +1,3 @@
+2026-02-16 17:28:24 - AssimilationLoss - INFO - AssimilationLoss v2 鍒濆鍖? p_init=76.0 MPa, sw_init=0.26, monotonic=True, smooth_pwf=True
+2026-02-16 17:28:26 - AssimilationLoss - INFO -   [loss_qg] qg_pred=(1027, 1), qg_obs=(1027, 1), mask=(1027, 1), smape=(1027, 1), eps=1.0
+2026-02-16 17:28:26 - AssimilationLoss - INFO -   [loss_whp] p_wf_pred=(1025, 1), whp_obs=(1025, 1), delta=(1025, 1)

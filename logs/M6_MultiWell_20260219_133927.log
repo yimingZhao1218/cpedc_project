@@ -1,0 +1,25 @@
+2026-02-19 13:39:30 - M6_MultiWell - INFO - ============================================================
+2026-02-19 13:39:30 - M6_MultiWell - INFO - M6 多井联合训练
+2026-02-19 13:39:30 - M6_MultiWell - INFO - ============================================================
+2026-02-19 13:39:30 - M6_MultiWell - INFO -   井列表: ['SY9', 'SY13']
+2026-02-19 13:39:30 - M6_MultiWell - INFO -   域分解: none
+2026-02-19 13:39:30 - M6_MultiWell - INFO -   设备: cuda
+2026-02-19 13:39:30 - M6_MultiWell - INFO -   井 SY9: 生产数据存在 ✅
+2026-02-19 13:39:30 - M6_MultiWell - WARNING -   井 SY13: 无生产数据文件，将仅用于场约束
+2026-02-19 13:39:37 - M6_MultiWell - INFO -   模型参数: {'field_net': 416258, 'well_model': 4482, 'k_net': 15297, 'dp_wellbore': 1, 'total': 436038}
+2026-02-19 13:39:41 - M6_MultiWell - INFO - 开始多井联合训练...
+2026-02-19 14:10:11 - M6_MultiWell - INFO - M6 多井训练完成! 耗时: 1830.0s
+2026-02-19 14:10:21 - M6_MultiWell - INFO - 
+多井反演参数汇总:
+2026-02-19 14:10:21 - M6_MultiWell - INFO -   k_frac_mD: 4.52045202255249
+2026-02-19 14:10:21 - M6_MultiWell - INFO -   k_frac_SI: 4.461339473847345e-15
+2026-02-19 14:10:21 - M6_MultiWell - INFO -   k_eff_prior_mD: 0.146
+2026-02-19 14:10:21 - M6_MultiWell - INFO -   f_frac_prior: 37.0
+2026-02-19 14:10:21 - M6_MultiWell - INFO -   r_e_m: 128.88518921893237
+2026-02-19 14:10:21 - M6_MultiWell - INFO -   r_w_m: 0.1
+2026-02-19 14:10:21 - M6_MultiWell - INFO -   skin: 0.0
+2026-02-19 14:10:21 - M6_MultiWell - INFO -   dp_wellbore_MPa: 13.221317291259766
+2026-02-19 14:10:21 - M6_MultiWell - INFO -   k_eff_mD: 4.52045202255249
+2026-02-19 14:10:21 - M6_MultiWell - INFO - 
+各井同化拟合误差:
+2026-02-19 14:10:21 - M6_MultiWell - INFO -   井 SY9: RMSE=121233 m³/d, MAPE=38.8%

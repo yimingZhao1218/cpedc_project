@@ -1,0 +1,42 @@
+2026-02-11 01:16:09 - PINNTrainer - INFO -   CUDA: deterministic 模式（cudnn.benchmark=False）
+2026-02-11 01:16:10 - PINNTrainer - INFO -   Mixed Precision (AMP) 已启用
+2026-02-11 01:16:10 - PINNTrainer - INFO -   SY9 数据锚点: 1025 条
+2026-02-11 01:16:10 - PINNTrainer - INFO -   M3 PVT 查询 cg(76.0 MPa, 141.39 ℃) = 0.009744 1/MPa → 覆盖先验 0.0130
+2026-02-11 01:16:10 - PINNTrainer - INFO - ============================================================
+2026-02-11 01:16:10 - PINNTrainer - INFO - PDE 物理缩放参数（答辩核心）
+2026-02-11 01:16:10 - PINNTrainer - INFO - ============================================================
+2026-02-11 01:16:10 - PINNTrainer - INFO -   域: Δx = 17400 m, Δy = 11000 m, t_max = 1331 d = 114998400 s
+2026-02-11 01:16:10 - PINNTrainer - INFO -   sx = (2/Δx)² = 1.321178e-08 1/m², sy = (2/Δy)² = 3.305785e-08 1/m²
+2026-02-11 01:16:10 - PINNTrainer - INFO -   p_ref = 76.0 MPa, T_ref = 141.39 ℃
+2026-02-11 01:16:10 - PINNTrainer - INFO -   k = 0.146 mD = 1.440908e-16 m²
+2026-02-11 01:16:10 - PINNTrainer - INFO -   φ = 0.0216
+2026-02-11 01:16:10 - PINNTrainer - INFO -   μ_ref = 0.035 mPa·s = 3.500000e-05 Pa·s
+2026-02-11 01:16:10 - PINNTrainer - INFO -   c_g_ref = 0.009744 1/MPa = 9.744000e-09 1/Pa  (来源: M3 PVT @ (p=76.0, T=141.39))
+2026-02-11 01:16:10 - PINNTrainer - INFO -   c_r = 0.0 1/MPa = 0.000000e+00 1/Pa
+2026-02-11 01:16:10 - PINNTrainer - INFO -   c_t = c_g + c_r = 9.744000e-09 1/Pa
+2026-02-11 01:16:10 - PINNTrainer - INFO -   α_phys = k/(φ·μ·c_t) = 0.019560 m²/s
+2026-02-11 01:16:10 - PINNTrainer - INFO -   αx = α_phys·t_max_s·sx = 0.029719
+2026-02-11 01:16:10 - PINNTrainer - INFO -   αy = α_phys·t_max_s·sy = 0.074361
+2026-02-11 01:16:10 - PINNTrainer - INFO -   near_well_ratio = 0.3
+2026-02-11 01:16:10 - PINNTrainer - INFO - ------------------------------------------------------------
+2026-02-11 01:16:10 - PINNTrainer - INFO - 敏感性分析 (μ_ref × cg_ref 区间端点):
+2026-02-11 01:16:10 - PINNTrainer - INFO -   μ_ref ∈ [0.02, 0.06] mPa·s
+2026-02-11 01:16:10 - PINNTrainer - INFO -   cg_ref ∈ [0.008, 0.02] 1/MPa
+2026-02-11 01:16:10 - PINNTrainer - INFO -   α_phys ∈ [0.005559, 0.041693] m²/s
+2026-02-11 01:16:10 - PINNTrainer - INFO -   αx ∈ [0.008446, 0.063346]
+2026-02-11 01:16:10 - PINNTrainer - INFO -   αy ∈ [0.021133, 0.158500]
+2026-02-11 01:16:10 - PINNTrainer - INFO - ------------------------------------------------------------
+2026-02-11 01:16:10 - PINNTrainer - INFO - 2.5D 厚度场审计:
+2026-02-11 01:16:10 - PINNTrainer - INFO -   h_min = 82.70 m, h_max = 93.96 m, h_mean = 89.75 m
+2026-02-11 01:16:10 - PINNTrainer - INFO -   log-thickness gradient |gx|_max = 1.2676, |gy|_max = 0.4678
+2026-02-11 01:16:10 - PINNTrainer - INFO -   PDE 残差形式: dp/dt_n = αx(d²p/dx_n² + gx·dp/dx_n) + αy(d²p/dy_n² + gy·dp/dy_n)
+2026-02-11 01:16:10 - PINNTrainer - INFO - ============================================================
+2026-02-11 01:16:10 - PINNTrainer - INFO - PINNTrainer 初始化: device=cuda, lr=0.001, max_steps=50000, batch_size=4096, params=416258
+2026-02-11 01:16:10 - PINNTrainer - INFO - ============================================================
+2026-02-11 01:16:10 - PINNTrainer - INFO - M4 PINN 基线训练开始
+2026-02-11 01:16:10 - PINNTrainer - INFO - ============================================================
+2026-02-11 01:16:10 - PINNTrainer - INFO - 训练阶段: A[0-5000] B[5000-17500] C[17500-35000] D[35000-50000]
+2026-02-11 01:16:11 - PINNTrainer - INFO - [Step     0/50000] Stage A | Loss: 5.0254e+01 (IC=1.000e+00, BC=1.000e+00, PDE=0.000e+00, Data=3.525e+02) | Sw=[0.2600, 0.2600] | lr=1.00e-03 | 0.6s
+2026-02-11 01:16:20 - PINNTrainer - INFO - [Step   100/50000] Stage A | Loss: 1.3182e+01 (IC=9.076e-02, BC=7.504e-02, PDE=1.412e+02, Data=1.049e+02) | Sw=[0.2282, 0.9272] | lr=1.00e-03 | 10.1s
+2026-02-11 01:16:29 - PINNTrainer - INFO - [Step   200/50000] Stage A | Loss: 1.2905e+01 (IC=1.469e-01, BC=4.911e-02, PDE=3.482e+01, Data=1.084e+02) | Sw=[0.1555, 0.9820] | lr=1.00e-03 | 19.0s
+2026-02-11 01:16:39 - PINNTrainer - INFO - [Step   300/50000] Stage A | Loss: 1.0980e+01 (IC=5.433e-02, BC=2.956e-02, PDE=5.142e+01, Data=9.775e+01) | Sw=[0.2537, 0.9879] | lr=1.00e-03 | 28.4s

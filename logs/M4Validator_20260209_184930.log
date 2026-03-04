@@ -1,0 +1,22 @@
+2026-02-09 18:49:30 - M4Validator - INFO - ============================================================
+2026-02-09 18:49:30 - M4Validator - INFO - M4 PINN 基线验收开始
+2026-02-09 18:49:30 - M4Validator - INFO - ============================================================
+2026-02-09 18:49:30 - M4Validator - INFO - 已加载最佳模型: C:\Users\16281\Desktop\cpedc_project\outputs\mk_pinn_dt_v2\ckpt\pinn_best.pt
+2026-02-09 18:49:30 - M4Validator - INFO - 
+>>> 验收 1: SY9 压力趋势可拟合
+2026-02-09 18:49:32 - M4Validator - INFO - 
+>>> 验收 2: Sw 输出在 [0, 1] 内
+2026-02-09 18:49:32 - M4Validator - INFO - 
+>>> 验收 3: 模型结构检查
+2026-02-09 18:49:32 - M4Validator - INFO - M4 验收报告已保存: C:\Users\16281\Desktop\cpedc_project\outputs\mk_pinn_dt_v2\reports\M4_validation_report.md
+2026-02-09 18:49:32 - M4Validator - INFO -   [FAIL] SY9 压力 MAPE = 35.28% (阈值 < 30%)
+2026-02-09 18:49:32 - M4Validator - INFO -   [INFO] RMSE = 19.70 MPa
+2026-02-09 18:49:32 - M4Validator - INFO -   [INFO] Pearson 相关系数 = 0.6477
+2026-02-09 18:49:32 - M4Validator - INFO -   [INFO] 预测范围: [75.96, 75.97] MPa
+2026-02-09 18:49:32 - M4Validator - INFO -   [PASS] Sw ∈ [0, 1] (实际范围: [0.255155, 0.261865])
+2026-02-09 18:49:32 - M4Validator - INFO -   [INFO] Sw 使用 sigmoid 输出层，机制上保证 (0, 1)
+2026-02-09 18:49:32 - M4Validator - INFO -   [PASS] 模型参数量: 51,330
+2026-02-09 18:49:32 - M4Validator - INFO -   [PASS] 输出维度: p=torch.Size([10, 1]), Sw=torch.Size([10, 1])
+2026-02-09 18:49:32 - M4Validator - INFO - ============================================================
+2026-02-09 18:49:32 - M4Validator - INFO - M4 验收结果: ❌ 存在未通过项
+2026-02-09 18:49:32 - M4Validator - INFO - ============================================================

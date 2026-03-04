@@ -1,0 +1,30 @@
+2026-02-14 23:26:00 - M5Trainer - INFO -   torch.compile 已跳过 (Triton 不支持 Windows, 使用 eager 模式)
+2026-02-14 23:26:00 - M5Trainer - INFO - k_frac 独立参数组: lr=1.00e-02 (factor=10.0)
+2026-02-14 23:26:01 - M5Trainer - INFO - k_net 学习率: 1.00e-04 (factor=0.1, warmup=2000 steps)
+2026-02-14 23:26:01 - M5Trainer - INFO -   井 SY9: 1025 条同化数据
+2026-02-14 23:26:01 - M5Trainer - INFO -   M3 PVT cg(76.0, 140.32) = 0.009744
+2026-02-14 23:26:01 - M5Trainer - INFO -   M3 PVT Bg(76.0, 140.32) = 0.002577
+2026-02-14 23:26:01 - M5Trainer - INFO -   PDE 缩放: αx=0.029719, αy=0.074361
+2026-02-14 23:26:01 - M5Trainer - INFO - M5Trainer 初始化完成: device=cpu, lr=0.001, max_steps=2000, relobralo=True, rar=True
+2026-02-14 23:26:01 - M5Trainer - INFO - ============================================================
+2026-02-14 23:26:01 - M5Trainer - INFO - M5 PINN 井—藏耦合同化训练开始
+2026-02-14 23:26:01 - M5Trainer - INFO - ============================================================
+2026-02-14 23:26:01 - M5Trainer - INFO - 训练阶段: A[0-200] B[200-700] C[700-1400] D[1400-2000]
+2026-02-14 23:26:01 - M5Trainer - INFO - --- M5 单位/量纲诊断 (train 第 1 步前) ---
+2026-02-14 23:26:01 - M5Trainer - INFO -   qg_obs 范围: 0.00e+00 ~ 8.39e+05 m³/d, 均值: 3.86e+05 m³/d
+2026-02-14 23:26:01 - M5Trainer - INFO -   qg_pred 范围: 1.20e+07 ~ 1.20e+07
+2026-02-14 23:26:01 - M5Trainer - INFO -   p_wf 范围: 5.35e+01 ~ 5.35e+01 MPa
+2026-02-14 23:26:01 - M5Trainer - INFO -   p_field @ well: 7.50e+01 MPa
+2026-02-14 23:26:01 - M5Trainer - INFO -   k_frac = 5.4020 mD
+2026-02-14 23:26:01 - M5Trainer - INFO -   WI_raw = 4.309845e-13 [检查单位]
+2026-02-14 23:26:01 - M5Trainer - INFO -   dp_wellbore = 12.00 MPa
+2026-02-14 23:26:01 - M5Trainer - INFO -   Bg_ref = 2.576898e-03
+2026-02-14 23:26:01 - M5Trainer - INFO - --- 诊断结束 ---
+2026-02-14 23:26:01 - M5Trainer - INFO -   [shape] SY9: qg pred=(1025, 1) vs obs=(1025, 1), p_wf pred=(1025, 1) vs p_obs=(1025, 1)
+2026-02-14 23:26:03 - M5Trainer - INFO -   ✅ k_frac_mD.grad = 3.941111e+00 (PDE梯度贯通)
+2026-02-14 23:26:03 - M5Trainer - INFO -   ✅ k_net: 18 组参数收到梯度
+2026-02-14 23:26:03 - M5Trainer - INFO -   [梯度验收] SY9: qg_obs range=[0.0, 838700.0]
+2026-02-14 23:26:03 - M5Trainer - INFO -   [Sw监控] SY9: Sw=[0.2600, 0.2600, 0.2600], krg_min=6.751000e-01
+2026-02-14 23:26:03 - M5Trainer - INFO - [Step     0/2000] Stage A | L=1.5821e+07 (IC=1.000e+00, BC=1.000e+00, PDE=1.582e+09, Qg=4.025e+03, SwB=0.000e+00) | k_frac=5.4015 mD, dp=12.00 MPa | Sw=[0.260,0.260] | 2.2s
+2026-02-14 23:26:03 - M5Trainer - INFO -   [k_frac诊断] grad=3.9411e+00, k_frac=5.401474 mD
+2026-02-14 23:26:03 - M5Trainer - INFO -   [shape] SY9: qg pred=(1025, 1) vs obs=(1025, 1), p_wf pred=(1025, 1) vs p_obs=(1025, 1)

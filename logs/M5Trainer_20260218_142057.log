@@ -1,0 +1,30 @@
+2026-02-18 14:20:57 - M5Trainer - INFO -   torch.compile 已跳过 (Triton 不支持 Windows, 使用 eager 模式)
+2026-02-18 14:20:57 - M5Trainer - INFO - k_frac 独立参数组: lr=3.00e-03 (factor=3.0)
+2026-02-18 14:20:58 - M5Trainer - INFO - k_net 学习率: 1.00e-04 (factor=0.1, warmup=2000 steps)
+2026-02-18 14:20:58 - M5Trainer - INFO -   井 SY9: 1332 条同化数据 (train=799, val=266, test=267)
+    开井点数 (q>1): train=745, val=88, test=121
+    有效压力点: val_p=109, test_p=121
+2026-02-18 14:20:58 - M5Trainer - INFO -   train time window(norm): [0.0000, 0.5995]
+2026-02-18 14:20:58 - M5Trainer - INFO -   PDE 缩放: αx=0.022275, αy=0.055736
+2026-02-18 14:20:58 - M5Trainer - INFO - M5Trainer 初始化完成: device=cuda, lr=0.001, max_steps=50000, relobralo=True, rar=True
+2026-02-18 14:20:58 - M5Trainer - INFO -   history 已恢复 (1201 步)
+2026-02-18 14:20:58 - M5Trainer - INFO -   best_step=1200
+2026-02-18 14:20:58 - M5Trainer - INFO - 已加载 M5 检查点: C:\Users\16281\Desktop\cpedc_project\outputs\mk_pinn_dt_v2\ckpt\m5_pinn_best.pt
+2026-02-18 14:20:58 - M5Trainer - INFO -   history 已恢复 (5000 步)
+2026-02-18 14:20:58 - M5Trainer - INFO - 已加载 M5 检查点: C:\Users\16281\Desktop\cpedc_project\outputs\mk_pinn_dt_v2\ckpt\m5_pinn_final.pt
+2026-02-18 14:20:58 - M5Trainer - INFO -   history 已恢复 (5000 步)
+2026-02-18 14:20:58 - M5Trainer - INFO - 已加载 M5 检查点: C:\Users\16281\Desktop\cpedc_project\outputs\mk_pinn_dt_v2\ckpt\m5_pinn_final.pt
+2026-02-18 14:20:58 - M5Trainer - INFO - generate_report: 自动择优采用 final checkpoint, qg_score=16.2227
+2026-02-18 14:20:58 - M5Trainer - INFO - 反演参数审计: C:\Users\16281\Desktop\cpedc_project\outputs\mk_pinn_dt_v2\reports\M5_inversion_params.json
+2026-02-18 14:20:58 - M5Trainer - INFO - qg 对比图已保存: C:\Users\16281\Desktop\cpedc_project\outputs\mk_pinn_dt_v2\figs\M5_qg_comparison_SY9.png
+2026-02-18 14:20:59 - M5Trainer - INFO - p_wf 反演图已保存: C:\Users\16281\Desktop\cpedc_project\outputs\mk_pinn_dt_v2\figs\M5_pwf_inversion_SY9.png
+2026-02-18 14:20:59 - M5Trainer - INFO - 训练曲线图已保存: C:\Users\16281\Desktop\cpedc_project\outputs\mk_pinn_dt_v2\figs\M5_training_history.png
+2026-02-18 14:21:00 - M5Trainer - INFO - 残差热力图已保存: C:\Users\16281\Desktop\cpedc_project\outputs\mk_pinn_dt_v2\figs\M5_pde_residual_map.png
+2026-02-18 14:21:01 - M5Trainer - INFO - M6 连通性分析完成
+2026-02-18 14:21:02 - M5Trainer - INFO - M7 水侵预警分析完成
+2026-02-18 14:21:02 - M5Trainer - INFO -   history 已恢复 (1201 步)
+2026-02-18 14:21:02 - M5Trainer - INFO -   best_step=1200
+2026-02-18 14:21:02 - M5Trainer - INFO - 已加载 M5 检查点: C:\Users\16281\Desktop\cpedc_project\outputs\mk_pinn_dt_v2\ckpt\m5_pinn_best.pt
+2026-02-18 14:21:02 - M5Trainer - INFO -   history 已恢复 (5000 步)
+2026-02-18 14:21:02 - M5Trainer - INFO - 已加载 M5 检查点: C:\Users\16281\Desktop\cpedc_project\outputs\mk_pinn_dt_v2\ckpt\m5_pinn_final.pt
+2026-02-18 14:21:02 - M5Trainer - INFO - M5 验收报告已保存: C:\Users\16281\Desktop\cpedc_project\outputs\mk_pinn_dt_v2\reports\M5_validation_report.md

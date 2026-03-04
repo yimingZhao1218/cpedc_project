@@ -1,0 +1,30 @@
+2026-03-01 02:54:42 - AssimilationLoss - INFO - AssimilationLoss v2 初始化: p_init=75.58386758837177 MPa, sw_init=0.15, monotonic=True, smooth_pwf=True
+2026-03-01 02:54:44 - AssimilationLoss - INFO -   [loss_qg] v3.17 分段加权: 低(<5万)=2, 中(5~20万)=4, 高=6; w_smape=0.5, w_log1p=0.15, w_mse_high=0.8, w_bias=0.6, w_global=0.6, w_mape=0.4, w_peak=0.8, n_prod=954, n_high=828, n_peak=604
+2026-03-01 02:54:44 - AssimilationLoss - INFO -   [loss_whp] p_wf_pred=(1025, 1), whp_obs=(1025, 1), delta=(1025, 1)
+2026-03-01 09:01:31 - AssimilationLoss - INFO - AssimilationLoss v2 初始化: p_init=75.5321000861769 MPa, sw_init=0.15, monotonic=True, smooth_pwf=True
+2026-03-01 09:01:31 - AssimilationLoss - INFO -   [loss_qg] v3.17 分段加权: 低(<5万)=2, 中(5~20万)=4, 高=6; w_smape=0.5, w_log1p=0.15, w_mse_high=0.8, w_bias=0.6, w_global=0.6, w_mape=0.4, w_peak=0.8, n_prod=954, n_high=828, n_peak=604
+2026-03-01 09:01:31 - AssimilationLoss - INFO -   [loss_whp] p_wf_pred=(1025, 1), whp_obs=(1025, 1), delta=(1025, 1)
+2026-03-01 15:18:47 - AssimilationLoss - INFO - AssimilationLoss v2 初始化: p_init=76.31344667458151 MPa, sw_init=0.15, monotonic=True, smooth_pwf=True
+2026-03-01 15:18:48 - AssimilationLoss - INFO -   [loss_qg] v3.17 分段加权: 低(<5万)=2, 中(5~20万)=4, 高=6; w_smape=0.5, w_log1p=0.15, w_mse_high=0.8, w_bias=0.6, w_global=0.6, w_mape=0.4, w_peak=0.8, n_prod=954, n_high=828, n_peak=604
+2026-03-01 15:18:48 - AssimilationLoss - INFO -   [loss_whp] p_wf_pred=(1025, 1), whp_obs=(1025, 1), delta=(1025, 1)
+2026-03-01 21:36:22 - AssimilationLoss - INFO - AssimilationLoss v2 初始化: p_init=75.50897359870274 MPa, sw_init=0.15, monotonic=True, smooth_pwf=True
+2026-03-01 21:36:22 - AssimilationLoss - INFO -   [loss_qg] v3.17 分段加权: 低(<5万)=2, 中(5~20万)=4, 高=6; w_smape=0.5, w_log1p=0.15, w_mse_high=0.8, w_bias=0.6, w_global=0.6, w_mape=0.4, w_peak=0.8, n_prod=954, n_high=828, n_peak=604
+2026-03-01 21:36:22 - AssimilationLoss - INFO -   [loss_whp] p_wf_pred=(1025, 1), whp_obs=(1025, 1), delta=(1025, 1)
+2026-03-02 03:44:44 - AssimilationLoss - INFO - AssimilationLoss v2 初始化: p_init=76.36355058304211 MPa, sw_init=0.15, monotonic=True, smooth_pwf=True
+2026-03-02 03:44:44 - AssimilationLoss - INFO -   [loss_qg] v3.17 分段加权: 低(<5万)=2, 中(5~20万)=4, 高=6; w_smape=0.5, w_log1p=0.15, w_mse_high=0.8, w_bias=0.6, w_global=0.6, w_mape=0.4, w_peak=0.8, n_prod=954, n_high=828, n_peak=604
+2026-03-02 03:44:44 - AssimilationLoss - INFO -   [loss_whp] p_wf_pred=(1025, 1), whp_obs=(1025, 1), delta=(1025, 1)
+2026-03-02 10:06:55 - AssimilationLoss - INFO - AssimilationLoss v2 初始化: p_init=76.47500386818434 MPa, sw_init=0.15, monotonic=True, smooth_pwf=True
+2026-03-02 10:06:55 - AssimilationLoss - INFO -   [loss_qg] v3.17 分段加权: 低(<5万)=2, 中(5~20万)=4, 高=6; w_smape=0.5, w_log1p=0.15, w_mse_high=0.8, w_bias=0.6, w_global=0.6, w_mape=0.4, w_peak=0.8, n_prod=954, n_high=828, n_peak=604
+2026-03-02 10:06:55 - AssimilationLoss - INFO -   [loss_whp] p_wf_pred=(1025, 1), whp_obs=(1025, 1), delta=(1025, 1)
+2026-03-02 16:09:41 - AssimilationLoss - INFO - AssimilationLoss v2 初始化: p_init=75.97740852456715 MPa, sw_init=0.15, monotonic=True, smooth_pwf=True
+2026-03-02 16:09:41 - AssimilationLoss - INFO -   [loss_qg] v3.17 分段加权: 低(<5万)=2, 中(5~20万)=4, 高=6; w_smape=0.5, w_log1p=0.15, w_mse_high=0.8, w_bias=0.6, w_global=0.6, w_mape=0.4, w_peak=0.8, n_prod=954, n_high=828, n_peak=604
+2026-03-02 16:09:41 - AssimilationLoss - INFO -   [loss_whp] p_wf_pred=(1025, 1), whp_obs=(1025, 1), delta=(1025, 1)
+2026-03-02 21:59:41 - AssimilationLoss - INFO - AssimilationLoss v2 初始化: p_init=75.62102380731282 MPa, sw_init=0.15, monotonic=True, smooth_pwf=True
+2026-03-02 21:59:42 - AssimilationLoss - INFO -   [loss_qg] v3.17 分段加权: 低(<5万)=2, 中(5~20万)=4, 高=6; w_smape=0.5, w_log1p=0.15, w_mse_high=0.8, w_bias=0.6, w_global=0.6, w_mape=0.4, w_peak=0.8, n_prod=954, n_high=828, n_peak=604
+2026-03-02 21:59:42 - AssimilationLoss - INFO -   [loss_whp] p_wf_pred=(1025, 1), whp_obs=(1025, 1), delta=(1025, 1)
+2026-03-03 04:07:31 - AssimilationLoss - INFO - AssimilationLoss v2 初始化: p_init=76.38059257374181 MPa, sw_init=0.15, monotonic=True, smooth_pwf=True
+2026-03-03 04:07:31 - AssimilationLoss - INFO -   [loss_qg] v3.17 分段加权: 低(<5万)=2, 中(5~20万)=4, 高=6; w_smape=0.5, w_log1p=0.15, w_mse_high=0.8, w_bias=0.6, w_global=0.6, w_mape=0.4, w_peak=0.8, n_prod=954, n_high=828, n_peak=604
+2026-03-03 04:07:31 - AssimilationLoss - INFO -   [loss_whp] p_wf_pred=(1025, 1), whp_obs=(1025, 1), delta=(1025, 1)
+2026-03-03 09:46:01 - AssimilationLoss - INFO - AssimilationLoss v2 初始化: p_init=75.50124585336532 MPa, sw_init=0.15, monotonic=True, smooth_pwf=True
+2026-03-03 09:46:01 - AssimilationLoss - INFO -   [loss_qg] v3.17 分段加权: 低(<5万)=2, 中(5~20万)=4, 高=6; w_smape=0.5, w_log1p=0.15, w_mse_high=0.8, w_bias=0.6, w_global=0.6, w_mape=0.4, w_peak=0.8, n_prod=954, n_high=828, n_peak=604
+2026-03-03 09:46:01 - AssimilationLoss - INFO -   [loss_whp] p_wf_pred=(1025, 1), whp_obs=(1025, 1), delta=(1025, 1)

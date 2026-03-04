@@ -1,0 +1,28 @@
+2026-02-14 17:52:11 - M4Validator - INFO - ============================================================
+2026-02-14 17:52:11 - M4Validator - INFO - M4 PINN 基线验收开始
+2026-02-14 17:52:11 - M4Validator - INFO - ============================================================
+2026-02-14 17:52:11 - M4Validator - INFO -   验收设备: cuda
+2026-02-14 17:52:13 - M4Validator - INFO - 已加载最佳模型: C:\Users\16281\Desktop\cpedc_project\outputs\mk_pinn_dt_v2\ckpt\pinn_best.pt
+2026-02-14 17:52:13 - M4Validator - INFO -   dp_wellbore = 18.0 MPa (地层→井口压差修正)
+2026-02-14 17:52:13 - M4Validator - INFO - 
+>>> 验收 1: SY9 压力趋势可拟合
+2026-02-14 17:52:13 - M4Validator - INFO -   模型地层压力范围: [65.08, 80.95] MPa
+2026-02-14 17:52:13 - M4Validator - INFO -   修正后井口压力范围: [47.08, 62.95] MPa
+2026-02-14 17:52:13 - M4Validator - INFO -   观测井口压力范围: [6.51, 63.40] MPa
+2026-02-14 17:52:14 - M4Validator - INFO - 
+>>> 验收 2: Sw 输出在 [0, 1] 内
+2026-02-14 17:52:14 - M4Validator - INFO - 
+>>> 验收 3: 模型结构检查
+2026-02-14 17:52:14 - M4Validator - INFO - M4 验收报告已保存: C:\Users\16281\Desktop\cpedc_project\outputs\mk_pinn_dt_v2\reports\M4_validation_report.md
+2026-02-14 17:52:14 - M4Validator - INFO -   [PASS] SY9 压力 MAPE = 1.57% (阈值 < 30%, dp_wellbore=18.0MPa)
+2026-02-14 17:52:14 - M4Validator - INFO -   [INFO] RMSE = 1.87 MPa
+2026-02-14 17:52:14 - M4Validator - INFO -   [INFO] Pearson 相关系数 = 0.9426
+2026-02-14 17:52:14 - M4Validator - INFO -   [INFO] 地层压力预测范围: [65.08, 80.95] MPa
+2026-02-14 17:52:14 - M4Validator - INFO -   [INFO] 井口压力预测范围: [47.08, 62.95] MPa
+2026-02-14 17:52:14 - M4Validator - INFO -   [PASS] Sw ∈ [0, 1] (实际范围: [0.709174, 0.860024])
+2026-02-14 17:52:14 - M4Validator - INFO -   [INFO] Sw 使用 sigmoid 输出层，机制上保证 (0, 1)
+2026-02-14 17:52:14 - M4Validator - INFO -   [PASS] 模型参数量: 416,258
+2026-02-14 17:52:14 - M4Validator - INFO -   [PASS] 输出维度: p=torch.Size([10, 1]), Sw=torch.Size([10, 1])
+2026-02-14 17:52:14 - M4Validator - INFO - ============================================================
+2026-02-14 17:52:14 - M4Validator - INFO - M4 验收结果: ✅ 全部通过
+2026-02-14 17:52:14 - M4Validator - INFO - ============================================================

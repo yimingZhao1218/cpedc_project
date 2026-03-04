@@ -1,0 +1,18 @@
+2026-02-24 16:47:39 - WaterInvasion - INFO - M6连通性已加载: 7 口井, 各井→SYX211: SYX211=1.000, SY9=0.462, SY13=0.400, SY201=0.341, SY101=0.246, SY116=0.183, SY102=0.143
+2026-02-24 16:47:39 - WaterInvasion - INFO - WaterInvasionAnalyzer 初始化: Swc=0.26, Sgr=0.05, 见水线Sw*=0.398 (R_w=0.2), 主井=SY9
+2026-02-24 16:47:39 - WaterInvasion - INFO -   Sw(t)推理: 0→2331天 (数据期1331天 + 外推1000天), t_norm_max=1.751, n=300
+2026-02-24 16:47:39 - WaterInvasion - INFO -   SY13: M6风险评估 → 中风险 (C_syx=0.400, Sw=11.8%)
+2026-02-24 16:47:39 - WaterInvasion - INFO -   SY201: M6风险评估 → 中风险 (C_syx=0.341, Sw=12.2%)
+2026-02-24 16:47:39 - WaterInvasion - INFO -   SY101: M6风险评估 → 中风险 (C_syx=0.246, Sw=20.0%)
+2026-02-24 16:47:39 - WaterInvasion - INFO -   SY102: M6风险评估 → 低风险 (C_syx=0.143, Sw=16.8%)
+2026-02-24 16:47:39 - WaterInvasion - INFO -   SY116: M6风险评估 → 中风险 (C_syx=0.183, Sw=27.0%)
+2026-02-24 16:47:40 - WaterInvasion - INFO - 水侵预警仪表盘已保存: C:\Users\16281\Desktop\cpedc_project\outputs\mk_pinn_dt_v2\figs\M7_water_invasion_dashboard.png
+2026-02-24 16:47:41 - WaterInvasion - INFO - 制度优化对比图已保存: C:\Users\16281\Desktop\cpedc_project\outputs\mk_pinn_dt_v2\figs\M7_strategy_comparison.png
+2026-02-24 16:47:41 - WaterInvasion - WARNING - 策略间 Gp 无预期排序！稳产=2965.7 M, 阶梯=1660.4 M, 控压=1897.7 M
+2026-02-24 16:47:41 - WaterInvasion - INFO -   Sw(t)推理: 0→2331天 (数据期1331天 + 外推1000天), t_norm_max=1.751, n=300
+2026-02-24 16:47:41 - WaterInvasion - INFO -   SY13: M6风险评估 → 中风险 (C_syx=0.400, Sw=11.8%)
+2026-02-24 16:47:41 - WaterInvasion - INFO -   SY201: M6风险评估 → 中风险 (C_syx=0.341, Sw=12.2%)
+2026-02-24 16:47:41 - WaterInvasion - INFO -   SY101: M6风险评估 → 中风险 (C_syx=0.246, Sw=20.0%)
+2026-02-24 16:47:41 - WaterInvasion - INFO -   SY102: M6风险评估 → 低风险 (C_syx=0.143, Sw=16.8%)
+2026-02-24 16:47:41 - WaterInvasion - INFO -   SY116: M6风险评估 → 中风险 (C_syx=0.183, Sw=27.0%)
+2026-02-24 16:47:41 - WaterInvasion - INFO - 水侵预警报告已保存: C:\Users\16281\Desktop\cpedc_project\outputs\mk_pinn_dt_v2\reports\M7_water_invasion_report.md

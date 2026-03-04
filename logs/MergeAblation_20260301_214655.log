@@ -1,0 +1,17 @@
+2026-03-01 21:46:55 - MergeAblation - INFO - 加载 pinn_no_fourier: RMSE=80286
+2026-03-01 21:46:55 - MergeAblation - INFO - 加载 pinn_no_rar: RMSE=79971
+2026-03-01 21:46:55 - MergeAblation - INFO - 合并完成: 6 组实验
+2026-03-01 21:46:55 - MergeAblation - INFO - 消融对比图已保存: C:\Users\Administrator\Desktop\cpedc_project\outputs\mk_pinn_dt_v2\figs\M6_ablation_qg_comparison.png
+2026-03-01 21:46:56 - MergeAblation - INFO - 消融指标对比图已保存: C:\Users\Administrator\Desktop\cpedc_project\outputs\mk_pinn_dt_v2\figs\M6_ablation_metrics_comparison.png
+2026-03-01 21:46:57 - MergeAblation - INFO - 损失收敛对比图已保存: C:\Users\Administrator\Desktop\cpedc_project\outputs\mk_pinn_dt_v2\figs\M6_ablation_loss_convergence.png
+2026-03-01 21:46:57 - MergeAblation - INFO - 消融报告已保存: C:\Users\Administrator\Desktop\cpedc_project\outputs\mk_pinn_dt_v2\reports\M6_ablation_report.md
+2026-03-01 21:46:57 - MergeAblation - INFO - 
+============================================================
+2026-03-01 21:46:57 - MergeAblation - INFO - 完整6组消融实验摘要
+2026-03-01 21:46:57 - MergeAblation - INFO - ============================================================
+2026-03-01 21:46:57 - MergeAblation - INFO -   pinn_full      : RMSE=   79971, MAPE=  20.8%, Test_MAPE=   1.6%
+2026-03-01 21:46:57 - MergeAblation - INFO -   pinn_no_rar    : RMSE=   79971, MAPE=  20.8%, Test_MAPE=   1.6%
+2026-03-01 21:46:57 - MergeAblation - INFO -   pinn_no_fourier: RMSE=   80286, MAPE=  21.3%, Test_MAPE=   2.9%
+2026-03-01 21:46:57 - MergeAblation - INFO -   pinn_const_k   : RMSE=   82595, MAPE=  23.0%, Test_MAPE=   1.5%
+2026-03-01 21:46:57 - MergeAblation - INFO -   pure_ml        : RMSE=   89006, MAPE=  25.0%, Test_MAPE=   1.8%
+2026-03-01 21:46:57 - MergeAblation - INFO -   pinn_base      : RMSE=   93021, MAPE=  27.1%, Test_MAPE=   2.7%

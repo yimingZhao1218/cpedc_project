@@ -1,0 +1,10 @@
+2026-03-03 19:50:06 - WellModel - INFO - WellModel v3 初始化: 1 口井 ['SY9'], k_frac=8.00 mD, wi_factor=已删除, PVT=TorchPVT
+2026-03-03 19:50:07 - WellModel - WARNING - _compute_krg_torch fallback 被调用: self.relperm 未注入, 使用硬编码 Corey 参数 (ng=1.0846). 请检查 trainer 是否正确注入了 relperm.
+2026-03-03 19:50:08 - WellModel - WARNING - _compute_krg_torch fallback 被调用: self.relperm 未注入, 使用硬编码 Corey 参数 (ng=1.0846). 请检查 trainer 是否正确注入了 relperm.
+2026-03-03 19:50:12 - WellModel - WARNING - _compute_krg_torch fallback 被调用: self.relperm 未注入, 使用硬编码 Corey 参数 (ng=1.0846). 请检查 trainer 是否正确注入了 relperm.
+2026-03-03 19:50:13 - WellModel - WARNING - _compute_krg_torch fallback 被调用: self.relperm 未注入, 使用硬编码 Corey 参数 (ng=1.0846). 请检查 trainer 是否正确注入了 relperm.
+2026-03-03 19:50:13 - WellModel - WARNING - _compute_krg_torch fallback 被调用: self.relperm 未注入, 使用硬编码 Corey 参数 (ng=1.0846). 请检查 trainer 是否正确注入了 relperm.
+2026-03-03 19:50:13 - WellModel - WARNING - _compute_krg_torch fallback 被调用: self.relperm 未注入, 使用硬编码 Corey 参数 (ng=1.0846). 请检查 trainer 是否正确注入了 relperm.
+2026-03-03 19:50:13 - WellModel - WARNING - _compute_krg_torch fallback 被调用: self.relperm 未注入, 使用硬编码 Corey 参数 (ng=1.0846). 请检查 trainer 是否正确注入了 relperm.
+2026-03-03 19:50:13 - WellModel - WARNING - _compute_krg_torch fallback 被调用: self.relperm 未注入, 使用硬编码 Corey 参数 (ng=1.0846). 请检查 trainer 是否正确注入了 relperm.
+2026-03-03 19:50:13 - WellModel - WARNING - _compute_krg_torch fallback 被调用: self.relperm 未注入, 使用硬编码 Corey 参数 (ng=1.0846). 请检查 trainer 是否正确注入了 relperm.

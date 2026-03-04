@@ -1,0 +1,16 @@
+2026-02-25 18:28:04 - WaterInvasion - INFO - WaterInvasionAnalyzer v3.17 初始化: Swc=0.26, Sgr=0.05, 见水线Sw*=0.398 (R_w=0.2), train_frac=70%, M6连通性=已接入
+2026-02-25 18:28:04 - WaterInvasion - INFO -   SYX211: 已见水 (score=1.000, 附表8实测确认, 高置信度)
+2026-02-25 18:28:04 - WaterInvasion - INFO -   SY102: 高风险 (score=0.800, 附表3+构造图确认, 高置信度)
+2026-02-25 18:28:04 - WaterInvasion - INFO -   SY9: 预警 (score=0.266, PINN直接推理, 高置信度)
+2026-02-25 18:28:04 - WaterInvasion - INFO -   SY116: 未知 (score=0.000, M6未接入, 低置信度)
+2026-02-25 18:28:04 - WaterInvasion - INFO -   SY101: 未知 (score=0.000, M6未接入, 低置信度)
+2026-02-25 18:28:04 - WaterInvasion - INFO -   SY13: 未知 (score=0.000, M6未接入, 低置信度)
+2026-02-25 18:28:04 - WaterInvasion - INFO -   SY201: 未知 (score=0.000, M6未接入, 低置信度)
+2026-02-25 18:28:04 - WaterInvasion - INFO - 策略对比 (SY9): 稳产Gp=1196.1M > 阶梯Gp=912.3M > 控压Gp=954.1M m³, Sw末期: 0.443/0.321/0.332
+2026-02-25 18:28:05 - WaterInvasion - INFO - 水侵预警仪表盘已保存: C:\Users\16281\Desktop\cpedc_project\outputs\mk_pinn_dt_v2\figs\M7_water_invasion_dashboard.png
+2026-02-25 18:28:05 - WaterInvasion - INFO - 策略对比 (SY9): 稳产Gp=1196.1M > 阶梯Gp=912.3M > 控压Gp=954.1M m³, Sw末期: 0.443/0.321/0.332
+2026-02-25 18:28:06 - WaterInvasion - INFO - 制度优化对比图已保存: C:\Users\16281\Desktop\cpedc_project\outputs\mk_pinn_dt_v2\figs\M7_strategy_comparison.png
+2026-02-25 18:28:06 - WaterInvasion - INFO - 策略对比 (SY9): 稳产Gp=1196.1M > 阶梯Gp=912.3M > 控压Gp=954.1M m³, Sw末期: 0.443/0.321/0.332
+2026-02-25 18:28:06 - WaterInvasion - WARNING - 策略间 Gp 无预期排序! 稳产=1196.1M, 阶梯=912.3M, 控压=954.1M
+2026-02-25 18:28:06 - WaterInvasion - INFO - 水侵预警报告已保存: C:\Users\16281\Desktop\cpedc_project\outputs\mk_pinn_dt_v2\reports\M7_water_invasion_report.md
+2026-02-25 18:28:06 - WaterInvasion - INFO - M7全部输出生成完毕, 耗时2.0秒

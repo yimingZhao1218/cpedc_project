@@ -1,0 +1,44 @@
+2026-02-09 16:56:37 - M2_GeoDomainBuilder - INFO - ================================================================================
+2026-02-09 16:56:37 - M2_GeoDomainBuilder - INFO - M2 地质域构建器初始化完成
+2026-02-09 16:56:37 - M2_GeoDomainBuilder - INFO - ================================================================================
+2026-02-09 16:56:37 - M2_GeoDomainBuilder - INFO - 
+================================================================================
+2026-02-09 16:56:37 - M2_GeoDomainBuilder - INFO - 开始执行 M2 地质域构建流程
+2026-02-09 16:56:37 - M2_GeoDomainBuilder - INFO - ================================================================================
+
+2026-02-09 16:56:37 - M2_GeoDomainBuilder - INFO - 加载了 7 个MK段代表点
+2026-02-09 16:56:37 - M2_GeoDomainBuilder - INFO - 正在创建模型边界...
+2026-02-09 16:56:37 - M2_GeoDomainBuilder - INFO -   使用外扩距离: 1000 m
+2026-02-09 16:56:37 - M2_GeoDomainBuilder - INFO -   边界范围: X=[18537717.9, 18555431.8], Y=[3346139.4, 3357349.6]
+2026-02-09 16:56:37 - M2_GeoDomainBuilder - INFO -   边界面积: 113.58 km²
+2026-02-09 16:56:37 - M2_GeoDomainBuilder - INFO - 顶面插值使用顶界交点坐标...
+2026-02-09 16:56:37 - M2_GeoDomainBuilder - INFO - 正在使用Kriging插值 mk_top_z 曲面（基于x_top,y_top）...
+2026-02-09 16:56:37 - M2_GeoDomainBuilder - INFO -   使用 7 个有效点进行插值
+2026-02-09 16:56:37 - M2_GeoDomainBuilder - INFO -   Kriging插值成功，网格尺寸: (103, 168)
+2026-02-09 16:56:37 - M2_GeoDomainBuilder - INFO -   曲面数据已保存: geo\surfaces\mk_top_surface.csv
+2026-02-09 16:56:37 - M2_GeoDomainBuilder - INFO - 底面插值使用底界交点坐标...
+2026-02-09 16:56:37 - M2_GeoDomainBuilder - INFO - 在给定网格上插值 mk_bot_z（基于x_bot,y_bot）...
+2026-02-09 16:56:37 - M2_GeoDomainBuilder - INFO -   使用 7 个有效点
+2026-02-09 16:56:37 - M2_GeoDomainBuilder - INFO -   插值成功，网格尺寸: (103, 168)
+2026-02-09 16:56:37 - M2_GeoDomainBuilder - INFO -   曲面数据已保存: geo\surfaces\mk_bot_surface.csv
+2026-02-09 16:56:37 - M2_GeoDomainBuilder - INFO - 正在计算厚度场...
+2026-02-09 16:56:37 - M2_GeoDomainBuilder - INFO -   厚度范围: [85.31, 91.21] m
+2026-02-09 16:56:37 - M2_GeoDomainBuilder - INFO -   平均厚度: 88.31 m
+2026-02-09 16:56:37 - M2_GeoDomainBuilder - INFO -   曲面数据已保存: geo\surfaces\mk_thickness.csv
+2026-02-09 16:56:37 - M2_GeoDomainBuilder - INFO - 正在生成PINN配点网格...
+2026-02-09 16:56:37 - M2_GeoDomainBuilder - ERROR - ❌ M2流程执行失败: "None of [Index(['x', 'y'], dtype='str')] are in the [columns]"
+Traceback (most recent call last):
+  File "C:\Users\16281\Desktop\cpedc_project\src\m2_geo_builder.py", line 973, in run
+    grid_df = self.generate_collocation_grid(polygon, mk_points)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\16281\Desktop\cpedc_project\src\m2_geo_builder.py", line 478, in generate_collocation_grid
+    points = mk_points[['x', 'y']].values
+             ~~~~~~~~~^^^^^^^^^^^^
+  File "C:\Users\16281\Desktop\cpedc_project\.venv\Lib\site-packages\pandas\core\frame.py", line 4384, in __getitem__
+    indexer = self.columns._get_indexer_strict(key, "columns")[1]
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\16281\Desktop\cpedc_project\.venv\Lib\site-packages\pandas\core\indexes\base.py", line 6302, in _get_indexer_strict
+    self._raise_if_missing(keyarr, indexer, axis_name)
+  File "C:\Users\16281\Desktop\cpedc_project\.venv\Lib\site-packages\pandas\core\indexes\base.py", line 6352, in _raise_if_missing
+    raise KeyError(f"None of [{key}] are in the [{axis_name}]")
+KeyError: "None of [Index(['x', 'y'], dtype='str')] are in the [columns]"

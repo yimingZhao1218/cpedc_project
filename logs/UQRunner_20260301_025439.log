@@ -1,0 +1,65 @@
+2026-03-01 02:54:39 - UQRunner - INFO - UQRunner 初始化: n_ensemble=10, base_seed=20260209
+2026-03-01 02:54:42 - UQRunner - INFO - 
+==================================================
+2026-03-01 02:54:42 - UQRunner - INFO - Ensemble 1/10, seed=20260209
+2026-03-01 02:54:42 - UQRunner - INFO - ==================================================
+2026-03-01 02:54:42 - UQRunner - INFO -   扰动: k_frac_init=6.96 mD, p_init=75.6 MPa
+2026-03-01 09:01:31 - UQRunner - INFO -   Ensemble 1 完成, k_frac=11.020 mD
+2026-03-01 09:01:31 - UQRunner - INFO - 
+==================================================
+2026-03-01 09:01:31 - UQRunner - INFO - Ensemble 2/10, seed=20261209
+2026-03-01 09:01:31 - UQRunner - INFO - ==================================================
+2026-03-01 09:01:31 - UQRunner - INFO -   扰动: k_frac_init=5.87 mD, p_init=75.5 MPa
+2026-03-01 15:18:47 - UQRunner - INFO -   Ensemble 2 完成, k_frac=9.186 mD
+2026-03-01 15:18:47 - UQRunner - INFO - 
+==================================================
+2026-03-01 15:18:47 - UQRunner - INFO - Ensemble 3/10, seed=20262209
+2026-03-01 15:18:47 - UQRunner - INFO - ==================================================
+2026-03-01 15:18:47 - UQRunner - INFO -   扰动: k_frac_init=11.58 mD, p_init=76.3 MPa
+2026-03-01 21:36:21 - UQRunner - INFO -   Ensemble 3 完成, k_frac=14.400 mD
+2026-03-01 21:36:21 - UQRunner - INFO - 
+==================================================
+2026-03-01 21:36:21 - UQRunner - INFO - Ensemble 4/10, seed=20263209
+2026-03-01 21:36:21 - UQRunner - INFO - ==================================================
+2026-03-01 21:36:21 - UQRunner - INFO -   扰动: k_frac_init=6.68 mD, p_init=75.5 MPa
+2026-03-02 03:44:44 - UQRunner - INFO -   Ensemble 4 完成, k_frac=10.979 mD
+2026-03-02 03:44:44 - UQRunner - INFO - 
+==================================================
+2026-03-02 03:44:44 - UQRunner - INFO - Ensemble 5/10, seed=20264209
+2026-03-02 03:44:44 - UQRunner - INFO - ==================================================
+2026-03-02 03:44:44 - UQRunner - INFO -   扰动: k_frac_init=7.89 mD, p_init=76.4 MPa
+2026-03-02 10:06:54 - UQRunner - INFO -   Ensemble 5 完成, k_frac=11.362 mD
+2026-03-02 10:06:54 - UQRunner - INFO - 
+==================================================
+2026-03-02 10:06:54 - UQRunner - INFO - Ensemble 6/10, seed=20265209
+2026-03-02 10:06:54 - UQRunner - INFO - ==================================================
+2026-03-02 10:06:54 - UQRunner - INFO -   扰动: k_frac_init=8.95 mD, p_init=76.5 MPa
+2026-03-02 16:09:40 - UQRunner - INFO -   Ensemble 6 完成, k_frac=13.742 mD
+2026-03-02 16:09:40 - UQRunner - INFO - 
+==================================================
+2026-03-02 16:09:40 - UQRunner - INFO - Ensemble 7/10, seed=20266209
+2026-03-02 16:09:40 - UQRunner - INFO - ==================================================
+2026-03-02 16:09:40 - UQRunner - INFO -   扰动: k_frac_init=4.91 mD, p_init=76.0 MPa
+2026-03-02 21:59:41 - UQRunner - INFO -   Ensemble 7 完成, k_frac=9.713 mD
+2026-03-02 21:59:41 - UQRunner - INFO - 
+==================================================
+2026-03-02 21:59:41 - UQRunner - INFO - Ensemble 8/10, seed=20267209
+2026-03-02 21:59:41 - UQRunner - INFO - ==================================================
+2026-03-02 21:59:41 - UQRunner - INFO -   扰动: k_frac_init=12.36 mD, p_init=75.6 MPa
+2026-03-03 04:07:30 - UQRunner - INFO -   Ensemble 8 完成, k_frac=16.825 mD
+2026-03-03 04:07:30 - UQRunner - INFO - 
+==================================================
+2026-03-03 04:07:30 - UQRunner - INFO - Ensemble 9/10, seed=20268209
+2026-03-03 04:07:30 - UQRunner - INFO - ==================================================
+2026-03-03 04:07:30 - UQRunner - INFO -   扰动: k_frac_init=8.23 mD, p_init=76.4 MPa
+2026-03-03 09:46:01 - UQRunner - INFO -   Ensemble 9 完成, k_frac=11.429 mD
+2026-03-03 09:46:01 - UQRunner - INFO - 
+==================================================
+2026-03-03 09:46:01 - UQRunner - INFO - Ensemble 10/10, seed=20269209
+2026-03-03 09:46:01 - UQRunner - INFO - ==================================================
+2026-03-03 09:46:01 - UQRunner - INFO -   扰动: k_frac_init=9.32 mD, p_init=75.5 MPa
+2026-03-03 15:33:33 - UQRunner - INFO -   Ensemble 10 完成, k_frac=14.281 mD
+2026-03-03 15:33:35 - UQRunner - INFO - UQ qg 图已保存: C:\Users\Administrator\Desktop\cpedc_project\outputs\mk_pinn_dt_v2\figs\M6_uq_qg_p10p50p90.png
+2026-03-03 15:33:35 - UQRunner - INFO - UQ pwf 图已保存: C:\Users\Administrator\Desktop\cpedc_project\outputs\mk_pinn_dt_v2\figs\M6_uq_pwf_p10p50p90.png
+2026-03-03 15:33:35 - UQRunner - INFO - 参数分布图已保存: C:\Users\Administrator\Desktop\cpedc_project\outputs\mk_pinn_dt_v2\figs\M6_uq_param_distribution.png
+2026-03-03 15:33:37 - UQRunner - INFO - UQ 报告已保存: C:\Users\Administrator\Desktop\cpedc_project\outputs\mk_pinn_dt_v2\reports\M6_uq_report.md

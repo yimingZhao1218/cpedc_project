@@ -1,0 +1,26 @@
+2026-03-03 00:53:28 - M5Trainer - INFO -   torch.compile 已跳过 (Triton 不支持 Windows, 使用 eager 模式)
+2026-03-03 00:53:28 - M5Trainer - INFO - k_frac 独立参数组: lr=2.00e-03 (factor=2.0)
+2026-03-03 00:53:28 - M5Trainer - INFO -   [v3.17] well_singularity 参数组: 1153 params, lr=1.00e-03
+2026-03-03 00:53:28 - M5Trainer - INFO -   [v3.14] Corey 指数可学习: ng₀=1.0846, nw₀=4.4071 (SY13 拟合先验, lr_factor=3.0)
+2026-03-03 00:53:30 - M5Trainer - INFO -   [v3.14] well_model.relperm = loss_fn.relperm (共享实例)
+2026-03-03 00:53:30 - M5Trainer - INFO - k_net 学习率: 1.00e-04 (factor=0.1, warmup=2000 steps)
+2026-03-03 00:53:30 - M5Trainer - INFO -   井 SY9: 1332 条同化数据 (train=865, val=199, test=268)
+    开井点数 (q>1): train=801, val=32, test=121
+    有效压力点: val_p=43, test_p=121
+2026-03-03 00:53:30 - M5Trainer - INFO -   train time window(norm): [0.0000, 0.6491]
+2026-03-03 00:53:30 - M5Trainer - INFO -   well_h[SY9] = 48.4 m (有效储厚)
+2026-03-03 00:53:30 - M5Trainer - INFO -   well_h[SY13] = 41.6 m (有效储厚)
+2026-03-03 00:53:30 - M5Trainer - INFO -   well_h[SY201] = 37.9 m (有效储厚)
+2026-03-03 00:53:30 - M5Trainer - INFO -   well_h[SY101] = 41.7 m (有效储厚)
+2026-03-03 00:53:30 - M5Trainer - INFO -   well_h[SY102] = 45.4 m (有效储厚)
+2026-03-03 00:53:30 - M5Trainer - INFO -   well_h[SY116] = 39.3 m (有效储厚)
+2026-03-03 00:53:30 - M5Trainer - INFO -   well_h[SYX211] = 6.0 m (有效储厚)
+2026-03-03 00:53:30 - M5Trainer - INFO -   [TDS→Sw] SY9: 173个采样点, t_day=[1, 3518], TDS=[55, 105158] mg/L, Sw_tds=[0.260, 0.938], Swc=0.260, Sgr=0.062
+2026-03-03 00:53:30 - M5Trainer - INFO -   [TDS→Sw] 共加载 173 个TDS→Sw软标签点
+2026-03-03 00:53:30 - M5Trainer - INFO -   M3 PVT cg(76.0, 140.32) = 0.009744
+2026-03-03 00:53:30 - M5Trainer - INFO -   M3 PVT Bg(76.0, 140.32) = 0.002577
+2026-03-03 00:53:30 - M5Trainer - INFO -   PDE 缩放: αx=0.101777, αy=0.254660
+2026-03-03 00:53:30 - M5Trainer - INFO - M5Trainer 初始化完成: device=cuda, lr=0.001, max_steps=80000, relobralo=True, rar=True
+2026-03-03 00:53:30 - M5Trainer - INFO -   history 已恢复 (35801 步)
+2026-03-03 00:53:30 - M5Trainer - INFO -   best_step=35800
+2026-03-03 00:53:30 - M5Trainer - INFO - 已加载 M5 检查点: C:\Users\Administrator\Desktop\cpedc_project\outputs\mk_pinn_dt_v2\ckpt\m5_pinn_best.pt

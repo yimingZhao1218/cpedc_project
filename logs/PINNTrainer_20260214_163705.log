@@ -1,0 +1,51 @@
+2026-02-14 16:37:05 - PINNTrainer - INFO -   CUDA: deterministic 模式（cudnn.benchmark=False）
+2026-02-14 16:37:05 - PINNTrainer - INFO -   Mixed Precision (AMP) 已启用
+2026-02-14 16:37:06 - PINNTrainer - INFO -   学习率: warmup 1000 步, 然后 Cosine 至 min_lr=1e-06
+2026-02-14 16:37:06 - PINNTrainer - INFO -   SY9 数据锚点: 1025 条
+2026-02-14 16:37:06 - PINNTrainer - WARNING -   M3 PVT 查询 cg 失败 ([Errno 2] No such file or directory: 'data/raw/附表5-PVT数据__2油藏流体恒质膨胀数据表.csv')，使用先验 0.013
+2026-02-14 16:37:06 - PINNTrainer - INFO - ============================================================
+2026-02-14 16:37:06 - PINNTrainer - INFO - PDE 物理缩放参数（诊断参数）
+2026-02-14 16:37:06 - PINNTrainer - INFO - ============================================================
+2026-02-14 16:37:06 - PINNTrainer - INFO -   域: Δx = 17400 m, Δy = 11000 m, t_max = 1331 d = 114998400 s
+2026-02-14 16:37:06 - PINNTrainer - INFO -   sx = (2/Δx)² = 1.321178e-08 1/m², sy = (2/Δy)² = 3.305785e-08 1/m²
+2026-02-14 16:37:06 - PINNTrainer - INFO -   p_ref = 76.0 MPa, T_ref = 141.39 ℃
+2026-02-14 16:37:06 - PINNTrainer - INFO -   k = 0.146 mD = 1.440908e-16 m²
+2026-02-14 16:37:06 - PINNTrainer - INFO -   φ = 0.0216
+2026-02-14 16:37:06 - PINNTrainer - INFO -   μ_ref = 0.035 mPa·s = 3.500000e-05 Pa·s
+2026-02-14 16:37:06 - PINNTrainer - INFO -   c_g_ref = 0.013000 1/MPa = 1.300000e-08 1/Pa  (来源: prior)
+2026-02-14 16:37:06 - PINNTrainer - INFO -   c_r = 0.0 1/MPa = 0.000000e+00 1/Pa
+2026-02-14 16:37:06 - PINNTrainer - INFO -   c_t = c_g + c_r = 1.300000e-08 1/Pa
+2026-02-14 16:37:06 - PINNTrainer - INFO -   α_phys = k/(φ·μ·c_t) = 0.014661 m²/s
+2026-02-14 16:37:06 - PINNTrainer - INFO -   αx = α_phys·t_max_s·sx = 0.022275
+2026-02-14 16:37:06 - PINNTrainer - INFO -   αy = α_phys·t_max_s·sy = 0.055736
+2026-02-14 16:37:06 - PINNTrainer - INFO -   near_well_ratio = 0.3
+2026-02-14 16:37:06 - PINNTrainer - INFO - ------------------------------------------------------------
+2026-02-14 16:37:06 - PINNTrainer - INFO - 敏感性分析 (μ_ref × cg_ref 区间端点):
+2026-02-14 16:37:06 - PINNTrainer - INFO -   μ_ref ∈ [0.02, 0.06] mPa·s
+2026-02-14 16:37:06 - PINNTrainer - INFO -   cg_ref ∈ [0.008, 0.02] 1/MPa
+2026-02-14 16:37:06 - PINNTrainer - INFO -   α_phys ∈ [0.005559, 0.041693] m²/s
+2026-02-14 16:37:06 - PINNTrainer - INFO -   αx ∈ [0.008446, 0.063346]
+2026-02-14 16:37:06 - PINNTrainer - INFO -   αy ∈ [0.021133, 0.158500]
+2026-02-14 16:37:06 - PINNTrainer - INFO - ------------------------------------------------------------
+2026-02-14 16:37:06 - PINNTrainer - INFO - 2.5D 厚度场审计:
+2026-02-14 16:37:06 - PINNTrainer - INFO -   h_min = nan m, h_max = nan m, h_mean = nan m
+2026-02-14 16:37:06 - PINNTrainer - INFO -   log-thickness gradient |gx|_max = nan, |gy|_max = nan
+2026-02-14 16:37:06 - PINNTrainer - INFO -   PDE 残差形式: dp/dt_n = αx(d²p/dx_n² + gx·dp/dx_n) + αy(d²p/dy_n² + gy·dp/dy_n)
+2026-02-14 16:37:06 - PINNTrainer - INFO - ============================================================
+2026-02-14 16:37:06 - PINNTrainer - INFO - PINNTrainer 初始化: device=cuda, lr=0.001, max_steps=500, batch_size=4096, params=416258
+2026-02-14 16:37:06 - PINNTrainer - INFO - ============================================================
+2026-02-14 16:37:06 - PINNTrainer - INFO - M4 PINN 基线训练开始
+2026-02-14 16:37:06 - PINNTrainer - INFO - ============================================================
+2026-02-14 16:37:06 - PINNTrainer - INFO - 训练阶段: A[0-50] B[50-175] C[175-350] D[350-500]
+2026-02-14 16:37:06 - PINNTrainer - INFO - [Step     0/500] Stage A | Loss: 1.8111e+01 (IC=1.000e+00, BC=1.000e+00, PDE=0.000e+00, Data=3.111e+01, sw_phys=0.000e+00) | Sw=[0.2600, 0.2600] | lr=1.10e-05 | 0.5s
+2026-02-14 16:37:15 - PINNTrainer - INFO - [Step   100/500] Stage B | Loss: 1.2144e+01 (IC=1.160e-01, BC=1.639e-02, PDE=1.594e+00, Data=5.423e+00, sw_phys=0.000e+00) | Sw=[0.3726, 0.6354] | lr=1.10e-04 | 8.8s
+2026-02-14 16:37:24 - PINNTrainer - INFO - [Step   200/500] Stage C | Loss: 1.9070e+01 (IC=2.654e-01, BC=9.453e-03, PDE=1.092e-01, Data=3.607e+00, sw_phys=0.000e+00) | Sw=[0.6659, 0.7526] | lr=2.09e-04 | 17.7s
+2026-02-14 16:37:33 - PINNTrainer - INFO - [Step   300/500] Stage C | Loss: 1.8570e+01 (IC=3.227e-01, BC=6.287e-03, PDE=1.275e-01, Data=3.467e+00, sw_phys=0.000e+00) | Sw=[0.6480, 0.7872] | lr=3.08e-04 | 27.2s
+2026-02-14 16:37:43 - PINNTrainer - INFO - [Step   400/500] Stage D | Loss: 1.7928e+01 (IC=4.319e-01, BC=1.110e-01, PDE=3.047e-02, Data=3.459e+00, sw_phys=0.000e+00) | Sw=[0.7896, 0.8385] | lr=4.07e-04 | 37.0s
+2026-02-14 16:37:51 - PINNTrainer - INFO - [Step   499/500] Stage D | Loss: 1.6478e+01 (IC=4.229e-01, BC=2.058e-02, PDE=2.000e-02, Data=3.195e+00, sw_phys=0.000e+00) | Sw=[0.7616, 0.8601] | lr=5.05e-04 | 45.0s
+2026-02-14 16:37:51 - PINNTrainer - INFO - 
+训练完成! 总耗时: 45.0s, 最佳损失: 1.6410e+01
+2026-02-14 16:37:51 - PINNTrainer - INFO - 生成训练曲线图...
+2026-02-14 16:37:51 - PINNTrainer - INFO - 训练曲线图已保存: C:\Users\16281\Desktop\cpedc_project\outputs\mk_pinn_dt_v2\figs\M4_training_history.png
+2026-02-14 16:37:51 - PINNTrainer - INFO - 生成 SY9 压力对比图...
+2026-02-14 16:37:52 - PINNTrainer - INFO - 压力对比图已保存: C:\Users\16281\Desktop\cpedc_project\outputs\mk_pinn_dt_v2\figs\M4_pressure_comparison.png

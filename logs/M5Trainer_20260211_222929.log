@@ -1,0 +1,17 @@
+2026-02-11 22:29:29 - M5Trainer - INFO -   torch.compile 已跳过 (Triton 不支持 Windows, 使用 eager 模式)
+2026-02-11 22:29:29 - M5Trainer - INFO - k_net 学习率: 3.00e-04 (factor=0.3, warmup=2000 steps)
+2026-02-11 22:29:29 - M5Trainer - INFO -   井 SY9: 1025 条同化数据
+2026-02-11 22:29:30 - M5Trainer - INFO -   M3 PVT cg(76.0, 141.39) = 0.009744
+2026-02-11 22:29:30 - M5Trainer - INFO -   M3 PVT Bg(76.0, 141.39) = 0.002577
+2026-02-11 22:29:30 - M5Trainer - INFO -   PDE 缩放: αx=0.029719, αy=0.074361
+2026-02-11 22:29:30 - M5Trainer - INFO - M5Trainer 初始化完成: device=cuda, lr=0.001, max_steps=2000, relobralo=True, rar=True
+2026-02-11 22:29:30 - M5Trainer - INFO - ============================================================
+2026-02-11 22:29:30 - M5Trainer - INFO - M5 PINN 井—藏耦合同化训练开始
+2026-02-11 22:29:30 - M5Trainer - INFO - ============================================================
+2026-02-11 22:29:30 - M5Trainer - INFO - 训练阶段: A[0-300] B[300-800] C[800-1400] D[1400-2000]
+2026-02-11 22:29:30 - M5Trainer - INFO - --- M5 单位/量纲诊断 (train 第 1 步前) ---
+2026-02-11 22:29:30 - M5Trainer - INFO -   qg_obs 范围: 0.00e+00 ~ 8.39e+05 m³/d, 均值: 3.86e+05 m³/d
+2026-02-11 22:29:30 - M5Trainer - INFO -   qg_pred 范围: 1.17e+07 ~ 1.22e+07
+2026-02-11 22:29:30 - M5Trainer - INFO -   p_wf 范围: 4.46e+01 ~ 4.50e+01 MPa
+2026-02-11 22:29:30 - M5Trainer - INFO -   p_field @ well: 5.25e+01 MPa
+2026-02-11 22:29:30 - M5Trainer - INFO -   k_eff = 0.1460 mD, f_frac = 37.00

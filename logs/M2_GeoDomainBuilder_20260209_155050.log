@@ -1,0 +1,44 @@
+2026-02-09 15:50:50 - M2_GeoDomainBuilder - INFO - ================================================================================
+2026-02-09 15:50:50 - M2_GeoDomainBuilder - INFO - M2 地质域构建器初始化完成
+2026-02-09 15:50:50 - M2_GeoDomainBuilder - INFO - ================================================================================
+2026-02-09 15:50:50 - M2_GeoDomainBuilder - INFO - 
+================================================================================
+2026-02-09 15:50:50 - M2_GeoDomainBuilder - INFO - 开始执行 M2 地质域构建流程
+2026-02-09 15:50:50 - M2_GeoDomainBuilder - INFO - ================================================================================
+
+2026-02-09 15:50:50 - M2_GeoDomainBuilder - INFO - 加载了 7 个MK段代表点
+2026-02-09 15:50:50 - M2_GeoDomainBuilder - INFO - 正在创建模型边界...
+2026-02-09 15:50:50 - M2_GeoDomainBuilder - INFO -   使用外扩距离: 1000 m
+2026-02-09 15:50:50 - M2_GeoDomainBuilder - INFO -   边界范围: X=[18537739.5, 18555342.5], Y=[3346176.9, 3357349.5]
+2026-02-09 15:50:50 - M2_GeoDomainBuilder - INFO -   边界面积: 113.06 km²
+2026-02-09 15:50:50 - M2_GeoDomainBuilder - INFO - 正在使用Kriging插值 mk_top_z 曲面...
+2026-02-09 15:50:50 - M2_GeoDomainBuilder - INFO -   Kriging插值成功，网格尺寸: (102, 167)
+2026-02-09 15:50:50 - M2_GeoDomainBuilder - INFO -   曲面数据已保存: geo\surfaces\mk_top_surface.csv
+2026-02-09 15:50:50 - M2_GeoDomainBuilder - INFO - 正在使用Kriging插值 mk_bot_z 曲面...
+2026-02-09 15:50:50 - M2_GeoDomainBuilder - INFO -   Kriging插值成功，网格尺寸: (102, 167)
+2026-02-09 15:50:50 - M2_GeoDomainBuilder - INFO -   曲面数据已保存: geo\surfaces\mk_bot_surface.csv
+2026-02-09 15:50:50 - M2_GeoDomainBuilder - INFO - 正在计算厚度场...
+2026-02-09 15:50:50 - M2_GeoDomainBuilder - INFO -   厚度范围: [88.32, 88.32] m
+2026-02-09 15:50:50 - M2_GeoDomainBuilder - INFO -   平均厚度: 88.32 m
+2026-02-09 15:50:50 - M2_GeoDomainBuilder - INFO -   曲面数据已保存: geo\surfaces\mk_thickness.csv
+2026-02-09 15:50:50 - M2_GeoDomainBuilder - INFO - 正在生成PINN配点网格...
+2026-02-09 15:50:50 - M2_GeoDomainBuilder - INFO -   基础网格分辨率: 200 m
+2026-02-09 15:50:50 - M2_GeoDomainBuilder - INFO -   基础网格点数: 2821
+2026-02-09 15:50:50 - M2_GeoDomainBuilder - INFO -   最终网格点数: 3241 (含井周加密)
+2026-02-09 15:50:50 - M2_GeoDomainBuilder - INFO - 正在生成边界采样点 (n=512)...
+2026-02-09 15:50:50 - M2_GeoDomainBuilder - INFO - 正在进行 mk_top_z 的交叉验证...
+2026-02-09 15:50:50 - M2_GeoDomainBuilder - INFO -   MAE: 36.55 m
+2026-02-09 15:50:50 - M2_GeoDomainBuilder - INFO -   RMSE: 44.24 m
+2026-02-09 15:50:50 - M2_GeoDomainBuilder - INFO - 正在进行 mk_bot_z 的交叉验证...
+2026-02-09 15:50:50 - M2_GeoDomainBuilder - INFO -   MAE: 32.27 m
+2026-02-09 15:50:50 - M2_GeoDomainBuilder - INFO -   RMSE: 40.48 m
+2026-02-09 15:50:50 - M2_GeoDomainBuilder - INFO - 正在生成可视化图件...
+2026-02-09 15:50:50 - M2_GeoDomainBuilder - INFO -   图件已保存: outputs\M2_geological_domain.png
+2026-02-09 15:50:51 - M2_GeoDomainBuilder - INFO -   配点网格图已保存: outputs\M2_collocation_grid.png
+2026-02-09 15:50:51 - M2_GeoDomainBuilder - INFO - 正在生成M2报告...
+2026-02-09 15:50:51 - M2_GeoDomainBuilder - INFO - 报告已保存: reports\M2_geological_domain_report.md
+2026-02-09 15:50:51 - M2_GeoDomainBuilder - INFO - 
+================================================================================
+2026-02-09 15:50:51 - M2_GeoDomainBuilder - INFO - ✅ M2 地质域构建流程执行完成！
+2026-02-09 15:50:51 - M2_GeoDomainBuilder - INFO - ================================================================================
+

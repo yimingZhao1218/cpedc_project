@@ -1,0 +1,25 @@
+2026-02-16 17:17:51 - M5Trainer - INFO -   torch.compile 宸茶烦杩?(Triton 涓嶆敮鎸?Windows, 浣跨敤 eager 妯″紡)
+2026-02-16 17:17:51 - M5Trainer - INFO - k_frac 鐙珛鍙傛暟缁? lr=1.00e-02 (factor=10.0)
+2026-02-16 17:17:52 - M5Trainer - INFO - k_net 瀛︿範鐜? 1.00e-04 (factor=0.1, warmup=2000 steps)
+2026-02-16 17:17:52 - M5Trainer - INFO -   井 SY9: 1027 条同化数据
+2026-02-16 17:17:52 - M5Trainer - INFO -   M3 PVT cg(76.0, 140.32) = 0.009744
+2026-02-16 17:17:52 - M5Trainer - INFO -   M3 PVT Bg(76.0, 140.32) = 0.002577
+2026-02-16 17:17:52 - M5Trainer - INFO -   PDE 缂╂斁: 伪x=0.029719, 伪y=0.074361
+2026-02-16 17:17:52 - M5Trainer - INFO - M5Trainer 鍒濆鍖栧畬鎴? device=cpu, lr=0.001, max_steps=1, relobralo=False, rar=False
+2026-02-16 17:17:52 - M5Trainer - INFO - ============================================================
+2026-02-16 17:17:52 - M5Trainer - INFO - M5 PINN 井-藏耦合同化训练开始
+2026-02-16 17:17:52 - M5Trainer - INFO - ============================================================
+2026-02-16 17:17:52 - M5Trainer - INFO - 璁粌闃舵: A[0-0] B[0-0] C[0-0] D[0-1]
+2026-02-16 17:17:52 - M5Trainer - INFO - --- M5 鍗曚綅/閲忕翰璇婃柇 (train 绗?1 姝ュ墠) ---
+2026-02-16 17:17:52 - M5Trainer - INFO -   qg_obs 鑼冨洿: 0.00e+00 ~ 8.39e+05 m鲁/d, 鍧囧€? 3.85e+05 m鲁/d
+2026-02-16 17:17:52 - M5Trainer - INFO -   qg_pred 鑼冨洿: 1.20e+07 ~ 1.20e+07
+2026-02-16 17:17:52 - M5Trainer - INFO -   p_wf 鑼冨洿: 5.35e+01 ~ 5.35e+01 MPa
+2026-02-16 17:17:52 - M5Trainer - INFO -   p_field @ well: 7.50e+01 MPa
+2026-02-16 17:17:52 - M5Trainer - INFO -   k_frac = 5.4020 mD
+2026-02-16 17:17:52 - M5Trainer - INFO -   WI_raw = 4.309845e-13 [妫€鏌ュ崟浣峕
+2026-02-16 17:17:52 - M5Trainer - INFO -   dp_wellbore = 12.00 MPa
+2026-02-16 17:17:52 - M5Trainer - INFO -   Bg_ref = 2.576898e-03
+2026-02-16 17:17:52 - M5Trainer - INFO -   qg_obs range = [0.00e+00, 8.39e+05] m3/d
+2026-02-16 17:17:52 - M5Trainer - INFO -   ✓ PDE 源项使用 qg_obs(t) 时变插值，而非常数中位数源项
+2026-02-16 17:17:52 - M5Trainer - INFO - --- 璇婃柇缁撴潫 ---
+2026-02-16 17:17:52 - M5Trainer - INFO -   [shape] SY9: qg pred=(1027, 1) vs obs=(1027, 1), p_wf pred=(1027, 1) vs p_obs=(1027, 1)

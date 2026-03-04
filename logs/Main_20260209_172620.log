@@ -1,0 +1,12 @@
+2026-02-09 17:26:33 - Main - ERROR - 执行失败: [Errno 2] No such file or directory: 'outputs/default/reports\\M1_validation_report.md'
+Traceback (most recent call last):
+  File "C:\Users\16281\Desktop\cpedc_project\src\main.py", line 109, in main
+    m1_success = m1_validator.run()
+                 ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\16281\Desktop\cpedc_project\src\validate_m1.py", line 332, in run
+    report_path = self.generate_report()
+                  ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\16281\Desktop\cpedc_project\src\validate_m1.py", line 315, in generate_report
+    with open(report_path, 'w', encoding='utf-8') as f:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'outputs/default/reports\\M1_validation_report.md'

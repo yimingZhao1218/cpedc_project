@@ -1,0 +1,16 @@
+2026-02-18 22:59:57 - Main - INFO - 使用 --max-steps=5000
+2026-02-18 22:59:57 - Main - INFO - 使用 --device=cpu
+2026-02-18 22:59:58 - Main - INFO - M6: 运行消融实验套件...
+2026-02-18 22:59:58 - Main - INFO -   提示: 完整 M6 请使用独立脚本 (run_m6_multi_well.py 等)
+2026-02-18 23:00:00 - Main - INFO - M6 训练设备: cpu
+2026-02-18 23:00:00 - Main - INFO - 
+  消融: pure_ml
+2026-02-18 23:37:35 - Main - INFO - 
+  消融: pinn_const_k
+2026-02-19 12:09:51 - Main - INFO - 
+  消融: pinn_knet
+2026-02-19 14:10:59 - Main - INFO - 
+消融结果摘要:
+2026-02-19 14:10:59 - Main - INFO -   pure_ml: qg_loss=1.9007e-01
+2026-02-19 14:10:59 - Main - INFO -   pinn_const_k: qg_loss=1.6988e-01
+2026-02-19 14:10:59 - Main - INFO -   pinn_knet: qg_loss=1.9758e-01

@@ -1,0 +1,23 @@
+2026-03-03 15:33:58 - Ablation - INFO - ============================================================
+2026-03-03 15:33:58 - Ablation - INFO - M6 消融实验套件
+2026-03-03 15:33:58 - Ablation - INFO - ============================================================
+2026-03-03 15:33:58 - Ablation - INFO - 跳过 pure_ml (已有缓存: RMSE=89314)
+2026-03-03 15:33:59 - Ablation - INFO - 跳过 pinn_const_k (已有缓存: RMSE=82595)
+2026-03-03 15:33:59 - Ablation - INFO - 跳过 pinn_base (已有缓存: RMSE=93021)
+2026-03-03 15:33:59 - Ablation - INFO - 跳过 pinn_full (已有缓存: RMSE=79971)
+2026-03-03 15:33:59 - Ablation - INFO - 跳过 pinn_no_fourier (已有缓存: RMSE=92411)
+2026-03-03 15:33:59 - Ablation - INFO - 跳过 pinn_no_rar (已有缓存: RMSE=79971)
+2026-03-03 15:33:59 - Ablation - INFO - 消融对比图已保存: C:\Users\Administrator\Desktop\cpedc_project\outputs\mk_pinn_dt_v2\figs\M6_ablation_qg_comparison.png
+2026-03-03 15:33:59 - Ablation - INFO - 消融指标对比图已保存: C:\Users\Administrator\Desktop\cpedc_project\outputs\mk_pinn_dt_v2\figs\M6_ablation_metrics_comparison.png
+2026-03-03 15:34:00 - Ablation - INFO - 损失收敛对比图已保存: C:\Users\Administrator\Desktop\cpedc_project\outputs\mk_pinn_dt_v2\figs\M6_ablation_loss_convergence.png
+2026-03-03 15:34:00 - Ablation - INFO - 消融报告已保存: C:\Users\Administrator\Desktop\cpedc_project\outputs\mk_pinn_dt_v2\reports\M6_ablation_report.md
+2026-03-03 15:34:00 - Ablation - INFO - 
+============================================================
+2026-03-03 15:34:00 - Ablation - INFO - 消融实验摘要
+2026-03-03 15:34:00 - Ablation - INFO - ============================================================
+2026-03-03 15:34:00 - Ablation - INFO -   pure_ml        : RMSE=   89314, MAPE=  24.7%, Test_MAPE=   1.9%
+2026-03-03 15:34:00 - Ablation - INFO -   pinn_const_k   : RMSE=   82595, MAPE=  23.0%, Test_MAPE=   1.5%
+2026-03-03 15:34:00 - Ablation - INFO -   pinn_base      : RMSE=   93021, MAPE=  27.1%, Test_MAPE=   2.7%
+2026-03-03 15:34:00 - Ablation - INFO -   pinn_full      : RMSE=   79971, MAPE=  20.8%, Test_MAPE=   1.6%
+2026-03-03 15:34:00 - Ablation - INFO -   pinn_no_fourier: RMSE=   92411, MAPE=  26.9%, Test_MAPE=   2.2%
+2026-03-03 15:34:00 - Ablation - INFO -   pinn_no_rar    : RMSE=   79971, MAPE=  20.8%, Test_MAPE=   1.6%

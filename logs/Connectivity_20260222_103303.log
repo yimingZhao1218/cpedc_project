@@ -1,0 +1,10 @@
+2026-02-22 10:33:03 - Connectivity - INFO -   SYX211: 附表3无效, 用附表8补充 k=0.037 mD (气水同层)
+2026-02-22 10:33:03 - Connectivity - INFO -   SY9: 基质k=0.2331 mD → PINN反演k_frac=7.84 mD (裂缝增强)
+2026-02-22 10:33:03 - Connectivity - INFO - 各井渗透率(mD): SY101=0.0584, SY102=0.0122, SY116=0.0215, SY13=0.0444, SY201=0.0904, SY9=7.8422, SYX211=0.0370
+2026-02-22 10:33:03 - Connectivity - INFO - ConnectivityAnalyzer 初始化: 7 口井, 网格 80×80, 实测k约束 7 口
+2026-02-22 10:33:03 - Connectivity - INFO - IDW渗透率场构建完成: 7个控制点 (SY9, SY13, SY201, SY101, SY102, SY116, SYX211), k范围 [0.0122, 7.80] mD
+2026-02-22 10:33:03 - Connectivity - INFO - 连通性矩阵计算完成: 7×7
+2026-02-22 10:33:03 - Connectivity - INFO - k 场热力图已保存: c:\Users\16281\Desktop\cpedc_project\outputs\mk_pinn_dt_v2\figs\M6_k_field_channels.png
+2026-02-22 10:33:04 - Connectivity - INFO - 连通性热力图已保存: c:\Users\16281\Desktop\cpedc_project\outputs\mk_pinn_dt_v2\figs\M6_connectivity_matrix.png
+2026-02-22 10:33:04 - Connectivity - INFO - Sw 演化图已保存: c:\Users\16281\Desktop\cpedc_project\outputs\mk_pinn_dt_v2\figs\M6_sw_evolution.png
+2026-02-22 10:33:04 - Connectivity - INFO - 连通性分析完成!

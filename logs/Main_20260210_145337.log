@@ -1,0 +1,5 @@
+2026-02-10 14:53:40 - Main - INFO - M5 训练设备: cuda
+2026-02-10 14:53:40 - Main - INFO - M5 主井: SY9
+2026-02-10 14:53:40 - Main - INFO -   M5 参数量: {'field_net': 416258, 'well_model': 1156, 'k_net': 15297, 'dp_wellbore': 1, 'total': 432712}
+2026-02-10 18:28:11 - Main - INFO -   反演 k_eff: 4.9976 mD
+2026-02-10 18:28:11 - Main - INFO -   反演 f_frac: 9.37

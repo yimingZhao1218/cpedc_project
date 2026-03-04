@@ -1,0 +1,15 @@
+2026-02-19 13:47:30 - AssimilationLoss - INFO - AssimilationLoss v2 初始化: p_init=76.0 MPa, sw_init=0.26, monotonic=True, smooth_pwf=True
+2026-02-19 13:47:33 - AssimilationLoss - INFO -   [loss_qg] v16 分段加权: 低(<5万)=2, 中(5~20万)=1.5, 高=6; w_smape=0.7, w_log1p=0.3, w_mse_high=0.15, w_bias_high=0.2, n_producing=954, n_high_abs=697
+2026-02-19 13:47:33 - AssimilationLoss - INFO -   [loss_whp] p_wf_pred=(1025, 1), whp_obs=(1025, 1), delta=(1025, 1)
+2026-02-19 14:24:36 - AssimilationLoss - INFO - AssimilationLoss v2 初始化: p_init=76.0 MPa, sw_init=0.26, monotonic=True, smooth_pwf=True
+2026-02-19 14:24:36 - AssimilationLoss - INFO -   [loss_qg] v16 分段加权: 低(<5万)=2, 中(5~20万)=1.5, 高=6; w_smape=0.7, w_log1p=0.3, w_mse_high=0.15, w_bias_high=0.2, n_producing=954, n_high_abs=697
+2026-02-19 14:24:36 - AssimilationLoss - INFO -   [loss_whp] p_wf_pred=(1025, 1), whp_obs=(1025, 1), delta=(1025, 1)
+2026-02-19 15:27:17 - AssimilationLoss - INFO - AssimilationLoss v2 初始化: p_init=76.0 MPa, sw_init=0.26, monotonic=True, smooth_pwf=True
+2026-02-19 15:27:17 - AssimilationLoss - INFO -   [loss_qg] v16 分段加权: 低(<5万)=2, 中(5~20万)=1.5, 高=6; w_smape=0.7, w_log1p=0.3, w_mse_high=0.15, w_bias_high=0.2, n_producing=954, n_high_abs=697
+2026-02-19 15:27:17 - AssimilationLoss - INFO -   [loss_whp] p_wf_pred=(1025, 1), whp_obs=(1025, 1), delta=(1025, 1)
+2026-02-19 16:43:50 - AssimilationLoss - INFO - AssimilationLoss v2 初始化: p_init=76.0 MPa, sw_init=0.26, monotonic=True, smooth_pwf=True
+2026-02-19 16:43:50 - AssimilationLoss - INFO -   [loss_qg] v16 分段加权: 低(<5万)=2, 中(5~20万)=1.5, 高=6; w_smape=0.7, w_log1p=0.3, w_mse_high=0.15, w_bias_high=0.2, n_producing=954, n_high_abs=697
+2026-02-19 16:43:50 - AssimilationLoss - INFO -   [loss_whp] p_wf_pred=(1025, 1), whp_obs=(1025, 1), delta=(1025, 1)
+2026-02-19 18:00:24 - AssimilationLoss - INFO - AssimilationLoss v2 初始化: p_init=76.0 MPa, sw_init=0.26, monotonic=True, smooth_pwf=True
+2026-02-19 18:00:24 - AssimilationLoss - INFO -   [loss_qg] v16 分段加权: 低(<5万)=2, 中(5~20万)=1.5, 高=6; w_smape=0.7, w_log1p=0.3, w_mse_high=0.15, w_bias_high=0.2, n_producing=954, n_high_abs=697
+2026-02-19 18:00:24 - AssimilationLoss - INFO -   [loss_whp] p_wf_pred=(1025, 1), whp_obs=(1025, 1), delta=(1025, 1)

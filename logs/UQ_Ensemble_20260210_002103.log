@@ -1,0 +1,16 @@
+2026-02-10 00:21:03 - UQ_Ensemble - INFO - ============================================================
+2026-02-10 00:21:03 - UQ_Ensemble - INFO - M6 UQ Ensemble 运行 (N=5, seed=20260209)
+2026-02-10 00:21:03 - UQ_Ensemble - INFO - ============================================================
+2026-02-10 00:34:26 - UQ_Ensemble - INFO - 
+UQ Ensemble 完成! 总耗时: 799.9s
+2026-02-10 00:34:27 - UQ_Ensemble - INFO - UQ 报告: C:\Users\16281\Desktop\cpedc_project\outputs\mk_pinn_dt_v2\reports\M6_uq_report.md
+2026-02-10 00:34:27 - UQ_Ensemble - INFO - 
+反演参数 UQ 摘要:
+2026-02-10 00:34:27 - UQ_Ensemble - INFO -   k_eff: P10=4.923, P50=4.925, P90=4.937 mD
+2026-02-10 00:34:27 - UQ_Ensemble - INFO -   f_frac: P10=9.9, P50=9.9, P90=9.9
+2026-02-10 00:34:27 - UQ_Ensemble - INFO - 
+输出文件:
+2026-02-10 00:34:27 - UQ_Ensemble - INFO -   - C:\Users\16281\Desktop\cpedc_project\outputs\mk_pinn_dt_v2\figs/M6_uq_qg_p10p50p90.png
+2026-02-10 00:34:27 - UQ_Ensemble - INFO -   - C:\Users\16281\Desktop\cpedc_project\outputs\mk_pinn_dt_v2\figs/M6_uq_pwf_p10p50p90.png
+2026-02-10 00:34:27 - UQ_Ensemble - INFO -   - C:\Users\16281\Desktop\cpedc_project\outputs\mk_pinn_dt_v2\figs/M6_uq_param_distribution.png
+2026-02-10 00:34:27 - UQ_Ensemble - INFO -   - C:\Users\16281\Desktop\cpedc_project\outputs\mk_pinn_dt_v2\reports\M6_uq_report.md

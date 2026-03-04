@@ -1,0 +1,7 @@
+2026-02-16 17:45:12 - M5Trainer - INFO -   torch.compile 宸茶烦杩?(Triton 涓嶆敮鎸?Windows, 浣跨敤 eager 妯″紡)
+2026-02-16 17:45:12 - M5Trainer - INFO - k_frac 鐙珛鍙傛暟缁? lr=1.00e-02 (factor=10.0)
+2026-02-16 17:45:13 - M5Trainer - INFO - k_net 瀛︿範鐜? 1.00e-04 (factor=0.1, warmup=2000 steps)
+2026-02-16 17:45:13 - M5Trainer - INFO -   井 SY9: 1027 条同化数据
+2026-02-16 17:45:13 - M5Trainer - INFO -   PDE 缂╂斁: 伪x=0.022275, 伪y=0.055736
+2026-02-16 17:45:13 - M5Trainer - INFO - M5Trainer 鍒濆鍖栧畬鎴? device=cuda, lr=0.001, max_steps=5000, relobralo=True, rar=True
+2026-02-16 17:45:13 - M5Trainer - INFO - 已加载 M5 检查点: C:\Users\16281\Desktop\cpedc_project\outputs/mk_pinn_dt_v2/ckpt\m5_pinn_best.pt

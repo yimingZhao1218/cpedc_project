@@ -1,0 +1,22 @@
+2026-02-09 16:55:17 - Main - ERROR - 执行失败: All arrays must be of the same length
+Traceback (most recent call last):
+  File "C:\Users\16281\Desktop\cpedc_project\src\main.py", line 131, in main
+    m2_results = builder.run()
+                 ^^^^^^^^^^^^^
+  File "C:\Users\16281\Desktop\cpedc_project\src\m2_geo_builder.py", line 895, in run
+    self.save_surface(XI, YI, Z_bot, 'mk_bot_surface')
+  File "C:\Users\16281\Desktop\cpedc_project\src\m2_geo_builder.py", line 382, in save_surface
+    df = pd.DataFrame({
+         ^^^^^^^^^^^^^^
+  File "C:\Users\16281\Desktop\cpedc_project\.venv\Lib\site-packages\pandas\core\frame.py", line 769, in __init__
+    mgr = dict_to_mgr(data, index, columns, dtype=dtype, copy=copy)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\16281\Desktop\cpedc_project\.venv\Lib\site-packages\pandas\core\internals\construction.py", line 447, in dict_to_mgr
+    return arrays_to_mgr(arrays, columns, index, dtype=dtype, consolidate=copy)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\16281\Desktop\cpedc_project\.venv\Lib\site-packages\pandas\core\internals\construction.py", line 112, in arrays_to_mgr
+    index = _extract_index(arrays)
+            ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\16281\Desktop\cpedc_project\.venv\Lib\site-packages\pandas\core\internals\construction.py", line 620, in _extract_index
+    raise ValueError("All arrays must be of the same length")
+ValueError: All arrays must be of the same length

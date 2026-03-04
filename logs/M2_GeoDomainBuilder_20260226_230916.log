@@ -1,0 +1,68 @@
+2026-02-26 23:09:16 - M2_GeoDomainBuilder - INFO - 配置文件: C:\Users\16281\Desktop\cpedc_project\config.yaml
+2026-02-26 23:09:16 - M2_GeoDomainBuilder - INFO - ================================================================================
+2026-02-26 23:09:16 - M2_GeoDomainBuilder - INFO - M2 地质域构建器初始化完成
+2026-02-26 23:09:16 - M2_GeoDomainBuilder - INFO - ================================================================================
+2026-02-26 23:09:16 - M2_GeoDomainBuilder - INFO - 
+================================================================================
+2026-02-26 23:09:16 - M2_GeoDomainBuilder - INFO - 开始执行 M2 地质域构建流程
+2026-02-26 23:09:16 - M2_GeoDomainBuilder - INFO - ================================================================================
+
+2026-02-26 23:09:16 - M2_GeoDomainBuilder - INFO - 加载了 7 个MK段代表点
+2026-02-26 23:09:16 - M2_GeoDomainBuilder - INFO - 正在创建模型边界...
+2026-02-26 23:09:16 - M2_GeoDomainBuilder - INFO -   使用外扩距离: 1000 m
+2026-02-26 23:09:16 - M2_GeoDomainBuilder - INFO -   边界范围: X=[18537717.9, 18555433.2], Y=[3346142.4, 3357349.6]
+2026-02-26 23:09:16 - M2_GeoDomainBuilder - INFO -   边界面积: 113.59 km²
+2026-02-26 23:09:16 - M2_GeoDomainBuilder - INFO - 正在生成统一网格（分辨率=100m）...
+2026-02-26 23:09:16 - M2_GeoDomainBuilder - INFO -   网格尺寸: (123, 188), 边界内点数: 11356/23124 (49.1%)
+2026-02-26 23:09:16 - M2_GeoDomainBuilder - INFO - 正在对比Variogram模型 (spherical/exponential/gaussian)...
+2026-02-26 23:09:16 - M2_GeoDomainBuilder - INFO -   gaussian      avg_MAE=26.72 m ★
+2026-02-26 23:09:16 - M2_GeoDomainBuilder - INFO -   spherical     avg_MAE=30.31 m
+2026-02-26 23:09:16 - M2_GeoDomainBuilder - INFO -   exponential   avg_MAE=33.58 m
+2026-02-26 23:09:16 - M2_GeoDomainBuilder - INFO -   → 自动选用: gaussian
+2026-02-26 23:09:16 - M2_GeoDomainBuilder - INFO - 顶面插值使用顶界交点坐标...
+2026-02-26 23:09:16 - M2_GeoDomainBuilder - INFO - 正在使用Kriging插值 mk_top_z 曲面（基于x_top,y_top）...
+2026-02-26 23:09:16 - M2_GeoDomainBuilder - INFO -   使用 7 个有效点进行插值
+2026-02-26 23:09:16 - M2_GeoDomainBuilder - INFO -   Variogram参数: sill=1401.89, range=12636m, nugget=70.0947
+2026-02-26 23:09:16 - M2_GeoDomainBuilder - INFO -   Kriging插值成功，网格尺寸: (123, 188), 方差范围: [105.7413, 1694.3133]
+2026-02-26 23:09:16 - M2_GeoDomainBuilder - INFO -   曲面数据已保存: C:\Users\16281\Desktop\cpedc_project\geo\surfaces\mk_top_surface.csv
+2026-02-26 23:09:16 - M2_GeoDomainBuilder - INFO -   方差数据已保存（z字段为sqrt(variance)）: C:\Users\16281\Desktop\cpedc_project\geo\surfaces\mk_top_surface_variance.csv
+2026-02-26 23:09:16 - M2_GeoDomainBuilder - INFO - 底面插值使用底界交点坐标...
+2026-02-26 23:09:16 - M2_GeoDomainBuilder - INFO - 在给定网格上插值 mk_bot_z（基于x_bot,y_bot）...
+2026-02-26 23:09:16 - M2_GeoDomainBuilder - INFO -   使用 7 个有效点
+2026-02-26 23:09:16 - M2_GeoDomainBuilder - INFO -   Variogram参数: sill=1201.59, range=12508m, nugget=60.0797
+2026-02-26 23:09:16 - M2_GeoDomainBuilder - INFO -   插值成功，网格尺寸: (123, 188), 方差范围: [90.6962, 1460.0324]
+2026-02-26 23:09:16 - M2_GeoDomainBuilder - INFO -   曲面数据已保存: C:\Users\16281\Desktop\cpedc_project\geo\surfaces\mk_bot_surface.csv
+2026-02-26 23:09:16 - M2_GeoDomainBuilder - INFO -   方差数据已保存（z字段为sqrt(variance)）: C:\Users\16281\Desktop\cpedc_project\geo\surfaces\mk_bot_surface_variance.csv
+2026-02-26 23:09:16 - M2_GeoDomainBuilder - INFO - 正在计算厚度场...
+2026-02-26 23:09:16 - M2_GeoDomainBuilder - INFO -   厚度范围: [nan, nan] m
+2026-02-26 23:09:16 - M2_GeoDomainBuilder - INFO -   平均厚度: nan m
+2026-02-26 23:09:16 - M2_GeoDomainBuilder - INFO -   曲面数据已保存: C:\Users\16281\Desktop\cpedc_project\geo\surfaces\mk_thickness.csv
+2026-02-26 23:09:16 - M2_GeoDomainBuilder - INFO - 正在验证井点厚度一致性...
+2026-02-26 23:09:17 - M2_GeoDomainBuilder - INFO -   验证井数: 7, 插值成功: 7
+2026-02-26 23:09:17 - M2_GeoDomainBuilder - INFO -   MAE_h: 0.98 m, RMSE_h: 1.22 m
+2026-02-26 23:09:17 - M2_GeoDomainBuilder - INFO -   逐井厚度验证结果已保存: C:\Users\16281\Desktop\cpedc_project\geo\surfaces\well_thickness_validation.csv
+2026-02-26 23:09:17 - M2_GeoDomainBuilder - INFO - 正在生成PINN配点网格...
+2026-02-26 23:09:17 - M2_GeoDomainBuilder - INFO -   基础网格分辨率: 200 m
+2026-02-26 23:09:17 - M2_GeoDomainBuilder - INFO -   基础网格点数: 2839
+2026-02-26 23:09:17 - M2_GeoDomainBuilder - INFO -   最终网格点数: 3259 (含井周加密)
+2026-02-26 23:09:17 - M2_GeoDomainBuilder - INFO - 正在生成边界采样点 (n=512)...
+2026-02-26 23:09:17 - M2_GeoDomainBuilder - INFO - 正在进行 mk_top_z 的交叉验证（基于x_top,y_top）...
+2026-02-26 23:09:17 - M2_GeoDomainBuilder - INFO -   使用 7 个有效点进行交叉验证
+2026-02-26 23:09:17 - M2_GeoDomainBuilder - INFO -   MAE: 28.01 m
+2026-02-26 23:09:17 - M2_GeoDomainBuilder - INFO -   RMSE: 30.01 m
+2026-02-26 23:09:17 - M2_GeoDomainBuilder - INFO - 正在进行 mk_bot_z 的交叉验证（基于x_bot,y_bot）...
+2026-02-26 23:09:17 - M2_GeoDomainBuilder - INFO -   使用 7 个有效点进行交叉验证
+2026-02-26 23:09:17 - M2_GeoDomainBuilder - INFO -   MAE: 27.55 m
+2026-02-26 23:09:17 - M2_GeoDomainBuilder - INFO -   RMSE: 29.21 m
+2026-02-26 23:09:17 - M2_GeoDomainBuilder - INFO - 正在生成可视化图件...
+2026-02-26 23:09:18 - M2_GeoDomainBuilder - INFO -   图件已保存: C:\Users\16281\Desktop\cpedc_project\outputs\mk_pinn_dt_v2\figs\M2_geological_domain.png
+2026-02-26 23:09:18 - M2_GeoDomainBuilder - INFO -   配点网格图已保存: C:\Users\16281\Desktop\cpedc_project\outputs\mk_pinn_dt_v2\figs\M2_collocation_grid.png
+2026-02-26 23:09:18 - M2_GeoDomainBuilder - INFO - 正在生成Kriging不确定性热图...
+2026-02-26 23:09:19 - M2_GeoDomainBuilder - INFO -   不确定性热图已保存: C:\Users\16281\Desktop\cpedc_project\outputs\mk_pinn_dt_v2\figs\M2_uncertainty_maps.png
+2026-02-26 23:09:19 - M2_GeoDomainBuilder - INFO - 正在生成M2报告...
+2026-02-26 23:09:19 - M2_GeoDomainBuilder - INFO - 报告已保存: C:\Users\16281\Desktop\cpedc_project\outputs\mk_pinn_dt_v2\reports\M2_geological_domain_report.md
+2026-02-26 23:09:19 - M2_GeoDomainBuilder - INFO - 
+================================================================================
+2026-02-26 23:09:19 - M2_GeoDomainBuilder - INFO - ✅ M2 地质域构建流程执行完成！
+2026-02-26 23:09:19 - M2_GeoDomainBuilder - INFO - ================================================================================
+

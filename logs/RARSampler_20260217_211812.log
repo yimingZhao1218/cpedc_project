@@ -1,0 +1,10 @@
+2026-02-17 21:18:12 - RARSampler - INFO - RARSampler: enable=True, interval=500, n_candidates=5000, n_add=200, max_total=8000
+2026-02-17 21:19:13 - RARSampler - INFO - [RAR step 500] 加入 200 个高残差点, 总 RAR 点数: 200, 残差统计: mean=6.5183e+02, max=1.0546e+05, median=1.4093e+02
+2026-02-17 21:20:16 - RARSampler - INFO - [RAR step 1000] 加入 200 个高残差点, 总 RAR 点数: 400, 残差统计: mean=1.5342e+03, max=1.9172e+05, median=1.0380e+02
+2026-02-17 21:21:19 - RARSampler - INFO - [RAR step 1500] 加入 200 个高残差点, 总 RAR 点数: 600, 残差统计: mean=3.6520e+03, max=5.9255e+05, median=1.5558e+02
+2026-02-17 21:22:24 - RARSampler - INFO - [RAR step 2000] 加入 200 个高残差点, 总 RAR 点数: 800, 残差统计: mean=1.0460e+03, max=1.1952e+05, median=2.1639e+02
+2026-02-17 21:23:30 - RARSampler - INFO - [RAR step 2500] 加入 200 个高残差点, 总 RAR 点数: 1000, 残差统计: mean=1.3224e+03, max=3.2048e+05, median=1.6673e+02
+2026-02-17 21:24:38 - RARSampler - INFO - [RAR step 3000] 加入 200 个高残差点, 总 RAR 点数: 1200, 残差统计: mean=9.5299e+02, max=1.7192e+05, median=1.4472e+02
+2026-02-17 21:25:48 - RARSampler - INFO - [RAR step 3500] 加入 200 个高残差点, 总 RAR 点数: 1400, 残差统计: mean=9.6116e+02, max=9.1611e+04, median=1.4176e+02
+2026-02-17 21:26:59 - RARSampler - INFO - [RAR step 4000] 加入 200 个高残差点, 总 RAR 点数: 1600, 残差统计: mean=1.4723e+03, max=1.6060e+06, median=1.4187e+02
+2026-02-17 21:28:11 - RARSampler - INFO - [RAR step 4500] 加入 200 个高残差点, 总 RAR 点数: 1800, 残差统计: mean=1.5061e+03, max=1.3081e+06, median=1.4560e+02

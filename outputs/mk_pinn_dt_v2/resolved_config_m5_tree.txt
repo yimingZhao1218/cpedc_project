@@ -1,0 +1,867 @@
+resolved_config_m5.json
+
+|-- meta
+|   |-- project
+|   |   = 'CPEDC16-Innovation-PINN-MK'
+|   |-- experiment_name
+|   |   = 'mk_pinn_dt_v2'
+|   |-- version
+|   |   = '2.0.0'
+|   |-- description
+|   |   = '边水-缝洞-强非均质气藏PINN数字孪生：产能/压力/含水耦合预测 + 物理约束反演 + 消融验证'
+|   |-- author
+|   |   = 'anonymous'
+|   |-- created_at
+|   |   = '2026-02-09'
+|   +-- notes
+|       |-- '配置目标：可复现、可审计、可落地训练/评估/消融'
+|       +-- '禁止在关键几何量（层顶/层底界、构造面）定位中使用不可审计的黑箱插值；需记录插值方法与误差'
+|-- reproducibility
+|   |-- seed
+|   |   = 20260209
+|   |-- deterministic
+|   |   = True
+|   +-- cudnn_benchmark
+|       = False
+|-- runtime
+|   |-- device
+|   |   = 'cuda'
+|   |-- mixed_precision
+|   |   = True
+|   +-- num_workers
+|       = 4
+|-- project
+|   |-- name
+|   |   = 'CPEDC_PINN_DigitalTwin'
+|   |-- baseline
+|   |   = 'B层标准'
+|   |-- digital_twin
+|   |   = True
+|   +-- pinn
+|       = True
+|-- paths
+|   |-- raw_data
+|   |   = 'C:\\Users\\16281\\Desktop\\cpedc_project\\data\\raw'
+|   |-- staged_data
+|   |   = 'C:\\Users\\16281\\Desktop\\cpedc_project\\data\\staged'
+|   |-- clean_data
+|   |   = 'C:\\Users\\16281\\Desktop\\cpedc_project\\data\\clean'
+|   |-- geo_data
+|   |   = 'C:\\Users\\16281\\Desktop\\cpedc_project\\geo'
+|   |-- outputs
+|   |   = 'C:\\Users\\16281\\Desktop\\cpedc_project\\outputs\\mk_pinn_dt_v2'
+|   |-- checkpoints
+|   |   = 'C:\\Users\\16281\\Desktop\\cpedc_project\\outputs\\mk_pinn_dt_v2\\ckpt'
+|   |-- logs
+|   |   = 'C:\\Users\\16281\\Desktop\\cpedc_project\\outputs\\mk_pinn_dt_v2\\logs'
+|   |-- reports
+|   |   = 'C:\\Users\\16281\\Desktop\\cpedc_project\\outputs\\mk_pinn_dt_v2\\re...
+|   |-- figures
+|   |   = 'C:\\Users\\16281\\Desktop\\cpedc_project\\outputs\\mk_pinn_dt_v2\\figs'
+|   +-- exports
+|       = 'C:\\Users\\16281\\Desktop\\cpedc_project\\outputs\\mk_pinn_dt_v2\\ex...
+|-- coordinate_system
+|   |-- datum
+|   |   = 'MSL'
+|   |-- z_convention
+|   |   = 'up_positive'
+|   |-- units
+|   |   = 'm'
+|   |-- gas_water_contact
+|   |   |-- value
+|   |   |   = -4385.0
+|   |   |-- unit
+|   |   |   = 'm'
+|   |   +-- meaning
+|   |       = '气水界面标高（用于边水/含水演化约束）'
+|   +-- audit
+|       |-- save_transform_matrix
+|       |   = True
+|       +-- save_wellhead_reference
+|           = True
+|-- mk_formation
+|   |-- name
+|   |   = 'MK组'
+|   |-- pressure_gradient_MPa_per_100m
+|   |   = 0.27
+|   |-- temp_gradient_C_per_100m
+|   |   = 2.69
+|   |-- avg_pressure_MPa
+|   |   |-- value
+|   |   |   = 76.0
+|   |   |-- trainable
+|   |   |   = True
+|   |   |-- bounds
+|   |   |   |-- 15.0
+|   |   |   +-- 90.0
+|   |   +-- meaning
+|   |       = '中部压力/初始压力先验（可反演）'
+|   |-- dp_wellbore_MPa
+|   |   |-- value
+|   |   |   = 18.0
+|   |   |-- trainable
+|   |   |   = True
+|   |   |-- bounds
+|   |   |   |-- 5.0
+|   |   |   +-- 35.0
+|   |   +-- meaning
+|   |       = '井筒压差（可学习，随产量变化）'
+|   |-- avg_temperature_C
+|   |   |-- value
+|   |   |   = 140.32
+|   |   |-- trainable
+|   |   |   = False
+|   |   +-- meaning
+|   |       = '储层温度先验（与PVT实测温度一致, 附表5: 140.32°C）'
+|   |-- reservoir_type
+|   |   |-- 'carbonate'
+|   |   |-- 'fracture-vuggy'
+|   |   +-- 'strong_heterogeneity'
+|   +-- sour_gas
+|       |-- enable
+|       |   = True
+|       |-- components
+|       |   |-- h2s
+|       |   |   = 'from_data_if_available'
+|       |   +-- co2
+|       |       = 'from_data_if_available'
+|       +-- hse_note
+|           = '含硫含酸气：需考虑腐蚀/安全约束，参数用于敏感性分析与工程护栏'
+|-- data
+|   |-- mode
+|   |   = 'single_well'
+|   |-- primary_well
+|   |   = 'SY9'
+|   |-- wells
+|   |   |-- 'SY9'
+|   |   |-- 'SY13'
+|   |   |-- 'SY201'
+|   |   |-- 'SY101'
+|   |   |-- 'SY102'
+|   |   |-- 'SY116'
+|   |   +-- 'SYX211'
+|   |-- sources
+|   |   |-- well_location_csv
+|   |   |   = 'data/raw/附表1-井位数据.csv'
+|   |   |-- layer_csv
+|   |   |   = 'data/raw/附表4-分层数据.csv'
+|   |   |-- log_interp_csv
+|   |   |   = 'data/raw/附表8-测井解释成果表.csv'
+|   |   |-- test_oil_gas_csv
+|   |   |   = 'data/raw/附表9-试油试采数据.csv'
+|   |   |-- production_daily_csv
+|   |   |   = 'data/raw/附表10-SY9单井日生产数据.csv'
+|   |   |-- deviation_csv_map
+|   |   |   |-- SY9
+|   |   |   |   = 'data/raw/附表2-井斜数据__SY9.csv'
+|   |   |   |-- SY13
+|   |   |   |   = 'data/raw/附表2-井斜数据__SY13.csv'
+|   |   |   |-- SY201
+|   |   |   |   = 'data/raw/附表2-井斜数据__SY201.csv'
+|   |   |   |-- SY101
+|   |   |   |   = 'data/raw/附表2-井斜数据__SY101.csv'
+|   |   |   |-- SY102
+|   |   |   |   = 'data/raw/附表2-井斜数据__SY102.csv'
+|   |   |   |-- SY116
+|   |   |   |   = 'data/raw/附表2-井斜数据__SY116.csv'
+|   |   |   +-- SYX211
+|   |   |       = 'data/raw/附表2-井斜数据__SYX211.csv'
+|   |   |-- pvt
+|   |   |   |-- gas_comp_csv
+|   |   |   |   = 'data/raw/附表5-PVT数据__1井流物组成.csv'
+|   |   |   |-- c_g_csv
+|   |   |   |   = 'data/raw/附表5-PVT数据__3不同温度下的压缩系数.csv'
+|   |   |   |-- bg_csv
+|   |   |   |   = 'data/raw/附表5-PVT数据__4不同温度下的体积系数.csv'
+|   |   |   |-- alphaT_csv
+|   |   |   |   = 'data/raw/附表5-PVT数据__5不同温度下的热膨胀系数.csv'
+|   |   |   |-- density_csv
+|   |   |   |   = 'data/raw/附表5-PVT数据__6不同温度下的密度模拟计算.csv'
+|   |   |   +-- cce_csv
+|   |   |       = 'data/raw/附表5-PVT数据__2油藏流体恒质膨胀数据表.csv'
+|   |   +-- relperm_csv
+|   |       = 'data/raw/附表7-相对渗透率数据表.csv'
+|   |-- columns
+|   |   |-- time
+|   |   |   = 'date'
+|   |   |-- qg
+|   |   |   = 'qg'
+|   |   |-- qw
+|   |   |   = 'qw'
+|   |   |-- whp
+|   |   |   = 'whp'
+|   |   |-- wht
+|   |   |   = 'wht'
+|   |   |-- choke
+|   |   |   = 'choke'
+|   |   |-- bhp
+|   |   |   = None
+|   |   |-- phi
+|   |   |   = 'PHI'
+|   |   |-- perm
+|   |   |   = 'K'
+|   |   |-- h2s
+|   |   |   = 'H2S'
+|   |   +-- co2
+|   |       = 'CO2'
+|   |-- preprocessing
+|   |   |-- time_unit
+|   |   |   = 'day'
+|   |   |-- t0_date
+|   |   |   = None
+|   |   |-- missing
+|   |   |   |-- strategy
+|   |   |   |   = 'interpolate_then_ffill'
+|   |   |   |-- max_gap_days
+|   |   |   |   = 7
+|   |   |   +-- audit_save_mask
+|   |   |       = True
+|   |   |-- outlier
+|   |   |   |-- enable
+|   |   |   |   = True
+|   |   |   |-- method
+|   |   |   |   = 'hampel'
+|   |   |   |-- window
+|   |   |   |   = 7
+|   |   |   |-- n_sigma
+|   |   |   |   = 3.0
+|   |   |   +-- audit_save_flags
+|   |   |       = True
+|   |   |-- scaling
+|   |   |   |-- method
+|   |   |   |   = 'zscore'
+|   |   |   |-- fit_on
+|   |   |   |   = 'train'
+|   |   |   +-- eps
+|   |   |       = 1e-12
+|   |   +-- stratigraphy_alignment
+|   |       |-- enable
+|   |       |   = True
+|   |       |-- method
+|   |       |   = 'piecewise_linear_with_bounds'
+|   |       |-- enforce_monotone_depth
+|   |       |   = True
+|   |       +-- save_alignment_report
+|   |           = True
+|   +-- split
+|       |-- method
+|       |   = 'time_based'
+|       |-- train_ratio
+|       |   = 0.7
+|       |-- val_ratio
+|       |   = 0.15
+|       |-- test_ratio
+|       |   = 0.15
+|       +-- shuffle
+|           = False
+|-- m1_config
+|   |-- quality_thresholds
+|   |   |-- coord_outlier_factor
+|   |   |   = 3.0
+|   |   |-- pressure_min_MPa
+|   |   |   = 0.0
+|   |   |-- pressure_max_MPa
+|   |   |   = 100.0
+|   |   |-- temp_min_C
+|   |   |   = 0.0
+|   |   |-- temp_max_C
+|   |   |   = 200.0
+|   |   |-- thickness_min_m
+|   |   |   = 0.1
+|   |   +-- production_nonnegative
+|   |       = True
+|   +-- audit
+|       |-- save_cleaning_report
+|       |   = True
+|       +-- save_before_after_samples
+|           = True
+|-- m2_config
+|   |-- boundary_buffer_distances_m
+|   |   |-- 500
+|   |   |-- 1000
+|   |   +-- 1500
+|   |-- default_buffer_m
+|   |   = 1000
+|   |-- grid
+|   |   |-- min_resolution_m
+|   |   |   = 50
+|   |   |-- max_resolution_m
+|   |   |   = 200
+|   |   +-- well_radius_factor
+|   |       = 10
+|   |-- well_refinement
+|   |   |-- radius_m
+|   |   |   = 300
+|   |   +-- density_factor
+|   |       = 3
+|   |-- boundary_samples
+|   |   = 512
+|   +-- kriging
+|       |-- variogram_model
+|       |   = 'spherical'
+|       |-- nlags
+|       |   = 6
+|       |-- enable_crossval
+|       |   = True
+|       |-- max_acceptable_error_m
+|       |   = 60.0
+|       +-- audit
+|           |-- save_cv_metrics
+|           |   = True
+|           +-- save_variogram_fit
+|               = True
+|-- m3_config
+|   |-- pvt
+|   |   |-- temperatures_C
+|   |   |   |-- 16.5
+|   |   |   |-- 46.5
+|   |   |   |-- 78.0
+|   |   |   |-- 109.0
+|   |   |   +-- 140.32
+|   |   |-- pressure_unit
+|   |   |   = 'MPa'
+|   |   |-- interpolation_method
+|   |   |   = 'pchip'
+|   |   |-- temperature_interp
+|   |   |   = 'linear'
+|   |   |-- unit_factors
+|   |   |   |-- cg
+|   |   |   |   = 0.01
+|   |   |   |-- bg
+|   |   |   |   = 0.001
+|   |   |   |-- rho
+|   |   |   |   = 1000.0
+|   |   |   +-- alphaT
+|   |   |       = 0.01
+|   |   +-- clamp_out_of_range
+|   |       = True
+|   +-- relperm
+|       |-- sw_is_percent
+|       |   = True
+|       |-- enforce_endpoints
+|       |   = True
+|       |-- enforce_monotone
+|       |   = True
+|       |-- enforce_nonneg
+|       |   = True
+|       +-- interpolation_method
+|           = 'pchip'
+|-- m4_config
+|   |-- formulation
+|   |   = '2.5D'
+|   |-- variables
+|   |   |-- input
+|   |   |   |-- 'x'
+|   |   |   |-- 'y'
+|   |   |   +-- 't'
+|   |   +-- output
+|   |       |-- 'p'
+|   |       +-- 'Sw'
+|   |-- sampling
+|   |   |-- n_domain
+|   |   |   = 4096
+|   |   |-- n_boundary
+|   |   |   = 512
+|   |   |-- n_initial
+|   |   |   = 512
+|   |   |-- time_distribution
+|   |   |   = 'adaptive'
+|   |   |-- time_beta_a
+|   |   |   = 1.5
+|   |   |-- time_beta_b
+|   |   |   = 3.0
+|   |   +-- near_well_ratio
+|   |       = 0.3
+|   |-- training_stages
+|   |   |-- stage_a
+|   |   |   |-- fraction
+|   |   |   |   = 0.15
+|   |   |   +-- weights
+|   |   |       |-- ic
+|   |   |       |   = 10.0
+|   |   |       |-- bc
+|   |   |       |   = 5.0
+|   |   |       |-- pde
+|   |   |       |   = 0.0
+|   |   |       |-- data
+|   |   |       |   = 0.0
+|   |   |       +-- sw_phys
+|   |   |           = 0.0
+|   |   |-- stage_b
+|   |   |   |-- fraction
+|   |   |   |   = 0.25
+|   |   |   |-- weights_start
+|   |   |   |   |-- ic
+|   |   |   |   |   = 5.0
+|   |   |   |   |-- bc
+|   |   |   |   |   = 3.0
+|   |   |   |   |-- pde
+|   |   |   |   |   = 0.001
+|   |   |   |   |-- data
+|   |   |   |   |   = 0.0
+|   |   |   |   +-- sw_phys
+|   |   |   |       = 0.5
+|   |   |   +-- weights_end
+|   |   |       |-- ic
+|   |   |       |   = 5.0
+|   |   |       |-- bc
+|   |   |       |   = 3.0
+|   |   |       |-- pde
+|   |   |       |   = 0.1
+|   |   |       |-- data
+|   |   |       |   = 0.5
+|   |   |       +-- sw_phys
+|   |   |           = 1.0
+|   |   |-- stage_c
+|   |   |   |-- fraction
+|   |   |   |   = 0.3
+|   |   |   |-- weights_start
+|   |   |   |   |-- ic
+|   |   |   |   |   = 3.0
+|   |   |   |   |-- bc
+|   |   |   |   |   = 2.0
+|   |   |   |   |-- pde
+|   |   |   |   |   = 0.1
+|   |   |   |   |-- data
+|   |   |   |   |   = 1.0
+|   |   |   |   +-- sw_phys
+|   |   |   |       = 1.5
+|   |   |   +-- weights_end
+|   |   |       |-- ic
+|   |   |       |   = 3.0
+|   |   |       |-- bc
+|   |   |       |   = 2.0
+|   |   |       |-- pde
+|   |   |       |   = 0.5
+|   |   |       |-- data
+|   |   |       |   = 3.0
+|   |   |       +-- sw_phys
+|   |   |           = 2.0
+|   |   +-- stage_d
+|   |       |-- fraction
+|   |       |   = 0.3
+|   |       +-- weights
+|   |           |-- ic
+|   |           |   = 1.0
+|   |           |-- bc
+|   |           |   = 1.0
+|   |           |-- pde
+|   |           |   = 1.0
+|   |           |-- data
+|   |           |   = 5.0
+|   |           +-- sw_phys
+|   |               = 2.0
+|   +-- acceptance
+|       |-- pressure_mape_threshold
+|       |   = 30.0
+|       +-- sw_must_be_bounded
+|           = True
+|-- io
+|   |-- inputs
+|   |   |-- 't'
+|   |   +-- 'choke'
+|   |-- outputs
+|   |   |-- 'qg_hat'
+|   |   |-- 'pwf_hat'
+|   |   +-- 'sw_hat'
+|   +-- supervised_targets
+|       |-- enable
+|       |   = True
+|       +-- targets
+|           |-- qg
+|           |   = 'qg'
+|           |-- qw
+|           |   = 'qw'
+|           +-- whp
+|               = 'whp'
+|-- physics
+|   |-- enable
+|   |   = True
+|   |-- formulation
+|   |   = 'hybrid'
+|   |-- priors
+|   |   |-- p_init_MPa
+|   |   |   +-- from
+|   |   |       = 'mk_formation.avg_pressure_MPa'
+|   |   |-- k_eff_mD
+|   |   |   |-- value
+|   |   |   |   = 0.146
+|   |   |   |-- trainable
+|   |   |   |   = True
+|   |   |   |-- bounds
+|   |   |   |   |-- 0.001
+|   |   |   |   +-- 100.0
+|   |   |   |-- range
+|   |   |   |   |-- 0.01
+|   |   |   |   +-- 1.0
+|   |   |   +-- meaning
+|   |   |       = 'MK基质渗透率先验(厚度加权几何均值0.0488mD×3尺度修正=0.146mD)'
+|   |   |-- k_alt_mD
+|   |   |   |-- value
+|   |   |   |   = 3.24
+|   |   |   +-- meaning
+|   |   |       = '附表7绝对渗透率（3.20×10⁻³ μm² 换算）'
+|   |   |-- phi
+|   |   |   |-- value
+|   |   |   |   = 0.0216
+|   |   |   +-- meaning
+|   |   |       = '孔隙度（附表7相渗实验条件, 2.16%）'
+|   |   |-- mu_ref_mPa_s
+|   |   |   |-- value
+|   |   |   |   = 0.035
+|   |   |   |-- range
+|   |   |   |   |-- 0.02
+|   |   |   |   +-- 0.06
+|   |   |   +-- meaning
+|   |   |       = 'Lee-Gonzalez-Eakin关联式估算(γg=0.577,ρ=0.271g/cm³,T=140.32°C,p=75.7MPa)→...
+|   |   |-- cg_ref_1_per_MPa
+|   |   |   |-- value
+|   |   |   |   = 0.013
+|   |   |   |-- range
+|   |   |   |   |-- 0.008
+|   |   |   |   +-- 0.02
+|   |   |   +-- meaning
+|   |   |       = '参考压缩系数先验（可被M3 PVT在p_ref,T_ref查询覆盖）'
+|   |   |-- c_r_1_per_MPa
+|   |   |   |-- value
+|   |   |   |   = 0.0
+|   |   |   +-- meaning
+|   |   |       = '岩石压缩系数（目前无数据, 置0）'
+|   |   +-- frac_conductivity_factor
+|   |       |-- value
+|   |       |   = 37.0
+|   |       |-- trainable
+|   |       |   = True
+|   |       |-- bounds
+|   |       |   |-- 1.0
+|   |       |   +-- 1000.0
+|   |       +-- meaning
+|   |           = '裂缝增效因子(试油反推f=31.5~41.6, 中值37; k_m×f=0.146×37=5.4mD)'
+|   |-- pde
+|   |   |-- time_unit
+|   |   |   = 's'
+|   |   +-- domain
+|   |       |-- x_min_m
+|   |       |   = 18537917.902
+|   |       |-- x_max_m
+|   |       |   = 18555317.902
+|   |       |-- y_min_m
+|   |       |   = 3346340.36
+|   |       |-- y_max_m
+|   |       |   = 3357340.36
+|   |       +-- t_max_d
+|   |           = 1331
+|   +-- constraints
+|       |-- monotonic_qg_vs_pwf
+|       |   |-- enable
+|       |   |   = True
+|       |   +-- weight
+|       |       = 1.0
+|       |-- smooth_pwf_time
+|       |   |-- enable
+|       |   |   = True
+|       |   +-- weight
+|       |       = 0.2
+|       |-- sw_bounds
+|       |   |-- enable
+|       |   |   = True
+|       |   +-- weight
+|       |       = 0.5
+|       |-- material_balance_residual
+|       |   |-- enable
+|       |   |   = True
+|       |   +-- weight
+|       |       = 1.0
+|       +-- relperm_shape
+|           |-- enable
+|           |   = True
+|           +-- weight
+|               = 0.3
+|-- model
+|   |-- type
+|   |   = 'pinn_mlp'
+|   |-- architecture
+|   |   |-- hidden_layers
+|   |   |   |-- 256
+|   |   |   |-- 256
+|   |   |   |-- 256
+|   |   |   |-- 256
+|   |   |   |-- 256
+|   |   |   +-- 256
+|   |   |-- activation
+|   |   |   = 'tanh'
+|   |   |-- dropout
+|   |   |   = 0.0
+|   |   |-- use_layernorm
+|   |   |   = True
+|   |   |-- use_fourier
+|   |   |   = True
+|   |   |-- fourier_n_freq
+|   |   |   = 32
+|   |   |-- fourier_sigma
+|   |   |   = 1.0
+|   |   |-- use_residual
+|   |   |   = True
+|   |   +-- use_k_net
+|   |       = True
+|   +-- parameterization
+|       |-- trainable_priors
+|       |   = True
+|       +-- positivity_constraints
+|           |-- k_eff_mD
+|           |   = 'softplus'
+|           +-- frac_conductivity_factor
+|               = 'softplus'
+|-- loss
+|   |-- supervised
+|   |   |-- enable
+|   |   |   = True
+|   |   +-- weights
+|   |       |-- qg
+|   |       |   = 1.0
+|   |       |-- qw
+|   |       |   = 0.7
+|   |       +-- whp
+|   |           = 0.3
+|   |-- physics
+|   |   |-- enable
+|   |   |   = True
+|   |   |-- base_weight
+|   |   |   = 1.0
+|   |   +-- curriculum
+|   |       |-- enable
+|   |       |   = True
+|   |       |-- warmup_steps
+|   |       |   = 800
+|   |       +-- target_weight
+|   |           = 3.0
+|   +-- regularization
+|       |-- l2_weight
+|       |   = 1e-06
+|       +-- grad_clip_norm
+|           = 5.0
+|-- train
+|   |-- max_steps
+|   |   = 50000
+|   |-- batch_size
+|   |   = 4096
+|   |-- learning_rate
+|   |   = 0.001
+|   |-- optimizer
+|   |   |-- name
+|   |   |   = 'adamw'
+|   |   +-- weight_decay
+|   |       = 0.0001
+|   |-- scheduler
+|   |   |-- name
+|   |   |   = 'warmup_cosine'
+|   |   |-- warmup_steps
+|   |   |   = 1000
+|   |   +-- min_lr
+|   |       = 1e-06
+|   |-- early_stopping
+|   |   |-- enable
+|   |   |   = True
+|   |   |-- monitor
+|   |   |   = 'val_total_loss'
+|   |   |-- patience
+|   |   |   = 30
+|   |   +-- min_delta
+|   |       = 0.0001
+|   +-- checkpoint
+|       |-- save_best_only
+|       |   = True
+|       +-- monitor
+|           = 'val_total_loss'
+|-- evaluation
+|   |-- metrics
+|   |   |-- 'mae'
+|   |   |-- 'rmse'
+|   |   |-- 'mape'
+|   |   +-- 'r2'
+|   +-- plots
+|       |-- enable
+|       |   = True
+|       +-- items
+|           |-- 'qg_pred_vs_true'
+|           |-- 'pwf_time_series'
+|           |-- 'sw_time_series'
+|           |-- 'residual_terms_breakdown'
+|           +-- 'ablation_comparison'
+|-- ablation
+|   |-- enable
+|   |   = True
+|   |-- min_steps
+|   |   = 20000
+|   +-- experiments
+|       |-- [0]
+|       |   |-- name
+|       |   |   = 'pure_ml'
+|       |   |-- description
+|       |   |   = '纯数据驱动, 无物理约束'
+|       |   +-- overrides
+|       |       |-- physics.enable
+|       |       |   = False
+|       |       |-- loss.physics.enable
+|       |       |   = False
+|       |       +-- loss.physics.base_weight
+|       |           = 0.0
+|       |-- [1]
+|       |   |-- name
+|       |   |   = 'pinn_const_k'
+|       |   |-- description
+|       |   |   = '单相 PDE + 常数 k (无 k_net)'
+|       |   +-- overrides
+|       |       |-- physics.enable
+|       |       |   = True
+|       |       |-- loss.physics.enable
+|       |       |   = True
+|       |       |-- loss.physics.base_weight
+|       |       |   = 1.0
+|       |       +-- model.architecture.use_k_net
+|       |           = False
+|       |-- [2]
+|       |   |-- name
+|       |   |   = 'pinn_knet'
+|       |   |-- description
+|       |   |   = 'PDE + k(x,y) 空间反演'
+|       |   +-- overrides
+|       |       |-- physics.enable
+|       |       |   = True
+|       |       |-- loss.physics.enable
+|       |       |   = True
+|       |       |-- loss.physics.base_weight
+|       |       |   = 2.0
+|       |       +-- model.architecture.use_k_net
+|       |           = True
+|       |-- [3]
+|       |   |-- name
+|       |   |   = 'pinn_full'
+|       |   |-- description
+|       |   |   = '完整模型: PDE + k_net + Fourier + 全约束'
+|       |   +-- overrides
+|       |       |-- physics.enable
+|       |       |   = True
+|       |       |-- loss.physics.enable
+|       |       |   = True
+|       |       |-- loss.physics.base_weight
+|       |       |   = 3.0
+|       |       |-- loss.physics.curriculum.target_weight
+|       |       |   = 3.0
+|       |       |-- model.architecture.use_k_net
+|       |       |   = True
+|       |       +-- model.architecture.use_fourier
+|       |           = True
+|       +-- [4]
+|           |-- name
+|           |   = 'pinn_no_fourier'
+|           |-- description
+|           |   = '完整模型但无 Fourier Features (验证 FF 效果)'
+|           +-- overrides
+|               |-- physics.enable
+|               |   = True
+|               |-- loss.physics.enable
+|               |   = True
+|               |-- loss.physics.base_weight
+|               |   = 3.0
+|               |-- model.architecture.use_k_net
+|               |   = True
+|               +-- model.architecture.use_fourier
+|                   = False
+|-- safety_guardrails
+|   |-- enable
+|   |   = True
+|   |-- limits
+|   |   |-- pwf_hat_MPa
+|   |   |   |-- 0.0
+|   |   |   +-- 90.0
+|   |   |-- qg_hat
+|   |   |   |-- 0.0
+|   |   |   +-- '1.0e9'
+|   |   +-- sw_hat
+|   |       |-- 0.0
+|   |       +-- 1.0
+|   +-- actions
+|       +-- on_violation
+|           = 'clip_and_log'
+|-- output
+|   |-- figure_dpi
+|   |   = 300
+|   |-- figure_format
+|   |   = 'png'
+|   |-- save_intermediate
+|   |   = True
+|   |-- chinese_font
+|   |   = 'SimHei'
+|   |-- save_config_copy
+|   |   = True
+|   |-- export_predictions_csv
+|   |   = True
+|   +-- export_inverse_params_yaml
+|       = True
+|-- m5_config
+|   |-- well_model
+|   |   |-- r_w_m
+|   |   |   = 0.1
+|   |   +-- skin
+|   |       = 0.0
+|   |-- pwf_network
+|   |   +-- hidden
+|   |       |-- 32
+|   |       +-- 32
+|   |-- source_term
+|   |   |-- sigma_norm
+|   |   |   = 0.05
+|   |   +-- cutoff_factor
+|   |       = 3.0
+|   |-- k_net
+|   |   |-- lr_factor
+|   |   |   = 0.3
+|   |   |-- tv_weight
+|   |   |   = 0.01
+|   |   |-- laplacian_weight
+|   |   |   = 0.001
+|   |   +-- warmup_steps
+|   |       = 2000
+|   |-- relobralo
+|   |   |-- enable
+|   |   |   = True
+|   |   |-- temperature
+|   |   |   = 1.0
+|   |   |-- alpha
+|   |   |   = 0.999
+|   |   |-- rho
+|   |   |   = 0.999
+|   |   +-- warmup_steps
+|   |       = 200
+|   +-- rar
+|       |-- enable
+|       |   = True
+|       |-- interval
+|       |   = 500
+|       |-- n_candidates
+|       |   = 5000
+|       |-- n_add
+|       |   = 200
+|       +-- max_total
+|           = 8000
++-- m6_config
+    |-- domain_decomposition
+    |   = 'none'
+    |-- xpinn
+    |   |-- n_subdomains
+    |   |   = 2
+    |   |-- subnet_scale
+    |   |   = 0.75
+    |   +-- interface_weight
+    |       = 10.0
+    |-- apinn
+    |   |-- n_experts
+    |   |   = 3
+    |   +-- gate_hidden
+    |       = 32
+    +-- uq
+        |-- n_ensemble
+        |   = 5
+        +-- base_seed
+            = 20260209

@@ -1,0 +1,17 @@
+2026-02-22 23:48:21 - Main - INFO - M5 训练设备: cuda
+2026-02-22 23:48:21 - Main - INFO - M5 主井: SY9
+2026-02-22 23:48:22 - Main - INFO -   M5 参数量: {'field_net': 416258, 'well_model': 4418, 'k_net': 15297, 'dp_wellbore': 0, 'total': 435973}
+2026-02-22 23:48:23 - Main - ERROR - 执行失败: Expected 5 lr_lambdas, but got 4
+Traceback (most recent call last):
+  File "C:\Users\16281\Desktop\cpedc_project\src\main.py", line 488, in main
+    m5_ok = run_m5(config, logger)
+            ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\16281\Desktop\cpedc_project\src\main.py", line 167, in run_m5
+    trainer = M5Trainer(config, model, sampler, device=device)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\16281\Desktop\cpedc_project\src\pinn\m5_trainer.py", line 266, in __init__
+    self.scheduler = optim.lr_scheduler.LambdaLR(self.optimizer, schedules)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\16281\Desktop\cpedc_project\.venv\Lib\site-packages\torch\optim\lr_scheduler.py", line 317, in __init__
+    raise ValueError(
+ValueError: Expected 5 lr_lambdas, but got 4

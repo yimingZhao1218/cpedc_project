@@ -1,0 +1,12 @@
+2026-02-09 17:24:43 - Main - ERROR - 执行失败: 'radius'
+Traceback (most recent call last):
+  File "C:\Users\16281\Desktop\cpedc_project\src\main.py", line 131, in main
+    m2_results = builder.run()
+                 ^^^^^^^^^^^^^
+  File "C:\Users\16281\Desktop\cpedc_project\src\m2_geo_builder.py", line 977, in run
+    grid_df = self.generate_collocation_grid(polygon, mk_points)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\16281\Desktop\cpedc_project\src\m2_geo_builder.py", line 515, in generate_collocation_grid
+    well_radius = self.config['m2_config']['well_refinement']['radius']
+                  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+KeyError: 'radius'

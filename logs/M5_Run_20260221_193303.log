@@ -1,0 +1,31 @@
+2026-02-21 19:33:04 - M5_Run - INFO - ============================================================
+2026-02-21 19:33:04 - M5_Run - INFO - M5 单井同化训练
+2026-02-21 19:33:04 - M5_Run - INFO - ============================================================
+2026-02-21 19:33:04 - M5_Run - INFO -   主井: SY9
+2026-02-21 19:33:04 - M5_Run - INFO -   设备: cuda
+2026-02-21 19:33:04 - M5_Run - INFO -   训练步数: 10000
+2026-02-21 19:33:04 - M5_Run - INFO - 初始化采样器...
+2026-02-21 19:33:06 - M5_Run - INFO - 初始化 M5 网络...
+2026-02-21 19:33:06 - M5_Run - INFO -   参数量: {'field_net': 416258, 'well_model': 4418, 'k_net': 15297, 'dp_wellbore': 0, 'total': 435973}
+2026-02-21 19:33:06 - M5_Run - INFO - 初始化 M5 训练器...
+2026-02-21 19:33:08 - M5_Run - INFO - 开始 M5 训练...
+2026-02-21 20:30:48 - M5_Run - INFO - M5 训练完成! 耗时: 3460.6s
+2026-02-21 20:30:48 - M5_Run - INFO - 生成 M5 验收报告 (auto: best vs final 择优)...
+2026-02-21 20:30:58 - M5_Run - INFO - ============================================================
+2026-02-21 20:30:58 - M5_Run - INFO - M5 训练结果摘要
+2026-02-21 20:30:58 - M5_Run - INFO - ============================================================
+2026-02-21 20:30:58 - M5_Run - INFO -   反演 k_eff: 2.4795 mD
+2026-02-21 20:30:58 - M5_Run - INFO -   反演 f_frac: N/A
+2026-02-21 20:30:58 - M5_Run - INFO -   反演 dp_wellbore: 13.30 MPa
+2026-02-21 20:30:58 - M5_Run - INFO -   最终总损失: 6.143322e+02
+2026-02-21 20:30:58 - M5_Run - INFO -   最终 PDE 损失: 2.924506e+05
+2026-02-21 20:30:58 - M5_Run - INFO -   最终 qg 损失: 2.166168e-01
+2026-02-21 20:30:58 - M5_Run - INFO - ============================================================
+2026-02-21 20:30:58 - M5_Run - INFO - 
+输出文件:
+2026-02-21 20:30:58 - M5_Run - INFO -   - C:\Users\16281\Desktop\cpedc_project\outputs\mk_pinn_dt_v2\figs/M5_qg_comparison_*.png
+2026-02-21 20:30:58 - M5_Run - INFO -   - C:\Users\16281\Desktop\cpedc_project\outputs\mk_pinn_dt_v2\figs/M5_pwf_inversion_*.png
+2026-02-21 20:30:58 - M5_Run - INFO -   - C:\Users\16281\Desktop\cpedc_project\outputs\mk_pinn_dt_v2\figs/M5_training_history.png
+2026-02-21 20:30:58 - M5_Run - INFO -   - C:\Users\16281\Desktop\cpedc_project\outputs\mk_pinn_dt_v2\figs/M5_pde_residual_map.png
+2026-02-21 20:30:58 - M5_Run - INFO -   - C:\Users\16281\Desktop\cpedc_project\outputs\mk_pinn_dt_v2\reports/M5_validation_report.md
+2026-02-21 20:30:58 - M5_Run - INFO -   - C:\Users\16281\Desktop\cpedc_project\outputs\mk_pinn_dt_v2\reports/M5_inversion_params.json

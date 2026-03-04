@@ -1,0 +1,29 @@
+<component name="InspectionProjectProfileManager">
+  <profile version="1.0">
+    <option name="myName" value="Project Default" />
+    <inspection_tool class="PyPackageRequirementsInspection" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="ignoredPackages">
+        <list>
+          <option value="numpy" />
+          <option value="pandas" />
+          <option value="openpyxl" />
+          <option value="pyyaml" />
+          <option value="torch" />
+          <option value="matplotlib" />
+          <option value="plotly" />
+          <option value="streamlit" />
+          <option value="torchvision" />
+          <option value="xlrd" />
+          <option value="optuna" />
+        </list>
+      </option>
+    </inspection_tool>
+    <inspection_tool class="PyStubPackagesAdvertiser" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="ignoredPackages">
+        <list>
+          <option value="pandas" />
+        </list>
+      </option>
+    </inspection_tool>
+  </profile>
+</component>

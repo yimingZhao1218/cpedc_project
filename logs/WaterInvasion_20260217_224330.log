@@ -1,0 +1,6 @@
+2026-02-17 22:43:30 - WaterInvasion - INFO - WaterInvasionAnalyzer 初始化完成
+2026-02-17 22:43:31 - WaterInvasion - INFO - 水侵预警仪表盘已保存: C:\Users\16281\Desktop\cpedc_project\outputs\mk_pinn_dt_v2\figs\M7_water_invasion_dashboard.png
+2026-02-17 22:43:32 - WaterInvasion - INFO - 制度优化对比图已保存: C:\Users\16281\Desktop\cpedc_project\outputs\mk_pinn_dt_v2\figs\M7_strategy_comparison.png
+2026-02-17 22:43:32 - WaterInvasion - WARNING - 策略间 Gp 无预期排序！稳产=652.8 M, 阶梯=260.7 M, 控压=652.8 M
+2026-02-17 22:43:32 - WaterInvasion - WARNING - 检查 p_wf 扰动幅度或 Sw 演化模型
+2026-02-17 22:43:32 - WaterInvasion - INFO - 水侵预警报告已保存: C:\Users\16281\Desktop\cpedc_project\outputs\mk_pinn_dt_v2\reports\M7_water_invasion_report.md

@@ -1,0 +1,5 @@
+2026-02-09 20:19:47 - RelPermValidator - INFO - 相渗验收全部通过!
+2026-02-09 20:19:47 - RelPermValidator - INFO - 生成气水相渗曲线图...
+2026-02-09 20:19:48 - RelPermValidator - INFO - 相渗曲线图已保存: C:\Users\16281\Desktop\cpedc_project\outputs\mk_pinn_dt_v2\M3_relperm_curves.png
+2026-02-09 20:19:48 - RelPermValidator - INFO - 相渗验收全部通过!
+2026-02-09 20:19:48 - RelPermValidator - INFO - 相渗验收报告已保存: C:\Users\16281\Desktop\cpedc_project\outputs\mk_pinn_dt_v2\reports\M3_relperm_report.md

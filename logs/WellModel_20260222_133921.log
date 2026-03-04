@@ -1,0 +1,5 @@
+2026-02-22 13:39:22 - WellModel - INFO - WellModel v3 初始化: 1 口井 ['SY9'], k_frac=6.96 mD, wi_factor=已删除, PVT=TorchPVT
+2026-02-22 15:41:02 - WellModel - INFO - WellModel v3 初始化: 1 口井 ['SY9'], k_frac=5.87 mD, wi_factor=已删除, PVT=TorchPVT
+2026-02-22 17:40:51 - WellModel - INFO - WellModel v3 初始化: 1 口井 ['SY9'], k_frac=11.58 mD, wi_factor=已删除, PVT=TorchPVT
+2026-02-22 19:36:47 - WellModel - INFO - WellModel v3 初始化: 1 口井 ['SY9'], k_frac=6.68 mD, wi_factor=已删除, PVT=TorchPVT
+2026-02-22 21:31:49 - WellModel - INFO - WellModel v3 初始化: 1 口井 ['SY9'], k_frac=7.89 mD, wi_factor=已删除, PVT=TorchPVT

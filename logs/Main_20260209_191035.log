@@ -1,0 +1,10 @@
+2026-02-09 19:10:40 - Main - INFO - M4 PINN 训练设备: cuda
+2026-02-09 19:10:40 - Main - ERROR - 执行失败: 'torch._C._CudaDeviceProperties' object has no attribute 'total_mem'
+Traceback (most recent call last):
+  File "C:\Users\16281\Desktop\cpedc_project\src\main.py", line 267, in main
+    m4_ok = run_m4(config, logger)
+            ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\16281\Desktop\cpedc_project\src\main.py", line 92, in run_m4
+    gpu_mem = torch.cuda.get_device_properties(0).total_mem / 1024**3
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'torch._C._CudaDeviceProperties' object has no attribute 'total_mem'. Did you mean: 'total_memory'?

@@ -1,0 +1,63 @@
+2026-02-10 13:15:52 - Main - INFO - 构建 PVT 插值器...
+2026-02-10 13:15:52 - Main - INFO - 构建相渗插值器...
+2026-02-10 13:15:52 - Main - INFO - 功能测试: 查询 p=50 MPa, T=120 ℃
+2026-02-10 13:15:52 - Main - INFO -   Z = 1.18037
+2026-02-10 13:15:52 - Main - INFO -   Bg = 0.0031967
+2026-02-10 13:15:52 - Main - INFO -   cg = 0.0135004
+2026-02-10 13:15:52 - Main - INFO -   rho = 218.688
+2026-02-10 13:15:52 - Main - INFO -   alphaT = 0.002077
+2026-02-10 13:15:52 - Main - INFO - 功能测试: 查询 Sw=0.5
+2026-02-10 13:15:52 - Main - INFO -   krw(0.5) = 0.028500, krg(0.5) = 0.441160
+2026-02-10 13:15:52 - Main - INFO -   端点: Swr=0.2600, Sgr=0.0620, krw_max=0.4800, krg_max=0.6750
+2026-02-10 13:15:56 - Main - INFO - M4 PINN 训练设备: cuda
+2026-02-10 13:15:56 - Main - INFO -   GPU: NVIDIA GeForce RTX 5060 Laptop GPU (8.0 GB)
+2026-02-10 13:15:56 - Main - INFO - 初始化采样器...
+2026-02-10 13:15:57 - Main - INFO - 初始化网络...
+2026-02-10 13:15:57 - Main - INFO -   模型参数量: 416,258
+2026-02-10 13:15:57 - Main - INFO - 初始化损失函数...
+2026-02-10 13:15:57 - Main - INFO - 初始化训练器...
+2026-02-10 13:15:58 - Main - INFO - 开始分阶段训练...
+2026-02-10 14:50:00 - Main - INFO - M4 PINN 基线训练完成!
+2026-02-10 14:50:01 - Main - INFO - M5 训练设备: cuda
+2026-02-10 14:50:01 - Main - INFO - M5 主井: SY9
+2026-02-10 14:50:02 - Main - INFO -   M5 参数量: {'field_net': 416258, 'well_model': 1156, 'k_net': 15297, 'dp_wellbore': 1, 'total': 432712}
+2026-02-10 14:50:04 - Main - ERROR - 执行失败: Cannot find a working triton installation. Either the package is not installed or it is too old. More information on installing Triton can be found at: https://github.com/triton-lang/triton
+
+Set TORCHDYNAMO_VERBOSE=1 for the internal stack trace (please do this especially if you're reporting a bug to PyTorch). For even more developer context, set TORCH_LOGS="+dynamo"
+Traceback (most recent call last):
+  File "c:\Users\16281\Desktop\cpedc_project\src\main.py", line 411, in main
+    m5_ok = run_m5(config, logger)
+            ^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\16281\Desktop\cpedc_project\src\main.py", line 154, in run_m5
+    history = trainer.train()
+              ^^^^^^^^^^^^^^^
+  File "c:\Users\16281\Desktop\cpedc_project\src\pinn\m5_trainer.py", line 578, in train
+    loss_dict = self._train_step(step, weights)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\16281\Desktop\cpedc_project\src\pinn\m5_trainer.py", line 447, in _train_step
+    losses = self.loss_fn.total_loss(
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\16281\Desktop\cpedc_project\src\pinn\assimilation_losses.py", line 667, in total_loss
+    losses['ic'] = self.loss_ic(model, batch['x_ic'])
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\16281\Desktop\cpedc_project\src\pinn\assimilation_losses.py", line 214, in loss_ic
+    p_pred, sw_pred = model(x_ic)
+                      ^^^^^^^^^^^
+  File "C:\Users\16281\Desktop\cpedc_project\.venv\Lib\site-packages\torch\_dynamo\eval_frame.py", line 414, in __call__
+    return super().__call__(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\16281\Desktop\cpedc_project\.venv\Lib\site-packages\torch\nn\modules\module.py", line 1775, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\16281\Desktop\cpedc_project\.venv\Lib\site-packages\torch\nn\modules\module.py", line 1786, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\16281\Desktop\cpedc_project\.venv\Lib\site-packages\torch\_dynamo\eval_frame.py", line 845, in compile_wrapper
+    raise e.remove_dynamo_frames() from None  # see TORCHDYNAMO_VERBOSE=1
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\16281\Desktop\cpedc_project\.venv\Lib\site-packages\torch\_inductor\scheduler.py", line 4590, in create_backend
+    raise TritonMissing(inspect.currentframe())
+torch._inductor.exc.TritonMissing: Cannot find a working triton installation. Either the package is not installed or it is too old. More information on installing Triton can be found at: https://github.com/triton-lang/triton
+
+Set TORCHDYNAMO_VERBOSE=1 for the internal stack trace (please do this especially if you're reporting a bug to PyTorch). For even more developer context, set TORCH_LOGS="+dynamo"
+

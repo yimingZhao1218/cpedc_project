@@ -1,0 +1,5 @@
+2026-02-20 23:21:51 - PVTValidator - INFO - PVT 验收全部通过!
+2026-02-20 23:21:51 - PVTValidator - INFO - 生成 PVT 曲线图...
+2026-02-20 23:21:52 - PVTValidator - INFO - PVT 曲线图已保存: C:\Users\16281\Desktop\cpedc_project\outputs\mk_pinn_dt_v2\figs\M3_pvt_curves.png
+2026-02-20 23:21:52 - PVTValidator - INFO - PVT 验收全部通过!
+2026-02-20 23:21:52 - PVTValidator - INFO - PVT 验收报告已保存: C:\Users\16281\Desktop\cpedc_project\outputs\mk_pinn_dt_v2\reports\M3_pvt_report.md

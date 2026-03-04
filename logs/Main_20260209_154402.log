@@ -1,0 +1,17 @@
+2026-02-09 15:44:02 - Main - ERROR - 执行失败: No objects to concatenate
+Traceback (most recent call last):
+  File "C:\Users\16281\Desktop\cpedc_project\src\main.py", line 104, in main
+    m1_results = processor.run()
+                 ^^^^^^^^^^^^^^^
+  File "C:\Users\16281\Desktop\cpedc_project\src\m1_data_processor.py", line 548, in run
+    wellpaths = self.process_all_wellpaths(wells_df)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\16281\Desktop\cpedc_project\src\m1_data_processor.py", line 268, in process_all_wellpaths
+    wellpaths = pd.concat(all_paths, ignore_index=True)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\16281\Desktop\cpedc_project\.venv\Lib\site-packages\pandas\core\reshape\concat.py", line 407, in concat
+    objs, keys, ndims = _clean_keys_and_objs(objs, keys)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\16281\Desktop\cpedc_project\.venv\Lib\site-packages\pandas\core\reshape\concat.py", line 808, in _clean_keys_and_objs
+    raise ValueError("No objects to concatenate")
+ValueError: No objects to concatenate

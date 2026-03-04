@@ -1,0 +1,8 @@
+2026-02-16 18:59:51 - M5Trainer - INFO -   torch.compile 已跳过 (Triton 不支持 Windows, 使用 eager 模式)
+2026-02-16 18:59:51 - M5Trainer - INFO - k_frac 独立参数组: lr=1.00e-02 (factor=10.0)
+2026-02-16 18:59:52 - M5Trainer - INFO - k_net 学习率: 1.00e-04 (factor=0.1, warmup=2000 steps)
+2026-02-16 18:59:52 - M5Trainer - INFO -   井 SY9: 1027 条同化数据
+2026-02-16 18:59:52 - M5Trainer - INFO -   PDE 缩放: αx=0.022275, αy=0.055736
+2026-02-16 18:59:52 - M5Trainer - INFO - M5Trainer 初始化完成: device=cuda, lr=0.001, max_steps=50000, relobralo=True, rar=True
+2026-02-16 18:59:52 - M5Trainer - INFO -   history 已恢复 (7577 步)
+2026-02-16 18:59:52 - M5Trainer - INFO - 已加载 M5 检查点: C:\Users\16281\Desktop\cpedc_project\outputs\mk_pinn_dt_v2\ckpt\m5_pinn_best.pt

@@ -1,0 +1,7 @@
+2026-02-17 00:31:31 - PINNSampler - INFO -   生产数据时间范围: 0 ~ 1331 天, 共 1332 条记录
+2026-02-17 00:31:32 - PINNSampler - INFO -   厚度场: h ∈ [82.7, 93.9] m, mean=89.6 m, nan_ratio=0.5089, 网格=23124 点
+2026-02-17 00:31:32 - PINNSampler - INFO -   配点处: h ∈ [82.7, 93.9] m, |gx|_max=0.3074, |gy|_max=0.4088
+2026-02-17 00:31:32 - PINNSampler - INFO - PINNSampler 初始化完成: x=[18537918, 18555318], y=[3346342, 3357342], t=[0, 1331] days, 域内点=3259, 边界点=69
+2026-02-17 00:31:32 - PINNSampler - INFO -   SY9 压力观测: total_points=1332, valid_points=1025, nan_ratio=0.2305
+2026-02-17 00:31:32 - PINNSampler - INFO -   最长缺失段: 2015-11-04 ~ 2016-09-01, length_days=303
+2026-02-17 00:31:32 - PINNSampler - INFO -   井 SY9: 1027 条有效数据, p=[nan, nan] MPa

@@ -1,0 +1,37 @@
+2026-02-14 14:07:50 - M1_DataProcessor - INFO - 📂 成功定位配置文件: C:\Users\16281\Desktop\cpedc_project\config.yaml
+2026-02-14 14:07:50 - M1_DataProcessor - INFO - ================================================================================
+2026-02-14 14:07:50 - M1_DataProcessor - INFO - M1 数据处理器初始化完成
+2026-02-14 14:07:50 - M1_DataProcessor - INFO - ================================================================================
+2026-02-14 14:07:50 - M1_DataProcessor - INFO - 
+================================================================================
+2026-02-14 14:07:50 - M1_DataProcessor - INFO - 开始执行 M1 数据处理流程
+2026-02-14 14:07:50 - M1_DataProcessor - INFO - ================================================================================
+
+2026-02-14 14:07:50 - M1_DataProcessor - INFO - 正在加载井位数据...
+2026-02-14 14:07:50 - M1_DataProcessor - INFO - ✅ 坐标归一化完成:
+2026-02-14 14:07:50 - M1_DataProcessor - INFO -    X: [18538582.78, 18555044.00] → [0, 1]
+2026-02-14 14:07:50 - M1_DataProcessor - INFO -    Y: [3346887.00, 3356376.38] → [0, 1]
+2026-02-14 14:07:50 - M1_DataProcessor - INFO - 成功加载 7 口井的位置数据
+2026-02-14 14:07:50 - M1_DataProcessor - ERROR - ❌ M1流程执行失败: [Errno 13] Permission denied: 'C:\\Users\\16281\\Desktop\\cpedc_project\\data\\staged\\wells_staged.csv'
+Traceback (most recent call last):
+  File "C:\Users\16281\Desktop\cpedc_project\src\m1_data_processor.py", line 843, in run
+    wells_df = self.load_well_locations()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\16281\Desktop\cpedc_project\src\m1_data_processor.py", line 156, in load_well_locations
+    df.to_csv(output_path, index=False, encoding='utf-8-sig')  # BOM 便于 Excel 正确显示中文
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\develop\Anaconda3\Lib\site-packages\pandas\util\_decorators.py", line 333, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\develop\Anaconda3\Lib\site-packages\pandas\core\generic.py", line 3967, in to_csv
+    return DataFrameRenderer(formatter).to_csv(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\develop\Anaconda3\Lib\site-packages\pandas\io\formats\format.py", line 1014, in to_csv
+    csv_formatter.save()
+  File "D:\develop\Anaconda3\Lib\site-packages\pandas\io\formats\csvs.py", line 251, in save
+    with get_handle(
+         ^^^^^^^^^^^
+  File "D:\develop\Anaconda3\Lib\site-packages\pandas\io\common.py", line 873, in get_handle
+    handle = open(
+             ^^^^^
+PermissionError: [Errno 13] Permission denied: 'C:\\Users\\16281\\Desktop\\cpedc_project\\data\\staged\\wells_staged.csv'

@@ -1,0 +1,9 @@
+2026-02-16 17:16:00 - M5Trainer - INFO -   torch.compile 宸茶烦杩?(Triton 涓嶆敮鎸?Windows, 浣跨敤 eager 妯″紡)
+2026-02-16 17:16:00 - M5Trainer - INFO - k_frac 鐙珛鍙傛暟缁? lr=1.00e-02 (factor=10.0)
+2026-02-16 17:16:00 - M5Trainer - INFO - k_net 瀛︿範鐜? 1.00e-04 (factor=0.1, warmup=2000 steps)
+2026-02-16 17:16:00 - M5Trainer - INFO -   井 SY9: 1027 条同化数据
+2026-02-16 17:16:00 - M5Trainer - INFO -   M3 PVT cg(76.0, 140.32) = 0.009744
+2026-02-16 17:16:00 - M5Trainer - INFO -   M3 PVT Bg(76.0, 140.32) = 0.002577
+2026-02-16 17:16:00 - M5Trainer - INFO -   PDE 缂╂斁: 伪x=0.029719, 伪y=0.074361
+2026-02-16 17:16:00 - M5Trainer - INFO - M5Trainer 鍒濆鍖栧畬鎴? device=cpu, lr=0.001, max_steps=1, relobralo=True, rar=True
+2026-02-16 17:16:01 - M5Trainer - INFO -   [shape] SY9: qg pred=(1027, 1) vs obs=(1027, 1), p_wf pred=(1027, 1) vs p_obs=(1027, 1)

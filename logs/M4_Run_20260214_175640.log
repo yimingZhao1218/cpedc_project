@@ -1,0 +1,34 @@
+2026-02-14 17:56:40 - M4_Run - INFO - cwd set to: C:\Users\16281\Desktop\cpedc_project
+2026-02-14 17:56:45 - M4_Run - INFO - ============================================================
+2026-02-14 17:56:45 - M4_Run - INFO - M4 PINN 基线训练
+2026-02-14 17:56:45 - M4_Run - INFO - ============================================================
+2026-02-14 17:56:45 - M4_Run - INFO -   设备: cuda
+2026-02-14 17:56:45 - M4_Run - INFO -   训练步数: 5000
+2026-02-14 17:56:45 - M4_Run - INFO -   debug_nan: False
+2026-02-14 17:56:45 - M4_Run - INFO -   GPU: NVIDIA GeForce RTX 5060 Laptop GPU
+2026-02-14 17:56:45 - M4_Run - INFO - 初始化采样器...
+2026-02-14 17:56:55 - M4_Run - INFO - 初始化 M4 网络...
+2026-02-14 17:56:55 - M4_Run - INFO -   参数量: 416,258
+2026-02-14 17:56:55 - M4_Run - INFO - 初始化损失函数...
+2026-02-14 17:56:55 - M4_Run - INFO - 初始化 M4 训练器...
+2026-02-14 17:56:59 - M4_Run - INFO - 开始 M4 分阶段训练...
+2026-02-14 18:06:38 - M4_Run - INFO - M4 训练完成! 耗时: 578.6s
+2026-02-14 18:06:38 - M4_Run - INFO - 生成训练曲线与压力对比图...
+2026-02-14 18:06:39 - M4_Run - INFO - 执行 M4 验收...
+2026-02-14 18:06:40 - M4_Run - INFO - M4 验收通过 ✅
+2026-02-14 18:06:40 - M4_Run - INFO - ============================================================
+2026-02-14 18:06:40 - M4_Run - INFO - M4 训练结果摘要
+2026-02-14 18:06:40 - M4_Run - INFO - ============================================================
+2026-02-14 18:06:40 - M4_Run - INFO -   最终总损失: 9.309186e+00
+2026-02-14 18:06:40 - M4_Run - INFO -   最终 IC 损失: 1.558181e-02
+2026-02-14 18:06:40 - M4_Run - INFO -   最终 BC 损失: 6.866455e-05
+2026-02-14 18:06:40 - M4_Run - INFO -   最终 PDE 损失: 2.313421e-02
+2026-02-14 18:06:40 - M4_Run - INFO -   最终 Data 损失: 1.834529e+00
+2026-02-14 18:06:40 - M4_Run - INFO - ============================================================
+2026-02-14 18:06:40 - M4_Run - INFO - 
+输出文件:
+2026-02-14 18:06:40 - M4_Run - INFO -   - C:\Users\16281\Desktop\cpedc_project\outputs\mk_pinn_dt_v2\ckpt/pinn_best.pt
+2026-02-14 18:06:40 - M4_Run - INFO -   - C:\Users\16281\Desktop\cpedc_project\outputs\mk_pinn_dt_v2\ckpt/pinn_final.pt
+2026-02-14 18:06:40 - M4_Run - INFO -   - C:\Users\16281\Desktop\cpedc_project\outputs\mk_pinn_dt_v2\figs/M4_training_history.png
+2026-02-14 18:06:40 - M4_Run - INFO -   - C:\Users\16281\Desktop\cpedc_project\outputs\mk_pinn_dt_v2\figs/M4_pressure_comparison.png
+2026-02-14 18:06:40 - M4_Run - INFO -   - C:\Users\16281\Desktop\cpedc_project\outputs\mk_pinn_dt_v2\reports/M4_validation_report.md

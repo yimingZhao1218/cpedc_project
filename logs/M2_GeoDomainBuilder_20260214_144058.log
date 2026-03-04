@@ -1,0 +1,54 @@
+2026-02-14 14:40:58 - M2_GeoDomainBuilder - INFO - 配置文件: C:\Users\16281\Desktop\cpedc_project\config.yaml
+2026-02-14 14:40:58 - M2_GeoDomainBuilder - INFO - ================================================================================
+2026-02-14 14:40:58 - M2_GeoDomainBuilder - INFO - M2 地质域构建器初始化完成
+2026-02-14 14:40:58 - M2_GeoDomainBuilder - INFO - ================================================================================
+2026-02-14 14:40:58 - M2_GeoDomainBuilder - INFO - 
+================================================================================
+2026-02-14 14:40:58 - M2_GeoDomainBuilder - INFO - 开始执行 M2 地质域构建流程
+2026-02-14 14:40:58 - M2_GeoDomainBuilder - INFO - ================================================================================
+
+2026-02-14 14:40:58 - M2_GeoDomainBuilder - INFO - 加载了 7 个MK段代表点
+2026-02-14 14:40:58 - M2_GeoDomainBuilder - INFO - 正在创建模型边界...
+2026-02-14 14:40:58 - M2_GeoDomainBuilder - INFO -   使用外扩距离: 1000 m
+2026-02-14 14:40:58 - M2_GeoDomainBuilder - INFO -   边界范围: X=[18537717.9, 18555433.2], Y=[3346142.4, 3357349.6]
+2026-02-14 14:40:58 - M2_GeoDomainBuilder - INFO -   边界面积: 113.59 km²
+2026-02-14 14:40:58 - M2_GeoDomainBuilder - INFO - 正在生成统一网格（分辨率=100m）...
+2026-02-14 14:40:58 - M2_GeoDomainBuilder - INFO -   网格尺寸: (123, 188), 边界内点数: 11356/23124 (49.1%)
+2026-02-14 14:40:58 - M2_GeoDomainBuilder - INFO - 顶面插值使用顶界交点坐标...
+2026-02-14 14:40:58 - M2_GeoDomainBuilder - INFO - 正在使用Kriging插值 mk_top_z 曲面（基于x_top,y_top）...
+2026-02-14 14:40:58 - M2_GeoDomainBuilder - INFO -   使用 7 个有效点进行插值
+2026-02-14 14:40:58 - M2_GeoDomainBuilder - INFO -   Variogram参数: sill=1401.89, range=12636m, nugget=70.0947
+2026-02-14 14:40:58 - M2_GeoDomainBuilder - INFO -   Kriging插值成功，网格尺寸: (123, 188), 方差范围: [140.5508, 1762.1252]
+2026-02-14 14:40:59 - M2_GeoDomainBuilder - INFO -   曲面数据已保存: C:\Users\16281\Desktop\cpedc_project\geo\surfaces\mk_top_surface.csv
+2026-02-14 14:40:59 - M2_GeoDomainBuilder - INFO -   方差数据已保存（z字段为sqrt(variance)）: C:\Users\16281\Desktop\cpedc_project\geo\surfaces\mk_top_surface_variance.csv
+2026-02-14 14:40:59 - M2_GeoDomainBuilder - INFO - 底面插值使用底界交点坐标...
+2026-02-14 14:40:59 - M2_GeoDomainBuilder - INFO - 在给定网格上插值 mk_bot_z（基于x_bot,y_bot）...
+2026-02-14 14:40:59 - M2_GeoDomainBuilder - INFO -   使用 7 个有效点
+2026-02-14 14:40:59 - M2_GeoDomainBuilder - INFO -   Variogram参数: sill=1201.59, range=12508m, nugget=60.0797
+2026-02-14 14:40:59 - M2_GeoDomainBuilder - INFO -   插值成功，网格尺寸: (123, 188), 方差范围: [117.9654, 1513.8307]
+2026-02-14 14:40:59 - M2_GeoDomainBuilder - INFO -   曲面数据已保存: C:\Users\16281\Desktop\cpedc_project\geo\surfaces\mk_bot_surface.csv
+2026-02-14 14:40:59 - M2_GeoDomainBuilder - INFO -   方差数据已保存（z字段为sqrt(variance)）: C:\Users\16281\Desktop\cpedc_project\geo\surfaces\mk_bot_surface_variance.csv
+2026-02-14 14:40:59 - M2_GeoDomainBuilder - INFO - 正在计算厚度场...
+2026-02-14 14:40:59 - M2_GeoDomainBuilder - INFO -   厚度范围: [nan, nan] m
+2026-02-14 14:40:59 - M2_GeoDomainBuilder - INFO -   平均厚度: nan m
+2026-02-14 14:40:59 - M2_GeoDomainBuilder - ERROR - ❌ M2流程执行失败: [Errno 13] Permission denied: 'C:\\Users\\16281\\Desktop\\cpedc_project\\geo\\surfaces\\mk_thickness.csv'
+Traceback (most recent call last):
+  File "C:\Users\16281\Desktop\cpedc_project\src\m2_geo_builder.py", line 1428, in run
+    self.save_surface(XI, YI, thickness, 'mk_thickness')
+  File "C:\Users\16281\Desktop\cpedc_project\src\m2_geo_builder.py", line 574, in save_surface
+    df.to_csv(filepath, index=False)
+  File "D:\develop\Anaconda3\Lib\site-packages\pandas\util\_decorators.py", line 333, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\develop\Anaconda3\Lib\site-packages\pandas\core\generic.py", line 3967, in to_csv
+    return DataFrameRenderer(formatter).to_csv(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\develop\Anaconda3\Lib\site-packages\pandas\io\formats\format.py", line 1014, in to_csv
+    csv_formatter.save()
+  File "D:\develop\Anaconda3\Lib\site-packages\pandas\io\formats\csvs.py", line 251, in save
+    with get_handle(
+         ^^^^^^^^^^^
+  File "D:\develop\Anaconda3\Lib\site-packages\pandas\io\common.py", line 873, in get_handle
+    handle = open(
+             ^^^^^
+PermissionError: [Errno 13] Permission denied: 'C:\\Users\\16281\\Desktop\\cpedc_project\\geo\\surfaces\\mk_thickness.csv'

@@ -1,0 +1,19 @@
+2026-02-09 16:56:37 - Main - ERROR - 执行失败: "None of [Index(['x', 'y'], dtype='str')] are in the [columns]"
+Traceback (most recent call last):
+  File "C:\Users\16281\Desktop\cpedc_project\src\main.py", line 131, in main
+    m2_results = builder.run()
+                 ^^^^^^^^^^^^^
+  File "C:\Users\16281\Desktop\cpedc_project\src\m2_geo_builder.py", line 973, in run
+    grid_df = self.generate_collocation_grid(polygon, mk_points)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\16281\Desktop\cpedc_project\src\m2_geo_builder.py", line 478, in generate_collocation_grid
+    points = mk_points[['x', 'y']].values
+             ~~~~~~~~~^^^^^^^^^^^^
+  File "C:\Users\16281\Desktop\cpedc_project\.venv\Lib\site-packages\pandas\core\frame.py", line 4384, in __getitem__
+    indexer = self.columns._get_indexer_strict(key, "columns")[1]
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\16281\Desktop\cpedc_project\.venv\Lib\site-packages\pandas\core\indexes\base.py", line 6302, in _get_indexer_strict
+    self._raise_if_missing(keyarr, indexer, axis_name)
+  File "C:\Users\16281\Desktop\cpedc_project\.venv\Lib\site-packages\pandas\core\indexes\base.py", line 6352, in _raise_if_missing
+    raise KeyError(f"None of [{key}] are in the [{axis_name}]")
+KeyError: "None of [Index(['x', 'y'], dtype='str')] are in the [columns]"

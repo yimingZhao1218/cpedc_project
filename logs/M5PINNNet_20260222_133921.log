@@ -1,0 +1,10 @@
+2026-02-22 13:39:21 - M5PINNNet - INFO -   k_net 启用: 15297 参数
+2026-02-22 13:39:22 - M5PINNNet - INFO - M5PINNNet v3 初始化: field_params=416258, well_model 含 1 口井, k_net=启用, k_frac_init=6.96 mD, dp_wellbore_init=13.3 MPa
+2026-02-22 15:41:02 - M5PINNNet - INFO -   k_net 启用: 15297 参数
+2026-02-22 15:41:02 - M5PINNNet - INFO - M5PINNNet v3 初始化: field_params=416258, well_model 含 1 口井, k_net=启用, k_frac_init=5.87 mD, dp_wellbore_init=13.3 MPa
+2026-02-22 17:40:51 - M5PINNNet - INFO -   k_net 启用: 15297 参数
+2026-02-22 17:40:51 - M5PINNNet - INFO - M5PINNNet v3 初始化: field_params=416258, well_model 含 1 口井, k_net=启用, k_frac_init=11.58 mD, dp_wellbore_init=13.3 MPa
+2026-02-22 19:36:47 - M5PINNNet - INFO -   k_net 启用: 15297 参数
+2026-02-22 19:36:47 - M5PINNNet - INFO - M5PINNNet v3 初始化: field_params=416258, well_model 含 1 口井, k_net=启用, k_frac_init=6.68 mD, dp_wellbore_init=13.3 MPa
+2026-02-22 21:31:49 - M5PINNNet - INFO -   k_net 启用: 15297 参数
+2026-02-22 21:31:49 - M5PINNNet - INFO - M5PINNNet v3 初始化: field_params=416258, well_model 含 1 口井, k_net=启用, k_frac_init=7.89 mD, dp_wellbore_init=13.3 MPa

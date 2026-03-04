@@ -1,0 +1,96 @@
+2026-02-14 17:56:57 - PINNTrainer - INFO -   CUDA: deterministic 模式（cudnn.benchmark=False）
+2026-02-14 17:56:57 - PINNTrainer - INFO -   Mixed Precision (AMP) 已启用
+2026-02-14 17:56:59 - PINNTrainer - INFO -   学习率: warmup 1000 步, 然后 Cosine 至 min_lr=1e-06
+2026-02-14 17:56:59 - PINNTrainer - INFO -   SY9 数据锚点: 1025 条
+2026-02-14 17:56:59 - PINNTrainer - INFO -   M3 PVT 查询 cg(76.0 MPa, 141.39 ℃) = 0.009744 1/MPa → 覆盖先验 0.0130
+2026-02-14 17:56:59 - PINNTrainer - INFO - ============================================================
+2026-02-14 17:56:59 - PINNTrainer - INFO - PDE 物理缩放参数（诊断参数）
+2026-02-14 17:56:59 - PINNTrainer - INFO - ============================================================
+2026-02-14 17:56:59 - PINNTrainer - INFO -   域: Δx = 17400 m, Δy = 11000 m, t_max = 1331 d = 114998400 s
+2026-02-14 17:56:59 - PINNTrainer - INFO -   sx = (2/Δx)² = 1.321178e-08 1/m², sy = (2/Δy)² = 3.305785e-08 1/m²
+2026-02-14 17:56:59 - PINNTrainer - INFO -   p_ref = 76.0 MPa, T_ref = 141.39 ℃
+2026-02-14 17:56:59 - PINNTrainer - INFO -   k = 0.146 mD = 1.440908e-16 m²
+2026-02-14 17:56:59 - PINNTrainer - INFO -   φ = 0.0216
+2026-02-14 17:56:59 - PINNTrainer - INFO -   μ_ref = 0.035 mPa·s = 3.500000e-05 Pa·s
+2026-02-14 17:56:59 - PINNTrainer - INFO -   c_g_ref = 0.009744 1/MPa = 9.744000e-09 1/Pa  (来源: M3 PVT @ (p=76.0, T=141.39))
+2026-02-14 17:56:59 - PINNTrainer - INFO -   c_r = 0.0 1/MPa = 0.000000e+00 1/Pa
+2026-02-14 17:56:59 - PINNTrainer - INFO -   c_t = c_g + c_r = 9.744000e-09 1/Pa
+2026-02-14 17:56:59 - PINNTrainer - INFO -   α_phys = k/(φ·μ·c_t) = 0.019560 m²/s
+2026-02-14 17:56:59 - PINNTrainer - INFO -   αx = α_phys·t_max_s·sx = 0.029719
+2026-02-14 17:56:59 - PINNTrainer - INFO -   αy = α_phys·t_max_s·sy = 0.074361
+2026-02-14 17:56:59 - PINNTrainer - INFO -   near_well_ratio = 0.3
+2026-02-14 17:56:59 - PINNTrainer - INFO - ------------------------------------------------------------
+2026-02-14 17:56:59 - PINNTrainer - INFO - 敏感性分析 (μ_ref × cg_ref 区间端点):
+2026-02-14 17:56:59 - PINNTrainer - INFO -   μ_ref ∈ [0.02, 0.06] mPa·s
+2026-02-14 17:56:59 - PINNTrainer - INFO -   cg_ref ∈ [0.008, 0.02] 1/MPa
+2026-02-14 17:56:59 - PINNTrainer - INFO -   α_phys ∈ [0.005559, 0.041693] m²/s
+2026-02-14 17:56:59 - PINNTrainer - INFO -   αx ∈ [0.008446, 0.063346]
+2026-02-14 17:56:59 - PINNTrainer - INFO -   αy ∈ [0.021133, 0.158500]
+2026-02-14 17:56:59 - PINNTrainer - INFO - ------------------------------------------------------------
+2026-02-14 17:56:59 - PINNTrainer - INFO - 2.5D 厚度场审计:
+2026-02-14 17:56:59 - PINNTrainer - INFO -   h_min = 82.73 m, h_max = 93.95 m, h_mean = 89.62 m
+2026-02-14 17:56:59 - PINNTrainer - INFO -   log-thickness gradient |gx|_max = 0.2993, |gy|_max = 0.3913
+2026-02-14 17:56:59 - PINNTrainer - INFO -   PDE 残差形式: dp/dt_n = αx(d²p/dx_n² + gx·dp/dx_n) + αy(d²p/dy_n² + gy·dp/dy_n)
+2026-02-14 17:56:59 - PINNTrainer - INFO - ============================================================
+2026-02-14 17:56:59 - PINNTrainer - INFO - PINNTrainer 初始化: device=cuda, lr=0.001, max_steps=5000, batch_size=4096, params=416258
+2026-02-14 17:56:59 - PINNTrainer - INFO - ============================================================
+2026-02-14 17:56:59 - PINNTrainer - INFO - M4 PINN 基线训练开始
+2026-02-14 17:56:59 - PINNTrainer - INFO - ============================================================
+2026-02-14 17:56:59 - PINNTrainer - INFO - 训练阶段: A[0-500] B[500-1750] C[1750-3500] D[3500-5000]
+2026-02-14 17:57:00 - PINNTrainer - INFO - [Step     0/5000] Stage A | Loss: 1.8111e+01 (IC=1.000e+00, BC=1.000e+00, PDE=0.000e+00, Data=3.111e+01, sw_phys=0.000e+00) | Sw=[0.2600, 0.2600] | lr=1.10e-05 | 1.2s
+2026-02-14 17:57:22 - PINNTrainer - INFO - [Step   100/5000] Stage A | Loss: 1.1477e+00 (IC=1.311e-02, BC=7.721e-03, PDE=1.242e+01, Data=8.538e+00, sw_phys=0.000e+00) | Sw=[0.2389, 0.4647] | lr=1.10e-04 | 23.0s
+2026-02-14 17:57:37 - PINNTrainer - INFO - [Step   200/5000] Stage A | Loss: 6.4146e-01 (IC=6.619e-03, BC=4.501e-03, PDE=4.977e+00, Data=5.030e+00, sw_phys=0.000e+00) | Sw=[0.2133, 0.7045] | lr=2.09e-04 | 38.0s
+2026-02-14 17:57:47 - PINNTrainer - INFO - [Step   300/5000] Stage A | Loss: 6.6163e-01 (IC=1.006e-02, BC=1.347e-02, PDE=3.390e+00, Data=4.598e+00, sw_phys=0.000e+00) | Sw=[0.2483, 0.7108] | lr=3.08e-04 | 47.7s
+2026-02-14 17:57:56 - PINNTrainer - INFO - [Step   400/5000] Stage A | Loss: 6.9243e-01 (IC=1.594e-02, BC=1.357e-02, PDE=2.694e+00, Data=4.382e+00, sw_phys=0.000e+00) | Sw=[0.2472, 0.7385] | lr=4.07e-04 | 57.2s
+2026-02-14 17:58:07 - PINNTrainer - INFO - [Step   500/5000] Stage B | Loss: 5.6025e+00 (IC=1.010e-02, BC=1.538e-02, PDE=2.576e+00, Data=4.205e+00, sw_phys=4.193e-02) | Sw=[0.2718, 0.7765] | lr=5.06e-04 | 67.8s
+2026-02-14 17:58:19 - PINNTrainer - INFO - [Step   600/5000] Stage B | Loss: 6.1747e+00 (IC=1.319e-01, BC=6.730e-02, PDE=5.662e-01, Data=4.264e+00, sw_phys=4.628e-02) | Sw=[0.2612, 0.7339] | lr=6.05e-04 | 79.8s
+2026-02-14 17:58:31 - PINNTrainer - INFO - [Step   700/5000] Stage B | Loss: 5.4822e+00 (IC=6.490e-02, BC=5.125e-02, PDE=1.819e-01, Data=3.681e+00, sw_phys=2.727e-02) | Sw=[0.2714, 0.8214] | lr=7.04e-04 | 91.7s
+2026-02-14 17:58:42 - PINNTrainer - INFO - [Step   800/5000] Stage B | Loss: 6.0136e+00 (IC=7.740e-02, BC=6.351e-02, PDE=1.207e-01, Data=3.596e+00, sw_phys=2.422e-02) | Sw=[0.2674, 0.8487] | lr=8.03e-04 | 103.3s
+2026-02-14 17:58:54 - PINNTrainer - INFO - [Step   900/5000] Stage B | Loss: 6.3868e+00 (IC=4.981e-02, BC=4.008e-02, PDE=1.633e-01, Data=3.564e+00, sw_phys=2.638e-02) | Sw=[0.2666, 0.8561] | lr=9.02e-04 | 115.0s
+2026-02-14 17:59:06 - PINNTrainer - INFO - [Step  1000/5000] Stage B | Loss: 6.9973e+00 (IC=5.530e-02, BC=2.998e-03, PDE=2.341e-01, Data=3.575e+00, sw_phys=3.896e-02) | Sw=[0.3340, 0.8706] | lr=1.00e-03 | 126.8s
+2026-02-14 17:59:18 - PINNTrainer - INFO - [Step  1100/5000] Stage B | Loss: 9.0356e+00 (IC=1.035e-01, BC=1.051e-02, PDE=9.151e-01, Data=3.746e+00, sw_phys=5.192e-02) | Sw=[0.3244, 0.8761] | lr=9.98e-04 | 138.6s
+2026-02-14 17:59:29 - PINNTrainer - INFO - [Step  1200/5000] Stage B | Loss: 8.5453e+00 (IC=1.013e-01, BC=7.736e-02, PDE=1.646e-01, Data=3.570e+00, sw_phys=2.944e-02) | Sw=[0.3027, 0.8691] | lr=9.94e-04 | 150.4s
+2026-02-14 17:59:41 - PINNTrainer - INFO - [Step  1300/5000] Stage B | Loss: 8.5293e+00 (IC=6.606e-02, BC=4.904e-02, PDE=5.644e-02, Data=3.488e+00, sw_phys=2.663e-02) | Sw=[0.2690, 0.8756] | lr=9.86e-04 | 161.5s
+2026-02-14 17:59:52 - PINNTrainer - INFO - [Step  1400/5000] Stage B | Loss: 8.9364e+00 (IC=8.990e-02, BC=6.279e-02, PDE=4.667e-02, Data=3.364e+00, sw_phys=2.667e-02) | Sw=[0.2576, 0.8770] | lr=9.75e-04 | 172.6s
+2026-02-14 18:00:03 - PINNTrainer - INFO - [Step  1500/5000] Stage B | Loss: 9.9191e+00 (IC=1.764e-01, BC=3.058e-02, PDE=4.553e-02, Data=3.403e+00, sw_phys=2.941e-02) | Sw=[0.2463, 0.8789] | lr=9.62e-04 | 183.7s
+2026-02-14 18:00:14 - PINNTrainer - INFO - [Step  1600/5000] Stage B | Loss: 9.9826e+00 (IC=5.845e-02, BC=3.631e-02, PDE=6.950e-02, Data=3.418e+00, sw_phys=2.749e-02) | Sw=[0.2549, 0.8789] | lr=9.45e-04 | 194.7s
+2026-02-14 18:00:25 - PINNTrainer - INFO - [Step  1700/5000] Stage B | Loss: 1.0233e+01 (IC=4.168e-02, BC=1.875e-02, PDE=3.592e-02, Data=3.383e+00, sw_phys=2.754e-02) | Sw=[0.2485, 0.8783] | lr=9.26e-04 | 205.7s
+2026-02-14 18:00:36 - PINNTrainer - INFO - [Step  1800/5000] Stage C | Loss: 1.7402e+01 (IC=7.186e-02, BC=8.141e-03, PDE=5.115e-02, Data=3.408e+00, sw_phys=2.879e-02) | Sw=[0.2734, 0.8790] | lr=9.04e-04 | 217.2s
+2026-02-14 18:00:48 - PINNTrainer - INFO - [Step  1900/5000] Stage C | Loss: 1.7325e+01 (IC=9.182e-02, BC=3.665e-02, PDE=3.517e-02, Data=3.376e+00, sw_phys=2.548e-02) | Sw=[0.2737, 0.8731] | lr=8.80e-04 | 229.2s
+2026-02-14 18:01:00 - PINNTrainer - INFO - [Step  2000/5000] Stage C | Loss: 1.9324e+01 (IC=3.266e-01, BC=1.353e-01, PDE=1.230e-01, Data=3.555e+00, sw_phys=4.911e-02) | Sw=[0.3683, 0.8794] | lr=8.53e-04 | 241.1s
+2026-02-14 18:01:12 - PINNTrainer - INFO - [Step  2100/5000] Stage C | Loss: 1.6966e+01 (IC=4.654e-02, BC=5.203e-03, PDE=3.244e-02, Data=3.344e+00, sw_phys=2.912e-02) | Sw=[0.2964, 0.8772] | lr=8.25e-04 | 252.8s
+2026-02-14 18:01:24 - PINNTrainer - INFO - [Step  2200/5000] Stage C | Loss: 1.6565e+01 (IC=5.398e-02, BC=2.869e-03, PDE=7.260e-02, Data=3.244e+00, sw_phys=2.837e-02) | Sw=[0.2724, 0.8797] | lr=7.94e-04 | 264.6s
+2026-02-14 18:01:35 - PINNTrainer - INFO - [Step  2300/5000] Stage C | Loss: 1.7139e+01 (IC=1.223e-01, BC=2.360e-02, PDE=6.798e-02, Data=3.312e+00, sw_phys=2.521e-02) | Sw=[0.2621, 0.8797] | lr=7.61e-04 | 276.3s
+2026-02-14 18:01:47 - PINNTrainer - INFO - [Step  2400/5000] Stage C | Loss: 1.6395e+01 (IC=3.621e-02, BC=2.419e-03, PDE=4.957e-02, Data=3.230e+00, sw_phys=2.598e-02) | Sw=[0.2702, 0.8799] | lr=7.27e-04 | 288.1s
+2026-02-14 18:01:59 - PINNTrainer - INFO - [Step  2500/5000] Stage C | Loss: 1.6332e+01 (IC=4.741e-02, BC=3.586e-03, PDE=1.610e-01, Data=3.166e+00, sw_phys=2.649e-02) | Sw=[0.2771, 0.8799] | lr=6.91e-04 | 299.8s
+2026-02-14 18:02:09 - PINNTrainer - INFO - [Step  2600/5000] Stage C | Loss: 1.5695e+01 (IC=5.094e-02, BC=2.930e-03, PDE=7.627e-02, Data=3.070e+00, sw_phys=2.682e-02) | Sw=[0.2691, 0.8799] | lr=6.54e-04 | 310.4s
+2026-02-14 18:02:20 - PINNTrainer - INFO - [Step  2700/5000] Stage C | Loss: 1.4171e+01 (IC=4.048e-02, BC=4.189e-03, PDE=1.308e-01, Data=2.749e+00, sw_phys=2.817e-02) | Sw=[0.2894, 0.8800] | lr=6.17e-04 | 320.9s
+2026-02-14 18:02:31 - PINNTrainer - INFO - [Step  2800/5000] Stage C | Loss: 1.5687e+01 (IC=9.440e-02, BC=3.815e-04, PDE=8.898e-02, Data=3.032e+00, sw_phys=4.868e-02) | Sw=[0.4069, 0.8800] | lr=5.78e-04 | 331.5s
+2026-02-14 18:02:41 - PINNTrainer - INFO - [Step  2900/5000] Stage C | Loss: 1.5485e+01 (IC=1.064e-01, BC=2.224e-02, PDE=1.005e-01, Data=2.977e+00, sw_phys=2.684e-02) | Sw=[0.3063, 0.8800] | lr=5.39e-04 | 342.4s
+2026-02-14 18:02:52 - PINNTrainer - INFO - [Step  3000/5000] Stage C | Loss: 1.2401e+01 (IC=5.440e-02, BC=2.348e-02, PDE=1.241e-01, Data=2.381e+00, sw_phys=2.949e-02) | Sw=[0.2935, 0.8799] | lr=5.00e-04 | 352.7s
+2026-02-14 18:03:02 - PINNTrainer - INFO - [Step  3100/5000] Stage C | Loss: 1.7472e+01 (IC=4.836e-02, BC=2.159e-02, PDE=9.360e-02, Data=3.411e+00, sw_phys=2.912e-02) | Sw=[0.2811, 0.8800] | lr=4.61e-04 | 363.4s
+2026-02-14 18:03:13 - PINNTrainer - INFO - [Step  3200/5000] Stage C | Loss: 9.6793e+00 (IC=4.338e-02, BC=1.535e-02, PDE=4.146e-02, Data=1.879e+00, sw_phys=2.693e-02) | Sw=[0.2692, 0.8800] | lr=4.22e-04 | 374.4s
+2026-02-14 18:03:24 - PINNTrainer - INFO - [Step  3300/5000] Stage C | Loss: 9.7450e+00 (IC=4.623e-02, BC=2.253e-02, PDE=3.527e-02, Data=1.891e+00, sw_phys=2.647e-02) | Sw=[0.2508, 0.8800] | lr=3.84e-04 | 384.9s
+2026-02-14 18:03:35 - PINNTrainer - INFO - [Step  3400/5000] Stage C | Loss: 9.8684e+00 (IC=5.758e-02, BC=1.593e-02, PDE=1.215e-01, Data=1.877e+00, sw_phys=2.533e-02) | Sw=[0.2590, 0.8800] | lr=3.46e-04 | 395.8s
+2026-02-14 18:03:46 - PINNTrainer - INFO - [Step  3500/5000] Stage D | Loss: 9.7264e+00 (IC=1.625e-02, BC=2.151e-03, PDE=7.476e-02, Data=1.886e+00, sw_phys=2.672e-02) | Sw=[0.2510, 0.8800] | lr=3.09e-04 | 407.2s
+2026-02-14 18:03:58 - PINNTrainer - INFO - [Step  3600/5000] Stage D | Loss: 9.6203e+00 (IC=1.089e-01, BC=3.059e-03, PDE=3.295e-02, Data=1.870e+00, sw_phys=2.913e-02) | Sw=[0.3043, 0.8800] | lr=2.73e-04 | 418.6s
+2026-02-14 18:04:08 - PINNTrainer - INFO - [Step  3700/5000] Stage D | Loss: 9.5587e+00 (IC=4.312e-02, BC=3.792e-03, PDE=3.374e-02, Data=1.871e+00, sw_phys=2.727e-02) | Sw=[0.2768, 0.8800] | lr=2.39e-04 | 429.5s
+2026-02-14 18:04:20 - PINNTrainer - INFO - [Step  3800/5000] Stage D | Loss: 9.4770e+00 (IC=4.297e-02, BC=1.144e-03, PDE=2.287e-02, Data=1.863e+00, sw_phys=2.530e-02) | Sw=[0.2662, 0.8791] | lr=2.07e-04 | 441.4s
+2026-02-14 18:04:33 - PINNTrainer - INFO - [Step  3900/5000] Stage D | Loss: 9.4322e+00 (IC=2.499e-02, BC=0.000e+00, PDE=2.587e-02, Data=1.856e+00, sw_phys=2.523e-02) | Sw=[0.2759, 0.8800] | lr=1.76e-04 | 453.5s
+2026-02-14 18:04:44 - PINNTrainer - INFO - [Step  4000/5000] Stage D | Loss: 9.3880e+00 (IC=2.201e-02, BC=2.998e-03, PDE=1.790e-02, Data=1.853e+00, sw_phys=2.326e-02) | Sw=[0.2708, 0.8798] | lr=1.47e-04 | 465.2s
+2026-02-14 18:04:56 - PINNTrainer - INFO - [Step  4100/5000] Stage D | Loss: 9.4316e+00 (IC=4.449e-02, BC=3.906e-03, PDE=1.860e-02, Data=1.854e+00, sw_phys=2.796e-02) | Sw=[0.2616, 0.8800] | lr=1.20e-04 | 476.8s
+2026-02-14 18:05:07 - PINNTrainer - INFO - [Step  4200/5000] Stage D | Loss: 9.3646e+00 (IC=1.167e-02, BC=0.000e+00, PDE=1.912e-02, Data=1.848e+00, sw_phys=2.660e-02) | Sw=[0.2577, 0.8800] | lr=9.62e-05 | 488.4s
+2026-02-14 18:05:19 - PINNTrainer - INFO - [Step  4300/5000] Stage D | Loss: 9.3702e+00 (IC=2.033e-02, BC=0.000e+00, PDE=2.211e-02, Data=1.846e+00, sw_phys=2.710e-02) | Sw=[0.2598, 0.8800] | lr=7.44e-05 | 500.3s
+2026-02-14 18:05:31 - PINNTrainer - INFO - [Step  4400/5000] Stage D | Loss: 9.3567e+00 (IC=2.769e-02, BC=3.777e-03, PDE=1.703e-02, Data=1.845e+00, sw_phys=2.513e-02) | Sw=[0.2687, 0.8800] | lr=5.53e-05 | 512.2s
+2026-02-14 18:05:43 - PINNTrainer - INFO - [Step  4500/5000] Stage D | Loss: 9.3332e+00 (IC=2.448e-02, BC=1.526e-05, PDE=2.059e-02, Data=1.839e+00, sw_phys=2.574e-02) | Sw=[0.2575, 0.8800] | lr=3.89e-05 | 523.7s
+2026-02-14 18:05:54 - PINNTrainer - INFO - [Step  4600/5000] Stage D | Loss: 9.3388e+00 (IC=2.563e-02, BC=2.457e-03, PDE=2.062e-02, Data=1.839e+00, sw_phys=2.731e-02) | Sw=[0.2573, 0.8799] | lr=2.53e-05 | 534.6s
+2026-02-14 18:06:04 - PINNTrainer - INFO - [Step  4700/5000] Stage D | Loss: 9.3131e+00 (IC=2.121e-02, BC=1.373e-04, PDE=1.822e-02, Data=1.836e+00, sw_phys=2.777e-02) | Sw=[0.2585, 0.8800] | lr=1.47e-05 | 545.4s
+2026-02-14 18:06:16 - PINNTrainer - INFO - [Step  4800/5000] Stage D | Loss: 9.2896e+00 (IC=1.625e-02, BC=4.578e-05, PDE=1.493e-02, Data=1.835e+00, sw_phys=2.629e-02) | Sw=[0.2574, 0.8799] | lr=7.09e-06 | 556.5s
+2026-02-14 18:06:26 - PINNTrainer - INFO - [Step  4900/5000] Stage D | Loss: 9.3524e+00 (IC=1.999e-02, BC=4.578e-05, PDE=3.343e-02, Data=1.835e+00, sw_phys=2.939e-02) | Sw=[0.2580, 0.8799] | lr=2.51e-06 | 567.4s
+2026-02-14 18:06:38 - PINNTrainer - INFO - [Step  4999/5000] Stage D | Loss: 9.3092e+00 (IC=1.558e-02, BC=6.866e-05, PDE=2.313e-02, Data=1.835e+00, sw_phys=2.574e-02) | Sw=[0.2571, 0.8800] | lr=1.00e-06 | 578.6s
+2026-02-14 18:06:38 - PINNTrainer - INFO - 
+训练完成! 总耗时: 578.6s, 最佳损失: 9.2759e+00
+2026-02-14 18:06:38 - PINNTrainer - INFO - 生成训练曲线图...
+2026-02-14 18:06:38 - PINNTrainer - INFO - 训练曲线图已保存: C:\Users\16281\Desktop\cpedc_project\outputs\mk_pinn_dt_v2\figs\M4_training_history.png
+2026-02-14 18:06:38 - PINNTrainer - INFO - 生成 SY9 压力对比图...
+2026-02-14 18:06:39 - PINNTrainer - INFO - 压力对比图已保存: C:\Users\16281\Desktop\cpedc_project\outputs\mk_pinn_dt_v2\figs\M4_pressure_comparison.png

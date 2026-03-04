@@ -1,0 +1,69 @@
+2026-03-02 00:52:52 - WaterInvasion - INFO - WaterInvasionAnalyzer v4.1 初始化: Swc=0.26, Sgr=0.05, 见水线Sw*=0.398 (R_w=0.2), train_frac=70%, M6连通性=未接入
+2026-03-02 00:52:52 - WaterInvasion - INFO - 附表6-TDS时间序列加载: SYX211, 24个样本, t_day=[1630, 3518], TDS=[88991, 138138] mg/L
+2026-03-02 00:52:52 - WaterInvasion - INFO - 附表6-TDS时间序列加载: SY102, 112个样本, t_day=[1825, 3488], TDS=[107, 120594] mg/L
+2026-03-02 00:52:52 - WaterInvasion - INFO - 附表6-TDS时间序列加载: SY116, 173个样本, t_day=[2081, 3517], TDS=[31, 204893] mg/L
+2026-03-02 00:52:52 - WaterInvasion - INFO - 附表6-TDS时间序列加载: SY101, 382个样本, t_day=[439, 3518], TDS=[62, 144753] mg/L
+2026-03-02 00:52:52 - WaterInvasion - INFO - 附表6-TDS时间序列加载: SY13, 406个样本, t_day=[191, 3518], TDS=[52, 84797] mg/L
+2026-03-02 00:52:53 - WaterInvasion - INFO - 附表6-TDS时间序列加载: SY9, 173个样本, t_day=[1, 3518], TDS=[55, 105158] mg/L
+2026-03-02 00:52:53 - WaterInvasion - INFO - 附表6-TDS时间序列加载: SY201, 144个样本, t_day=[392, 3519], TDS=[31, 29586] mg/L
+2026-03-02 00:52:53 - WaterInvasion - INFO -   SYX211: 已见水 (score=1.000, F_gwc=1.00, F_tds=1.00[raw=1.000], F_wiri=1.00)
+2026-03-02 00:52:53 - WaterInvasion - INFO -   SY102: 高风险 (score=0.811, F_gwc=0.80, F_tds=1.00[raw=1.000], F_wiri=0.57)
+2026-03-02 00:52:53 - WaterInvasion - INFO -   SY116: 中风险 (score=0.526, F_gwc=1.00, F_tds=0.05[raw=0.054], F_wiri=0.43)
+2026-03-02 00:52:53 - WaterInvasion - INFO -   SY13: 预警 (score=0.434, F_gwc=0.85, F_tds=0.00[raw=0.008], F_wiri=0.36)
+2026-03-02 00:52:53 - WaterInvasion - INFO -   SY101: 预警 (score=0.372, F_gwc=0.76, F_tds=0.01[raw=0.012], F_wiri=0.26)
+2026-03-02 00:52:53 - WaterInvasion - INFO -   SY201: 低风险 (score=0.191, F_gwc=0.39, F_tds=0.00[raw=0.004], F_wiri=0.15)
+2026-03-02 00:52:53 - WaterInvasion - INFO -   SY9: 低风险 (score=0.165, F_gwc=0.26, F_tds=0.01[raw=0.012], F_wiri=0.24)
+2026-03-02 00:52:53 - WaterInvasion - INFO - 附表6-TDS时间序列加载: SY9, 173个样本, t_day=[1, 3518], TDS=[55, 105158] mg/L
+2026-03-02 00:52:53 - WaterInvasion - INFO - TDS标定[SY9]: Sw_0=0.3290(f0=0.100,forecast_median), λ_BL=5.00e-03/天
+2026-03-02 00:52:53 - WaterInvasion - INFO - 策略对比 (SY9): 稳产Gp=1070.8M > 阶梯Gp=790.9M > 控压Gp=835.3M m³, Sw末期: 0.330/0.329/0.330
+2026-03-02 00:52:54 - WaterInvasion - INFO - 水侵预警仪表盘已保存: C:\Users\Administrator\Desktop\cpedc_project\outputs\mk_pinn_dt_v2\figs\M7_water_invasion_dashboard.png
+2026-03-02 00:52:54 - WaterInvasion - INFO - 附表6-TDS时间序列加载: SY9, 173个样本, t_day=[1, 3518], TDS=[55, 105158] mg/L
+2026-03-02 00:52:54 - WaterInvasion - INFO - TDS标定[SY9]: Sw_0=0.3290(f0=0.100,forecast_median), λ_BL=5.00e-03/天
+2026-03-02 00:52:54 - WaterInvasion - INFO - 策略对比 (SY9): 稳产Gp=1070.8M > 阶梯Gp=790.9M > 控压Gp=835.3M m³, Sw末期: 0.330/0.329/0.330
+2026-03-02 00:52:55 - WaterInvasion - INFO - 制度优化对比图已保存: C:\Users\Administrator\Desktop\cpedc_project\outputs\mk_pinn_dt_v2\figs\M7_strategy_comparison.png
+2026-03-02 00:52:55 - WaterInvasion - INFO - 附表6-TDS时间序列加载: SY9, 173个样本, t_day=[1, 3518], TDS=[55, 105158] mg/L
+2026-03-02 00:52:57 - WaterInvasion - INFO - Sw-TDS验证图已保存: C:\Users\Administrator\Desktop\cpedc_project\outputs\mk_pinn_dt_v2\figs\M7_sw_vs_tds_validation.png
+2026-03-02 00:52:57 - WaterInvasion - INFO - 附表6-TDS时间序列加载: SY9, 173个样本, t_day=[1, 3518], TDS=[55, 105158] mg/L
+2026-03-02 00:52:57 - WaterInvasion - INFO - 附表6-TDS时间序列加载: SY13, 406个样本, t_day=[191, 3518], TDS=[52, 84797] mg/L
+2026-03-02 00:52:57 - WaterInvasion - INFO - 附表6-TDS时间序列加载: SY101, 382个样本, t_day=[439, 3518], TDS=[62, 144753] mg/L
+2026-03-02 00:52:57 - WaterInvasion - INFO - 附表6-TDS时间序列加载: SY102, 112个样本, t_day=[1825, 3488], TDS=[107, 120594] mg/L
+2026-03-02 00:52:57 - WaterInvasion - INFO - 附表6-TDS时间序列加载: SY116, 173个样本, t_day=[2081, 3517], TDS=[31, 204893] mg/L
+2026-03-02 00:52:57 - WaterInvasion - INFO - 附表6-TDS时间序列加载: SY201, 144个样本, t_day=[392, 3519], TDS=[31, 29586] mg/L
+2026-03-02 00:52:57 - WaterInvasion - INFO - 附表6-TDS时间序列加载: SYX211, 24个样本, t_day=[1630, 3518], TDS=[88991, 138138] mg/L
+2026-03-02 00:52:58 - WaterInvasion - INFO - 多井TDS仪表板已保存: C:\Users\Administrator\Desktop\cpedc_project\outputs\mk_pinn_dt_v2\figs\M7_multiwell_tds_dashboard.png
+2026-03-02 00:52:58 - WaterInvasion - INFO - 附表6-TDS时间序列加载: SY9, 173个样本, t_day=[1, 3518], TDS=[55, 105158] mg/L
+2026-03-02 00:52:58 - WaterInvasion - INFO - 附表6-TDS时间序列加载: SY13, 406个样本, t_day=[191, 3518], TDS=[52, 84797] mg/L
+2026-03-02 00:52:58 - WaterInvasion - INFO - 附表6-TDS时间序列加载: SY101, 382个样本, t_day=[439, 3518], TDS=[62, 144753] mg/L
+2026-03-02 00:52:58 - WaterInvasion - INFO - 附表6-TDS时间序列加载: SY102, 112个样本, t_day=[1825, 3488], TDS=[107, 120594] mg/L
+2026-03-02 00:52:58 - WaterInvasion - INFO - 附表6-TDS时间序列加载: SY116, 173个样本, t_day=[2081, 3517], TDS=[31, 204893] mg/L
+2026-03-02 00:52:58 - WaterInvasion - INFO - 附表6-TDS时间序列加载: SY201, 144个样本, t_day=[392, 3519], TDS=[31, 29586] mg/L
+2026-03-02 00:52:58 - WaterInvasion - INFO - 附表6-TDS时间序列加载: SYX211, 24个样本, t_day=[1630, 3518], TDS=[88991, 138138] mg/L
+2026-03-02 00:52:59 - WaterInvasion - INFO - TDS-WIRI交叉验证图已保存: C:\Users\Administrator\Desktop\cpedc_project\outputs\mk_pinn_dt_v2\figs\M7_tds_vs_wiri_crossvalidation.png
+2026-03-02 00:53:00 - WaterInvasion - INFO - 水型演化图已保存: C:\Users\Administrator\Desktop\cpedc_project\outputs\mk_pinn_dt_v2\figs\M7_water_type_timeline.png
+2026-03-02 00:53:00 - WaterInvasion - INFO - 附表6-TDS时间序列加载: SY9, 173个样本, t_day=[1, 3518], TDS=[55, 105158] mg/L
+2026-03-02 00:53:00 - WaterInvasion - INFO - TDS标定[SY9]: Sw_0=0.3290(f0=0.100,forecast_median), λ_BL=5.00e-03/天
+2026-03-02 00:53:00 - WaterInvasion - INFO - Pareto扫描完成: 10种方案, 耗时0.1秒
+2026-03-02 00:53:00 - WaterInvasion - INFO -   Pareto拐点: dp_boost=6.0 MPa, Gp=795.5M m³, Sw_end=0.329
+2026-03-02 00:53:01 - WaterInvasion - INFO - Pareto前沿图已保存: C:\Users\Administrator\Desktop\cpedc_project\outputs\mk_pinn_dt_v2\figs\M7_pareto_frontier.png
+2026-03-02 00:53:01 - WaterInvasion - INFO - 敏感性分析完成: 5个参数, 耗时0.0秒
+2026-03-02 00:53:01 - WaterInvasion - INFO - 敏感性Tornado图已保存: C:\Users\Administrator\Desktop\cpedc_project\outputs\mk_pinn_dt_v2\figs\M7_sensitivity_tornado.png
+2026-03-02 00:53:01 - WaterInvasion - INFO - 碳减排量化: 传统30.0h/7.84kgCO₂ → PINN 0.33h/0.087kgCO₂, 减排98.9%, 加速90×
+2026-03-02 00:53:01 - WaterInvasion - INFO - 附表6-TDS时间序列加载: SY9, 173个样本, t_day=[1, 3518], TDS=[55, 105158] mg/L
+2026-03-02 00:53:01 - WaterInvasion - INFO - TDS标定[SY9]: Sw_0=0.3290(f0=0.100,forecast_median), λ_BL=5.00e-03/天
+2026-03-02 00:53:01 - WaterInvasion - INFO - 策略对比 (SY9): 稳产Gp=1070.8M > 阶梯Gp=790.9M > 控压Gp=835.3M m³, Sw末期: 0.330/0.329/0.330
+2026-03-02 00:53:01 - WaterInvasion - INFO - 策略经济评价:
+2026-03-02 00:53:01 - WaterInvasion - INFO -   稳产方案: 收入2677.1M元, 水处理6.54M元, NPV=2294.1M元
+2026-03-02 00:53:01 - WaterInvasion - INFO -   阶梯降产: 收入1977.3M元, 水处理6.35M元, NPV=1746.8M元
+2026-03-02 00:53:01 - WaterInvasion - INFO -   控压方案: 收入2088.2M元, 水处理6.38M元, NPV=1836.6M元
+2026-03-02 00:53:01 - WaterInvasion - INFO - 附表6-TDS时间序列加载: SY9, 173个样本, t_day=[1, 3518], TDS=[55, 105158] mg/L
+2026-03-02 00:53:01 - WaterInvasion - INFO - TDS滞后互相关: 最佳lag=132天, R=0.309, 零滞后R=-0.146
+2026-03-02 00:53:01 - WaterInvasion - INFO - 策略验证通过: 稳产(1070.8M) > 阶梯(790.9M) > 控压(835.3M)
+2026-03-02 00:53:02 - WaterInvasion - INFO - 附表6-TDS时间序列加载: SY9, 173个样本, t_day=[1, 3518], TDS=[55, 105158] mg/L
+2026-03-02 00:53:02 - WaterInvasion - INFO - 附表6-TDS时间序列加载: SY13, 406个样本, t_day=[191, 3518], TDS=[52, 84797] mg/L
+2026-03-02 00:53:02 - WaterInvasion - INFO - 附表6-TDS时间序列加载: SY101, 382个样本, t_day=[439, 3518], TDS=[62, 144753] mg/L
+2026-03-02 00:53:02 - WaterInvasion - INFO - 附表6-TDS时间序列加载: SY102, 112个样本, t_day=[1825, 3488], TDS=[107, 120594] mg/L
+2026-03-02 00:53:02 - WaterInvasion - INFO - 附表6-TDS时间序列加载: SY116, 173个样本, t_day=[2081, 3517], TDS=[31, 204893] mg/L
+2026-03-02 00:53:02 - WaterInvasion - INFO - 附表6-TDS时间序列加载: SY201, 144个样本, t_day=[392, 3519], TDS=[31, 29586] mg/L
+2026-03-02 00:53:02 - WaterInvasion - INFO - 附表6-TDS时间序列加载: SYX211, 24个样本, t_day=[1630, 3518], TDS=[88991, 138138] mg/L
+2026-03-02 00:53:02 - WaterInvasion - INFO - 水侵预警报告已保存: C:\Users\Administrator\Desktop\cpedc_project\outputs\mk_pinn_dt_v2\reports\M7_water_invasion_report.md
+2026-03-02 00:53:02 - WaterInvasion - INFO - M7全部输出生成完毕, 耗时9.2秒

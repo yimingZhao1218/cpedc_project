@@ -1,0 +1,26 @@
+2026-02-19 13:15:35 - M1_DataProcessor - INFO - 📂 成功定位配置文件: C:\Users\16281\Desktop\cpedc_project\config.yaml
+2026-02-19 13:15:35 - M1_DataProcessor - INFO - ================================================================================
+2026-02-19 13:15:35 - M1_DataProcessor - INFO - M1 数据处理器初始化完成
+2026-02-19 13:15:35 - M1_DataProcessor - INFO - ================================================================================
+2026-02-19 13:15:35 - M1_DataProcessor - INFO - 
+================================================================================
+2026-02-19 13:15:35 - M1_DataProcessor - INFO - 开始执行 M1 数据处理流程
+2026-02-19 13:15:35 - M1_DataProcessor - INFO - ================================================================================
+
+2026-02-19 13:15:35 - M1_DataProcessor - INFO - 正在加载井位数据...
+2026-02-19 13:15:35 - M1_DataProcessor - INFO - ✅ 坐标归一化完成:
+2026-02-19 13:15:35 - M1_DataProcessor - INFO -    X: [18538582.78, 18555044.00] → [0, 1]
+2026-02-19 13:15:35 - M1_DataProcessor - INFO -    Y: [3346887.00, 3356376.38] → [0, 1]
+2026-02-19 13:15:35 - M1_DataProcessor - INFO - 成功加载 7 口井的位置数据
+2026-02-19 13:15:35 - M1_DataProcessor - INFO - 正在计算井眼3D轨迹...
+2026-02-19 13:15:35 - M1_DataProcessor - INFO -   处理 SY9...
+2026-02-19 13:15:35 - M1_DataProcessor - INFO -   处理 SY13...
+2026-02-19 13:15:35 - M1_DataProcessor - WARNING - SY13 井斜首测点MD=500.00m（非0），自动补插井口点（MD=0, TVD=0）
+2026-02-19 13:15:35 - M1_DataProcessor - INFO - SY13 补插井口点后，测点数: 203
+2026-02-19 13:15:35 - M1_DataProcessor - INFO -   处理 SY201...
+2026-02-19 13:15:35 - M1_DataProcessor - WARNING - SY201 井斜首测点MD=500.00m（非0），自动补插井口点（MD=0, TVD=0）
+2026-02-19 13:15:35 - M1_DataProcessor - INFO - SY201 补插井口点后，测点数: 169
+2026-02-19 13:15:35 - M1_DataProcessor - INFO -   处理 SY101...
+2026-02-19 13:15:35 - M1_DataProcessor - INFO -   处理 SY102...
+2026-02-19 13:15:36 - M1_DataProcessor - WARNING - SY102 TVD累计与井斜表tvd_m的最大误差: 1.57m
+2026-02-19 13:15:36 - M1_DataProcessor - INFO -   处理 SY116...

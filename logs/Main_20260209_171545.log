@@ -1,0 +1,11 @@
+2026-02-09 17:15:56 - Main - ERROR - 执行失败: 'wells'
+Traceback (most recent call last):
+  File "c:\Users\16281\Desktop\cpedc_project\src\main.py", line 109, in main
+    m1_success = m1_validator.run()
+                 ^^^^^^^^^^^^^^^^^^
+  File "c:\Users\16281\Desktop\cpedc_project\src\validate_m1.py", line 312, in run
+    self.validate_wells_data()
+  File "c:\Users\16281\Desktop\cpedc_project\src\validate_m1.py", line 56, in validate_wells_data
+    expected_wells = set(self.config['m1_config']['wells'])
+                         ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+KeyError: 'wells'

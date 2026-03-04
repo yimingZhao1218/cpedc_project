@@ -1,0 +1,44 @@
+2026-02-09 15:44:02 - M1_DataProcessor - INFO - ================================================================================
+2026-02-09 15:44:02 - M1_DataProcessor - INFO - M1 数据处理器初始化完成
+2026-02-09 15:44:02 - M1_DataProcessor - INFO - ================================================================================
+2026-02-09 15:44:02 - M1_DataProcessor - INFO - 
+================================================================================
+2026-02-09 15:44:02 - M1_DataProcessor - INFO - 开始执行 M1 数据处理流程
+2026-02-09 15:44:02 - M1_DataProcessor - INFO - ================================================================================
+
+2026-02-09 15:44:02 - M1_DataProcessor - INFO - 正在加载井位数据...
+2026-02-09 15:44:02 - M1_DataProcessor - WARNING - well_id 有 1 个缺失值
+2026-02-09 15:44:02 - M1_DataProcessor - INFO - 成功加载 9 口井的位置数据
+2026-02-09 15:44:02 - M1_DataProcessor - INFO - 正在计算井眼3D轨迹...
+2026-02-09 15:44:02 - M1_DataProcessor - INFO -   处理 序号...
+2026-02-09 15:44:02 - M1_DataProcessor - WARNING - 井斜文件不存在: data/raw\附表2-井斜数据__序号.csv
+2026-02-09 15:44:02 - M1_DataProcessor - INFO -   处理 nan...
+2026-02-09 15:44:02 - M1_DataProcessor - WARNING - 井斜文件不存在: data/raw\附表2-井斜数据__nan.csv
+2026-02-09 15:44:02 - M1_DataProcessor - INFO -   处理 1...
+2026-02-09 15:44:02 - M1_DataProcessor - WARNING - 井斜文件不存在: data/raw\附表2-井斜数据__1.csv
+2026-02-09 15:44:02 - M1_DataProcessor - INFO -   处理 2...
+2026-02-09 15:44:02 - M1_DataProcessor - WARNING - 井斜文件不存在: data/raw\附表2-井斜数据__2.csv
+2026-02-09 15:44:02 - M1_DataProcessor - INFO -   处理 3...
+2026-02-09 15:44:02 - M1_DataProcessor - WARNING - 井斜文件不存在: data/raw\附表2-井斜数据__3.csv
+2026-02-09 15:44:02 - M1_DataProcessor - INFO -   处理 4...
+2026-02-09 15:44:02 - M1_DataProcessor - WARNING - 井斜文件不存在: data/raw\附表2-井斜数据__4.csv
+2026-02-09 15:44:02 - M1_DataProcessor - INFO -   处理 5...
+2026-02-09 15:44:02 - M1_DataProcessor - WARNING - 井斜文件不存在: data/raw\附表2-井斜数据__5.csv
+2026-02-09 15:44:02 - M1_DataProcessor - INFO -   处理 6...
+2026-02-09 15:44:02 - M1_DataProcessor - WARNING - 井斜文件不存在: data/raw\附表2-井斜数据__6.csv
+2026-02-09 15:44:02 - M1_DataProcessor - INFO -   处理 7...
+2026-02-09 15:44:02 - M1_DataProcessor - WARNING - 井斜文件不存在: data/raw\附表2-井斜数据__7.csv
+2026-02-09 15:44:02 - M1_DataProcessor - ERROR - ❌ M1流程执行失败: No objects to concatenate
+Traceback (most recent call last):
+  File "C:\Users\16281\Desktop\cpedc_project\src\m1_data_processor.py", line 548, in run
+    wellpaths = self.process_all_wellpaths(wells_df)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\16281\Desktop\cpedc_project\src\m1_data_processor.py", line 268, in process_all_wellpaths
+    wellpaths = pd.concat(all_paths, ignore_index=True)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\16281\Desktop\cpedc_project\.venv\Lib\site-packages\pandas\core\reshape\concat.py", line 407, in concat
+    objs, keys, ndims = _clean_keys_and_objs(objs, keys)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\16281\Desktop\cpedc_project\.venv\Lib\site-packages\pandas\core\reshape\concat.py", line 808, in _clean_keys_and_objs
+    raise ValueError("No objects to concatenate")
+ValueError: No objects to concatenate

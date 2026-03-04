@@ -1,0 +1,29 @@
+2026-02-18 22:59:09 - Main - INFO - 使用 --max-steps=5000
+2026-02-18 22:59:12 - Main - INFO - M6: 运行消融实验套件...
+2026-02-18 22:59:12 - Main - INFO -   提示: 完整 M6 请使用独立脚本 (run_m6_multi_well.py 等)
+2026-02-18 22:59:16 - Main - INFO - 
+  消融: pure_ml
+2026-02-18 22:59:18 - Main - WARNING -   消融 pure_ml 失败: CUDA error: no kernel image is available for execution on the device
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+2026-02-18 22:59:18 - Main - INFO - 
+  消融: pinn_const_k
+2026-02-18 22:59:19 - Main - WARNING -   消融 pinn_const_k 失败: CUDA error: no kernel image is available for execution on the device
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+2026-02-18 22:59:19 - Main - INFO - 
+  消融: pinn_knet
+2026-02-18 22:59:20 - Main - WARNING -   消融 pinn_knet 失败: CUDA error: no kernel image is available for execution on the device
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+2026-02-18 22:59:20 - Main - INFO - 
+消融结果摘要:
+2026-02-18 22:59:20 - Main - INFO -   pure_ml: FAILED
+2026-02-18 22:59:20 - Main - INFO -   pinn_const_k: FAILED
+2026-02-18 22:59:20 - Main - INFO -   pinn_knet: FAILED

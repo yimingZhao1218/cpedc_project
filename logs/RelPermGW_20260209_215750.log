@@ -1,0 +1,8 @@
+2026-02-09 21:57:50 - RelPermGW - INFO - 加载相渗数据: data/raw/附表7-相对渗透率数据表.csv
+2026-02-09 21:57:50 - RelPermGW - INFO -   数据点数: 21, Swr=0.2600, Sgr=0.0620, krg_max=0.6750, krw_max=0.4800
+2026-02-09 21:57:50 - RelPermGW - INFO -   PCHIP 插值器创建成功
+2026-02-09 21:57:50 - RelPermGW - INFO - RelPermGW 初始化完成: Swr=0.2600, Sgr=0.0620, Sw=[0.2600, 0.9380]
+2026-02-09 21:57:51 - RelPermGW - INFO - 加载相渗数据: data/raw/附表7-相对渗透率数据表.csv
+2026-02-09 21:57:51 - RelPermGW - INFO -   数据点数: 21, Swr=0.2600, Sgr=0.0620, krg_max=0.6750, krw_max=0.4800
+2026-02-09 21:57:51 - RelPermGW - INFO -   PCHIP 插值器创建成功
+2026-02-09 21:57:51 - RelPermGW - INFO - RelPermGW 初始化完成: Swr=0.2600, Sgr=0.0620, Sw=[0.2600, 0.9380]

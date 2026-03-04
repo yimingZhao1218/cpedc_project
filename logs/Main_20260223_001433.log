@@ -1,0 +1,29 @@
+2026-02-23 00:14:36 - Main - INFO - M5 训练设备: cuda
+2026-02-23 00:14:36 - Main - INFO - M5 主井: SY9
+2026-02-23 00:14:36 - Main - INFO -   M5 参数量: {'field_net': 416258, 'well_model': 4418, 'k_net': 15297, 'dp_wellbore': 0, 'total': 435973}
+2026-02-23 00:14:37 - Main - ERROR - 执行失败: some parameters appear in more than one parameter group
+Traceback (most recent call last):
+  File "C:\Users\16281\Desktop\cpedc_project\src\main.py", line 488, in main
+    m5_ok = run_m5(config, logger)
+            ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\16281\Desktop\cpedc_project\src\main.py", line 167, in run_m5
+    trainer = M5Trainer(config, model, sampler, device=device)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\16281\Desktop\cpedc_project\src\pinn\m5_trainer.py", line 217, in __init__
+    self.optimizer = optim.AdamW(param_groups, lr=self.lr, weight_decay=wd)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\16281\Desktop\cpedc_project\.venv\Lib\site-packages\torch\optim\adamw.py", line 37, in __init__
+    super().__init__(
+  File "C:\Users\16281\Desktop\cpedc_project\.venv\Lib\site-packages\torch\optim\adam.py", line 101, in __init__
+    super().__init__(params, defaults)
+  File "C:\Users\16281\Desktop\cpedc_project\.venv\Lib\site-packages\torch\optim\optimizer.py", line 401, in __init__
+    self.add_param_group(cast(dict, param_group))
+  File "C:\Users\16281\Desktop\cpedc_project\.venv\Lib\site-packages\torch\_compile.py", line 53, in inner
+    return disable_fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\16281\Desktop\cpedc_project\.venv\Lib\site-packages\torch\_dynamo\eval_frame.py", line 1044, in _fn
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\16281\Desktop\cpedc_project\.venv\Lib\site-packages\torch\optim\optimizer.py", line 1154, in add_param_group
+    raise ValueError("some parameters appear in more than one parameter group")
+ValueError: some parameters appear in more than one parameter group

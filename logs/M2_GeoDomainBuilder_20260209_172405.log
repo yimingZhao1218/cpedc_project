@@ -1,0 +1,19 @@
+2026-02-09 17:24:05 - M2_GeoDomainBuilder - INFO - ================================================================================
+2026-02-09 17:24:05 - M2_GeoDomainBuilder - INFO - M2 地质域构建器初始化完成
+2026-02-09 17:24:05 - M2_GeoDomainBuilder - INFO - ================================================================================
+2026-02-09 17:24:05 - M2_GeoDomainBuilder - INFO - 
+================================================================================
+2026-02-09 17:24:05 - M2_GeoDomainBuilder - INFO - 开始执行 M2 地质域构建流程
+2026-02-09 17:24:05 - M2_GeoDomainBuilder - INFO - ================================================================================
+
+2026-02-09 17:24:05 - M2_GeoDomainBuilder - INFO - 加载了 7 个MK段代表点
+2026-02-09 17:24:05 - M2_GeoDomainBuilder - INFO - 正在创建模型边界...
+2026-02-09 17:24:05 - M2_GeoDomainBuilder - ERROR - ❌ M2流程执行失败: 'default_buffer'
+Traceback (most recent call last):
+  File "C:\Users\16281\Desktop\cpedc_project\src\m2_geo_builder.py", line 950, in run
+    polygon, boundary_coords = self.create_model_boundary(mk_points)
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\16281\Desktop\cpedc_project\src\m2_geo_builder.py", line 74, in create_model_boundary
+    buffer_distance = self.config['m2_config']['default_buffer']
+                      ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+KeyError: 'default_buffer'

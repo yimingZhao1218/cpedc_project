@@ -1,0 +1,603 @@
+2026-03-04 00:26:23 - M5Trainer - INFO -   torch.compile 已跳过 (Triton 不支持 Windows, 使用 eager 模式)
+2026-03-04 00:26:23 - M5Trainer - INFO - k_frac 独立参数组: lr=6.00e-04 (factor=2.0)
+2026-03-04 00:26:23 - M5Trainer - INFO -   [v3.17] well_singularity 参数组: 1153 params, lr=3.00e-04
+2026-03-04 00:26:23 - M5Trainer - INFO -   [v3.14] Corey 指数可学习: ng₀=1.0846, nw₀=4.4071 (SY13 拟合先验, lr_factor=0.5)
+2026-03-04 00:26:23 - M5Trainer - INFO -   [v3.14] well_model.relperm = loss_fn.relperm (共享实例)
+2026-03-04 00:26:23 - M5Trainer - INFO - k_net 学习率: 3.00e-05 (factor=0.1, warmup=2000 steps)
+2026-03-04 00:26:23 - M5Trainer - INFO -   井 SY9: 1332 条同化数据 (train=865, val=199, test=268)
+    开井点数 (q>1): train=801, val=32, test=121
+    有效压力点: val_p=43, test_p=121
+2026-03-04 00:26:23 - M5Trainer - INFO -   train time window(norm): [0.0000, 0.6491]
+2026-03-04 00:26:23 - M5Trainer - INFO -   well_h[SY9] = 48.4 m (有效储厚)
+2026-03-04 00:26:23 - M5Trainer - INFO -   well_h[SY13] = 41.6 m (有效储厚)
+2026-03-04 00:26:23 - M5Trainer - INFO -   well_h[SY201] = 37.9 m (有效储厚)
+2026-03-04 00:26:23 - M5Trainer - INFO -   well_h[SY101] = 41.7 m (有效储厚)
+2026-03-04 00:26:23 - M5Trainer - INFO -   well_h[SY102] = 45.4 m (有效储厚)
+2026-03-04 00:26:23 - M5Trainer - INFO -   well_h[SY116] = 39.3 m (有效储厚)
+2026-03-04 00:26:23 - M5Trainer - INFO -   well_h[SYX211] = 6.0 m (有效储厚)
+2026-03-04 00:26:23 - M5Trainer - INFO -   [TDS→Sw] SY9: 173个采样点, t_day=[1, 3518], TDS=[55, 105158] mg/L, Sw_tds=[0.260, 0.938], Swc=0.260, Sgr=0.062
+2026-03-04 00:26:23 - M5Trainer - INFO -   [TDS→Sw] 共加载 173 个TDS→Sw软标签点
+2026-03-04 00:26:23 - M5Trainer - INFO -   M3 PVT cg(76.0, 140.32) = 0.009744
+2026-03-04 00:26:23 - M5Trainer - INFO -   M3 PVT Bg(76.0, 140.32) = 0.002577
+2026-03-04 00:26:23 - M5Trainer - INFO -   PDE 缩放: αx=0.101777, αy=0.254660
+2026-03-04 00:26:23 - M5Trainer - INFO - M5Trainer 初始化完成: device=cuda, lr=0.0003, max_steps=15000, relobralo=True, rar=True
+2026-03-04 00:26:23 - M5Trainer - INFO -   history 已恢复 (30601 步)
+2026-03-04 00:26:23 - M5Trainer - INFO -   best_step=30600
+2026-03-04 00:26:23 - M5Trainer - INFO - 已加载 M5 检查点: C:\Users\16281\Desktop\cpedc_project\outputs\mk_pinn_dt_v2\ckpt\m5_pinn_best.pt
+2026-03-04 00:26:23 - M5Trainer - INFO - ============================================================
+2026-03-04 00:26:23 - M5Trainer - INFO - M5 PINN 井—藏耦合同化训练开始
+2026-03-04 00:26:23 - M5Trainer - INFO - ============================================================
+2026-03-04 00:26:23 - M5Trainer - INFO -   阶段权重已被 config 覆盖 (train.stages 或 training_stages.stage_*.weights)
+2026-03-04 00:26:23 - M5Trainer - INFO - 训练阶段: A[0-1200] B[1200-4200] C[4200-8400] D[8400-15000]
+2026-03-04 00:26:23 - M5Trainer - INFO -   qg_nearzero 权重: A=3.0, B=6.0->9.0, C=12.0, D=7.0, enable=True
+2026-03-04 00:26:23 - M5Trainer - INFO - --- M5 单位/量纲诊断 (train 第 1 步前) ---
+2026-03-04 00:26:23 - M5Trainer - INFO -   qg_obs 范围: 0.00e+00 ~ 8.39e+05 m³/d, 均值: 2.97e+05 m³/d
+2026-03-04 00:26:23 - M5Trainer - INFO -   qg_pred 范围: 6.23e+03 ~ 8.07e+05
+2026-03-04 00:26:23 - M5Trainer - INFO -   p_wf 范围: 5.62e+01 ~ 7.68e+01 MPa
+2026-03-04 00:26:23 - M5Trainer - INFO -   p_field @ well: 7.06e+01 MPa
+2026-03-04 00:26:23 - M5Trainer - INFO -   k_frac = 10.1651 mD
+2026-03-04 00:26:23 - M5Trainer - INFO -   WI_raw = 4.260080e-13 [检查单位]
+2026-03-04 00:26:23 - M5Trainer - INFO -   dp_wellbore = 13.30 MPa
+2026-03-04 00:26:23 - M5Trainer - INFO -   Bg_ref = 2.576898e-03
+2026-03-04 00:26:23 - M5Trainer - INFO -   qg_obs 范围: 0.00e+00 ~ 8.39e+05 m³/d
+2026-03-04 00:26:23 - M5Trainer - INFO -   qg_obs 中位数 = 3.07e+05 m³/d
+2026-03-04 00:26:23 - M5Trainer - INFO -   ✅ v9: PDE源项已升级为时变 source(x,y,t) = qg_obs(t) * kernel(x,y)
+2026-03-04 00:26:23 - M5Trainer - INFO -   ✅ 每个PDE配点使用其时刻对应的真实观测产量（线性插值）
+2026-03-04 00:26:23 - M5Trainer - INFO - --- 诊断结束 ---
+2026-03-04 00:26:23 - M5Trainer - INFO -   [v3.13] Stage A+B 冻结 k_frac=10.1651 mD (Stage C 解冻)
+2026-03-04 00:26:23 - M5Trainer - INFO -   [v3.14] Stage A+B 冻结 ng=2.9179, nw=2.9720 (Stage C 解冻)
+2026-03-04 00:26:23 - M5Trainer - INFO -   [shape] SY9: qg pred=(1332, 1) vs obs=(1332, 1), p_wf pred=(1332, 1) vs p_obs=(1332, 1)
+2026-03-04 00:26:24 - M5Trainer - WARNING -   ⚠️ k_eff_mD.grad 为 None 或零! 可辨识性可能受损
+2026-03-04 00:26:24 - M5Trainer - INFO -   ✅ k_net: 18 组参数收到梯度
+2026-03-04 00:26:24 - M5Trainer - INFO -   [梯度验收] SY9: qg_obs range=[0.0, 838700.0]
+2026-03-04 00:26:24 - M5Trainer - INFO -   [Sw监控] SY9: Sw=[0.0542, 0.3562, 0.4495], krg_min=2.595301e-01
+2026-03-04 00:26:24 - M5Trainer - INFO - [Step     0/15000] A | L=1.6797e+01 | 0.8s
+2026-03-04 00:26:24 - M5Trainer - INFO -   loss: IC=2.49e-02 BC=3.56e-02 PDE=1.71e+02 Qg=1.23e-01 Sd=1.78e-03 TDS=0.00e+00
+2026-03-04 00:26:24 - M5Trainer - INFO -   param: k=10.165mD dp=13.3 ng=2.918 nw=2.972 Sw=[0.059,0.448] | A(t)=[-7.80,-7.92,-7.92]
+2026-03-04 00:26:24 - M5Trainer - INFO -   [k_frac诊断] grad=None, k_frac=10.165142 mD
+2026-03-04 00:26:43 - M5Trainer - INFO - [Step   100/15000] A | L=1.4880e+01 | 20.1s
+2026-03-04 00:26:43 - M5Trainer - INFO -   loss: IC=1.94e-02 BC=3.57e-02 PDE=1.51e+02 Qg=1.26e-01 Sd=1.86e-03 TDS=0.00e+00
+2026-03-04 00:26:43 - M5Trainer - INFO -   param: k=10.165mD dp=13.3 ng=2.918 nw=2.972 Sw=[0.063,0.205] | A(t)=[-7.82,-7.94,-7.94]
+2026-03-04 00:27:01 - M5Trainer - INFO -   [梯度验收] SY9: qg_obs range=[0.0, 838700.0]
+2026-03-04 00:27:01 - M5Trainer - INFO - [Step   200/15000] A | L=1.1440e+01 | 38.1s
+2026-03-04 00:27:01 - M5Trainer - INFO -   loss: IC=2.49e-02 BC=3.06e-02 PDE=1.71e+02 Qg=1.27e-01 Sd=1.80e-03 TDS=0.00e+00
+2026-03-04 00:27:01 - M5Trainer - INFO -   param: k=10.165mD dp=13.3 ng=2.918 nw=2.972 Sw=[0.062,0.438] | A(t)=[-7.84,-7.97,-7.97]
+2026-03-04 00:27:20 - M5Trainer - INFO - [Step   300/15000] A | L=1.6042e+01 | 57.1s
+2026-03-04 00:27:20 - M5Trainer - INFO -   loss: IC=2.90e-02 BC=2.53e-02 PDE=1.65e+02 Qg=1.32e-01 Sd=2.00e-03 TDS=0.00e+00
+2026-03-04 00:27:20 - M5Trainer - INFO -   param: k=10.165mD dp=13.3 ng=2.918 nw=2.972 Sw=[0.061,0.413] | A(t)=[-7.85,-7.99,-7.99]
+2026-03-04 00:27:50 - M5Trainer - INFO -   [梯度验收] SY9: qg_obs range=[0.0, 838700.0]
+2026-03-04 00:27:50 - M5Trainer - INFO - [Step   400/15000] A | L=1.6659e+01 | 87.5s
+2026-03-04 00:27:50 - M5Trainer - INFO -   loss: IC=1.08e-02 BC=2.04e-02 PDE=1.56e+02 Qg=1.29e-01 Sd=2.29e-03 TDS=0.00e+00
+2026-03-04 00:27:50 - M5Trainer - INFO -   param: k=10.165mD dp=13.3 ng=2.918 nw=2.972 Sw=[0.064,0.421] | A(t)=[-7.89,-8.03,-8.03]
+2026-03-04 00:28:30 - M5Trainer - INFO -   [Sw监控] SY9: Sw=[0.0530, 0.3711, 0.4495], krg_min=2.595060e-01
+2026-03-04 00:28:30 - M5Trainer - INFO - [Step   500/15000] A | L=1.7732e+01 | 127.0s
+2026-03-04 00:28:30 - M5Trainer - INFO -   loss: IC=1.07e-02 BC=2.01e-02 PDE=2.05e+02 Qg=1.32e-01 Sd=2.41e-03 TDS=0.00e+00
+2026-03-04 00:28:30 - M5Trainer - INFO -   param: k=10.165mD dp=13.3 ng=2.918 nw=2.972 Sw=[0.063,0.438] | A(t)=[-7.87,-8.06,-8.06]
+2026-03-04 00:28:30 - M5Trainer - INFO -   [k_frac诊断] grad=None, k_frac=10.165142 mD
+2026-03-04 00:29:18 - M5Trainer - INFO -   [梯度验收] SY9: qg_obs range=[0.0, 838700.0]
+2026-03-04 00:29:18 - M5Trainer - INFO - [Step   600/15000] A | L=1.8063e+01 | 175.2s
+2026-03-04 00:29:18 - M5Trainer - INFO -   loss: IC=1.44e-02 BC=1.63e-02 PDE=1.92e+02 Qg=1.34e-01 Sd=2.84e-03 TDS=0.00e+00
+2026-03-04 00:29:18 - M5Trainer - INFO -   param: k=10.165mD dp=13.3 ng=2.918 nw=2.972 Sw=[0.065,0.419] | A(t)=[-7.83,-8.07,-8.07]
+2026-03-04 00:30:03 - M5Trainer - INFO - [Step   700/15000] A | L=1.7274e+01 | 220.2s
+2026-03-04 00:30:03 - M5Trainer - INFO -   loss: IC=1.35e-02 BC=2.02e-02 PDE=1.78e+02 Qg=1.28e-01 Sd=3.48e-03 TDS=0.00e+00
+2026-03-04 00:30:03 - M5Trainer - INFO -   param: k=10.165mD dp=13.3 ng=2.918 nw=2.972 Sw=[0.068,0.421] | A(t)=[-7.88,-8.12,-8.12]
+2026-03-04 00:31:04 - M5Trainer - INFO -   [梯度验收] SY9: qg_obs range=[0.0, 838700.0]
+2026-03-04 00:31:04 - M5Trainer - INFO - [Step   800/15000] A | L=1.8671e+01 | 281.5s
+2026-03-04 00:31:04 - M5Trainer - INFO -   loss: IC=7.54e-03 BC=1.38e-02 PDE=1.94e+02 Qg=1.30e-01 Sd=3.63e-03 TDS=0.00e+00
+2026-03-04 00:31:04 - M5Trainer - INFO -   param: k=10.165mD dp=13.3 ng=2.918 nw=2.972 Sw=[0.067,0.422] | A(t)=[-7.92,-8.16,-8.16]
+2026-03-04 00:31:54 - M5Trainer - INFO - [Step   900/15000] A | L=1.9097e+01 | 330.7s
+2026-03-04 00:31:54 - M5Trainer - INFO -   loss: IC=6.42e-03 BC=1.30e-02 PDE=1.98e+02 Qg=1.31e-01 Sd=3.20e-03 TDS=0.00e+00
+2026-03-04 00:31:54 - M5Trainer - INFO -   param: k=10.165mD dp=13.3 ng=2.918 nw=2.972 Sw=[0.072,0.413] | A(t)=[-7.90,-8.18,-8.18]
+2026-03-04 00:32:44 - M5Trainer - INFO -   [梯度验收] SY9: qg_obs range=[0.0, 838700.0]
+2026-03-04 00:32:44 - M5Trainer - INFO -   [Sw监控] SY9: Sw=[0.0524, 0.3699, 0.4494], krg_min=2.596003e-01
+2026-03-04 00:32:44 - M5Trainer - INFO -   [best更新] val_score=13.8030 (step 1000)
+2026-03-04 00:32:44 - M5Trainer - INFO - [Step  1000/15000] A | L=1.9364e+01 | 381.3s
+2026-03-04 00:32:44 - M5Trainer - INFO -   loss: IC=7.71e-03 BC=1.30e-02 PDE=2.32e+02 Qg=1.30e-01 Sd=2.99e-03 TDS=0.00e+00
+2026-03-04 00:32:44 - M5Trainer - INFO -   param: k=10.165mD dp=13.3 ng=2.918 nw=2.972 Sw=[0.070,0.435] | A(t)=[-7.90,-8.18,-8.18]
+2026-03-04 00:32:44 - M5Trainer - INFO -   [k_frac诊断] grad=None, k_frac=10.165142 mD
+2026-03-04 00:33:39 - M5Trainer - INFO - [Step  1100/15000] A | L=2.1636e+01 | 436.2s
+2026-03-04 00:33:39 - M5Trainer - INFO -   loss: IC=4.53e-03 BC=9.55e-03 PDE=2.20e+02 Qg=1.39e-01 Sd=2.10e-03 TDS=0.00e+00
+2026-03-04 00:33:39 - M5Trainer - INFO -   param: k=10.165mD dp=13.3 ng=2.918 nw=2.972 Sw=[0.074,0.436] | A(t)=[-7.76,-8.12,-8.12]
+2026-03-04 00:34:27 - M5Trainer - INFO -   [梯度验收] SY9: qg_obs range=[0.0, 838700.0]
+2026-03-04 00:34:27 - M5Trainer - INFO - [Step  1200/15000] B | L=4.9296e+01 | 483.6s
+2026-03-04 00:34:27 - M5Trainer - INFO -   loss: IC=5.28e-03 BC=1.07e-02 PDE=2.23e+02 Qg=1.37e-01 Sd=2.32e-03 TDS=1.12e-01
+2026-03-04 00:34:27 - M5Trainer - INFO -   param: k=10.165mD dp=13.3 ng=2.918 nw=2.972 Sw=[0.075,0.438] | A(t)=[-7.84,-8.16,-8.16]
+2026-03-04 00:35:20 - M5Trainer - INFO - [Step  1300/15000] B | L=4.9892e+01 | 536.9s
+2026-03-04 00:35:20 - M5Trainer - INFO -   loss: IC=6.08e-03 BC=9.76e-03 PDE=2.17e+02 Qg=1.25e-01 Sd=1.09e-03 TDS=1.08e-01
+2026-03-04 00:35:20 - M5Trainer - INFO -   param: k=10.165mD dp=13.3 ng=2.918 nw=2.972 Sw=[0.073,0.436] | A(t)=[-7.95,-8.22,-8.22]
+2026-03-04 00:36:16 - M5Trainer - INFO -   [梯度验收] SY9: qg_obs range=[0.0, 838700.0]
+2026-03-04 00:36:16 - M5Trainer - INFO - [Step  1400/15000] B | L=5.1852e+01 | 593.4s
+2026-03-04 00:36:16 - M5Trainer - INFO -   loss: IC=6.34e-03 BC=9.78e-03 PDE=2.30e+02 Qg=1.23e-01 Sd=7.84e-04 TDS=1.10e-01
+2026-03-04 00:36:16 - M5Trainer - INFO -   param: k=10.165mD dp=13.3 ng=2.918 nw=2.972 Sw=[0.073,0.419] | A(t)=[-7.89,-8.15,-8.15]
+2026-03-04 00:37:27 - M5Trainer - INFO -   [Sw监控] SY9: Sw=[0.0513, 0.3659, 0.4494], krg_min=2.595940e-01
+2026-03-04 00:37:27 - M5Trainer - INFO - [Step  1500/15000] B | L=4.9688e+01 | 664.3s
+2026-03-04 00:37:27 - M5Trainer - INFO -   loss: IC=1.48e-02 BC=1.48e-02 PDE=2.64e+02 Qg=1.28e-01 Sd=5.83e-04 TDS=1.12e-01
+2026-03-04 00:37:27 - M5Trainer - INFO -   param: k=10.165mD dp=13.3 ng=2.918 nw=2.972 Sw=[0.067,0.444] | A(t)=[-7.89,-8.16,-8.16]
+2026-03-04 00:37:27 - M5Trainer - INFO -   [k_frac诊断] grad=None, k_frac=10.165142 mD
+2026-03-04 00:38:56 - M5Trainer - INFO -   [梯度验收] SY9: qg_obs range=[0.0, 838700.0]
+2026-03-04 00:38:56 - M5Trainer - INFO - [Step  1600/15000] B | L=5.4957e+01 | 752.9s
+2026-03-04 00:38:56 - M5Trainer - INFO -   loss: IC=1.00e-02 BC=1.32e-02 PDE=2.52e+02 Qg=1.31e-01 Sd=4.17e-04 TDS=1.13e-01
+2026-03-04 00:38:56 - M5Trainer - INFO -   param: k=10.165mD dp=13.3 ng=2.918 nw=2.972 Sw=[0.074,0.413] | A(t)=[-7.86,-8.17,-8.17]
+2026-03-04 00:39:40 - M5Trainer - INFO - [Step  1700/15000] B | L=5.6135e+01 | 797.2s
+2026-03-04 00:39:40 - M5Trainer - INFO -   loss: IC=8.46e-03 BC=9.34e-03 PDE=2.66e+02 Qg=1.26e-01 Sd=3.25e-04 TDS=1.17e-01
+2026-03-04 00:39:40 - M5Trainer - INFO -   param: k=10.165mD dp=13.3 ng=2.918 nw=2.972 Sw=[0.072,0.414] | A(t)=[-7.83,-8.16,-8.16]
+2026-03-04 00:39:58 - M5Trainer - INFO -   [梯度验收] SY9: qg_obs range=[0.0, 838700.0]
+2026-03-04 00:39:58 - M5Trainer - INFO - [Step  1800/15000] B | L=5.6739e+01 | 815.4s
+2026-03-04 00:39:58 - M5Trainer - INFO -   loss: IC=6.73e-03 BC=9.34e-03 PDE=2.46e+02 Qg=1.24e-01 Sd=3.90e-04 TDS=1.21e-01
+2026-03-04 00:39:58 - M5Trainer - INFO -   param: k=10.165mD dp=13.3 ng=2.918 nw=2.972 Sw=[0.074,0.433] | A(t)=[-7.80,-8.15,-8.15]
+2026-03-04 00:40:17 - M5Trainer - INFO - [Step  1900/15000] B | L=6.0094e+01 | 833.9s
+2026-03-04 00:40:17 - M5Trainer - INFO -   loss: IC=5.27e-03 BC=9.56e-03 PDE=2.45e+02 Qg=1.27e-01 Sd=3.20e-04 TDS=1.22e-01
+2026-03-04 00:40:17 - M5Trainer - INFO -   param: k=10.165mD dp=13.3 ng=2.918 nw=2.972 Sw=[0.067,0.308] | A(t)=[-7.76,-8.16,-8.16]
+2026-03-04 00:40:35 - M5Trainer - INFO -   [Sw监控] SY9: Sw=[0.0513, 0.3615, 0.4494], krg_min=2.595594e-01
+2026-03-04 00:40:35 - M5Trainer - INFO - [Step  2000/15000] B | L=5.6524e+01 | 851.7s
+2026-03-04 00:40:35 - M5Trainer - INFO -   loss: IC=6.59e-03 BC=9.44e-03 PDE=2.69e+02 Qg=1.19e-01 Sd=4.88e-04 TDS=1.30e-01
+2026-03-04 00:40:35 - M5Trainer - INFO -   param: k=10.165mD dp=13.3 ng=2.918 nw=2.972 Sw=[0.074,0.403] | A(t)=[-7.78,-8.16,-8.16]
+2026-03-04 00:40:35 - M5Trainer - INFO -   [k_frac诊断] grad=None, k_frac=10.165142 mD
+2026-03-04 00:40:52 - M5Trainer - INFO - [Step  2100/15000] B | L=6.0443e+01 | 869.2s
+2026-03-04 00:40:52 - M5Trainer - INFO -   loss: IC=6.52e-03 BC=7.68e-03 PDE=2.73e+02 Qg=1.23e-01 Sd=3.56e-04 TDS=1.35e-01
+2026-03-04 00:40:52 - M5Trainer - INFO -   param: k=10.165mD dp=13.3 ng=2.918 nw=2.972 Sw=[0.078,0.165] | A(t)=[-7.76,-8.19,-8.19]
+2026-03-04 00:41:10 - M5Trainer - INFO - [Step  2200/15000] B | L=5.2349e+01 | 887.0s
+2026-03-04 00:41:10 - M5Trainer - INFO -   loss: IC=1.59e-02 BC=1.06e-02 PDE=2.78e+02 Qg=1.23e-01 Sd=1.89e-04 TDS=1.33e-01
+2026-03-04 00:41:10 - M5Trainer - INFO -   param: k=10.165mD dp=13.3 ng=2.918 nw=2.972 Sw=[0.074,0.449] | A(t)=[-7.72,-8.18,-8.18]
+2026-03-04 00:41:28 - M5Trainer - INFO - [Step  2300/15000] B | L=5.3626e+01 | 904.8s
+2026-03-04 00:41:28 - M5Trainer - INFO -   loss: IC=1.05e-02 BC=8.67e-03 PDE=2.65e+02 Qg=1.22e-01 Sd=5.95e-04 TDS=1.36e-01
+2026-03-04 00:41:28 - M5Trainer - INFO -   param: k=10.165mD dp=13.3 ng=2.918 nw=2.972 Sw=[0.076,0.428] | A(t)=[-7.66,-8.16,-8.16]
+2026-03-04 00:41:46 - M5Trainer - INFO - [Step  2400/15000] B | L=5.4468e+01 | 922.8s
+2026-03-04 00:41:46 - M5Trainer - INFO -   loss: IC=9.30e-03 BC=1.07e-02 PDE=2.74e+02 Qg=1.30e-01 Sd=4.12e-04 TDS=1.37e-01
+2026-03-04 00:41:46 - M5Trainer - INFO -   param: k=10.165mD dp=13.3 ng=2.918 nw=2.972 Sw=[0.075,0.410] | A(t)=[-7.68,-8.20,-8.20]
+2026-03-04 00:42:03 - M5Trainer - INFO -   [Sw监控] SY9: Sw=[0.0519, 0.3582, 0.4494], krg_min=2.596222e-01
+2026-03-04 00:42:03 - M5Trainer - INFO - [Step  2500/15000] B | L=6.6468e+01 | 940.3s
+2026-03-04 00:42:03 - M5Trainer - INFO -   loss: IC=5.68e-03 BC=8.65e-03 PDE=3.03e+02 Qg=1.26e-01 Sd=2.27e-04 TDS=1.43e-01
+2026-03-04 00:42:03 - M5Trainer - INFO -   param: k=10.165mD dp=13.3 ng=2.918 nw=2.972 Sw=[0.067,0.424] | A(t)=[-7.67,-8.21,-8.21]
+2026-03-04 00:42:03 - M5Trainer - INFO -   [k_frac诊断] grad=None, k_frac=10.165142 mD
+2026-03-04 00:42:21 - M5Trainer - INFO - [Step  2600/15000] B | L=6.1538e+01 | 958.4s
+2026-03-04 00:42:21 - M5Trainer - INFO -   loss: IC=9.32e-03 BC=8.03e-03 PDE=2.94e+02 Qg=1.24e-01 Sd=2.82e-04 TDS=1.48e-01
+2026-03-04 00:42:21 - M5Trainer - INFO -   param: k=10.165mD dp=13.3 ng=2.918 nw=2.972 Sw=[0.072,0.448] | A(t)=[-7.60,-8.18,-8.18]
+2026-03-04 00:42:39 - M5Trainer - INFO - [Step  2700/15000] B | L=6.4076e+01 | 976.2s
+2026-03-04 00:42:39 - M5Trainer - INFO -   loss: IC=6.77e-03 BC=9.89e-03 PDE=2.99e+02 Qg=1.24e-01 Sd=4.15e-04 TDS=1.51e-01
+2026-03-04 00:42:39 - M5Trainer - INFO -   param: k=10.165mD dp=13.3 ng=2.918 nw=2.972 Sw=[0.086,0.449] | A(t)=[-7.64,-8.21,-8.21]
+2026-03-04 00:42:57 - M5Trainer - INFO - [Step  2800/15000] B | L=6.4250e+01 | 994.0s
+2026-03-04 00:42:57 - M5Trainer - INFO -   loss: IC=7.39e-03 BC=1.07e-02 PDE=3.03e+02 Qg=1.26e-01 Sd=4.59e-04 TDS=1.51e-01
+2026-03-04 00:42:57 - M5Trainer - INFO -   param: k=10.165mD dp=13.3 ng=2.918 nw=2.972 Sw=[0.072,0.431] | A(t)=[-7.62,-8.21,-8.21]
+2026-03-04 00:43:15 - M5Trainer - INFO - [Step  2900/15000] B | L=6.3321e+01 | 1011.8s
+2026-03-04 00:43:15 - M5Trainer - INFO -   loss: IC=8.90e-03 BC=8.74e-03 PDE=2.99e+02 Qg=1.21e-01 Sd=2.43e-04 TDS=1.55e-01
+2026-03-04 00:43:15 - M5Trainer - INFO -   param: k=10.165mD dp=13.3 ng=2.918 nw=2.972 Sw=[0.068,0.434] | A(t)=[-7.66,-8.21,-8.21]
+2026-03-04 00:43:33 - M5Trainer - INFO -   [Sw监控] SY9: Sw=[0.0521, 0.3558, 0.4496], krg_min=2.593235e-01
+2026-03-04 00:43:33 - M5Trainer - INFO - [Step  3000/15000] B | L=6.5668e+01 | 1029.7s
+2026-03-04 00:43:33 - M5Trainer - INFO -   loss: IC=7.80e-03 BC=9.22e-03 PDE=3.38e+02 Qg=1.24e-01 Sd=4.19e-04 TDS=1.59e-01
+2026-03-04 00:43:33 - M5Trainer - INFO -   param: k=10.165mD dp=13.3 ng=2.918 nw=2.972 Sw=[0.066,0.437] | A(t)=[-7.57,-8.21,-8.21]
+2026-03-04 00:43:33 - M5Trainer - INFO -   [k_frac诊断] grad=None, k_frac=10.165142 mD
+2026-03-04 00:43:51 - M5Trainer - INFO - [Step  3100/15000] B | L=7.0488e+01 | 1047.7s
+2026-03-04 00:43:51 - M5Trainer - INFO -   loss: IC=7.47e-03 BC=9.31e-03 PDE=3.40e+02 Qg=1.29e-01 Sd=2.33e-04 TDS=1.60e-01
+2026-03-04 00:43:51 - M5Trainer - INFO -   param: k=10.165mD dp=13.3 ng=2.918 nw=2.972 Sw=[0.080,0.449] | A(t)=[-7.58,-8.22,-8.22]
+2026-03-04 00:44:09 - M5Trainer - INFO - [Step  3200/15000] B | L=6.4058e+01 | 1066.1s
+2026-03-04 00:44:09 - M5Trainer - INFO -   loss: IC=7.91e-03 BC=9.33e-03 PDE=3.27e+02 Qg=1.19e-01 Sd=3.17e-04 TDS=1.65e-01
+2026-03-04 00:44:09 - M5Trainer - INFO -   param: k=10.165mD dp=13.3 ng=2.918 nw=2.972 Sw=[0.079,0.449] | A(t)=[-7.50,-8.22,-8.22]
+2026-03-04 00:44:27 - M5Trainer - INFO - [Step  3300/15000] B | L=6.4830e+01 | 1084.3s
+2026-03-04 00:44:27 - M5Trainer - INFO -   loss: IC=8.64e-03 BC=9.34e-03 PDE=3.27e+02 Qg=1.20e-01 Sd=2.08e-04 TDS=1.70e-01
+2026-03-04 00:44:27 - M5Trainer - INFO -   param: k=10.165mD dp=13.3 ng=2.918 nw=2.972 Sw=[0.081,0.411] | A(t)=[-7.42,-8.22,-8.22]
+2026-03-04 00:44:45 - M5Trainer - INFO - [Step  3400/15000] B | L=6.8953e+01 | 1102.6s
+2026-03-04 00:44:45 - M5Trainer - INFO -   loss: IC=7.11e-03 BC=8.38e-03 PDE=3.22e+02 Qg=1.22e-01 Sd=2.05e-04 TDS=1.72e-01
+2026-03-04 00:44:45 - M5Trainer - INFO -   param: k=10.165mD dp=13.3 ng=2.918 nw=2.972 Sw=[0.084,0.420] | A(t)=[-7.38,-8.19,-8.19]
+2026-03-04 00:45:04 - M5Trainer - INFO -   [Sw监控] SY9: Sw=[0.0527, 0.3502, 0.4496], krg_min=2.593018e-01
+2026-03-04 00:45:04 - M5Trainer - INFO - [Step  3500/15000] B | L=6.9758e+01 | 1120.7s
+2026-03-04 00:45:04 - M5Trainer - INFO -   loss: IC=5.71e-03 BC=8.96e-03 PDE=3.55e+02 Qg=1.19e-01 Sd=1.81e-04 TDS=1.82e-01
+2026-03-04 00:45:04 - M5Trainer - INFO -   param: k=10.165mD dp=13.3 ng=2.918 nw=2.972 Sw=[0.072,0.433] | A(t)=[-7.30,-8.21,-8.21]
+2026-03-04 00:45:04 - M5Trainer - INFO -   [k_frac诊断] grad=None, k_frac=10.165142 mD
+2026-03-04 00:45:22 - M5Trainer - INFO - [Step  3600/15000] B | L=5.6751e+01 | 1139.2s
+2026-03-04 00:45:22 - M5Trainer - INFO -   loss: IC=2.43e-02 BC=1.05e-02 PDE=3.57e+02 Qg=1.15e-01 Sd=1.76e-04 TDS=1.79e-01
+2026-03-04 00:45:22 - M5Trainer - INFO -   param: k=10.165mD dp=13.3 ng=2.918 nw=2.972 Sw=[0.071,0.417] | A(t)=[-7.38,-8.20,-8.20]
+2026-03-04 00:45:41 - M5Trainer - INFO - [Step  3700/15000] B | L=6.8411e+01 | 1157.7s
+2026-03-04 00:45:41 - M5Trainer - INFO -   loss: IC=8.39e-03 BC=9.89e-03 PDE=3.56e+02 Qg=1.19e-01 Sd=2.25e-04 TDS=1.83e-01
+2026-03-04 00:45:41 - M5Trainer - INFO -   param: k=10.165mD dp=13.3 ng=2.918 nw=2.972 Sw=[0.079,0.429] | A(t)=[-7.31,-8.21,-8.21]
+2026-03-04 00:45:59 - M5Trainer - INFO - [Step  3800/15000] B | L=6.9297e+01 | 1176.4s
+2026-03-04 00:45:59 - M5Trainer - INFO -   loss: IC=7.65e-03 BC=7.83e-03 PDE=3.47e+02 Qg=1.18e-01 Sd=1.97e-04 TDS=1.86e-01
+2026-03-04 00:45:59 - M5Trainer - INFO -   param: k=10.165mD dp=13.3 ng=2.918 nw=2.972 Sw=[0.072,0.295] | A(t)=[-7.37,-8.22,-8.22]
+2026-03-04 00:46:18 - M5Trainer - INFO - [Step  3900/15000] B | L=7.3295e+01 | 1195.0s
+2026-03-04 00:46:18 - M5Trainer - INFO -   loss: IC=6.94e-03 BC=7.51e-03 PDE=3.42e+02 Qg=1.23e-01 Sd=2.80e-04 TDS=1.92e-01
+2026-03-04 00:46:18 - M5Trainer - INFO -   param: k=10.165mD dp=13.3 ng=2.918 nw=2.972 Sw=[0.075,0.411] | A(t)=[-7.34,-8.22,-8.22]
+2026-03-04 00:46:37 - M5Trainer - INFO -   [Sw监控] SY9: Sw=[0.0505, 0.3556, 0.4495], krg_min=2.594379e-01
+2026-03-04 00:46:37 - M5Trainer - INFO - [Step  4000/15000] B | L=6.8817e+01 | 1213.6s
+2026-03-04 00:46:37 - M5Trainer - INFO -   loss: IC=7.01e-03 BC=8.58e-03 PDE=3.70e+02 Qg=1.22e-01 Sd=3.52e-04 TDS=1.91e-01
+2026-03-04 00:46:37 - M5Trainer - INFO -   param: k=10.165mD dp=13.3 ng=2.918 nw=2.972 Sw=[0.071,0.395] | A(t)=[-7.38,-8.23,-8.23]
+2026-03-04 00:46:37 - M5Trainer - INFO -   [k_frac诊断] grad=None, k_frac=10.165142 mD
+2026-03-04 00:46:55 - M5Trainer - INFO - [Step  4100/15000] B | L=5.0649e+01 | 1232.5s
+2026-03-04 00:46:55 - M5Trainer - INFO -   loss: IC=3.12e-02 BC=2.63e-02 PDE=3.81e+02 Qg=1.15e-01 Sd=2.91e-04 TDS=1.97e-01
+2026-03-04 00:46:55 - M5Trainer - INFO -   param: k=10.165mD dp=13.3 ng=2.918 nw=2.972 Sw=[0.080,0.346] | A(t)=[-7.32,-8.23,-8.23]
+2026-03-04 00:47:14 - M5Trainer - INFO -   [v3.13] Stage C 解冻 k_frac=10.1651 mD
+2026-03-04 00:47:14 - M5Trainer - INFO -   [v3.14] Stage C 解冻 ng=2.9179, nw=2.9720
+2026-03-04 00:47:14 - M5Trainer - INFO - [Step  4200/15000] C | L=1.2981e+02 | 1251.4s
+2026-03-04 00:47:14 - M5Trainer - INFO -   loss: IC=6.24e-03 BC=9.15e-03 PDE=3.78e+02 Qg=1.13e-01 Sd=1.37e-04 TDS=4.06e-01
+2026-03-04 00:47:14 - M5Trainer - INFO -   param: k=10.161mD dp=13.3 ng=2.918 nw=2.972 Sw=[0.067,0.429] | A(t)=[-7.07,-8.23,-8.23]
+2026-03-04 00:47:33 - M5Trainer - INFO - [Step  4300/15000] C | L=1.3358e+02 | 1270.4s
+2026-03-04 00:47:33 - M5Trainer - INFO -   loss: IC=9.17e-03 BC=8.24e-03 PDE=3.78e+02 Qg=1.18e-01 Sd=2.10e-04 TDS=4.26e-01
+2026-03-04 00:47:33 - M5Trainer - INFO -   param: k=10.191mD dp=13.3 ng=2.919 nw=2.942 Sw=[0.069,0.421] | A(t)=[-6.99,-8.25,-8.25]
+2026-03-04 00:47:53 - M5Trainer - INFO - [Step  4400/15000] C | L=1.2559e+02 | 1290.2s
+2026-03-04 00:47:53 - M5Trainer - INFO -   loss: IC=1.19e-02 BC=9.83e-03 PDE=3.69e+02 Qg=1.17e-01 Sd=2.68e-04 TDS=4.25e-01
+2026-03-04 00:47:53 - M5Trainer - INFO -   param: k=10.196mD dp=13.3 ng=2.921 nw=2.919 Sw=[0.074,0.402] | A(t)=[-6.92,-8.26,-8.26]
+2026-03-04 00:48:13 - M5Trainer - INFO -   [Sw监控] SY9: Sw=[0.0519, 0.3616, 0.4495], krg_min=2.589827e-01
+2026-03-04 00:48:13 - M5Trainer - INFO - [Step  4500/15000] C | L=1.2372e+02 | 1309.8s
+2026-03-04 00:48:13 - M5Trainer - INFO -   loss: IC=1.03e-02 BC=1.01e-02 PDE=4.02e+02 Qg=1.13e-01 Sd=2.77e-04 TDS=4.28e-01
+2026-03-04 00:48:13 - M5Trainer - INFO -   param: k=10.207mD dp=13.3 ng=2.923 nw=2.910 Sw=[0.077,0.433] | A(t)=[-6.98,-8.28,-8.28]
+2026-03-04 00:48:13 - M5Trainer - INFO -   [k_frac诊断] grad=-1.5129e+00, k_frac=10.206685 mD
+2026-03-04 00:48:33 - M5Trainer - INFO - [Step  4600/15000] C | L=1.3095e+02 | 1330.1s
+2026-03-04 00:48:33 - M5Trainer - INFO -   loss: IC=1.07e-02 BC=8.91e-03 PDE=4.12e+02 Qg=1.14e-01 Sd=1.68e-04 TDS=4.33e-01
+2026-03-04 00:48:33 - M5Trainer - INFO -   param: k=10.209mD dp=13.3 ng=2.925 nw=2.909 Sw=[0.075,0.375] | A(t)=[-6.81,-8.26,-8.26]
+2026-03-04 00:48:53 - M5Trainer - INFO - [Step  4700/15000] C | L=1.3003e+02 | 1350.5s
+2026-03-04 00:48:53 - M5Trainer - INFO -   loss: IC=7.94e-03 BC=9.06e-03 PDE=4.10e+02 Qg=1.15e-01 Sd=2.34e-04 TDS=4.35e-01
+2026-03-04 00:48:53 - M5Trainer - INFO -   param: k=10.213mD dp=13.3 ng=2.927 nw=2.910 Sw=[0.080,0.429] | A(t)=[-6.74,-8.25,-8.25]
+2026-03-04 00:49:14 - M5Trainer - INFO - [Step  4800/15000] C | L=1.3198e+02 | 1370.8s
+2026-03-04 00:49:14 - M5Trainer - INFO -   loss: IC=9.13e-03 BC=9.84e-03 PDE=4.01e+02 Qg=1.16e-01 Sd=3.05e-04 TDS=4.38e-01
+2026-03-04 00:49:14 - M5Trainer - INFO -   param: k=10.220mD dp=13.3 ng=2.928 nw=2.910 Sw=[0.069,0.429] | A(t)=[-6.89,-8.26,-8.26]
+2026-03-04 00:49:34 - M5Trainer - INFO - [Step  4900/15000] C | L=1.2806e+02 | 1391.1s
+2026-03-04 00:49:34 - M5Trainer - INFO -   loss: IC=1.36e-02 BC=8.73e-03 PDE=4.16e+02 Qg=1.16e-01 Sd=3.16e-04 TDS=4.45e-01
+2026-03-04 00:49:34 - M5Trainer - INFO -   param: k=10.221mD dp=13.3 ng=2.930 nw=2.913 Sw=[0.074,0.375] | A(t)=[-6.90,-8.25,-8.25]
+2026-03-04 00:49:54 - M5Trainer - INFO -   [Sw监控] SY9: Sw=[0.0584, 0.3578, 0.4496], krg_min=2.581308e-01
+2026-03-04 00:49:54 - M5Trainer - INFO - [Step  5000/15000] C | L=1.3969e+02 | 1411.5s
+2026-03-04 00:49:54 - M5Trainer - INFO -   loss: IC=9.77e-03 BC=1.16e-02 PDE=4.14e+02 Qg=1.16e-01 Sd=2.14e-04 TDS=4.50e-01
+2026-03-04 00:49:54 - M5Trainer - INFO -   param: k=10.224mD dp=13.3 ng=2.932 nw=2.914 Sw=[0.069,0.428] | A(t)=[-6.83,-8.23,-8.23]
+2026-03-04 00:49:54 - M5Trainer - INFO -   [k_frac诊断] grad=-1.0885e+00, k_frac=10.223664 mD
+2026-03-04 00:50:15 - M5Trainer - INFO - [Step  5100/15000] C | L=1.2360e+02 | 1432.0s
+2026-03-04 00:50:15 - M5Trainer - INFO -   loss: IC=1.56e-02 BC=2.24e-02 PDE=4.13e+02 Qg=1.18e-01 Sd=3.47e-04 TDS=4.62e-01
+2026-03-04 00:50:15 - M5Trainer - INFO -   param: k=10.230mD dp=13.3 ng=2.933 nw=2.914 Sw=[0.071,0.430] | A(t)=[-6.80,-8.24,-8.24]
+2026-03-04 00:50:36 - M5Trainer - INFO - [Step  5200/15000] C | L=1.4599e+02 | 1453.1s
+2026-03-04 00:50:36 - M5Trainer - INFO -   loss: IC=8.70e-03 BC=7.75e-03 PDE=4.24e+02 Qg=1.15e-01 Sd=2.52e-04 TDS=4.60e-01
+2026-03-04 00:50:36 - M5Trainer - INFO -   param: k=10.235mD dp=13.3 ng=2.934 nw=2.915 Sw=[0.072,0.424] | A(t)=[-6.80,-8.23,-8.23]
+2026-03-04 00:50:57 - M5Trainer - INFO - [Step  5300/15000] C | L=1.3965e+02 | 1474.5s
+2026-03-04 00:50:57 - M5Trainer - INFO -   loss: IC=7.35e-03 BC=9.45e-03 PDE=4.17e+02 Qg=1.13e-01 Sd=3.05e-04 TDS=4.66e-01
+2026-03-04 00:50:57 - M5Trainer - INFO -   param: k=10.238mD dp=13.3 ng=2.936 nw=2.918 Sw=[0.075,0.420] | A(t)=[-6.78,-8.24,-8.24]
+2026-03-04 00:51:18 - M5Trainer - INFO - [Step  5400/15000] C | L=1.4021e+02 | 1495.5s
+2026-03-04 00:51:18 - M5Trainer - INFO -   loss: IC=1.12e-02 BC=8.38e-03 PDE=4.18e+02 Qg=1.12e-01 Sd=2.79e-04 TDS=4.71e-01
+2026-03-04 00:51:18 - M5Trainer - INFO -   param: k=10.244mD dp=13.3 ng=2.938 nw=2.914 Sw=[0.069,0.432] | A(t)=[-6.69,-8.22,-8.22]
+2026-03-04 00:51:39 - M5Trainer - INFO -   [Sw监控] SY9: Sw=[0.0533, 0.3617, 0.4497], krg_min=2.572793e-01
+2026-03-04 00:51:39 - M5Trainer - INFO - [Step  5500/15000] C | L=1.4315e+02 | 1516.5s
+2026-03-04 00:51:39 - M5Trainer - INFO -   loss: IC=1.44e-02 BC=1.07e-02 PDE=4.26e+02 Qg=1.19e-01 Sd=3.65e-04 TDS=4.78e-01
+2026-03-04 00:51:39 - M5Trainer - INFO -   param: k=10.247mD dp=13.3 ng=2.939 nw=2.913 Sw=[0.072,0.427] | A(t)=[-6.63,-8.26,-8.26]
+2026-03-04 00:51:39 - M5Trainer - INFO -   [k_frac诊断] grad=1.1520e+00, k_frac=10.246791 mD
+2026-03-04 00:52:01 - M5Trainer - INFO - [Step  5600/15000] C | L=1.5207e+02 | 1537.9s
+2026-03-04 00:52:01 - M5Trainer - INFO -   loss: IC=8.09e-03 BC=9.14e-03 PDE=4.23e+02 Qg=1.18e-01 Sd=3.57e-04 TDS=4.80e-01
+2026-03-04 00:52:01 - M5Trainer - INFO -   param: k=10.251mD dp=13.3 ng=2.940 nw=2.911 Sw=[0.074,0.423] | A(t)=[-6.64,-8.24,-8.24]
+2026-03-04 00:52:23 - M5Trainer - INFO - [Step  5700/15000] C | L=1.4238e+02 | 1560.2s
+2026-03-04 00:52:23 - M5Trainer - INFO -   loss: IC=1.42e-02 BC=1.83e-02 PDE=4.36e+02 Qg=1.20e-01 Sd=3.10e-04 TDS=4.81e-01
+2026-03-04 00:52:23 - M5Trainer - INFO -   param: k=10.253mD dp=13.3 ng=2.941 nw=2.912 Sw=[0.077,0.423] | A(t)=[-6.72,-8.24,-8.24]
+2026-03-04 00:52:44 - M5Trainer - INFO - [Step  5800/15000] C | L=1.4083e+02 | 1580.7s
+2026-03-04 00:52:44 - M5Trainer - INFO -   loss: IC=1.41e-02 BC=9.17e-03 PDE=4.32e+02 Qg=1.09e-01 Sd=3.70e-04 TDS=4.90e-01
+2026-03-04 00:52:44 - M5Trainer - INFO -   param: k=10.258mD dp=13.3 ng=2.942 nw=2.916 Sw=[0.071,0.415] | A(t)=[-6.63,-8.23,-8.23]
+2026-03-04 00:53:04 - M5Trainer - INFO - [Step  5900/15000] C | L=1.4816e+02 | 1601.1s
+2026-03-04 00:53:04 - M5Trainer - INFO -   loss: IC=1.10e-02 BC=1.10e-02 PDE=4.35e+02 Qg=1.14e-01 Sd=3.92e-04 TDS=4.98e-01
+2026-03-04 00:53:04 - M5Trainer - INFO -   param: k=10.261mD dp=13.3 ng=2.943 nw=2.915 Sw=[0.074,0.416] | A(t)=[-6.67,-8.25,-8.25]
+2026-03-04 00:53:25 - M5Trainer - INFO -   [Sw监控] SY9: Sw=[0.0525, 0.3590, 0.4496], krg_min=2.570849e-01
+2026-03-04 00:53:25 - M5Trainer - INFO -   [best更新] val_score=11.8911 (step 6000)
+2026-03-04 00:53:25 - M5Trainer - INFO - [Step  6000/15000] C | L=1.5031e+02 | 1621.8s
+2026-03-04 00:53:25 - M5Trainer - INFO -   loss: IC=1.49e-02 BC=1.07e-02 PDE=4.37e+02 Qg=1.13e-01 Sd=3.77e-04 TDS=4.99e-01
+2026-03-04 00:53:25 - M5Trainer - INFO -   param: k=10.263mD dp=13.3 ng=2.944 nw=2.913 Sw=[0.075,0.432] | A(t)=[-6.67,-8.26,-8.26]
+2026-03-04 00:53:25 - M5Trainer - INFO -   [k_frac诊断] grad=9.7593e-01, k_frac=10.263241 mD
+2026-03-04 00:53:46 - M5Trainer - INFO - [Step  6100/15000] C | L=1.5501e+02 | 1642.6s
+2026-03-04 00:53:46 - M5Trainer - INFO -   loss: IC=9.86e-03 BC=9.49e-03 PDE=4.46e+02 Qg=1.10e-01 Sd=3.48e-04 TDS=5.02e-01
+2026-03-04 00:53:46 - M5Trainer - INFO -   param: k=10.265mD dp=13.3 ng=2.946 nw=2.913 Sw=[0.073,0.439] | A(t)=[-6.66,-8.24,-8.24]
+2026-03-04 00:54:06 - M5Trainer - INFO - [Step  6200/15000] C | L=1.6124e+02 | 1663.3s
+2026-03-04 00:54:06 - M5Trainer - INFO -   loss: IC=9.58e-03 BC=8.67e-03 PDE=4.38e+02 Qg=1.17e-01 Sd=3.60e-04 TDS=5.10e-01
+2026-03-04 00:54:06 - M5Trainer - INFO -   param: k=10.270mD dp=13.3 ng=2.947 nw=2.917 Sw=[0.070,0.415] | A(t)=[-6.64,-8.24,-8.24]
+2026-03-04 00:54:27 - M5Trainer - INFO - [Step  6300/15000] C | L=2.0066e+02 | 1684.2s
+2026-03-04 00:54:27 - M5Trainer - INFO -   loss: IC=1.07e-02 BC=1.26e-02 PDE=4.57e+02 Qg=1.11e-01 Sd=3.64e-04 TDS=5.07e-01
+2026-03-04 00:54:27 - M5Trainer - INFO -   param: k=10.273mD dp=13.3 ng=2.948 nw=2.913 Sw=[0.080,0.450] | A(t)=[-6.58,-8.24,-8.24]
+2026-03-04 00:54:48 - M5Trainer - INFO - [Step  6400/15000] C | L=1.6290e+02 | 1704.9s
+2026-03-04 00:54:48 - M5Trainer - INFO -   loss: IC=2.23e-02 BC=1.78e-02 PDE=4.42e+02 Qg=1.17e-01 Sd=3.34e-04 TDS=5.23e-01
+2026-03-04 00:54:48 - M5Trainer - INFO -   param: k=10.277mD dp=13.3 ng=2.950 nw=2.917 Sw=[0.068,0.426] | A(t)=[-6.69,-8.07,-8.07]
+2026-03-04 00:55:09 - M5Trainer - INFO -   [Sw监控] SY9: Sw=[0.0691, 0.3562, 0.4496], krg_min=2.564690e-01
+2026-03-04 00:55:09 - M5Trainer - INFO - [Step  6500/15000] C | L=1.5954e+02 | 1725.7s
+2026-03-04 00:55:09 - M5Trainer - INFO -   loss: IC=1.51e-02 BC=1.20e-02 PDE=4.61e+02 Qg=1.13e-01 Sd=3.42e-04 TDS=5.20e-01
+2026-03-04 00:55:09 - M5Trainer - INFO -   param: k=10.281mD dp=13.3 ng=2.951 nw=2.915 Sw=[0.069,0.423] | A(t)=[-6.67,-8.16,-8.16]
+2026-03-04 00:55:09 - M5Trainer - INFO -   [k_frac诊断] grad=-1.3858e+00, k_frac=10.280578 mD
+2026-03-04 00:55:30 - M5Trainer - INFO - [Step  6600/15000] C | L=1.4486e+02 | 1746.8s
+2026-03-04 00:55:30 - M5Trainer - INFO -   loss: IC=6.04e-02 BC=1.40e-02 PDE=4.48e+02 Qg=1.13e-01 Sd=3.45e-04 TDS=5.28e-01
+2026-03-04 00:55:30 - M5Trainer - INFO -   param: k=10.281mD dp=13.3 ng=2.952 nw=2.921 Sw=[0.075,0.422] | A(t)=[-6.73,-8.17,-8.17]
+2026-03-04 00:55:51 - M5Trainer - INFO - [Step  6700/15000] C | L=1.6449e+02 | 1768.0s
+2026-03-04 00:55:51 - M5Trainer - INFO -   loss: IC=1.52e-02 BC=1.29e-02 PDE=4.57e+02 Qg=1.11e-01 Sd=3.41e-04 TDS=5.32e-01
+2026-03-04 00:55:51 - M5Trainer - INFO -   param: k=10.284mD dp=13.3 ng=2.953 nw=2.917 Sw=[0.077,0.308] | A(t)=[-6.62,-8.19,-8.19]
+2026-03-04 00:56:12 - M5Trainer - INFO - [Step  6800/15000] C | L=1.6465e+02 | 1789.4s
+2026-03-04 00:56:12 - M5Trainer - INFO -   loss: IC=9.18e-03 BC=1.19e-02 PDE=4.63e+02 Qg=1.08e-01 Sd=3.42e-04 TDS=5.39e-01
+2026-03-04 00:56:12 - M5Trainer - INFO -   param: k=10.288mD dp=13.3 ng=2.954 nw=2.914 Sw=[0.073,0.396] | A(t)=[-6.48,-8.18,-8.18]
+2026-03-04 00:56:34 - M5Trainer - INFO - [Step  6900/15000] C | L=1.7100e+02 | 1810.7s
+2026-03-04 00:56:34 - M5Trainer - INFO -   loss: IC=9.44e-03 BC=1.09e-02 PDE=4.72e+02 Qg=1.10e-01 Sd=3.19e-04 TDS=5.46e-01
+2026-03-04 00:56:34 - M5Trainer - INFO -   param: k=10.291mD dp=13.3 ng=2.955 nw=2.916 Sw=[0.071,0.417] | A(t)=[-6.47,-8.20,-8.20]
+2026-03-04 00:56:55 - M5Trainer - INFO -   [Sw监控] SY9: Sw=[0.0672, 0.3568, 0.4496], krg_min=2.560231e-01
+2026-03-04 00:56:55 - M5Trainer - INFO - [Step  7000/15000] C | L=1.6696e+02 | 1831.9s
+2026-03-04 00:56:55 - M5Trainer - INFO -   loss: IC=1.39e-02 BC=1.06e-02 PDE=4.82e+02 Qg=1.12e-01 Sd=4.34e-04 TDS=5.47e-01
+2026-03-04 00:56:55 - M5Trainer - INFO -   param: k=10.293mD dp=13.3 ng=2.957 nw=2.911 Sw=[0.075,0.267] | A(t)=[-6.48,-8.23,-8.23]
+2026-03-04 00:56:55 - M5Trainer - INFO -   [k_frac诊断] grad=1.5809e+00, k_frac=10.293462 mD
+2026-03-04 00:57:16 - M5Trainer - INFO - [Step  7100/15000] C | L=1.6167e+02 | 1853.4s
+2026-03-04 00:57:16 - M5Trainer - INFO -   loss: IC=3.29e-02 BC=9.33e-03 PDE=4.69e+02 Qg=1.08e-01 Sd=3.65e-04 TDS=5.52e-01
+2026-03-04 00:57:16 - M5Trainer - INFO -   param: k=10.296mD dp=13.3 ng=2.958 nw=2.910 Sw=[0.073,0.377] | A(t)=[-6.57,-8.26,-8.26]
+2026-03-04 00:57:38 - M5Trainer - INFO - [Step  7200/15000] C | L=1.7455e+02 | 1875.2s
+2026-03-04 00:57:38 - M5Trainer - INFO -   loss: IC=8.68e-03 BC=9.41e-03 PDE=4.76e+02 Qg=1.07e-01 Sd=3.48e-04 TDS=5.57e-01
+2026-03-04 00:57:38 - M5Trainer - INFO -   param: k=10.295mD dp=13.3 ng=2.959 nw=2.915 Sw=[0.073,0.422] | A(t)=[-6.53,-8.23,-8.23]
+2026-03-04 00:58:00 - M5Trainer - INFO - [Step  7300/15000] C | L=1.7545e+02 | 1896.9s
+2026-03-04 00:58:00 - M5Trainer - INFO -   loss: IC=1.54e-02 BC=1.28e-02 PDE=4.73e+02 Qg=1.15e-01 Sd=3.97e-04 TDS=5.72e-01
+2026-03-04 00:58:00 - M5Trainer - INFO -   param: k=10.299mD dp=13.3 ng=2.960 nw=2.915 Sw=[0.074,0.432] | A(t)=[-6.49,-8.24,-8.24]
+2026-03-04 00:58:21 - M5Trainer - INFO - [Step  7400/15000] C | L=1.7994e+02 | 1918.5s
+2026-03-04 00:58:21 - M5Trainer - INFO -   loss: IC=1.10e-02 BC=9.56e-03 PDE=4.76e+02 Qg=1.10e-01 Sd=3.80e-04 TDS=5.67e-01
+2026-03-04 00:58:21 - M5Trainer - INFO -   param: k=10.303mD dp=13.3 ng=2.961 nw=2.918 Sw=[0.062,0.429] | A(t)=[-6.53,-8.23,-8.23]
+2026-03-04 00:58:43 - M5Trainer - INFO -   [Sw监控] SY9: Sw=[0.0632, 0.3559, 0.4496], krg_min=2.554971e-01
+2026-03-04 00:58:43 - M5Trainer - INFO - [Step  7500/15000] C | L=1.7319e+02 | 1940.2s
+2026-03-04 00:58:43 - M5Trainer - INFO -   loss: IC=1.35e-02 BC=1.06e-02 PDE=4.87e+02 Qg=1.06e-01 Sd=4.23e-04 TDS=5.72e-01
+2026-03-04 00:58:43 - M5Trainer - INFO -   param: k=10.304mD dp=13.3 ng=2.963 nw=2.919 Sw=[0.073,0.425] | A(t)=[-6.51,-8.21,-8.21]
+2026-03-04 00:58:43 - M5Trainer - INFO -   [k_frac诊断] grad=-9.4389e-01, k_frac=10.303917 mD
+2026-03-04 00:59:05 - M5Trainer - INFO - [Step  7600/15000] C | L=1.7089e+02 | 1962.3s
+2026-03-04 00:59:05 - M5Trainer - INFO -   loss: IC=1.26e-02 BC=1.29e-02 PDE=4.85e+02 Qg=1.06e-01 Sd=4.14e-04 TDS=5.82e-01
+2026-03-04 00:59:05 - M5Trainer - INFO -   param: k=10.306mD dp=13.3 ng=2.964 nw=2.921 Sw=[0.076,0.191] | A(t)=[-6.65,-8.23,-8.23]
+2026-03-04 00:59:27 - M5Trainer - INFO - [Step  7700/15000] C | L=1.8177e+02 | 1984.4s
+2026-03-04 00:59:27 - M5Trainer - INFO -   loss: IC=7.66e-03 BC=1.16e-02 PDE=4.95e+02 Qg=1.12e-01 Sd=5.17e-04 TDS=5.86e-01
+2026-03-04 00:59:27 - M5Trainer - INFO -   param: k=10.307mD dp=13.3 ng=2.964 nw=2.921 Sw=[0.072,0.423] | A(t)=[-6.44,-8.20,-8.20]
+2026-03-04 00:59:49 - M5Trainer - INFO - [Step  7800/15000] C | L=1.8023e+02 | 2006.4s
+2026-03-04 00:59:49 - M5Trainer - INFO -   loss: IC=8.83e-03 BC=1.15e-02 PDE=4.85e+02 Qg=1.07e-01 Sd=5.07e-04 TDS=5.85e-01
+2026-03-04 00:59:49 - M5Trainer - INFO -   param: k=10.308mD dp=13.3 ng=2.966 nw=2.921 Sw=[0.080,0.419] | A(t)=[-6.44,-8.20,-8.20]
+2026-03-04 01:00:11 - M5Trainer - INFO - [Step  7900/15000] C | L=1.8377e+02 | 2028.4s
+2026-03-04 01:00:11 - M5Trainer - INFO -   loss: IC=8.26e-03 BC=1.09e-02 PDE=4.95e+02 Qg=1.06e-01 Sd=4.89e-04 TDS=5.96e-01
+2026-03-04 01:00:11 - M5Trainer - INFO -   param: k=10.311mD dp=13.3 ng=2.967 nw=2.924 Sw=[0.072,0.424] | A(t)=[-6.47,-8.23,-8.23]
+2026-03-04 01:00:33 - M5Trainer - INFO -   [Sw监控] SY9: Sw=[0.0673, 0.3575, 0.4496], krg_min=2.550742e-01
+2026-03-04 01:00:33 - M5Trainer - INFO - [Step  8000/15000] C | L=1.7566e+02 | 2050.5s
+2026-03-04 01:00:33 - M5Trainer - INFO -   loss: IC=1.10e-02 BC=1.01e-02 PDE=5.08e+02 Qg=1.08e-01 Sd=5.46e-04 TDS=5.97e-01
+2026-03-04 01:00:33 - M5Trainer - INFO -   param: k=10.313mD dp=13.3 ng=2.968 nw=2.920 Sw=[0.075,0.422] | A(t)=[-6.45,-8.22,-8.22]
+2026-03-04 01:00:33 - M5Trainer - INFO -   [k_frac诊断] grad=-5.7627e-02, k_frac=10.312687 mD
+2026-03-04 01:00:56 - M5Trainer - INFO - [Step  8100/15000] C | L=1.9400e+02 | 2073.0s
+2026-03-04 01:00:56 - M5Trainer - INFO -   loss: IC=9.38e-03 BC=9.72e-03 PDE=5.08e+02 Qg=1.07e-01 Sd=5.04e-04 TDS=6.03e-01
+2026-03-04 01:00:56 - M5Trainer - INFO -   param: k=10.315mD dp=13.3 ng=2.969 nw=2.923 Sw=[0.074,0.281] | A(t)=[-6.50,-8.21,-8.21]
+2026-03-04 01:01:18 - M5Trainer - INFO - [Step  8200/15000] C | L=1.8096e+02 | 2095.5s
+2026-03-04 01:01:18 - M5Trainer - INFO -   loss: IC=2.69e-02 BC=8.88e-03 PDE=4.96e+02 Qg=1.07e-01 Sd=4.57e-04 TDS=6.04e-01
+2026-03-04 01:01:18 - M5Trainer - INFO -   param: k=10.316mD dp=13.3 ng=2.970 nw=2.924 Sw=[0.069,0.386] | A(t)=[-6.63,-8.22,-8.22]
+2026-03-04 01:01:41 - M5Trainer - INFO - [Step  8300/15000] C | L=1.9423e+02 | 2117.9s
+2026-03-04 01:01:41 - M5Trainer - INFO -   loss: IC=8.22e-03 BC=9.39e-03 PDE=5.05e+02 Qg=1.08e-01 Sd=5.00e-04 TDS=6.12e-01
+2026-03-04 01:01:41 - M5Trainer - INFO -   param: k=10.318mD dp=13.3 ng=2.971 nw=2.921 Sw=[0.078,0.448] | A(t)=[-6.50,-8.20,-8.20]
+2026-03-04 01:02:03 - M5Trainer - INFO - [Step  8400/15000] D | L=3.3389e+02 | 2140.3s
+2026-03-04 01:02:03 - M5Trainer - INFO -   loss: IC=1.31e-02 BC=1.34e-02 PDE=5.01e+02 Qg=1.13e-01 Sd=5.28e-04 TDS=1.03e+00
+2026-03-04 01:02:03 - M5Trainer - INFO -   param: k=10.318mD dp=13.3 ng=2.971 nw=2.922 Sw=[0.064,0.421] | A(t)=[-6.40,-8.22,-8.22]
+2026-03-04 01:02:26 - M5Trainer - INFO -   [Sw监控] SY9: Sw=[0.0656, 0.3568, 0.4496], krg_min=2.546974e-01
+2026-03-04 01:02:26 - M5Trainer - INFO - [Step  8500/15000] D | L=3.3182e+02 | 2162.8s
+2026-03-04 01:02:26 - M5Trainer - INFO -   loss: IC=1.07e-02 BC=1.04e-02 PDE=5.08e+02 Qg=1.03e-01 Sd=4.98e-04 TDS=1.02e+00
+2026-03-04 01:02:26 - M5Trainer - INFO -   param: k=10.318mD dp=13.3 ng=2.972 nw=2.920 Sw=[0.072,0.448] | A(t)=[-6.46,-8.23,-8.23]
+2026-03-04 01:02:26 - M5Trainer - INFO -   [k_frac诊断] grad=1.2275e+00, k_frac=10.318257 mD
+2026-03-04 01:02:49 - M5Trainer - INFO - [Step  8600/15000] D | L=3.3168e+02 | 2185.6s
+2026-03-04 01:02:49 - M5Trainer - INFO -   loss: IC=7.39e-03 BC=1.07e-02 PDE=5.14e+02 Qg=1.02e-01 Sd=4.89e-04 TDS=1.02e+00
+2026-03-04 01:02:49 - M5Trainer - INFO -   param: k=10.319mD dp=13.3 ng=2.972 nw=2.918 Sw=[0.072,0.432] | A(t)=[-6.45,-8.22,-8.22]
+2026-03-04 01:03:12 - M5Trainer - INFO - [Step  8700/15000] D | L=3.4062e+02 | 2208.6s
+2026-03-04 01:03:12 - M5Trainer - INFO -   loss: IC=1.24e-02 BC=9.36e-03 PDE=5.21e+02 Qg=1.05e-01 Sd=4.94e-04 TDS=1.03e+00
+2026-03-04 01:03:12 - M5Trainer - INFO -   param: k=10.317mD dp=13.3 ng=2.973 nw=2.918 Sw=[0.077,0.447] | A(t)=[-6.41,-8.22,-8.22]
+2026-03-04 01:03:35 - M5Trainer - INFO - [Step  8800/15000] D | L=3.4007e+02 | 2231.7s
+2026-03-04 01:03:35 - M5Trainer - INFO -   loss: IC=7.69e-03 BC=1.05e-02 PDE=5.20e+02 Qg=1.03e-01 Sd=4.85e-04 TDS=1.02e+00
+2026-03-04 01:03:35 - M5Trainer - INFO -   param: k=10.317mD dp=13.3 ng=2.973 nw=2.915 Sw=[0.071,0.329] | A(t)=[-6.41,-8.22,-8.22]
+2026-03-04 01:03:58 - M5Trainer - INFO - [Step  8900/15000] D | L=3.3257e+02 | 2254.8s
+2026-03-04 01:03:58 - M5Trainer - INFO -   loss: IC=9.70e-03 BC=9.82e-03 PDE=5.16e+02 Qg=1.03e-01 Sd=5.04e-04 TDS=1.02e+00
+2026-03-04 01:03:58 - M5Trainer - INFO -   param: k=10.318mD dp=13.3 ng=2.974 nw=2.916 Sw=[0.076,0.421] | A(t)=[-6.42,-8.22,-8.22]
+2026-03-04 01:04:21 - M5Trainer - INFO -   [Sw监控] SY9: Sw=[0.0675, 0.3571, 0.4496], krg_min=2.545402e-01
+2026-03-04 01:04:21 - M5Trainer - INFO -   [best更新] val_score=11.5960 (step 9000)
+2026-03-04 01:04:21 - M5Trainer - INFO - [Step  9000/15000] D | L=3.3213e+02 | 2278.0s
+2026-03-04 01:04:21 - M5Trainer - INFO -   loss: IC=1.03e-02 BC=1.08e-02 PDE=5.28e+02 Qg=1.03e-01 Sd=4.40e-04 TDS=1.02e+00
+2026-03-04 01:04:21 - M5Trainer - INFO -   param: k=10.318mD dp=13.3 ng=2.974 nw=2.916 Sw=[0.071,0.383] | A(t)=[-6.41,-8.21,-8.21]
+2026-03-04 01:04:21 - M5Trainer - INFO -   [k_frac诊断] grad=-1.3402e+00, k_frac=10.317630 mD
+2026-03-04 01:04:44 - M5Trainer - INFO - [Step  9100/15000] D | L=3.3082e+02 | 2301.5s
+2026-03-04 01:04:44 - M5Trainer - INFO -   loss: IC=1.10e-02 BC=1.04e-02 PDE=5.28e+02 Qg=1.03e-01 Sd=4.76e-04 TDS=1.03e+00
+2026-03-04 01:04:44 - M5Trainer - INFO -   param: k=10.319mD dp=13.3 ng=2.974 nw=2.915 Sw=[0.070,0.419] | A(t)=[-6.42,-8.22,-8.22]
+2026-03-04 01:05:08 - M5Trainer - INFO - [Step  9200/15000] D | L=3.3844e+02 | 2324.8s
+2026-03-04 01:05:08 - M5Trainer - INFO -   loss: IC=7.85e-03 BC=1.08e-02 PDE=5.27e+02 Qg=1.03e-01 Sd=5.08e-04 TDS=1.02e+00
+2026-03-04 01:05:08 - M5Trainer - INFO -   param: k=10.318mD dp=13.3 ng=2.975 nw=2.915 Sw=[0.072,0.437] | A(t)=[-6.41,-8.22,-8.22]
+2026-03-04 01:05:31 - M5Trainer - INFO - [Step  9300/15000] D | L=3.2919e+02 | 2348.2s
+2026-03-04 01:05:31 - M5Trainer - INFO -   loss: IC=9.22e-03 BC=1.15e-02 PDE=5.39e+02 Qg=1.01e-01 Sd=4.81e-04 TDS=1.02e+00
+2026-03-04 01:05:31 - M5Trainer - INFO -   param: k=10.318mD dp=13.3 ng=2.975 nw=2.915 Sw=[0.075,0.421] | A(t)=[-6.41,-8.21,-8.21]
+2026-03-04 01:05:55 - M5Trainer - INFO - [Step  9400/15000] D | L=3.2573e+02 | 2371.8s
+2026-03-04 01:05:55 - M5Trainer - INFO -   loss: IC=1.28e-02 BC=1.17e-02 PDE=5.38e+02 Qg=1.04e-01 Sd=4.64e-04 TDS=1.03e+00
+2026-03-04 01:05:55 - M5Trainer - INFO -   param: k=10.319mD dp=13.3 ng=2.976 nw=2.914 Sw=[0.074,0.450] | A(t)=[-6.41,-8.21,-8.21]
+2026-03-04 01:06:18 - M5Trainer - INFO -   [Sw监控] SY9: Sw=[0.0663, 0.3573, 0.4496], krg_min=2.543725e-01
+2026-03-04 01:06:18 - M5Trainer - INFO - [Step  9500/15000] D | L=3.3628e+02 | 2395.3s
+2026-03-04 01:06:18 - M5Trainer - INFO -   loss: IC=9.00e-03 BC=1.03e-02 PDE=5.38e+02 Qg=1.02e-01 Sd=4.65e-04 TDS=1.03e+00
+2026-03-04 01:06:18 - M5Trainer - INFO -   param: k=10.318mD dp=13.3 ng=2.976 nw=2.914 Sw=[0.072,0.255] | A(t)=[-6.40,-8.21,-8.21]
+2026-03-04 01:06:18 - M5Trainer - INFO -   [k_frac诊断] grad=-1.1880e+00, k_frac=10.317802 mD
+2026-03-04 01:06:42 - M5Trainer - INFO - [Step  9600/15000] D | L=3.3430e+02 | 2419.1s
+2026-03-04 01:06:42 - M5Trainer - INFO -   loss: IC=1.15e-02 BC=8.94e-03 PDE=5.48e+02 Qg=1.04e-01 Sd=4.71e-04 TDS=1.03e+00
+2026-03-04 01:06:42 - M5Trainer - INFO -   param: k=10.319mD dp=13.3 ng=2.976 nw=2.913 Sw=[0.074,0.438] | A(t)=[-6.41,-8.22,-8.22]
+2026-03-04 01:07:06 - M5Trainer - INFO - [Step  9700/15000] D | L=3.2945e+02 | 2442.9s
+2026-03-04 01:07:06 - M5Trainer - INFO -   loss: IC=9.03e-03 BC=1.15e-02 PDE=5.48e+02 Qg=1.01e-01 Sd=4.61e-04 TDS=1.02e+00
+2026-03-04 01:07:06 - M5Trainer - INFO -   param: k=10.319mD dp=13.3 ng=2.976 nw=2.912 Sw=[0.076,0.449] | A(t)=[-6.38,-8.22,-8.22]
+2026-03-04 01:07:30 - M5Trainer - INFO - [Step  9800/15000] D | L=3.2078e+02 | 2466.7s
+2026-03-04 01:07:30 - M5Trainer - INFO -   loss: IC=1.36e-02 BC=9.61e-03 PDE=5.39e+02 Qg=1.02e-01 Sd=4.75e-04 TDS=1.02e+00
+2026-03-04 01:07:30 - M5Trainer - INFO -   param: k=10.319mD dp=13.3 ng=2.977 nw=2.911 Sw=[0.067,0.432] | A(t)=[-6.38,-8.22,-8.22]
+2026-03-04 01:07:53 - M5Trainer - INFO - [Step  9900/15000] D | L=3.2210e+02 | 2490.5s
+2026-03-04 01:07:53 - M5Trainer - INFO -   loss: IC=9.73e-03 BC=1.07e-02 PDE=5.46e+02 Qg=1.02e-01 Sd=4.70e-04 TDS=1.02e+00
+2026-03-04 01:07:53 - M5Trainer - INFO -   param: k=10.319mD dp=13.3 ng=2.977 nw=2.912 Sw=[0.069,0.450] | A(t)=[-6.39,-8.22,-8.22]
+2026-03-04 01:08:17 - M5Trainer - INFO -   [Sw监控] SY9: Sw=[0.0656, 0.3564, 0.4496], krg_min=2.543059e-01
+2026-03-04 01:08:17 - M5Trainer - INFO - [Step 10000/15000] D | L=3.2297e+02 | 2514.3s
+2026-03-04 01:08:17 - M5Trainer - INFO -   loss: IC=1.12e-02 BC=1.07e-02 PDE=5.49e+02 Qg=1.01e-01 Sd=4.94e-04 TDS=1.02e+00
+2026-03-04 01:08:17 - M5Trainer - INFO -   param: k=10.319mD dp=13.3 ng=2.977 nw=2.912 Sw=[0.076,0.422] | A(t)=[-6.37,-8.21,-8.21]
+2026-03-04 01:08:17 - M5Trainer - INFO -   [k_frac诊断] grad=1.3995e+00, k_frac=10.319325 mD
+2026-03-04 01:08:41 - M5Trainer - INFO - [Step 10100/15000] D | L=3.1950e+02 | 2538.5s
+2026-03-04 01:08:41 - M5Trainer - INFO -   loss: IC=9.70e-03 BC=1.13e-02 PDE=5.48e+02 Qg=1.02e-01 Sd=4.86e-04 TDS=1.02e+00
+2026-03-04 01:08:41 - M5Trainer - INFO -   param: k=10.319mD dp=13.3 ng=2.977 nw=2.911 Sw=[0.068,0.444] | A(t)=[-6.38,-8.21,-8.21]
+2026-03-04 01:09:06 - M5Trainer - INFO - [Step 10200/15000] D | L=3.2887e+02 | 2562.7s
+2026-03-04 01:09:06 - M5Trainer - INFO -   loss: IC=8.68e-03 BC=1.05e-02 PDE=5.52e+02 Qg=1.01e-01 Sd=4.51e-04 TDS=1.02e+00
+2026-03-04 01:09:06 - M5Trainer - INFO -   param: k=10.319mD dp=13.3 ng=2.978 nw=2.912 Sw=[0.072,0.449] | A(t)=[-6.35,-8.21,-8.21]
+2026-03-04 01:09:30 - M5Trainer - INFO - [Step 10300/15000] D | L=3.2316e+02 | 2587.0s
+2026-03-04 01:09:30 - M5Trainer - INFO -   loss: IC=9.11e-03 BC=1.08e-02 PDE=5.60e+02 Qg=1.00e-01 Sd=4.53e-04 TDS=1.02e+00
+2026-03-04 01:09:30 - M5Trainer - INFO -   param: k=10.319mD dp=13.3 ng=2.978 nw=2.911 Sw=[0.073,0.439] | A(t)=[-6.34,-8.21,-8.21]
+2026-03-04 01:09:54 - M5Trainer - INFO - [Step 10400/15000] D | L=3.2346e+02 | 2611.1s
+2026-03-04 01:09:54 - M5Trainer - INFO -   loss: IC=1.01e-02 BC=1.06e-02 PDE=5.58e+02 Qg=1.01e-01 Sd=4.44e-04 TDS=1.03e+00
+2026-03-04 01:09:54 - M5Trainer - INFO -   param: k=10.319mD dp=13.3 ng=2.978 nw=2.910 Sw=[0.074,0.389] | A(t)=[-6.37,-8.21,-8.21]
+2026-03-04 01:10:18 - M5Trainer - INFO -   [Sw监控] SY9: Sw=[0.0669, 0.3565, 0.4496], krg_min=2.541720e-01
+2026-03-04 01:10:18 - M5Trainer - INFO - [Step 10500/15000] D | L=3.1273e+02 | 2635.3s
+2026-03-04 01:10:18 - M5Trainer - INFO -   loss: IC=1.43e-02 BC=1.10e-02 PDE=5.63e+02 Qg=9.97e-02 Sd=4.33e-04 TDS=1.02e+00
+2026-03-04 01:10:18 - M5Trainer - INFO -   param: k=10.319mD dp=13.3 ng=2.978 nw=2.909 Sw=[0.065,0.423] | A(t)=[-6.37,-8.21,-8.21]
+2026-03-04 01:10:18 - M5Trainer - INFO -   [k_frac诊断] grad=-1.1948e+00, k_frac=10.318554 mD
+2026-03-04 01:10:43 - M5Trainer - INFO - [Step 10600/15000] D | L=3.2082e+02 | 2660.0s
+2026-03-04 01:10:43 - M5Trainer - INFO -   loss: IC=8.58e-03 BC=1.02e-02 PDE=5.60e+02 Qg=9.97e-02 Sd=4.56e-04 TDS=1.02e+00
+2026-03-04 01:10:43 - M5Trainer - INFO -   param: k=10.319mD dp=13.3 ng=2.979 nw=2.909 Sw=[0.065,0.432] | A(t)=[-6.37,-8.21,-8.21]
+2026-03-04 01:11:08 - M5Trainer - INFO - [Step 10700/15000] D | L=3.2045e+02 | 2684.6s
+2026-03-04 01:11:08 - M5Trainer - INFO -   loss: IC=9.32e-03 BC=1.19e-02 PDE=5.64e+02 Qg=1.00e-01 Sd=4.30e-04 TDS=1.02e+00
+2026-03-04 01:11:08 - M5Trainer - INFO -   param: k=10.319mD dp=13.3 ng=2.979 nw=2.908 Sw=[0.073,0.421] | A(t)=[-6.35,-8.20,-8.20]
+2026-03-04 01:11:32 - M5Trainer - INFO - [Step 10800/15000] D | L=3.1647e+02 | 2709.3s
+2026-03-04 01:11:32 - M5Trainer - INFO -   loss: IC=1.02e-02 BC=1.04e-02 PDE=5.61e+02 Qg=9.85e-02 Sd=4.41e-04 TDS=1.02e+00
+2026-03-04 01:11:32 - M5Trainer - INFO -   param: k=10.319mD dp=13.3 ng=2.979 nw=2.907 Sw=[0.062,0.328] | A(t)=[-6.35,-8.20,-8.20]
+2026-03-04 01:11:57 - M5Trainer - INFO - [Step 10900/15000] D | L=3.2131e+02 | 2734.1s
+2026-03-04 01:11:57 - M5Trainer - INFO -   loss: IC=1.06e-02 BC=1.03e-02 PDE=5.63e+02 Qg=1.00e-01 Sd=4.39e-04 TDS=1.02e+00
+2026-03-04 01:11:57 - M5Trainer - INFO -   param: k=10.319mD dp=13.3 ng=2.979 nw=2.908 Sw=[0.065,0.430] | A(t)=[-6.34,-8.21,-8.21]
+2026-03-04 01:12:22 - M5Trainer - INFO -   [Sw监控] SY9: Sw=[0.0687, 0.3559, 0.4496], krg_min=2.540986e-01
+2026-03-04 01:12:22 - M5Trainer - INFO - [Step 11000/15000] D | L=3.1139e+02 | 2758.7s
+2026-03-04 01:12:22 - M5Trainer - INFO -   loss: IC=1.16e-02 BC=1.19e-02 PDE=5.67e+02 Qg=9.96e-02 Sd=4.30e-04 TDS=1.02e+00
+2026-03-04 01:12:22 - M5Trainer - INFO -   param: k=10.319mD dp=13.3 ng=2.979 nw=2.908 Sw=[0.067,0.324] | A(t)=[-6.34,-8.21,-8.21]
+2026-03-04 01:12:22 - M5Trainer - INFO -   [k_frac诊断] grad=8.7601e-01, k_frac=10.319145 mD
+2026-03-04 01:12:47 - M5Trainer - INFO - [Step 11100/15000] D | L=3.1895e+02 | 2783.9s
+2026-03-04 01:12:47 - M5Trainer - INFO -   loss: IC=8.06e-03 BC=1.17e-02 PDE=5.75e+02 Qg=9.89e-02 Sd=4.53e-04 TDS=1.02e+00
+2026-03-04 01:12:47 - M5Trainer - INFO -   param: k=10.319mD dp=13.3 ng=2.979 nw=2.908 Sw=[0.069,0.444] | A(t)=[-6.34,-8.20,-8.20]
+2026-03-04 01:13:12 - M5Trainer - INFO - [Step 11200/15000] D | L=3.1884e+02 | 2809.5s
+2026-03-04 01:13:12 - M5Trainer - INFO -   loss: IC=1.02e-02 BC=1.02e-02 PDE=5.74e+02 Qg=9.88e-02 Sd=4.47e-04 TDS=1.02e+00
+2026-03-04 01:13:12 - M5Trainer - INFO -   param: k=10.319mD dp=13.3 ng=2.979 nw=2.908 Sw=[0.068,0.410] | A(t)=[-6.35,-8.20,-8.20]
+2026-03-04 01:13:38 - M5Trainer - INFO - [Step 11300/15000] D | L=3.1765e+02 | 2834.9s
+2026-03-04 01:13:38 - M5Trainer - INFO -   loss: IC=8.77e-03 BC=1.10e-02 PDE=5.63e+02 Qg=9.84e-02 Sd=4.40e-04 TDS=1.02e+00
+2026-03-04 01:13:38 - M5Trainer - INFO -   param: k=10.320mD dp=13.3 ng=2.980 nw=2.907 Sw=[0.074,0.449] | A(t)=[-6.37,-8.20,-8.20]
+2026-03-04 01:14:03 - M5Trainer - INFO - [Step 11400/15000] D | L=3.1958e+02 | 2860.2s
+2026-03-04 01:14:03 - M5Trainer - INFO -   loss: IC=1.03e-02 BC=1.05e-02 PDE=5.69e+02 Qg=9.85e-02 Sd=4.26e-04 TDS=1.02e+00
+2026-03-04 01:14:03 - M5Trainer - INFO -   param: k=10.319mD dp=13.3 ng=2.980 nw=2.906 Sw=[0.067,0.283] | A(t)=[-6.37,-8.20,-8.20]
+2026-03-04 01:14:28 - M5Trainer - INFO -   [Sw监控] SY9: Sw=[0.0677, 0.3557, 0.4496], krg_min=2.540613e-01
+2026-03-04 01:14:28 - M5Trainer - INFO - [Step 11500/15000] D | L=3.1926e+02 | 2885.5s
+2026-03-04 01:14:28 - M5Trainer - INFO -   loss: IC=8.62e-03 BC=1.04e-02 PDE=5.82e+02 Qg=9.84e-02 Sd=4.50e-04 TDS=1.02e+00
+2026-03-04 01:14:28 - M5Trainer - INFO -   param: k=10.319mD dp=13.3 ng=2.980 nw=2.906 Sw=[0.072,0.446] | A(t)=[-6.36,-8.20,-8.20]
+2026-03-04 01:14:28 - M5Trainer - INFO -   [k_frac诊断] grad=5.2694e-01, k_frac=10.319167 mD
+2026-03-04 01:14:55 - M5Trainer - INFO - [Step 11600/15000] D | L=3.1804e+02 | 2911.7s
+2026-03-04 01:14:55 - M5Trainer - INFO -   loss: IC=9.40e-03 BC=1.16e-02 PDE=5.80e+02 Qg=9.92e-02 Sd=4.25e-04 TDS=1.02e+00
+2026-03-04 01:14:55 - M5Trainer - INFO -   param: k=10.319mD dp=13.3 ng=2.980 nw=2.906 Sw=[0.069,0.425] | A(t)=[-6.34,-8.20,-8.20]
+2026-03-04 01:15:20 - M5Trainer - INFO - [Step 11700/15000] D | L=3.2057e+02 | 2937.5s
+2026-03-04 01:15:20 - M5Trainer - INFO -   loss: IC=9.01e-03 BC=1.10e-02 PDE=5.80e+02 Qg=9.92e-02 Sd=4.31e-04 TDS=1.02e+00
+2026-03-04 01:15:20 - M5Trainer - INFO -   param: k=10.319mD dp=13.3 ng=2.980 nw=2.906 Sw=[0.067,0.439] | A(t)=[-6.35,-8.20,-8.20]
+2026-03-04 01:15:46 - M5Trainer - INFO - [Step 11800/15000] D | L=3.0801e+02 | 2963.6s
+2026-03-04 01:15:47 - M5Trainer - INFO -   loss: IC=1.55e-02 BC=1.05e-02 PDE=5.89e+02 Qg=9.85e-02 Sd=4.35e-04 TDS=1.02e+00
+2026-03-04 01:15:47 - M5Trainer - INFO -   param: k=10.319mD dp=13.3 ng=2.980 nw=2.905 Sw=[0.075,0.419] | A(t)=[-6.33,-8.20,-8.20]
+2026-03-04 01:16:12 - M5Trainer - INFO - [Step 11900/15000] D | L=3.1417e+02 | 2989.5s
+2026-03-04 01:16:12 - M5Trainer - INFO -   loss: IC=8.96e-03 BC=1.06e-02 PDE=5.77e+02 Qg=9.78e-02 Sd=4.35e-04 TDS=1.02e+00
+2026-03-04 01:16:12 - M5Trainer - INFO -   param: k=10.319mD dp=13.3 ng=2.980 nw=2.905 Sw=[0.076,0.435] | A(t)=[-6.34,-8.20,-8.20]
+2026-03-04 01:16:38 - M5Trainer - INFO -   [Sw监控] SY9: Sw=[0.0658, 0.3555, 0.4496], krg_min=2.540302e-01
+2026-03-04 01:16:38 - M5Trainer - INFO - [Step 12000/15000] D | L=3.0607e+02 | 3015.4s
+2026-03-04 01:16:38 - M5Trainer - INFO -   loss: IC=1.22e-02 BC=1.07e-02 PDE=5.88e+02 Qg=9.74e-02 Sd=4.37e-04 TDS=1.02e+00
+2026-03-04 01:16:38 - M5Trainer - INFO -   param: k=10.319mD dp=13.3 ng=2.980 nw=2.905 Sw=[0.072,0.420] | A(t)=[-6.34,-8.20,-8.20]
+2026-03-04 01:16:38 - M5Trainer - INFO -   [k_frac诊断] grad=8.3131e-01, k_frac=10.319320 mD
+2026-03-04 01:17:05 - M5Trainer - INFO - [Step 12100/15000] D | L=3.1210e+02 | 3041.7s
+2026-03-04 01:17:05 - M5Trainer - INFO -   loss: IC=1.16e-02 BC=9.78e-03 PDE=5.91e+02 Qg=9.72e-02 Sd=4.31e-04 TDS=1.02e+00
+2026-03-04 01:17:05 - M5Trainer - INFO -   param: k=10.319mD dp=13.3 ng=2.980 nw=2.905 Sw=[0.077,0.448] | A(t)=[-6.34,-8.20,-8.20]
+2026-03-04 01:17:31 - M5Trainer - INFO - [Step 12200/15000] D | L=3.0893e+02 | 3068.1s
+2026-03-04 01:17:31 - M5Trainer - INFO -   loss: IC=1.13e-02 BC=1.14e-02 PDE=5.81e+02 Qg=9.79e-02 Sd=4.41e-04 TDS=1.02e+00
+2026-03-04 01:17:31 - M5Trainer - INFO -   param: k=10.320mD dp=13.3 ng=2.980 nw=2.905 Sw=[0.075,0.431] | A(t)=[-6.35,-8.20,-8.20]
+2026-03-04 01:17:57 - M5Trainer - INFO - [Step 12300/15000] D | L=3.1000e+02 | 3094.5s
+2026-03-04 01:17:57 - M5Trainer - INFO -   loss: IC=8.58e-03 BC=1.13e-02 PDE=5.88e+02 Qg=9.73e-02 Sd=4.34e-04 TDS=1.02e+00
+2026-03-04 01:17:57 - M5Trainer - INFO -   param: k=10.320mD dp=13.3 ng=2.980 nw=2.905 Sw=[0.076,0.289] | A(t)=[-6.34,-8.20,-8.20]
+2026-03-04 01:18:24 - M5Trainer - INFO - [Step 12400/15000] D | L=3.1156e+02 | 3120.9s
+2026-03-04 01:18:24 - M5Trainer - INFO -   loss: IC=8.71e-03 BC=1.14e-02 PDE=5.83e+02 Qg=9.68e-02 Sd=4.38e-04 TDS=1.02e+00
+2026-03-04 01:18:24 - M5Trainer - INFO -   param: k=10.319mD dp=13.3 ng=2.980 nw=2.905 Sw=[0.067,0.449] | A(t)=[-6.34,-8.20,-8.20]
+2026-03-04 01:18:50 - M5Trainer - INFO -   [Sw监控] SY9: Sw=[0.0659, 0.3553, 0.4496], krg_min=2.540020e-01
+2026-03-04 01:18:50 - M5Trainer - INFO - [Step 12500/15000] D | L=3.0909e+02 | 3147.2s
+2026-03-04 01:18:50 - M5Trainer - INFO -   loss: IC=1.04e-02 BC=1.12e-02 PDE=5.90e+02 Qg=9.67e-02 Sd=4.33e-04 TDS=1.02e+00
+2026-03-04 01:18:50 - M5Trainer - INFO -   param: k=10.319mD dp=13.3 ng=2.980 nw=2.905 Sw=[0.069,0.449] | A(t)=[-6.35,-8.20,-8.20]
+2026-03-04 01:18:50 - M5Trainer - INFO -   [k_frac诊断] grad=-1.4445e-01, k_frac=10.319458 mD
+2026-03-04 01:19:17 - M5Trainer - INFO - [Step 12600/15000] D | L=3.0653e+02 | 3174.0s
+2026-03-04 01:19:17 - M5Trainer - INFO -   loss: IC=1.16e-02 BC=1.15e-02 PDE=6.05e+02 Qg=9.64e-02 Sd=4.37e-04 TDS=1.02e+00
+2026-03-04 01:19:17 - M5Trainer - INFO -   param: k=10.320mD dp=13.3 ng=2.981 nw=2.905 Sw=[0.069,0.447] | A(t)=[-6.35,-8.20,-8.20]
+2026-03-04 01:19:44 - M5Trainer - INFO - [Step 12700/15000] D | L=3.1261e+02 | 3200.9s
+2026-03-04 01:19:44 - M5Trainer - INFO -   loss: IC=1.00e-02 BC=1.00e-02 PDE=5.90e+02 Qg=9.64e-02 Sd=4.35e-04 TDS=1.02e+00
+2026-03-04 01:19:44 - M5Trainer - INFO -   param: k=10.320mD dp=13.3 ng=2.981 nw=2.905 Sw=[0.071,0.431] | A(t)=[-6.35,-8.20,-8.20]
+2026-03-04 01:20:11 - M5Trainer - INFO - [Step 12800/15000] D | L=3.0449e+02 | 3227.7s
+2026-03-04 01:20:11 - M5Trainer - INFO -   loss: IC=8.75e-03 BC=1.41e-02 PDE=6.03e+02 Qg=9.66e-02 Sd=4.37e-04 TDS=1.02e+00
+2026-03-04 01:20:11 - M5Trainer - INFO -   param: k=10.320mD dp=13.3 ng=2.981 nw=2.905 Sw=[0.068,0.449] | A(t)=[-6.35,-8.20,-8.20]
+2026-03-04 01:20:38 - M5Trainer - INFO - [Step 12900/15000] D | L=3.0706e+02 | 3254.6s
+2026-03-04 01:20:38 - M5Trainer - INFO -   loss: IC=1.08e-02 BC=1.24e-02 PDE=5.96e+02 Qg=9.65e-02 Sd=4.32e-04 TDS=1.02e+00
+2026-03-04 01:20:38 - M5Trainer - INFO -   param: k=10.320mD dp=13.3 ng=2.981 nw=2.905 Sw=[0.067,0.449] | A(t)=[-6.36,-8.20,-8.20]
+2026-03-04 01:21:04 - M5Trainer - INFO -   [Sw监控] SY9: Sw=[0.0690, 0.3551, 0.4496], krg_min=2.539983e-01
+2026-03-04 01:21:05 - M5Trainer - INFO -   [best更新] val_score=11.3638 (step 13000)
+2026-03-04 01:21:05 - M5Trainer - INFO - [Step 13000/15000] D | L=3.1607e+02 | 3281.7s
+2026-03-04 01:21:05 - M5Trainer - INFO -   loss: IC=7.10e-03 BC=1.03e-02 PDE=6.04e+02 Qg=9.62e-02 Sd=4.35e-04 TDS=1.02e+00
+2026-03-04 01:21:05 - M5Trainer - INFO -   param: k=10.320mD dp=13.3 ng=2.981 nw=2.905 Sw=[0.074,0.411] | A(t)=[-6.36,-8.20,-8.20]
+2026-03-04 01:21:05 - M5Trainer - INFO -   [k_frac诊断] grad=-1.4629e+00, k_frac=10.319570 mD
+2026-03-04 01:21:32 - M5Trainer - INFO - [Step 13100/15000] D | L=2.9660e+02 | 3309.3s
+2026-03-04 01:21:32 - M5Trainer - INFO -   loss: IC=1.35e-02 BC=1.42e-02 PDE=6.10e+02 Qg=9.55e-02 Sd=4.34e-04 TDS=1.02e+00
+2026-03-04 01:21:32 - M5Trainer - INFO -   param: k=10.320mD dp=13.3 ng=2.981 nw=2.905 Sw=[0.077,0.420] | A(t)=[-6.36,-8.20,-8.20]
+2026-03-04 01:22:00 - M5Trainer - INFO - [Step 13200/15000] D | L=3.0570e+02 | 3336.8s
+2026-03-04 01:22:00 - M5Trainer - INFO -   loss: IC=1.19e-02 BC=9.78e-03 PDE=6.02e+02 Qg=9.52e-02 Sd=4.35e-04 TDS=1.02e+00
+2026-03-04 01:22:00 - M5Trainer - INFO -   param: k=10.320mD dp=13.3 ng=2.981 nw=2.905 Sw=[0.071,0.415] | A(t)=[-6.37,-8.20,-8.20]
+2026-03-04 01:22:27 - M5Trainer - INFO - [Step 13300/15000] D | L=3.0224e+02 | 3364.3s
+2026-03-04 01:22:27 - M5Trainer - INFO -   loss: IC=1.33e-02 BC=1.14e-02 PDE=6.04e+02 Qg=9.56e-02 Sd=4.32e-04 TDS=1.02e+00
+2026-03-04 01:22:27 - M5Trainer - INFO -   param: k=10.320mD dp=13.3 ng=2.981 nw=2.905 Sw=[0.074,0.423] | A(t)=[-6.37,-8.20,-8.20]
+2026-03-04 01:22:55 - M5Trainer - INFO - [Step 13400/15000] D | L=3.1144e+02 | 3391.8s
+2026-03-04 01:22:55 - M5Trainer - INFO -   loss: IC=8.79e-03 BC=9.11e-03 PDE=6.09e+02 Qg=9.48e-02 Sd=4.33e-04 TDS=1.02e+00
+2026-03-04 01:22:55 - M5Trainer - INFO -   param: k=10.320mD dp=13.3 ng=2.981 nw=2.905 Sw=[0.069,0.379] | A(t)=[-6.37,-8.20,-8.20]
+2026-03-04 01:23:22 - M5Trainer - INFO -   [Sw监控] SY9: Sw=[0.0690, 0.3552, 0.4496], krg_min=2.539904e-01
+2026-03-04 01:23:22 - M5Trainer - INFO - [Step 13500/15000] D | L=3.0877e+02 | 3419.3s
+2026-03-04 01:23:22 - M5Trainer - INFO -   loss: IC=9.57e-03 BC=1.16e-02 PDE=6.21e+02 Qg=9.53e-02 Sd=4.33e-04 TDS=1.02e+00
+2026-03-04 01:23:22 - M5Trainer - INFO -   param: k=10.320mD dp=13.3 ng=2.981 nw=2.905 Sw=[0.072,0.289] | A(t)=[-6.37,-8.20,-8.20]
+2026-03-04 01:23:22 - M5Trainer - INFO -   [k_frac诊断] grad=3.5215e-01, k_frac=10.319598 mD
+2026-03-04 01:23:50 - M5Trainer - INFO - [Step 13600/15000] D | L=3.0382e+02 | 3447.4s
+2026-03-04 01:23:50 - M5Trainer - INFO -   loss: IC=1.13e-02 BC=1.06e-02 PDE=6.22e+02 Qg=9.46e-02 Sd=4.33e-04 TDS=1.02e+00
+2026-03-04 01:23:50 - M5Trainer - INFO -   param: k=10.320mD dp=13.3 ng=2.981 nw=2.905 Sw=[0.073,0.420] | A(t)=[-6.37,-8.20,-8.20]
+2026-03-04 01:24:18 - M5Trainer - INFO - [Step 13700/15000] D | L=3.0148e+02 | 3475.4s
+2026-03-04 01:24:18 - M5Trainer - INFO -   loss: IC=1.38e-02 BC=1.00e-02 PDE=6.10e+02 Qg=9.48e-02 Sd=4.34e-04 TDS=1.02e+00
+2026-03-04 01:24:18 - M5Trainer - INFO -   param: k=10.320mD dp=13.3 ng=2.981 nw=2.905 Sw=[0.071,0.421] | A(t)=[-6.38,-8.20,-8.20]
+2026-03-04 01:24:46 - M5Trainer - INFO - [Step 13800/15000] D | L=3.0166e+02 | 3503.3s
+2026-03-04 01:24:46 - M5Trainer - INFO -   loss: IC=1.14e-02 BC=1.04e-02 PDE=6.17e+02 Qg=9.39e-02 Sd=4.34e-04 TDS=1.02e+00
+2026-03-04 01:24:46 - M5Trainer - INFO -   param: k=10.320mD dp=13.3 ng=2.981 nw=2.905 Sw=[0.074,0.434] | A(t)=[-6.38,-8.20,-8.20]
+2026-03-04 01:25:14 - M5Trainer - INFO - [Step 13900/15000] D | L=3.0521e+02 | 3531.6s
+2026-03-04 01:25:14 - M5Trainer - INFO -   loss: IC=8.78e-03 BC=1.12e-02 PDE=6.16e+02 Qg=9.39e-02 Sd=4.34e-04 TDS=1.02e+00
+2026-03-04 01:25:14 - M5Trainer - INFO -   param: k=10.320mD dp=13.3 ng=2.981 nw=2.905 Sw=[0.074,0.345] | A(t)=[-6.38,-8.20,-8.20]
+2026-03-04 01:25:43 - M5Trainer - INFO -   [Sw监控] SY9: Sw=[0.0694, 0.3554, 0.4496], krg_min=2.539897e-01
+2026-03-04 01:25:43 - M5Trainer - INFO - [Step 14000/15000] D | L=3.0188e+02 | 3559.7s
+2026-03-04 01:25:43 - M5Trainer - INFO -   loss: IC=9.22e-03 BC=1.17e-02 PDE=6.26e+02 Qg=9.35e-02 Sd=4.33e-04 TDS=1.02e+00
+2026-03-04 01:25:43 - M5Trainer - INFO -   param: k=10.320mD dp=13.3 ng=2.981 nw=2.905 Sw=[0.073,0.396] | A(t)=[-6.38,-8.20,-8.20]
+2026-03-04 01:25:43 - M5Trainer - INFO -   [k_frac诊断] grad=8.9182e-01, k_frac=10.319622 mD
+2026-03-04 01:26:11 - M5Trainer - INFO - [Step 14100/15000] D | L=3.0218e+02 | 3588.1s
+2026-03-04 01:26:11 - M5Trainer - INFO -   loss: IC=9.66e-03 BC=1.18e-02 PDE=6.30e+02 Qg=9.37e-02 Sd=4.33e-04 TDS=1.02e+00
+2026-03-04 01:26:11 - M5Trainer - INFO -   param: k=10.320mD dp=13.3 ng=2.981 nw=2.905 Sw=[0.073,0.424] | A(t)=[-6.38,-8.20,-8.20]
+2026-03-04 01:26:40 - M5Trainer - INFO - [Step 14200/15000] D | L=2.9647e+02 | 3616.7s
+2026-03-04 01:26:40 - M5Trainer - INFO -   loss: IC=1.00e-02 BC=1.41e-02 PDE=6.27e+02 Qg=9.32e-02 Sd=4.33e-04 TDS=1.02e+00
+2026-03-04 01:26:40 - M5Trainer - INFO -   param: k=10.320mD dp=13.3 ng=2.981 nw=2.905 Sw=[0.077,0.450] | A(t)=[-6.38,-8.20,-8.20]
+2026-03-04 01:27:08 - M5Trainer - INFO - [Step 14300/15000] D | L=2.9322e+02 | 3645.3s
+2026-03-04 01:27:08 - M5Trainer - INFO -   loss: IC=1.33e-02 BC=1.26e-02 PDE=6.25e+02 Qg=9.31e-02 Sd=4.33e-04 TDS=1.02e+00
+2026-03-04 01:27:08 - M5Trainer - INFO -   param: k=10.320mD dp=13.3 ng=2.981 nw=2.905 Sw=[0.077,0.419] | A(t)=[-6.38,-8.20,-8.20]
+2026-03-04 01:27:37 - M5Trainer - INFO - [Step 14400/15000] D | L=3.0232e+02 | 3673.7s
+2026-03-04 01:27:37 - M5Trainer - INFO -   loss: IC=9.01e-03 BC=1.10e-02 PDE=6.30e+02 Qg=9.28e-02 Sd=4.33e-04 TDS=1.02e+00
+2026-03-04 01:27:37 - M5Trainer - INFO -   param: k=10.320mD dp=13.3 ng=2.981 nw=2.905 Sw=[0.073,0.416] | A(t)=[-6.38,-8.20,-8.20]
+2026-03-04 01:28:05 - M5Trainer - INFO -   [Sw监控] SY9: Sw=[0.0693, 0.3553, 0.4496], krg_min=2.539893e-01
+2026-03-04 01:28:05 - M5Trainer - INFO - [Step 14500/15000] D | L=2.9622e+02 | 3702.2s
+2026-03-04 01:28:05 - M5Trainer - INFO -   loss: IC=1.17e-02 BC=1.20e-02 PDE=6.30e+02 Qg=9.28e-02 Sd=4.33e-04 TDS=1.02e+00
+2026-03-04 01:28:05 - M5Trainer - INFO -   param: k=10.320mD dp=13.3 ng=2.981 nw=2.905 Sw=[0.073,0.370] | A(t)=[-6.38,-8.20,-8.20]
+2026-03-04 01:28:05 - M5Trainer - INFO -   [k_frac诊断] grad=-8.0180e-01, k_frac=10.319602 mD
+2026-03-04 01:28:34 - M5Trainer - INFO - [Step 14600/15000] D | L=2.9475e+02 | 3731.1s
+2026-03-04 01:28:34 - M5Trainer - INFO -   loss: IC=1.31e-02 BC=1.11e-02 PDE=6.31e+02 Qg=9.26e-02 Sd=4.33e-04 TDS=1.02e+00
+2026-03-04 01:28:34 - M5Trainer - INFO -   param: k=10.320mD dp=13.3 ng=2.981 nw=2.905 Sw=[0.072,0.445] | A(t)=[-6.38,-8.20,-8.20]
+2026-03-04 01:29:03 - M5Trainer - INFO - [Step 14700/15000] D | L=3.0039e+02 | 3760.0s
+2026-03-04 01:29:03 - M5Trainer - INFO -   loss: IC=9.92e-03 BC=1.14e-02 PDE=6.34e+02 Qg=9.28e-02 Sd=4.33e-04 TDS=1.02e+00
+2026-03-04 01:29:03 - M5Trainer - INFO -   param: k=10.320mD dp=13.3 ng=2.981 nw=2.905 Sw=[0.071,0.430] | A(t)=[-6.38,-8.20,-8.20]
+2026-03-04 01:29:32 - M5Trainer - INFO - [Step 14800/15000] D | L=2.9727e+02 | 3789.0s
+2026-03-04 01:29:32 - M5Trainer - INFO -   loss: IC=1.08e-02 BC=1.20e-02 PDE=6.30e+02 Qg=9.26e-02 Sd=4.33e-04 TDS=1.02e+00
+2026-03-04 01:29:32 - M5Trainer - INFO -   param: k=10.320mD dp=13.3 ng=2.981 nw=2.905 Sw=[0.066,0.421] | A(t)=[-6.38,-8.20,-8.20]
+2026-03-04 01:30:01 - M5Trainer - INFO - [Step 14900/15000] D | L=3.0082e+02 | 3817.9s
+2026-03-04 01:30:01 - M5Trainer - INFO -   loss: IC=1.11e-02 BC=1.00e-02 PDE=6.36e+02 Qg=9.25e-02 Sd=4.33e-04 TDS=1.02e+00
+2026-03-04 01:30:01 - M5Trainer - INFO -   param: k=10.320mD dp=13.3 ng=2.981 nw=2.905 Sw=[0.075,0.441] | A(t)=[-6.38,-8.20,-8.20]
+2026-03-04 01:30:29 - M5Trainer - INFO - [Step 14999/15000] D | L=2.9864e+02 | 3846.5s
+2026-03-04 01:30:29 - M5Trainer - INFO -   loss: IC=9.57e-03 BC=1.25e-02 PDE=6.29e+02 Qg=9.26e-02 Sd=4.33e-04 TDS=1.02e+00
+2026-03-04 01:30:29 - M5Trainer - INFO -   param: k=10.320mD dp=13.3 ng=2.981 nw=2.905 Sw=[0.077,0.417] | A(t)=[-6.38,-8.20,-8.20]
+2026-03-04 01:30:29 - M5Trainer - INFO - 
+M5 训练完成! 耗时: 3846.5s, 最佳验证分数(val_score): 11.3638
+2026-03-04 01:30:30 - M5Trainer - INFO - 配置快照已保存: C:\Users\16281\Desktop\cpedc_project\outputs\mk_pinn_dt_v2\resolved_config_m5.json
+2026-03-04 01:30:30 - M5Trainer - INFO - 反演参数审计: C:\Users\16281\Desktop\cpedc_project\outputs\mk_pinn_dt_v2\reports\M5_inversion_params.json
+2026-03-04 01:30:30 - M5Trainer - INFO -   history 已恢复 (43602 步)
+2026-03-04 01:30:30 - M5Trainer - INFO -   best_step=13000
+2026-03-04 01:30:30 - M5Trainer - INFO - 已加载 M5 检查点: C:\Users\16281\Desktop\cpedc_project\outputs\mk_pinn_dt_v2\ckpt\m5_pinn_best.pt
+2026-03-04 01:30:30 - M5Trainer - INFO -   history 已恢复 (45601 步)
+2026-03-04 01:30:30 - M5Trainer - INFO - 已加载 M5 检查点: C:\Users\16281\Desktop\cpedc_project\outputs\mk_pinn_dt_v2\ckpt\m5_pinn_final.pt
+2026-03-04 01:30:30 - M5Trainer - INFO -   history 已恢复 (45601 步)
+2026-03-04 01:30:30 - M5Trainer - INFO - 已加载 M5 检查点: C:\Users\16281\Desktop\cpedc_project\outputs\mk_pinn_dt_v2\ckpt\m5_pinn_final.pt
+2026-03-04 01:30:30 - M5Trainer - INFO - generate_report: 自动择优采用 final checkpoint, qg_score=2.9885
+2026-03-04 01:30:30 - M5Trainer - INFO - 反演参数审计: C:\Users\16281\Desktop\cpedc_project\outputs\mk_pinn_dt_v2\reports\M5_inversion_params.json
+2026-03-04 01:30:31 - M5Trainer - INFO - qg 对比图已保存: C:\Users\16281\Desktop\cpedc_project\outputs\mk_pinn_dt_v2\figs\M5_qg_comparison_SY9.png
+2026-03-04 01:30:31 - M5Trainer - INFO - p_wf 反演图已保存: C:\Users\16281\Desktop\cpedc_project\outputs\mk_pinn_dt_v2\figs\M5_pwf_inversion_SY9.png
+2026-03-04 01:30:33 - M5Trainer - INFO - 训练曲线图已保存: C:\Users\16281\Desktop\cpedc_project\outputs\mk_pinn_dt_v2\figs\M5_training_history.png
+2026-03-04 01:30:33 - M5Trainer - INFO - 残差热力图已保存: C:\Users\16281\Desktop\cpedc_project\outputs\mk_pinn_dt_v2\figs\M5_pde_residual_map.png
+2026-03-04 01:30:33 - M5Trainer - INFO -   history 已恢复 (43602 步)
+2026-03-04 01:30:33 - M5Trainer - INFO -   best_step=13000
+2026-03-04 01:30:33 - M5Trainer - INFO - 已加载 M5 检查点: C:\Users\16281\Desktop\cpedc_project\outputs\mk_pinn_dt_v2\ckpt\m5_pinn_best.pt
+2026-03-04 01:30:33 - M5Trainer - INFO -   history 已恢复 (45601 步)
+2026-03-04 01:30:33 - M5Trainer - INFO - 已加载 M5 检查点: C:\Users\16281\Desktop\cpedc_project\outputs\mk_pinn_dt_v2\ckpt\m5_pinn_final.pt
+2026-03-04 01:30:33 - M5Trainer - INFO - M5 验收报告已保存: C:\Users\16281\Desktop\cpedc_project\outputs\mk_pinn_dt_v2\reports\M5_validation_report.md

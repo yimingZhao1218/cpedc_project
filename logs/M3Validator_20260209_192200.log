@@ -1,0 +1,37 @@
+2026-02-09 19:22:00 - M3Validator - INFO - ============================================================
+2026-02-09 19:22:00 - M3Validator - INFO - M3 物性模块验收开始
+2026-02-09 19:22:00 - M3Validator - INFO - ============================================================
+2026-02-09 19:22:00 - M3Validator - INFO - 
+>>> 验收 A: PVT 物性（Z, Bg, cg, rho, alphaT）
+2026-02-09 19:22:00 - M3Validator - INFO -   [PASS] Z: 所有值有限（非NaN/Inf）
+2026-02-09 19:22:00 - M3Validator - INFO -   [PASS] Bg: 所有值有限（非NaN/Inf）
+2026-02-09 19:22:00 - M3Validator - INFO -   [PASS] cg: 所有值有限（非NaN/Inf）
+2026-02-09 19:22:00 - M3Validator - INFO -   [PASS] rho: 所有值有限（非NaN/Inf）
+2026-02-09 19:22:00 - M3Validator - INFO -   [PASS] alphaT: 所有值有限（非NaN/Inf）
+2026-02-09 19:22:00 - M3Validator - INFO -   [PASS] Z > 0 (min=0.804646)
+2026-02-09 19:22:00 - M3Validator - INFO -   [PASS] Bg > 0 (min=2.060699e-03)
+2026-02-09 19:22:00 - M3Validator - INFO -   [PASS] rho > 0 (min=59.0000 kg/m³)
+2026-02-09 19:22:00 - M3Validator - INFO -   [PASS] cg >= 0 (min=5.022000e-03 1/MPa)
+2026-02-09 19:22:00 - M3Validator - INFO -   [PASS] alphaT > 0 (min=1.487000e-03 1/℃)
+2026-02-09 19:22:00 - M3Validator - INFO -   
+2026-02-09 19:22:00 - M3Validator - INFO -   --- 统计汇总 ---
+2026-02-09 19:22:00 - M3Validator - INFO -     Z: min=0.804646, max=1.5639, mean=1.13171
+2026-02-09 19:22:00 - M3Validator - INFO -     Bg: min=0.0020607, max=0.0118305, mean=0.00384792
+2026-02-09 19:22:00 - M3Validator - INFO -     cg: min=0.005022, max=0.107703, mean=0.026056
+2026-02-09 19:22:00 - M3Validator - INFO -     rho: min=59, max=338.9, mean=211.431
+2026-02-09 19:22:00 - M3Validator - INFO -     alphaT: min=0.001487, max=0.00693811, mean=0.00352097
+2026-02-09 19:22:00 - M3Validator - INFO - 验收 A: PVT 检查全部通过 ✅
+2026-02-09 19:22:01 - M3Validator - INFO - 
+>>> 验收 B: 气水相渗（krw, krg 端点/单调/非负）
+2026-02-09 19:22:01 - M3Validator - ERROR - 验收 B 异常: only 0-dimensional arrays can be converted to Python scalars
+Traceback (most recent call last):
+  File "c:\Users\16281\Desktop\cpedc_project\src\validate_m3.py", line 77, in run
+    rp_pass, rp_checks = rp_validator.validate_all()
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\16281\Desktop\cpedc_project\src\physics\relperm_validate.py", line 82, in validate_all
+    krw_at_swr = float(self.rp.krw(sw_min))
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: only 0-dimensional arrays can be converted to Python scalars
+2026-02-09 19:22:01 - M3Validator - INFO - ============================================================
+2026-02-09 19:22:01 - M3Validator - INFO - M3 验收结果: ❌ 存在未通过项
+2026-02-09 19:22:01 - M3Validator - INFO - ============================================================

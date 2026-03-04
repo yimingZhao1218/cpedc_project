@@ -1,0 +1,30 @@
+2026-03-01 02:54:42 - M5PINNNet - INFO -   k_net 启用: 15297 参数
+2026-03-01 02:54:42 - M5PINNNet - INFO - M5PINNNet v3.17 初始化: field_params=416258, well_model 含 1 口井, k_net=启用, k_frac_init=6.96 mD, dp_wellbore_init=13.3 MPa, well_singularity=启用
+2026-03-01 02:54:44 - M5PINNNet - INFO -   v3.17 well singularity: well_xy_norm = (0.022656, -0.312228)
+2026-03-01 09:01:31 - M5PINNNet - INFO -   k_net 启用: 15297 参数
+2026-03-01 09:01:31 - M5PINNNet - INFO - M5PINNNet v3.17 初始化: field_params=416258, well_model 含 1 口井, k_net=启用, k_frac_init=5.87 mD, dp_wellbore_init=13.3 MPa, well_singularity=启用
+2026-03-01 09:01:31 - M5PINNNet - INFO -   v3.17 well singularity: well_xy_norm = (0.022656, -0.312228)
+2026-03-01 15:18:47 - M5PINNNet - INFO -   k_net 启用: 15297 参数
+2026-03-01 15:18:47 - M5PINNNet - INFO - M5PINNNet v3.17 初始化: field_params=416258, well_model 含 1 口井, k_net=启用, k_frac_init=11.58 mD, dp_wellbore_init=13.3 MPa, well_singularity=启用
+2026-03-01 15:18:47 - M5PINNNet - INFO -   v3.17 well singularity: well_xy_norm = (0.022656, -0.312228)
+2026-03-01 21:36:21 - M5PINNNet - INFO -   k_net 启用: 15297 参数
+2026-03-01 21:36:21 - M5PINNNet - INFO - M5PINNNet v3.17 初始化: field_params=416258, well_model 含 1 口井, k_net=启用, k_frac_init=6.68 mD, dp_wellbore_init=13.3 MPa, well_singularity=启用
+2026-03-01 21:36:22 - M5PINNNet - INFO -   v3.17 well singularity: well_xy_norm = (0.022656, -0.312228)
+2026-03-02 03:44:44 - M5PINNNet - INFO -   k_net 启用: 15297 参数
+2026-03-02 03:44:44 - M5PINNNet - INFO - M5PINNNet v3.17 初始化: field_params=416258, well_model 含 1 口井, k_net=启用, k_frac_init=7.89 mD, dp_wellbore_init=13.3 MPa, well_singularity=启用
+2026-03-02 03:44:44 - M5PINNNet - INFO -   v3.17 well singularity: well_xy_norm = (0.022656, -0.312228)
+2026-03-02 10:06:54 - M5PINNNet - INFO -   k_net 启用: 15297 参数
+2026-03-02 10:06:54 - M5PINNNet - INFO - M5PINNNet v3.17 初始化: field_params=416258, well_model 含 1 口井, k_net=启用, k_frac_init=8.95 mD, dp_wellbore_init=13.3 MPa, well_singularity=启用
+2026-03-02 10:06:55 - M5PINNNet - INFO -   v3.17 well singularity: well_xy_norm = (0.022656, -0.312228)
+2026-03-02 16:09:40 - M5PINNNet - INFO -   k_net 启用: 15297 参数
+2026-03-02 16:09:40 - M5PINNNet - INFO - M5PINNNet v3.17 初始化: field_params=416258, well_model 含 1 口井, k_net=启用, k_frac_init=4.91 mD, dp_wellbore_init=13.3 MPa, well_singularity=启用
+2026-03-02 16:09:41 - M5PINNNet - INFO -   v3.17 well singularity: well_xy_norm = (0.022656, -0.312228)
+2026-03-02 21:59:41 - M5PINNNet - INFO -   k_net 启用: 15297 参数
+2026-03-02 21:59:41 - M5PINNNet - INFO - M5PINNNet v3.17 初始化: field_params=416258, well_model 含 1 口井, k_net=启用, k_frac_init=12.36 mD, dp_wellbore_init=13.3 MPa, well_singularity=启用
+2026-03-02 21:59:41 - M5PINNNet - INFO -   v3.17 well singularity: well_xy_norm = (0.022656, -0.312228)
+2026-03-03 04:07:31 - M5PINNNet - INFO -   k_net 启用: 15297 参数
+2026-03-03 04:07:31 - M5PINNNet - INFO - M5PINNNet v3.17 初始化: field_params=416258, well_model 含 1 口井, k_net=启用, k_frac_init=8.23 mD, dp_wellbore_init=13.3 MPa, well_singularity=启用
+2026-03-03 04:07:31 - M5PINNNet - INFO -   v3.17 well singularity: well_xy_norm = (0.022656, -0.312228)
+2026-03-03 09:46:01 - M5PINNNet - INFO -   k_net 启用: 15297 参数
+2026-03-03 09:46:01 - M5PINNNet - INFO - M5PINNNet v3.17 初始化: field_params=416258, well_model 含 1 口井, k_net=启用, k_frac_init=9.32 mD, dp_wellbore_init=13.3 MPa, well_singularity=启用
+2026-03-03 09:46:01 - M5PINNNet - INFO -   v3.17 well singularity: well_xy_norm = (0.022656, -0.312228)

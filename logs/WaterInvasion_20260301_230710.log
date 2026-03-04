@@ -1,0 +1,16 @@
+2026-03-01 23:07:10 - WaterInvasion - INFO - WaterInvasionAnalyzer v4.1 初始化: Swc=0.26, Sgr=0.05, 见水线Sw*=0.398 (R_w=0.2), train_frac=70%, M6连通性=未接入
+2026-03-01 23:07:10 - WaterInvasion - INFO - 附表6-TDS时间序列加载: SYX211, 24个样本, t_day=[1630, 3518], TDS=[88991, 138138] mg/L
+2026-03-01 23:07:10 - WaterInvasion - INFO - 附表6-TDS时间序列加载: SY102, 112个样本, t_day=[1825, 3488], TDS=[107, 120594] mg/L
+2026-03-01 23:07:10 - WaterInvasion - INFO - 附表6-TDS时间序列加载: SY116, 173个样本, t_day=[2081, 3517], TDS=[31, 204893] mg/L
+2026-03-01 23:07:10 - WaterInvasion - INFO - 附表6-TDS时间序列加载: SY101, 382个样本, t_day=[439, 3518], TDS=[62, 144753] mg/L
+2026-03-01 23:07:10 - WaterInvasion - INFO - 附表6-TDS时间序列加载: SY13, 406个样本, t_day=[191, 3518], TDS=[52, 84797] mg/L
+2026-03-01 23:07:11 - WaterInvasion - INFO - 附表6-TDS时间序列加载: SY9, 173个样本, t_day=[1, 3518], TDS=[55, 105158] mg/L
+2026-03-01 23:07:11 - WaterInvasion - INFO - 附表6-TDS时间序列加载: SY201, 144个样本, t_day=[392, 3519], TDS=[31, 29586] mg/L
+2026-03-01 23:07:11 - WaterInvasion - INFO -   SYX211: 已见水 (score=1.000, F_gwc=1.00, F_tds=1.00, F_wiri=1.00)
+2026-03-01 23:07:11 - WaterInvasion - INFO -   SY116: 高风险 (score=0.886, F_gwc=1.00, F_tds=1.00, F_wiri=0.43)
+2026-03-01 23:07:11 - WaterInvasion - INFO -   SY102: 高风险 (score=0.833, F_gwc=0.80, F_tds=1.00, F_wiri=0.57)
+2026-03-01 23:07:11 - WaterInvasion - INFO -   SY101: 高风险 (score=0.756, F_gwc=0.76, F_tds=1.00, F_wiri=0.26)
+2026-03-01 23:07:11 - WaterInvasion - INFO -   SY13: 高风险 (score=0.737, F_gwc=0.85, F_tds=0.81, F_wiri=0.36)
+2026-03-01 23:07:11 - WaterInvasion - INFO -   SY9: 中风险 (score=0.550, F_gwc=0.26, F_tds=1.00, F_wiri=0.24)
+2026-03-01 23:07:11 - WaterInvasion - INFO -   SY201: 低风险 (score=0.296, F_gwc=0.39, F_tds=0.28, F_wiri=0.15)
+2026-03-01 23:07:11 - WaterInvasion - INFO - 附表6-TDS时间序列加载: SY9, 173个样本, t_day=[1, 3518], TDS=[55, 105158] mg/L

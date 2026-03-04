@@ -1,0 +1,41 @@
+2026-02-19 13:47:22 - Ablation - INFO - ============================================================
+2026-02-19 13:47:22 - Ablation - INFO - M6 消融实验套件
+2026-02-19 13:47:22 - Ablation - INFO - ============================================================
+2026-02-19 13:47:27 - Ablation - INFO - 
+==================================================
+2026-02-19 13:47:27 - Ablation - INFO - 消融实验: pure_ml
+2026-02-19 13:47:27 - Ablation - INFO - ==================================================
+2026-02-19 14:24:35 - Ablation - INFO -   pure_ml: RMSE=95818, MAPE=30.0%, Test_MAPE=3.1%, 耗时=2223.1s
+2026-02-19 14:24:35 - Ablation - INFO - 
+==================================================
+2026-02-19 14:24:35 - Ablation - INFO - 消融实验: pinn_const_k
+2026-02-19 14:24:35 - Ablation - INFO - ==================================================
+2026-02-19 15:27:16 - Ablation - INFO -   pinn_const_k: RMSE=94322, MAPE=28.1%, Test_MAPE=2.7%, 耗时=3759.9s
+2026-02-19 15:27:16 - Ablation - INFO - 
+==================================================
+2026-02-19 15:27:16 - Ablation - INFO - 消融实验: pinn_knet
+2026-02-19 15:27:16 - Ablation - INFO - ==================================================
+2026-02-19 16:43:49 - Ablation - INFO -   pinn_knet: RMSE=107172, MAPE=31.1%, Test_MAPE=3.5%, 耗时=4592.1s
+2026-02-19 16:43:49 - Ablation - INFO - 
+==================================================
+2026-02-19 16:43:49 - Ablation - INFO - 消融实验: pinn_full
+2026-02-19 16:43:49 - Ablation - INFO - ==================================================
+2026-02-19 18:00:23 - Ablation - INFO -   pinn_full: RMSE=99156, MAPE=27.4%, Test_MAPE=1.9%, 耗时=4592.6s
+2026-02-19 18:00:23 - Ablation - INFO - 
+==================================================
+2026-02-19 18:00:23 - Ablation - INFO - 消融实验: pinn_no_fourier
+2026-02-19 18:00:23 - Ablation - INFO - ==================================================
+2026-02-19 19:13:23 - Ablation - INFO -   pinn_no_fourier: RMSE=108608, MAPE=35.7%, Test_MAPE=5.0%, 耗时=4378.8s
+2026-02-19 19:13:23 - Ablation - INFO - 消融对比图已保存: C:\Users\16281\Desktop\cpedc_project\outputs\mk_pinn_dt_v2\figs\M6_ablation_qg_comparison.png
+2026-02-19 19:13:23 - Ablation - INFO - 消融指标对比图已保存: C:\Users\16281\Desktop\cpedc_project\outputs\mk_pinn_dt_v2\figs\M6_ablation_metrics_comparison.png
+2026-02-19 19:13:24 - Ablation - INFO - PDE 残差对比图已保存: C:\Users\16281\Desktop\cpedc_project\outputs\mk_pinn_dt_v2\figs\M6_ablation_pde_residual.png
+2026-02-19 19:13:24 - Ablation - INFO - 消融报告已保存: C:\Users\16281\Desktop\cpedc_project\outputs\mk_pinn_dt_v2\reports\M6_ablation_report.md
+2026-02-19 19:13:24 - Ablation - INFO - 
+============================================================
+2026-02-19 19:13:24 - Ablation - INFO - 消融实验摘要
+2026-02-19 19:13:24 - Ablation - INFO - ============================================================
+2026-02-19 19:13:24 - Ablation - INFO -   pure_ml        : RMSE=   95818, MAPE=  30.0%, Test_MAPE=   3.1%
+2026-02-19 19:13:24 - Ablation - INFO -   pinn_const_k   : RMSE=   94322, MAPE=  28.1%, Test_MAPE=   2.7%
+2026-02-19 19:13:24 - Ablation - INFO -   pinn_knet      : RMSE=  107172, MAPE=  31.1%, Test_MAPE=   3.5%
+2026-02-19 19:13:24 - Ablation - INFO -   pinn_full      : RMSE=   99156, MAPE=  27.4%, Test_MAPE=   1.9%
+2026-02-19 19:13:24 - Ablation - INFO -   pinn_no_fourier: RMSE=  108608, MAPE=  35.7%, Test_MAPE=   5.0%

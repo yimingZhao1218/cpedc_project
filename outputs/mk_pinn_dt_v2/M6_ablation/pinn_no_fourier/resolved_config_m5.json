@@ -1,0 +1,742 @@
+{
+  "meta": {
+    "project": "CPEDC16-Innovation-PINN-MK",
+    "experiment_name": "mk_pinn_dt_v2",
+    "version": "2.0.0",
+    "description": "边水-缝洞-强非均质气藏PINN数字孪生：产能/压力/含水耦合预测 + 物理约束反演 + 消融验证",
+    "author": "anonymous",
+    "created_at": "2026-02-09",
+    "notes": [
+      "配置目标：可复现、可审计、可落地训练/评估/消融",
+      "禁止在关键几何量（层顶/层底界、构造面）定位中使用不可审计的黑箱插值；需记录插值方法与误差"
+    ]
+  },
+  "reproducibility": {
+    "seed": 20260209,
+    "deterministic": true,
+    "cudnn_benchmark": false
+  },
+  "runtime": {
+    "device": "cuda",
+    "mixed_precision": true,
+    "num_workers": 4
+  },
+  "project": {
+    "name": "CPEDC_PINN_DigitalTwin",
+    "baseline": "B层标准",
+    "digital_twin": true,
+    "pinn": true
+  },
+  "paths": {
+    "raw_data": "C:\\Users\\Administrator\\Desktop\\cpedc_project\\data\\raw",
+    "staged_data": "C:\\Users\\Administrator\\Desktop\\cpedc_project\\data\\staged",
+    "clean_data": "C:\\Users\\Administrator\\Desktop\\cpedc_project\\data\\clean",
+    "geo_data": "C:\\Users\\Administrator\\Desktop\\cpedc_project\\geo",
+    "outputs": "C:\\Users\\Administrator\\Desktop\\cpedc_project\\outputs\\mk_pinn_dt_v2\\M6_ablation\\pinn_no_fourier",
+    "checkpoints": "C:\\Users\\Administrator\\Desktop\\cpedc_project\\outputs\\mk_pinn_dt_v2\\M6_ablation\\pinn_no_fourier\\ckpt",
+    "logs": "C:\\Users\\Administrator\\Desktop\\cpedc_project\\outputs\\mk_pinn_dt_v2\\logs",
+    "reports": "C:\\Users\\Administrator\\Desktop\\cpedc_project\\outputs\\mk_pinn_dt_v2\\M6_ablation\\pinn_no_fourier\\reports",
+    "figures": "C:\\Users\\Administrator\\Desktop\\cpedc_project\\outputs\\mk_pinn_dt_v2\\M6_ablation\\pinn_no_fourier\\figs",
+    "exports": "C:\\Users\\Administrator\\Desktop\\cpedc_project\\outputs\\mk_pinn_dt_v2\\exports"
+  },
+  "coordinate_system": {
+    "datum": "MSL",
+    "z_convention": "up_positive",
+    "units": "m",
+    "gas_water_contact": {
+      "value": -4385.0,
+      "unit": "m",
+      "meaning": "气水界面标高（用于边水/含水演化约束）"
+    },
+    "audit": {
+      "save_transform_matrix": true,
+      "save_wellhead_reference": true
+    }
+  },
+  "mk_formation": {
+    "name": "MK组",
+    "pressure_gradient_MPa_per_100m": 0.27,
+    "temp_gradient_C_per_100m": 2.69,
+    "avg_pressure_MPa": {
+      "value": 76.0,
+      "trainable": true,
+      "bounds": [
+        65.0,
+        85.0
+      ],
+      "meaning": "中部压力/初始压力先验（可反演）"
+    },
+    "avg_temperature_C": {
+      "value": 140.32,
+      "trainable": false,
+      "meaning": "中部温度先验（固定）"
+    },
+    "reservoir_type": [
+      "carbonate",
+      "fracture-vuggy",
+      "strong_heterogeneity"
+    ],
+    "sour_gas": {
+      "enable": true,
+      "components": {
+        "h2s": "from_data_if_available",
+        "co2": "from_data_if_available"
+      },
+      "hse_note": "含硫含酸气：需考虑腐蚀/安全约束，参数用于敏感性分析与工程护栏"
+    }
+  },
+  "data": {
+    "mode": "single_well",
+    "primary_well": "SY9",
+    "wells": [
+      "SY9",
+      "SY13",
+      "SY201",
+      "SY101",
+      "SY102",
+      "SY116",
+      "SYX211"
+    ],
+    "sources": {
+      "well_location_csv": "data/raw/附表1-井位数据.csv",
+      "layer_csv": "data/raw/附表4-分层数据.csv",
+      "log_interp_csv": "data/raw/附表8-测井解释成果表.csv",
+      "test_oil_gas_csv": "data/raw/附表9-试油试采数据.csv",
+      "production_daily_csv": "data/raw/附表10-SY9单井日生产数据.csv",
+      "deviation_csv_map": {
+        "SY9": "data/raw/附表2-井斜数据__SY9.csv",
+        "SY13": "data/raw/附表2-井斜数据__SY13.csv",
+        "SY201": "data/raw/附表2-井斜数据__SY201.csv",
+        "SY101": "data/raw/附表2-井斜数据__SY101.csv",
+        "SY102": "data/raw/附表2-井斜数据__SY102.csv",
+        "SY116": "data/raw/附表2-井斜数据__SY116.csv",
+        "SYX211": "data/raw/附表2-井斜数据__SYX211.csv"
+      },
+      "pvt": {
+        "gas_comp_csv": "data/raw/附表5-PVT数据__1井流物组成.csv",
+        "c_g_csv": "data/raw/附表5-PVT数据__3不同温度下的压缩系数.csv",
+        "bg_csv": "data/raw/附表5-PVT数据__4不同温度下的体积系数.csv",
+        "alphaT_csv": "data/raw/附表5-PVT数据__5不同温度下的热膨胀系数.csv",
+        "density_csv": "data/raw/附表5-PVT数据__6不同温度下的密度模拟计算.csv",
+        "cce_csv": "data/raw/附表5-PVT数据__2油藏流体恒质膨胀数据表.csv"
+      },
+      "relperm_csv": "data/raw/附表7-相对渗透率数据表.csv"
+    },
+    "columns": {
+      "time": "date",
+      "qg": "qg",
+      "qw": "qw",
+      "whp": "whp",
+      "wht": "wht",
+      "choke": "choke",
+      "bhp": null,
+      "phi": "PHI",
+      "perm": "K",
+      "h2s": "H2S",
+      "co2": "CO2"
+    },
+    "preprocessing": {
+      "time_unit": "day",
+      "t0_date": null,
+      "missing": {
+        "strategy": "interpolate_then_ffill",
+        "max_gap_days": 7,
+        "audit_save_mask": true
+      },
+      "outlier": {
+        "enable": true,
+        "method": "hampel",
+        "window": 7,
+        "n_sigma": 3.0,
+        "audit_save_flags": true
+      },
+      "scaling": {
+        "method": "zscore",
+        "fit_on": "train",
+        "eps": 1e-12
+      },
+      "stratigraphy_alignment": {
+        "enable": true,
+        "method": "piecewise_linear_with_bounds",
+        "enforce_monotone_depth": true,
+        "save_alignment_report": true
+      }
+    },
+    "split": {
+      "method": "time_based",
+      "train_ratio": 0.7,
+      "val_ratio": 0.15,
+      "test_ratio": 0.15,
+      "shuffle": false
+    }
+  },
+  "m1_config": {
+    "quality_thresholds": {
+      "coord_outlier_factor": 3.0,
+      "pressure_min_MPa": 0.0,
+      "pressure_max_MPa": 100.0,
+      "temp_min_C": 0.0,
+      "temp_max_C": 200.0,
+      "thickness_min_m": 0.1,
+      "production_nonnegative": true
+    },
+    "audit": {
+      "save_cleaning_report": true,
+      "save_before_after_samples": true
+    }
+  },
+  "m2_config": {
+    "boundary_buffer_distances_m": [
+      500,
+      1000,
+      1500
+    ],
+    "default_buffer_m": 1000,
+    "thickness_min": 1.0,
+    "grid": {
+      "min_resolution_m": 50,
+      "max_resolution_m": 200,
+      "well_radius_factor": 10
+    },
+    "well_refinement": {
+      "radius_m": 300,
+      "density_factor": 3
+    },
+    "boundary_samples": 512,
+    "kriging": {
+      "variogram_model": "gaussian",
+      "nlags": 6,
+      "enable_crossval": true,
+      "max_acceptable_error_m": 60.0,
+      "audit": {
+        "save_cv_metrics": true,
+        "save_variogram_fit": true
+      }
+    }
+  },
+  "m3_config": {
+    "pvt": {
+      "temperatures_C": [
+        16.5,
+        46.5,
+        78.0,
+        109.0,
+        140.32
+      ],
+      "pressure_unit": "MPa",
+      "interpolation_method": "pchip",
+      "temperature_interp": "linear",
+      "unit_factors": {
+        "cg": 0.01,
+        "bg": 0.001,
+        "rho": 1000.0,
+        "alphaT": 0.01
+      },
+      "clamp_out_of_range": true
+    },
+    "relperm": {
+      "sw_is_percent": true,
+      "enforce_endpoints": true,
+      "enforce_monotone": true,
+      "enforce_nonneg": true,
+      "interpolation_method": "pchip"
+    }
+  },
+  "debug_nan": false,
+  "m4_config": {
+    "formulation": "2.5D",
+    "variables": {
+      "input": [
+        "x",
+        "y",
+        "t"
+      ],
+      "output": [
+        "p",
+        "Sw"
+      ]
+    },
+    "sampling": {
+      "n_domain": 4096,
+      "n_boundary": 512,
+      "n_initial": 512,
+      "time_distribution": "adaptive",
+      "time_beta_a": 1.5,
+      "time_beta_b": 3.0,
+      "near_well_ratio": 0.3
+    },
+    "training_stages": {
+      "stage_a": {
+        "fraction": 0.1,
+        "weights": {
+          "ic": 15.0,
+          "bc": 5.0,
+          "pde": 0.01,
+          "data": 0.1,
+          "sw_phys": 2.0
+        }
+      },
+      "stage_b": {
+        "fraction": 0.25,
+        "weights_start": {
+          "ic": 5.0,
+          "bc": 3.0,
+          "pde": 0.5,
+          "data": 2.0,
+          "sw_phys": 0.3
+        },
+        "weights_end": {
+          "ic": 5.0,
+          "bc": 3.0,
+          "pde": 2.0,
+          "data": 4.0,
+          "sw_phys": 0.8
+        }
+      },
+      "stage_c": {
+        "fraction": 0.35,
+        "weights_start": {
+          "ic": 3.0,
+          "bc": 2.0,
+          "pde": 2.0,
+          "data": 6.0,
+          "sw_phys": 1.0
+        },
+        "weights_end": {
+          "ic": 3.0,
+          "bc": 2.0,
+          "pde": 2.0,
+          "data": 6.0,
+          "sw_phys": 1.5
+        }
+      },
+      "stage_d": {
+        "fraction": 0.3,
+        "weights": {
+          "ic": 1.0,
+          "bc": 1.0,
+          "pde": 3.0,
+          "data": 6.5,
+          "sw_phys": 2.0
+        }
+      }
+    },
+    "acceptance": {
+      "pressure_mape_threshold": 30.0,
+      "sw_must_be_bounded": true
+    }
+  },
+  "io": {
+    "inputs": [
+      "t",
+      "choke"
+    ],
+    "outputs": [
+      "qg_hat",
+      "pwf_hat",
+      "sw_hat"
+    ],
+    "supervised_targets": {
+      "enable": true,
+      "targets": {
+        "qg": "qg",
+        "qw": "qw",
+        "whp": "whp"
+      }
+    }
+  },
+  "physics": {
+    "enable": true,
+    "formulation": "hybrid",
+    "priors": {
+      "p_init_MPa": {
+        "from": "mk_formation.avg_pressure_MPa"
+      },
+      "k_eff_mD": {
+        "value": 0.5,
+        "trainable": true,
+        "bounds": [
+          0.01,
+          50.0
+        ],
+        "range": [
+          0.1,
+          10.0
+        ],
+        "meaning": "Peaceman等效均质先验: 附表8 SY9测井解释平均k=36.8mD是局部裂缝峰值, Peaceman等效均质反推0.83mD, 历史收敛3.85mD; 取k_eff=0.5mD(k_frac_init=4mD)作保守先验, k_net负责局部高渗修正"
+      },
+      "k_alt_mD": {
+        "value": 3.24,
+        "meaning": "附表7绝对渗透率（3.20×10⁻³ μm² 换算）"
+      },
+      "phi": {
+        "value": 0.0216,
+        "meaning": "孔隙度（附表7相渗实验条件, 2.16%）"
+      },
+      "mu_ref_mPa_s": {
+        "value": 0.035,
+        "range": [
+          0.02,
+          0.06
+        ],
+        "meaning": "Lee-Gonzalez-Eakin关联式估算(γg=0.577,ρ=0.271g/cm³,T=140.32°C,p=75.7MPa)→0.0346≈0.035"
+      },
+      "cg_ref_1_per_MPa": {
+        "value": 0.013,
+        "range": [
+          0.008,
+          0.02
+        ],
+        "meaning": "参考压缩系数先验（可被M3 PVT在p_ref,T_ref查询覆盖）"
+      },
+      "c_r_1_per_MPa": {
+        "value": 0.0,
+        "meaning": "岩石压缩系数（目前无数据, 置0）"
+      },
+      "frac_conductivity_factor": {
+        "value": 16.0,
+        "trainable": true,
+        "bounds": [
+          1.0,
+          100.0
+        ],
+        "meaning": "裂缝增效因子(v3.12: k_frac=k_eff×f=0.5×16=8mD; PVT修正后Bg≈2×旧值, k_frac需相应提高; 附表8 SY9局部裂缝层k=36.8mD由k_net捕捉)"
+      }
+    },
+    "pde": {
+      "time_unit": "s",
+      "domain": {
+        "x_min_m": 18537917.902,
+        "x_max_m": 18555317.902,
+        "y_min_m": 3346340.36,
+        "y_max_m": 3357340.36,
+        "t_max_d": 1331
+      }
+    },
+    "constraints": {
+      "monotonic_qg_vs_pwf": {
+        "enable": true,
+        "weight": 1.0
+      },
+      "smooth_pwf_time": {
+        "enable": true,
+        "weight": 0.2
+      },
+      "sw_bounds": {
+        "enable": true,
+        "weight": 0.5
+      },
+      "material_balance_residual": {
+        "enable": true,
+        "weight": 1.0
+      },
+      "relperm_shape": {
+        "enable": true,
+        "weight": 0.3
+      }
+    }
+  },
+  "model": {
+    "type": "pinn_mlp",
+    "architecture": {
+      "hidden_layers": [
+        256,
+        256,
+        256,
+        256,
+        256,
+        256
+      ],
+      "activation": "tanh",
+      "dropout": 0.0,
+      "use_layernorm": true,
+      "use_fourier": false,
+      "fourier_n_freq": 32,
+      "fourier_sigma": 1.0,
+      "use_residual": true,
+      "use_k_net": true
+    },
+    "parameterization": {
+      "trainable_priors": true,
+      "positivity_constraints": {
+        "k_eff_mD": "softplus",
+        "frac_conductivity_factor": "softplus"
+      }
+    }
+  },
+  "loss": {
+    "supervised": {
+      "enable": true,
+      "weights": {
+        "qg": 1.2,
+        "qg_smape": 0.5,
+        "qg_log1p": 0.15,
+        "qw": 0.7,
+        "whp": 0.3
+      }
+    },
+    "physics": {
+      "enable": true,
+      "base_weight": 1.0,
+      "curriculum": {
+        "enable": true,
+        "warmup_steps": 800,
+        "target_weight": 1.0
+      }
+    },
+    "regularization": {
+      "l2_weight": 1e-06,
+      "grad_clip_norm": 5.0
+    }
+  },
+  "train": {
+    "m5_split": [
+      0.65,
+      0.15,
+      0.2
+    ],
+    "use_train_only": false,
+    "max_steps": 20000,
+    "batch_size": 4096,
+    "learning_rate": 0.001,
+    "training_stages": {
+      "stage_a": {
+        "fraction": 0.08,
+        "weights": {
+          "pde": 0.005
+        }
+      },
+      "stage_b": {
+        "fraction": 0.2,
+        "weights": {
+          "pde": 0.01
+        }
+      },
+      "stage_c": {
+        "fraction": 0.28,
+        "weights": {
+          "pde": 0.02
+        }
+      },
+      "stage_d": {
+        "fraction": 0.44,
+        "weights": {
+          "pde": 0.03
+        }
+      }
+    },
+    "optimizer": {
+      "name": "adamw",
+      "weight_decay": 0.0001,
+      "inversion_lr_factor": 1.5,
+      "k_frac_lr_factor": 2.0,
+      "corey_lr_factor": 3.0
+    },
+    "scheduler": {
+      "name": "warmup_cosine",
+      "warmup_steps": 4000,
+      "min_lr": 1e-06
+    },
+    "early_stopping": {
+      "enable": true,
+      "monitor": "val_total_loss",
+      "patience": 30,
+      "min_delta": 0.0001
+    },
+    "checkpoint": {
+      "save_best_only": true,
+      "monitor": "val_total_loss"
+    }
+  },
+  "evaluation": {
+    "metrics": [
+      "mae",
+      "rmse",
+      "mape",
+      "r2"
+    ],
+    "plots": {
+      "enable": true,
+      "items": [
+        "qg_pred_vs_true",
+        "pwf_time_series",
+        "sw_time_series",
+        "residual_terms_breakdown",
+        "ablation_comparison"
+      ]
+    }
+  },
+  "ablation": {
+    "enable": true,
+    "min_steps": 20000,
+    "experiments": [
+      {
+        "name": "pure_ml",
+        "description": "纯数据驱动, 无物理约束",
+        "overrides": {
+          "physics.enable": false,
+          "loss.physics.enable": false,
+          "loss.physics.base_weight": 0.0
+        }
+      },
+      {
+        "name": "pinn_const_k",
+        "description": "单相 PDE + 常数 k (无 k_net)",
+        "overrides": {
+          "physics.enable": true,
+          "loss.physics.enable": true,
+          "loss.physics.base_weight": 1.0,
+          "model.architecture.use_k_net": false
+        }
+      },
+      {
+        "name": "pinn_base",
+        "description": "PDE 基础线 (无 k_net 无 Fourier, 2×2 消融基底)",
+        "overrides": {
+          "physics.enable": true,
+          "loss.physics.enable": true,
+          "loss.physics.base_weight": 1.0,
+          "model.architecture.use_k_net": false,
+          "model.architecture.use_fourier": false
+        }
+      },
+      {
+        "name": "pinn_full",
+        "description": "完整模型: PDE + k_net + Fourier + 全约束",
+        "overrides": {
+          "physics.enable": true,
+          "loss.physics.enable": true,
+          "loss.physics.base_weight": 1.0,
+          "model.architecture.use_k_net": true,
+          "model.architecture.use_fourier": true
+        }
+      },
+      {
+        "name": "pinn_no_fourier",
+        "description": "完整模型但无 Fourier Features (验证 FF 效果)",
+        "overrides": {
+          "physics.enable": true,
+          "loss.physics.enable": true,
+          "loss.physics.base_weight": 1.0,
+          "model.architecture.use_k_net": true,
+          "model.architecture.use_fourier": false
+        }
+      },
+      {
+        "name": "pinn_no_rar",
+        "description": "完整模型但无 RAR 自适应采样 (验证 RAR 效果)",
+        "overrides": {
+          "physics.enable": true,
+          "loss.physics.enable": true,
+          "loss.physics.base_weight": 1.0,
+          "model.architecture.use_k_net": true,
+          "model.architecture.use_fourier": true,
+          "train.rar.enable": false
+        }
+      }
+    ]
+  },
+  "safety_guardrails": {
+    "enable": true,
+    "limits": {
+      "pwf_hat_MPa": [
+        30.0,
+        80.0
+      ],
+      "drawdown_MPa": [
+        0.2,
+        65.0
+      ],
+      "qg_hat": [
+        0.0,
+        "1.0e9"
+      ],
+      "sw_hat": [
+        0.0,
+        1.0
+      ]
+    },
+    "actions": {
+      "on_violation": "clip_and_log"
+    }
+  },
+  "output": {
+    "figure_dpi": 300,
+    "figure_format": "png",
+    "save_intermediate": true,
+    "chinese_font": "SimHei",
+    "save_config_copy": true,
+    "export_predictions_csv": true,
+    "export_inverse_params_yaml": true
+  },
+  "m5_config": {
+    "shutin_delta": {
+      "target_MPa": 0.1,
+      "min_points": 30
+    },
+    "qg_nearzero": {
+      "enable": true,
+      "threshold_m3d": 1.0,
+      "q_scale_m3d": 80000.0,
+      "min_points": 30,
+      "w_a": 3.0,
+      "w_b_start": 6.0,
+      "w_b_end": 9.0,
+      "w_c": 12.0,
+      "w_d": 20.0
+    },
+    "inversion_prior": {
+      "k_weight": 0.01,
+      "dp_center_MPa": 13.3,
+      "dp_weight": 0.02,
+      "corey_weight": 0.1
+    },
+    "well_model": {
+      "r_w_m": 0.1,
+      "skin": 0.0
+    },
+    "pwf_network": {
+      "hidden": [
+        64,
+        64
+      ],
+      "min_drawdown_MPa": 0.01,
+      "dp_min_MPa": 0.01,
+      "dp_max_MPa": 40.0
+    },
+    "source_term": {
+      "sigma_norm": 0.05,
+      "cutoff_factor": 3.0
+    },
+    "relobralo": {
+      "enable": true,
+      "temperature": 1.0,
+      "alpha": 0.999,
+      "rho": 0.999,
+      "warmup_steps": 200
+    },
+    "rar": {
+      "enable": true,
+      "interval": 500,
+      "n_candidates": 5000,
+      "n_add": 200,
+      "max_total": 8000
+    }
+  },
+  "m6_config": {
+    "domain_decomposition": "none",
+    "xpinn": {
+      "n_subdomains": 2,
+      "subnet_scale": 0.75,
+      "interface_weight": 10.0
+    },
+    "apinn": {
+      "n_experts": 3,
+      "gate_hidden": 32
+    },
+    "uq": {
+      "n_ensemble": 5,
+      "base_seed": 20260209
+    }
+  }
+}

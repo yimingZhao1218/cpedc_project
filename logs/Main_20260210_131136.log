@@ -1,0 +1,55 @@
+2026-02-10 13:11:52 - Main - INFO - 构建 PVT 插值器...
+2026-02-10 13:11:52 - Main - INFO - 构建相渗插值器...
+2026-02-10 13:11:52 - Main - INFO - 功能测试: 查询 p=50 MPa, T=120 ℃
+2026-02-10 13:11:52 - Main - INFO -   Z = 1.18037
+2026-02-10 13:11:52 - Main - INFO -   Bg = 0.0031967
+2026-02-10 13:11:52 - Main - INFO -   cg = 0.0135004
+2026-02-10 13:11:52 - Main - INFO -   rho = 218.688
+2026-02-10 13:11:52 - Main - INFO -   alphaT = 0.002077
+2026-02-10 13:11:52 - Main - INFO - 功能测试: 查询 Sw=0.5
+2026-02-10 13:11:52 - Main - INFO -   krw(0.5) = 0.028500, krg(0.5) = 0.441160
+2026-02-10 13:11:52 - Main - INFO -   端点: Swr=0.2600, Sgr=0.0620, krw_max=0.4800, krg_max=0.6750
+2026-02-10 13:11:58 - Main - INFO - M4 PINN 训练设备: cuda
+2026-02-10 13:11:58 - Main - INFO -   GPU: NVIDIA GeForce RTX 5060 Laptop GPU (8.0 GB)
+2026-02-10 13:11:58 - Main - INFO - 初始化采样器...
+2026-02-10 13:11:58 - Main - INFO - 初始化网络...
+2026-02-10 13:11:58 - Main - INFO -   模型参数量: 449,026
+2026-02-10 13:11:58 - Main - INFO - 初始化损失函数...
+2026-02-10 13:11:58 - Main - INFO - 初始化训练器...
+2026-02-10 13:11:59 - Main - INFO - 开始分阶段训练...
+2026-02-10 13:11:59 - Main - ERROR - 执行失败: mat1 and mat2 shapes cannot be multiplied (512x67 and 195x256)
+Traceback (most recent call last):
+  File "c:\Users\16281\Desktop\cpedc_project\src\main.py", line 391, in main
+    m4_ok = run_m4(config, logger)
+            ^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\16281\Desktop\cpedc_project\src\main.py", line 119, in run_m4
+    history = trainer.train()
+              ^^^^^^^^^^^^^^^
+  File "c:\Users\16281\Desktop\cpedc_project\src\pinn\trainer.py", line 486, in train
+    loss_dict = self._train_step(step, weights)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\16281\Desktop\cpedc_project\src\pinn\trainer.py", line 353, in _train_step
+    loss_ic = self.loss_fn.ic_loss(self.model, batch['x_ic'])
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\16281\Desktop\cpedc_project\src\pinn\losses.py", line 73, in ic_loss
+    p_pred, sw_pred = model(x_ic)
+                      ^^^^^^^^^^^
+  File "C:\Users\16281\Desktop\cpedc_project\.venv\Lib\site-packages\torch\nn\modules\module.py", line 1775, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\16281\Desktop\cpedc_project\.venv\Lib\site-packages\torch\nn\modules\module.py", line 1786, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\16281\Desktop\cpedc_project\src\pinn\model.py", line 354, in forward
+    h = self.input_act(self.input_norm(self.input_proj(h)))
+                                       ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\16281\Desktop\cpedc_project\.venv\Lib\site-packages\torch\nn\modules\module.py", line 1775, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\16281\Desktop\cpedc_project\.venv\Lib\site-packages\torch\nn\modules\module.py", line 1786, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\16281\Desktop\cpedc_project\.venv\Lib\site-packages\torch\nn\modules\linear.py", line 134, in forward
+    return F.linear(input, self.weight, self.bias)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: mat1 and mat2 shapes cannot be multiplied (512x67 and 195x256)

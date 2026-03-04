@@ -1,0 +1,7 @@
+2026-02-14 23:26:00 - AssimilationLoss - INFO - AssimilationLoss v2 初始化: p_init=76.0 MPa, sw_init=0.26, monotonic=True, smooth_pwf=True
+2026-02-14 23:26:01 - AssimilationLoss - INFO -   [loss_qg] qg_pred=(1025, 1), qg_obs=(1025, 1)
+2026-02-14 23:26:01 - AssimilationLoss - INFO -   [loss_qg] mask=(1025, 1), delta=(1025, 1)
+2026-02-14 23:26:01 - AssimilationLoss - INFO -   [loss_whp] p_wf_pred=(1025,), whp_obs=(1025, 1), delta=(1025, 1025)
+2026-02-14 23:26:03 - AssimilationLoss - INFO -   [loss_qg] qg_pred=(1025, 1), qg_obs=(1025, 1)
+2026-02-14 23:26:03 - AssimilationLoss - INFO -   [loss_qg] mask=(1025, 1), delta=(1025, 1)
+2026-02-14 23:26:03 - AssimilationLoss - INFO -   [loss_whp] p_wf_pred=(1025,), whp_obs=(1025, 1), delta=(1025, 1025)

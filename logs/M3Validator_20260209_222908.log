@@ -1,0 +1,43 @@
+2026-02-09 22:29:08 - M3Validator - INFO - ============================================================
+2026-02-09 22:29:08 - M3Validator - INFO - M3 物性模块验收开始
+2026-02-09 22:29:08 - M3Validator - INFO - ============================================================
+2026-02-09 22:29:08 - M3Validator - INFO - 
+>>> 验收 A: PVT 物性（Z, Bg, cg, rho, alphaT）
+2026-02-09 22:29:09 - M3Validator - INFO -   [PASS] Z: 所有值有限（非NaN/Inf）
+2026-02-09 22:29:09 - M3Validator - INFO -   [PASS] Bg: 所有值有限（非NaN/Inf）
+2026-02-09 22:29:09 - M3Validator - INFO -   [PASS] cg: 所有值有限（非NaN/Inf）
+2026-02-09 22:29:09 - M3Validator - INFO -   [PASS] rho: 所有值有限（非NaN/Inf）
+2026-02-09 22:29:09 - M3Validator - INFO -   [PASS] alphaT: 所有值有限（非NaN/Inf）
+2026-02-09 22:29:09 - M3Validator - INFO -   [PASS] Z > 0 (min=0.804646)
+2026-02-09 22:29:09 - M3Validator - INFO -   [PASS] Bg > 0 (min=2.060699e-03)
+2026-02-09 22:29:09 - M3Validator - INFO -   [PASS] rho > 0 (min=59.0000 kg/m³)
+2026-02-09 22:29:09 - M3Validator - INFO -   [PASS] cg >= 0 (min=5.022000e-03 1/MPa)
+2026-02-09 22:29:09 - M3Validator - INFO -   [PASS] alphaT > 0 (min=1.487000e-03 1/℃)
+2026-02-09 22:29:09 - M3Validator - INFO -   
+2026-02-09 22:29:09 - M3Validator - INFO -   --- 统计汇总 ---
+2026-02-09 22:29:09 - M3Validator - INFO -     Z: min=0.804646, max=1.5639, mean=1.13171
+2026-02-09 22:29:09 - M3Validator - INFO -     Bg: min=0.0020607, max=0.0118305, mean=0.00384792
+2026-02-09 22:29:09 - M3Validator - INFO -     cg: min=0.005022, max=0.107703, mean=0.026056
+2026-02-09 22:29:09 - M3Validator - INFO -     rho: min=59, max=338.9, mean=211.431
+2026-02-09 22:29:09 - M3Validator - INFO -     alphaT: min=0.001487, max=0.00693811, mean=0.00351097
+2026-02-09 22:29:09 - M3Validator - INFO - 验收 A: PVT 检查全部通过 ✅
+2026-02-09 22:29:09 - M3Validator - INFO - 
+>>> 验收 B: 气水相渗（krw, krg 端点/单调/非负）
+2026-02-09 22:29:09 - M3Validator - INFO -   [PASS] krw(Sw) 单调递增 (min_diff=2.90e-05)
+2026-02-09 22:29:09 - M3Validator - INFO -   [PASS] krg(Sw) 单调递减 (max_diff=-3.53e-04)
+2026-02-09 22:29:09 - M3Validator - INFO -   [PASS] krw(Swr=0.2600) = 0.000000 ≈ 0
+2026-02-09 22:29:09 - M3Validator - INFO -   [PASS] krg(Sw=0.9380) = 0.009000 ≈ 0
+2026-02-09 22:29:09 - M3Validator - INFO -   [PASS] krw >= 0 (min=0.000000e+00)
+2026-02-09 22:29:09 - M3Validator - INFO -   [PASS] krg >= 0 (min=9.000000e-03)
+2026-02-09 22:29:09 - M3Validator - INFO -   [PASS] krw <= 1 (max=0.480000)
+2026-02-09 22:29:09 - M3Validator - INFO -   [PASS] krg <= 1 (max=0.675000)
+2026-02-09 22:29:09 - M3Validator - INFO -   
+2026-02-09 22:29:09 - M3Validator - INFO -   --- 端点参数 ---
+2026-02-09 22:29:09 - M3Validator - INFO -     束缚水饱和度 Swr = 0.2600
+2026-02-09 22:29:09 - M3Validator - INFO -     残余气饱和度 Sgr = 0.0620
+2026-02-09 22:29:09 - M3Validator - INFO -     最大水相相渗 krw_max = 0.4800
+2026-02-09 22:29:09 - M3Validator - INFO -     最大气相相渗 krg_max = 0.6750
+2026-02-09 22:29:09 - M3Validator - INFO - 验收 B: 相渗检查全部通过 ✅
+2026-02-09 22:29:10 - M3Validator - INFO - ============================================================
+2026-02-09 22:29:10 - M3Validator - INFO - M3 验收结果: ✅ 全部通过
+2026-02-09 22:29:10 - M3Validator - INFO - ============================================================

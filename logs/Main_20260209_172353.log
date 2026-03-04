@@ -1,0 +1,12 @@
+2026-02-09 17:24:05 - Main - ERROR - 执行失败: 'default_buffer'
+Traceback (most recent call last):
+  File "C:\Users\16281\Desktop\cpedc_project\src\main.py", line 131, in main
+    m2_results = builder.run()
+                 ^^^^^^^^^^^^^
+  File "C:\Users\16281\Desktop\cpedc_project\src\m2_geo_builder.py", line 950, in run
+    polygon, boundary_coords = self.create_model_boundary(mk_points)
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\16281\Desktop\cpedc_project\src\m2_geo_builder.py", line 74, in create_model_boundary
+    buffer_distance = self.config['m2_config']['default_buffer']
+                      ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+KeyError: 'default_buffer'

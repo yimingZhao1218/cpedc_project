@@ -1,0 +1,30 @@
+2026-02-10 00:21:06 - UQRunner - INFO - UQRunner 初始化: n_ensemble=5, base_seed=20260209
+2026-02-10 00:21:07 - UQRunner - INFO - 
+==================================================
+2026-02-10 00:21:07 - UQRunner - INFO - Ensemble 1/5, seed=20260209
+2026-02-10 00:21:07 - UQRunner - INFO - ==================================================
+2026-02-10 00:23:48 - UQRunner - INFO -   Ensemble 1 完成, k_eff=4.923, f_frac=9.9
+2026-02-10 00:23:48 - UQRunner - INFO - 
+==================================================
+2026-02-10 00:23:48 - UQRunner - INFO - Ensemble 2/5, seed=20261209
+2026-02-10 00:23:48 - UQRunner - INFO - ==================================================
+2026-02-10 00:26:30 - UQRunner - INFO -   Ensemble 2 完成, k_eff=4.923, f_frac=9.9
+2026-02-10 00:26:30 - UQRunner - INFO - 
+==================================================
+2026-02-10 00:26:30 - UQRunner - INFO - Ensemble 3/5, seed=20262209
+2026-02-10 00:26:30 - UQRunner - INFO - ==================================================
+2026-02-10 00:29:13 - UQRunner - INFO -   Ensemble 3 完成, k_eff=4.942, f_frac=9.9
+2026-02-10 00:29:13 - UQRunner - INFO - 
+==================================================
+2026-02-10 00:29:13 - UQRunner - INFO - Ensemble 4/5, seed=20263209
+2026-02-10 00:29:13 - UQRunner - INFO - ==================================================
+2026-02-10 00:31:58 - UQRunner - INFO -   Ensemble 4 完成, k_eff=4.930, f_frac=9.9
+2026-02-10 00:31:58 - UQRunner - INFO - 
+==================================================
+2026-02-10 00:31:58 - UQRunner - INFO - Ensemble 5/5, seed=20264209
+2026-02-10 00:31:58 - UQRunner - INFO - ==================================================
+2026-02-10 00:34:26 - UQRunner - INFO -   Ensemble 5 完成, k_eff=4.925, f_frac=9.9
+2026-02-10 00:34:26 - UQRunner - INFO - UQ qg 图已保存: C:\Users\16281\Desktop\cpedc_project\outputs\mk_pinn_dt_v2\figs\M6_uq_qg_p10p50p90.png
+2026-02-10 00:34:26 - UQRunner - INFO - UQ pwf 图已保存: C:\Users\16281\Desktop\cpedc_project\outputs\mk_pinn_dt_v2\figs\M6_uq_pwf_p10p50p90.png
+2026-02-10 00:34:27 - UQRunner - INFO - 参数分布图已保存: C:\Users\16281\Desktop\cpedc_project\outputs\mk_pinn_dt_v2\figs\M6_uq_param_distribution.png
+2026-02-10 00:34:27 - UQRunner - INFO - UQ 报告已保存: C:\Users\16281\Desktop\cpedc_project\outputs\mk_pinn_dt_v2\reports\M6_uq_report.md

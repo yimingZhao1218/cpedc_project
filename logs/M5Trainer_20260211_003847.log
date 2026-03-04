@@ -1,0 +1,26 @@
+2026-02-11 00:38:48 - M5Trainer - INFO -   torch.compile 已跳过 (Triton 不支持 Windows, 使用 eager 模式)
+2026-02-11 00:38:48 - M5Trainer - INFO -   井 SY9: 1025 条同化数据
+2026-02-11 00:38:48 - M5Trainer - INFO -   M3 PVT cg(76.0, 141.39) = 0.009744
+2026-02-11 00:38:48 - M5Trainer - INFO -   M3 PVT Bg(76.0, 141.39) = 0.002577
+2026-02-11 00:38:48 - M5Trainer - INFO -   PDE 缩放: αx=0.029719, αy=0.074361
+2026-02-11 00:38:48 - M5Trainer - INFO - M5Trainer 初始化完成: device=cuda, lr=0.001, max_steps=2, relobralo=True, rar=True
+2026-02-11 00:38:48 - M5Trainer - INFO - ============================================================
+2026-02-11 00:38:48 - M5Trainer - INFO - M5 PINN 井—藏耦合同化训练开始
+2026-02-11 00:38:48 - M5Trainer - INFO - ============================================================
+2026-02-11 00:38:48 - M5Trainer - INFO - 训练阶段: A[0-0] B[0-0] C[0-1] D[1-2]
+2026-02-11 00:38:49 - M5Trainer - INFO -   ✅ k_eff_mD.grad = 4.789778e-17 (PDE梯度贯通)
+2026-02-11 00:38:49 - M5Trainer - INFO -   ✅ k_net: 18 组参数收到梯度
+2026-02-11 00:38:49 - M5Trainer - INFO -   ✅ f_frac.grad = 6.316798e-03
+2026-02-11 00:38:49 - M5Trainer - INFO - [Step     0/2] Stage C | L=3.2409e+10 (IC=1.000e+00, BC=1.000e+00, PDE=1.620e+10, Qg=5.354e+04) | k=0.15 mD, f=37.0 | Sw=[0.260,0.260] | 0.8s
+2026-02-11 00:38:49 - M5Trainer - INFO - [Step     1/2] Stage D | L=5.0369e+10 (IC=1.001e+00, BC=1.003e+00, PDE=1.679e+10, Qg=5.331e+04) | k=0.15 mD, f=37.0 | Sw=[0.260,0.260] | 0.9s
+2026-02-11 00:38:49 - M5Trainer - INFO - 
+M5 训练完成! 耗时: 0.9s, 最佳损失: 3.2409e+10
+2026-02-11 00:38:49 - M5Trainer - INFO - 配置快照已保存: C:\Users\16281\Desktop\cpedc_project\outputs\mk_pinn_dt_v2\resolved_config_m5.json
+2026-02-11 00:38:49 - M5Trainer - INFO - 反演参数审计: C:\Users\16281\Desktop\cpedc_project\outputs\mk_pinn_dt_v2\reports\M5_inversion_params.json
+2026-02-11 00:38:49 - M5Trainer - INFO - qg 对比图已保存: C:\Users\16281\Desktop\cpedc_project\outputs\mk_pinn_dt_v2\figs\M5_qg_comparison_SY9.png
+2026-02-11 00:38:49 - M5Trainer - INFO - p_wf 反演图已保存: C:\Users\16281\Desktop\cpedc_project\outputs\mk_pinn_dt_v2\figs\M5_pwf_inversion_SY9.png
+2026-02-11 00:38:50 - M5Trainer - INFO - 训练曲线图已保存: C:\Users\16281\Desktop\cpedc_project\outputs\mk_pinn_dt_v2\figs\M5_training_history.png
+2026-02-11 00:38:50 - M5Trainer - INFO - 残差热力图已保存: C:\Users\16281\Desktop\cpedc_project\outputs\mk_pinn_dt_v2\figs\M5_pde_residual_map.png
+2026-02-11 00:38:51 - M5Trainer - INFO - M6 连通性分析完成
+2026-02-11 00:38:52 - M5Trainer - INFO - M7 水侵预警分析完成
+2026-02-11 00:38:52 - M5Trainer - INFO - M5 验收报告已保存: C:\Users\16281\Desktop\cpedc_project\outputs\mk_pinn_dt_v2\reports\M5_validation_report.md

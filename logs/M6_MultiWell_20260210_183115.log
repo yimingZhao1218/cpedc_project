@@ -1,0 +1,29 @@
+2026-02-10 18:31:20 - M6_MultiWell - INFO - ============================================================
+2026-02-10 18:31:20 - M6_MultiWell - INFO - M6 多井联合训练
+2026-02-10 18:31:20 - M6_MultiWell - INFO - ============================================================
+2026-02-10 18:31:20 - M6_MultiWell - INFO -   井列表: ['SY9', 'SY13', 'SY201', 'SY101', 'SY102', 'SY116', 'SYX211']
+2026-02-10 18:31:20 - M6_MultiWell - INFO -   域分解: none
+2026-02-10 18:31:20 - M6_MultiWell - INFO -   设备: cuda
+2026-02-10 18:31:20 - M6_MultiWell - INFO -   井 SY9: 生产数据存在 ✅
+2026-02-10 18:31:20 - M6_MultiWell - WARNING -   井 SY13: 无生产数据文件，将仅用于场约束
+2026-02-10 18:31:20 - M6_MultiWell - WARNING -   井 SY201: 无生产数据文件，将仅用于场约束
+2026-02-10 18:31:20 - M6_MultiWell - WARNING -   井 SY101: 无生产数据文件，将仅用于场约束
+2026-02-10 18:31:20 - M6_MultiWell - WARNING -   井 SY102: 无生产数据文件，将仅用于场约束
+2026-02-10 18:31:20 - M6_MultiWell - WARNING -   井 SY116: 无生产数据文件，将仅用于场约束
+2026-02-10 18:31:20 - M6_MultiWell - WARNING -   井 SYX211: 无生产数据文件，将仅用于场约束
+2026-02-10 18:31:23 - M6_MultiWell - INFO -   模型参数: {'field_net': 416258, 'well_model': 1156, 'k_net': 15297, 'dp_wellbore': 1, 'total': 432712}
+2026-02-10 18:31:24 - M6_MultiWell - INFO - 开始多井联合训练...
+2026-02-11 00:18:27 - M6_MultiWell - INFO - M6 多井训练完成! 耗时: 20823.5s
+2026-02-11 00:18:32 - M6_MultiWell - INFO - 
+多井反演参数汇总:
+2026-02-11 00:18:32 - M6_MultiWell - INFO -   k_eff_mD: 4.990828037261963
+2026-02-11 00:18:32 - M6_MultiWell - INFO -   k_eff_SI: 4.925564350919537e-15
+2026-02-11 00:18:32 - M6_MultiWell - INFO -   f_frac: 12.357044219970703
+2026-02-11 00:18:32 - M6_MultiWell - INFO -   r_e_m: 128.88518921893237
+2026-02-11 00:18:32 - M6_MultiWell - INFO -   r_w_m: 0.1
+2026-02-11 00:18:32 - M6_MultiWell - INFO -   skin: 0.0
+2026-02-11 00:18:32 - M6_MultiWell - INFO -   wi_factor_SY9: 3.0899782180786133
+2026-02-11 00:18:32 - M6_MultiWell - INFO -   dp_wellbore_MPa: 19.179292678833008
+2026-02-11 00:18:32 - M6_MultiWell - INFO - 
+各井同化拟合误差:
+2026-02-11 00:18:32 - M6_MultiWell - INFO -   井 SY9: RMSE=322714 m³/d, MAPE=69.7%

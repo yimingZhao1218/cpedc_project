@@ -1,0 +1,4 @@
+2026-02-11 22:53:00 - WaterInvasion - INFO - WaterInvasionAnalyzer 初始化完成
+2026-02-11 22:53:01 - WaterInvasion - INFO - 水侵预警仪表盘已保存: C:\Users\16281\Desktop\cpedc_project\outputs\mk_pinn_dt_v2\figs\M7_water_invasion_dashboard.png
+2026-02-11 22:53:01 - WaterInvasion - INFO - 制度优化对比图已保存: C:\Users\16281\Desktop\cpedc_project\outputs\mk_pinn_dt_v2\figs\M7_strategy_comparison.png
+2026-02-11 22:53:01 - WaterInvasion - INFO - 水侵预警报告已保存: C:\Users\16281\Desktop\cpedc_project\outputs\mk_pinn_dt_v2\reports\M7_water_invasion_report.md

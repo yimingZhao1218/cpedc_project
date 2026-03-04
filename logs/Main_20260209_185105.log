@@ -1,0 +1,12 @@
+2026-02-09 18:51:19 - Main - INFO - 构建 PVT 插值器...
+2026-02-09 18:51:19 - Main - INFO - 构建相渗插值器...
+2026-02-09 18:51:19 - Main - INFO - 功能测试: 查询 p=50 MPa, T=120 ℃
+2026-02-09 18:51:19 - Main - ERROR - 执行失败: only 0-dimensional arrays can be converted to Python scalars
+Traceback (most recent call last):
+  File "c:\Users\16281\Desktop\cpedc_project\src\main.py", line 239, in main
+    m3_ok = run_m3(config, logger)
+            ^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\16281\Desktop\cpedc_project\src\main.py", line 57, in run_m3
+    logger.info(f"  {name} = {float(val):.6g}")
+                              ^^^^^^^^^^
+TypeError: only 0-dimensional arrays can be converted to Python scalars
