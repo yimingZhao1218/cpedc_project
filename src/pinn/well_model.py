@@ -108,17 +108,33 @@ class PeacemanWI(nn.Module):
         self.r_w = well_cfg.get('r_w_m', 0.1)
         self.skin = well_cfg.get('skin', 0.0)
 
-        # r_e 估计: Peaceman 公式 r_e ≈ 0.28 * sqrt(Δx² + Δy²)
+        # r_e: 等效排泄半径 (可学习, sigmoid约束)
+        # v4.8: Peaceman公式r_e≈0.28√(Δx²+Δy²)在PINN无网格框架下缺乏严格依据,
+        #       将r_e升级为可学习参数, 让产量数据驱动排泄半径反演.
+        #       初始值仍用Peaceman估算作为合理先验.
         n_colloc_est = 2000
         n_side = max(math.sqrt(n_colloc_est), 10)
         dx_colloc = dx / n_side
         dy_colloc = dy / n_side
-        self.r_e = 0.28 * math.sqrt(dx_colloc**2 + dy_colloc**2)
+        r_e_init = 0.28 * math.sqrt(dx_colloc**2 + dy_colloc**2)  # ≈128.9m
+
+        # sigmoid参数化: r_e = r_e_min + (r_e_max - r_e_min) * sigmoid(raw)
+        self.r_e_bounds_m = [50.0, 500.0]  # 物理合理范围: 裂缝尺度~排泄半径
+        r_e_min, r_e_max = self.r_e_bounds_m
+        r_e_range = r_e_max - r_e_min
+        r_e_init = max(r_e_min + 1.0, min(r_e_max - 1.0, r_e_init))
+        r_e_ratio = (r_e_init - r_e_min) / r_e_range
+        r_e_ratio = max(0.01, min(0.99, r_e_ratio))
+        r_e_raw_init = math.log(r_e_ratio / (1.0 - r_e_ratio))  # logit
+
+        self._r_e_raw = nn.Parameter(torch.tensor(r_e_raw_init, dtype=torch.float32))
+        self._r_e_prior = r_e_init  # 保留先验值用于审计和正则化
 
         self.logger.info(
-            f"PeacemanWI v3 初始化: k_frac_init={k_frac_init:.2f} mD "
+            f"PeacemanWI v4.8 初始化: k_frac_init={k_frac_init:.2f} mD "
             f"(= k_eff {k_eff_init} × f_frac {f_frac_init}), "
-            f"r_e={self.r_e:.1f} m, r_w={self.r_w} m, skin={self.skin}"
+            f"r_e_init={r_e_init:.1f} m (可学习, 范围[{r_e_min:.0f},{r_e_max:.0f}]m), "
+            f"r_w={self.r_w} m, skin={self.skin}"
         )
 
     @property
@@ -141,6 +157,19 @@ class PeacemanWI(nn.Module):
     def k_frac_SI(self) -> torch.Tensor:
         """等效裂缝增强渗透率 (m²)"""
         return self.k_frac_mD * 9.869233e-16
+
+    @property
+    def r_e(self) -> torch.Tensor:
+        """
+        等效排泄半径 (m), 正值, 有界
+        
+        v4.8: sigmoid 软约束 [50, 500] m
+        - Peaceman公式初始值≈128.9m
+        - 训练中由产量数据驱动收敛
+        """
+        r_min, r_max = self.r_e_bounds_m
+        r_range = r_max - r_min
+        return r_min + r_range * torch.sigmoid(self._r_e_raw)
 
     # ===== 向后兼容属性 (供 PDE 中 k_eff 引用路径) =====
     @property
@@ -173,8 +202,9 @@ class PeacemanWI(nn.Module):
         Returns:
             WI: shape same as h_well, 单位 m³ (SI)
         """
-        ln_ratio = math.log(self.r_e / self.r_w) + self.skin
-        ln_ratio = max(ln_ratio, 0.1)  # 防零
+        # v4.8: r_e 现为 tensor, 用 torch.log 保持 autograd 图连通
+        ln_ratio = torch.log(self.r_e / self.r_w) + self.skin
+        ln_ratio = torch.clamp(ln_ratio, min=0.1)  # 防零 (实际范围[50,500]/0.1→ln∈[6.2,8.5], 不会触发)
 
         # v3: 直接用 k_frac (已含裂缝增效), 不再乘 f_frac
         k_SI = k_SI_override if k_SI_override is not None else self.k_frac_SI
@@ -188,7 +218,8 @@ class PeacemanWI(nn.Module):
             'k_frac_SI': self.k_frac_SI.item(),
             'k_eff_prior_mD': self._k_eff_prior,
             'f_frac_prior': self._f_frac_prior,
-            'r_e_m': self.r_e,
+            'r_e_m': self.r_e.item(),
+            'r_e_prior_m': self._r_e_prior,
             'r_w_m': self.r_w,
             'skin': self.skin,
         }

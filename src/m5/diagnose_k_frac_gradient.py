@@ -56,7 +56,7 @@ def main():
 
     if ckpt_path and os.path.exists(ckpt_path):
         ckpt = torch.load(ckpt_path, map_location=device, weights_only=False)
-        model.load_state_dict(ckpt['model_state_dict'], strict=True)
+        model.load_state_dict(ckpt['model_state_dict'], strict=False)  # v4.8: 兼容新增 _r_e_raw
         # 确保加载后仍为训练模式且参数可导 (不冻结)
         model.train()
         for p in model.parameters():

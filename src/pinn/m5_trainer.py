@@ -147,7 +147,7 @@ class M5Trainer:
         
         if hasattr(model, 'well_model'):
             for name, param in model.well_model.named_parameters():
-                if '_k_frac_raw' in name:
+                if '_k_frac_raw' in name or '_r_e_raw' in name:
                     k_frac_params.append(param)
                 else:
                     well_other_params.append(param)
@@ -320,7 +320,7 @@ class M5Trainer:
             'qg': [], 'qg_nearzero': [], 'shutin_delta': [], 'whp': [], 'smooth_pwf': [], 'smooth_qg': [], 'monotonic': [], 'prior': [],
             'k_reg': [], 'sw_bounds': [], 'tds': [], 'lr': [], 'lr_k_net': [],
             'sw_min': [], 'sw_max': [], 'stage': [],
-            'k_frac_mD': [], 'k_eff_mD': [], 'f_frac': [], 'dp_wellbore': [],
+            'k_frac_mD': [], 'k_eff_mD': [], 'f_frac': [], 'dp_wellbore': [], 'r_e_m': [],
         }
         
         # --- 输出目录 ---
@@ -1271,6 +1271,21 @@ class M5Trainer:
                     f"  ✅ k_net: {len(k_net_grads)} 组参数收到梯度"
                 )
             
+            # v4.8: 验证 r_e 梯度贯通 (Stage A/B 冻结期 grad=None 是正常的)
+            r_e_raw = self.model.well_model.peaceman._r_e_raw
+            if r_e_raw.requires_grad and r_e_raw.grad is not None and r_e_raw.grad.abs().item() > 0:
+                self.logger.info(
+                    f"  ✅ r_e.grad = {r_e_raw.grad.item():.6e} (WI梯度贯通)"
+                )
+            elif not r_e_raw.requires_grad:
+                self.logger.info(
+                    f"  ℹ️ r_e 当前冻结 (Stage A/B), 梯度将在 Stage C 解冻后验证"
+                )
+            else:
+                self.logger.warning(
+                    "  ⚠️ r_e.grad 为 None 或零! WI→r_e 梯度链路可能断裂"
+                )
+            
             # v3: f_frac 已合并入 k_frac, 无需单独检查
         
         # ===== 补充 A: 梯度链路硬核验收 =====
@@ -1346,6 +1361,7 @@ class M5Trainer:
         result['k_eff_mD'] = inv_params.get('k_frac_mD', 0.0)
         result['f_frac'] = 0.0  # v3: 已合并入 k_frac
         result['dp_wellbore'] = inv_params.get('dp_wellbore_MPa', 0.0)
+        result['r_e_m'] = inv_params.get('r_e_m', 128.9)
         
         return result
     
@@ -1523,13 +1539,20 @@ class M5Trainer:
             return {k: w_s.get(k, 0) + p * (w_e.get(k, 0) - w_s.get(k, 0))
                     for k in set(w_s) | set(w_e)}
         
-        # v3.13: Stage A+B 冻结 k_frac, 防止 PDE 主导期拖低 k_frac
+        # v3.13: Stage A+B 冻结 k_frac + r_e, 防止 PDE 主导期拖低 k_frac
         # Stage A+B: PDE raw ~10⁵~10⁶ 远大于 qg ~0.2, k_frac 只听 PDE
         # Stage C: qg 权重已足够大, 此时解冻才能正确收敛
         _k_frac_raw = self.model.well_model.peaceman._k_frac_raw
         _k_frac_raw.requires_grad_(False)
         _k_frac_frozen = True
-        self.logger.info(f"  [v3.13] Stage A+B 冻结 k_frac={self.model.well_model.peaceman.k_frac_mD.item():.4f} mD (Stage C 解冻)")
+        # v4.8: r_e 与 k_frac 同步冻结/解冻 (同属 WI 参数, PDE主导期梯度不可靠)
+        _r_e_raw = self.model.well_model.peaceman._r_e_raw
+        _r_e_raw.requires_grad_(False)
+        _r_e_frozen = True
+        self.logger.info(
+            f"  [v3.13] Stage A+B 冻结 k_frac={self.model.well_model.peaceman.k_frac_mD.item():.4f} mD, "
+            f"r_e={self.model.well_model.peaceman.r_e.item():.1f} m (Stage C 解冻)"
+        )
         
         # v3.14: Stage A+B 同步冻结 ng/nw — PDE 噪声梯度会把 ng 从 1.08 推到 2.7+
         # 实测: corey_w=0.5 × stage_prior=0.01~0.03 = 有效权重 0.005~0.015, vs PDE ~500, 弱 30000x
@@ -1555,6 +1578,10 @@ class M5Trainer:
                     _k_frac_raw.requires_grad_(True)
                     _k_frac_frozen = False
                     self.logger.info(f"  [v3.13] Stage C 解冻 k_frac={self.model.well_model.peaceman.k_frac_mD.item():.4f} mD")
+                if _r_e_frozen:
+                    _r_e_raw.requires_grad_(True)
+                    _r_e_frozen = False
+                    self.logger.info(f"  [v4.8] Stage C 解冻 r_e={self.model.well_model.peaceman.r_e.item():.1f} m")
                 if _corey_frozen:
                     rp._ng_log.requires_grad_(True)
                     rp._nw_log.requires_grad_(True)
@@ -1577,7 +1604,7 @@ class M5Trainer:
             self.history['step'].append(step)
             for key in ['total', 'ic', 'bc', 'pde', 'qg', 'qg_nearzero', 'shutin_delta', 'whp', 'smooth_pwf',
                         'smooth_qg', 'monotonic', 'prior', 'k_reg', 'sw_bounds', 'tds', 'lr', 'lr_k_net',
-                        'sw_min', 'sw_max', 'k_frac_mD', 'k_eff_mD', 'f_frac', 'dp_wellbore']:
+                        'sw_min', 'sw_max', 'k_frac_mD', 'k_eff_mD', 'f_frac', 'dp_wellbore', 'r_e_m']:
                 self.history[key].append(loss_dict.get(key, 0.0))
             self.history['stage'].append(stage)
             
@@ -1642,11 +1669,21 @@ class M5Trainer:
         path = os.path.join(self.ckpt_dir, f'm5_pinn_{tag}.pt')
         if os.path.exists(path):
             ckpt = torch.load(path, map_location=self.device, weights_only=False)
-            self.model.load_state_dict(ckpt['model_state_dict'])
+            # v4.8: strict=False 兼容旧 checkpoint (缺少 _r_e_raw 等新增参数)
+            missing, unexpected = self.model.load_state_dict(ckpt['model_state_dict'], strict=False)
+            if missing:
+                self.logger.info(f"  load_checkpoint: missing keys (将用初始值): {missing}")
+            if unexpected:
+                self.logger.warning(f"  load_checkpoint: unexpected keys: {unexpected}")
             # ★★★ FIX-v9: 恢复 history，保证 report 指标与 checkpoint 一致 ★★★
             if 'history' in ckpt and ckpt['history']:
                 self.history = ckpt['history']
-                self.logger.info(f"  history 已恢复 ({len(self.history.get('step', []))} 步)")
+                # v4.8: 补全旧 history 中缺失的新增字段
+                n_steps = len(self.history.get('step', []))
+                for new_key in ('r_e_m',):
+                    if new_key not in self.history:
+                        self.history[new_key] = [0.0] * n_steps
+                self.logger.info(f"  history 已恢复 ({n_steps} 步)")
             if 'step' in ckpt:
                 self.best_step = ckpt['step']
                 self.logger.info(f"  best_step={self.best_step}")
@@ -2445,7 +2482,7 @@ class M5Trainer:
             f"## 反演参数",
             f"- k_frac: {inv.get('k_frac_mD', inv.get('k_eff_mD', 'N/A')):.4f} mD",
             f"- f_frac: (已合并入 k_frac)",
-            f"- r_e: {inv.get('r_e_m', 'N/A'):.1f} m",
+            f"- r_e: {inv.get('r_e_m', 'N/A'):.1f} m (先验={inv.get('r_e_prior_m', 'N/A'):.1f} m, 可学习v4.8)",
             f"- dp_wellbore: {inv.get('dp_wellbore_MPa', 'N/A'):.2f} MPa (WHP→p_wf 井筒压差)\n",
             f"## 最终损失 ({source_label})",
             f"- Total: {self.history['total'][-1]:.6e}" if self.history['total'] else "- N/A",

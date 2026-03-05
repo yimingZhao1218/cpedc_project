@@ -232,7 +232,7 @@ def run_nsga2_optimization(cache, pop_size=100, n_gen=30, seed=20260304):
             def __init__(s2, cr):
                 super().__init__(n_var=4, n_obj=3, n_ieq_constr=0,
                                  xl=np.array([0.,0.,0.3,30.]),
-                                 xu=np.array([5.,10.,0.7,180.]))
+                                 xu=np.array([5.,7.,0.7,180.]))  # v4.7: dp2上限10→7 避免关井平台
                 s2.cr = cr; s2.ne = 0
             def _evaluate(s2, X, out, *a, **kw):
                 F = np.zeros((len(X), 3))
@@ -246,7 +246,7 @@ def run_nsga2_optimization(cache, pop_size=100, n_gen=30, seed=20260304):
     else:
         ns = pop_size * n_gen
         rng = np.random.RandomState(seed)
-        Xd = np.column_stack([rng.uniform(0,5,ns), rng.uniform(0,10,ns),
+        Xd = np.column_stack([rng.uniform(0,5,ns), rng.uniform(0,7,ns),  # v4.7: dp2上限10→7
                                rng.uniform(0.3,0.7,ns), rng.uniform(30,180,ns)])
         Fp = np.array([nsga2_evaluate(Xd[i], cache) for i in range(ns)])
         mk = _pareto_filter(Fp); Fp = Fp[mk]; Xd = Xd[mk]; ne = ns

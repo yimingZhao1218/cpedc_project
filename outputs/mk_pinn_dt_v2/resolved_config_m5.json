@@ -496,9 +496,9 @@
       0.2
     ],
     "use_train_only": false,
-    "max_steps": 20000,
+    "max_steps": 80000,
     "batch_size": 4096,
-    "learning_rate": 0.0005,
+    "learning_rate": 0.001,
     "training_stages": {
       "stage_a": {
         "fraction": 0.08,
@@ -534,7 +534,7 @@
     },
     "scheduler": {
       "name": "warmup_cosine",
-      "warmup_steps": 200,
+      "warmup_steps": 4000,
       "min_lr": 1e-06
     },
     "early_stopping": {
@@ -689,7 +689,7 @@
       "k_weight": 0.01,
       "dp_center_MPa": 13.3,
       "dp_weight": 0.02,
-      "corey_weight": 1.0
+      "corey_weight": 0.1
     },
     "well_model": {
       "r_w_m": 0.1,

@@ -433,7 +433,7 @@ train:
   # v3.21: 65/15/20 — train多66条(vs 60/20/20), val有32个开井点(70/15/15的val=0会致best不更新)
   m5_split: [0.65, 0.15, 0.2]   # [train_ratio, val_ratio, test_ratio]，时间顺序不打乱
   use_train_only: false          # v12：全量井点反传
-  max_steps: 35000              # v4.7 阶段1: 全训35k复现Run A
+  max_steps: 80000              # v4.7 阶段1: 全训80k步(用户指定)
   batch_size: 4096              # GPU 建议 4096, CPU 可降到 512
   learning_rate: 1.0e-3         # v4.7 阶段1: 全训lr
 

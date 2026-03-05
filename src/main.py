@@ -227,7 +227,8 @@ def run_m6(config: dict, logger) -> bool:
             sampler = PINNSampler(config=config)
             model = M5PINNNet(config, well_ids=[primary_well]).to(device)
             ckpt = torch.load(ckpt_path, map_location=device, weights_only=False)
-            model.load_state_dict(ckpt['model_state_dict'])
+            # v4.8: strict=False 兼容新增 _r_e_raw 参数
+            model.load_state_dict(ckpt['model_state_dict'], strict=False)
             model.eval()
             logger.info(f"  加载 checkpoint: {ckpt_path}")
             

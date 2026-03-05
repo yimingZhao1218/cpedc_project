@@ -333,5 +333,6 @@ class M5PINNNet(nn.Module):
             'k_frac_mD': self.well_model.peaceman.k_frac_mD,
             'k_eff_mD': self.well_model.peaceman.k_frac_mD,  # 向后兼容
             'dp_wellbore': self.dp_wellbore,
+            'r_e_m': self.well_model.peaceman.r_e,  # v4.8: 可学习排泄半径
         }
         return result

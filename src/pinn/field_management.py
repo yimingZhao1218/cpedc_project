@@ -54,24 +54,24 @@ def classify_wells(wiri_data: Optional[Dict] = None) -> Dict[str, Dict]:
         w = info['wiri']
         
         if w >= 0.7:
-            cat = 'immediate'
-            action = 'drainage gas recovery / shut-in water control'
-            monitor = 'daily'
+            cat = '立即干预'
+            action = '排水采气/关井控水'
+            monitor = '每日'
             color = '#E74C3C'
         elif w >= 0.4:
-            cat = 'priority'
-            action = 'stepped decline (10%/quarter)'
-            monitor = 'quarterly'
+            cat = '重点监控'
+            action = '阶梯降产(季度降10%)'
+            monitor = '季度'
             color = '#E67E22'
         elif w >= 0.2:
-            cat = 'planned'
-            action = 'NSGA-II balanced strategy'
-            monitor = 'semi-annual'
+            cat = '计划跟进'
+            action = 'NSGA-II平衡策略'
+            monitor = '半年'
             color = '#F1C40F'
         else:
-            cat = 'normal'
-            action = 'maintain production'
-            monitor = 'annual'
+            cat = '常规生产'
+            action = '维持稳产'
+            monitor = '年度'
             color = '#27AE60'
         
         results[well_id] = {

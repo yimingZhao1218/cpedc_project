@@ -130,7 +130,7 @@ class WaterInvasionAnalyzer:
         self.ng = 1.0846    # v4.7: 2.5→1.0846 (附表7拟合 R²=0.9945)
         self.krw_max = 0.48 # v4.7: 0.30→0.48  (附表7端点)
         self.krg_max = 0.675 # v4.7: 0.80→0.675 (附表7端点)
-        self.mu_w = 0.30    # 地层水粘度 mPa·s (储层温度140°C)
+        self.mu_w = 0.28    # 地层水粘度 mPa·s (Kestin-Khalifa @T=140°C, 与TorchPVT统一)
         self.mu_g = 0.025   # 天然气粘度 mPa·s (75MPa, 140°C)
         
         self.logger.info(

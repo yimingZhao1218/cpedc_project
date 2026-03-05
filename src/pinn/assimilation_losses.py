@@ -138,6 +138,8 @@ class AssimilationLoss:
         self.prior_k_weight = float(inv_prior.get('k_weight', 0.1))  # v3.5: 1.0→0.1, 1.0太强锚死k_frac=3.08, 0.1仍引导但不压制寻优
         self.prior_dp_center_MPa = float(inv_prior.get('dp_center_MPa', 13.3))  # v3.6: 12→13.3, 试油实测 WHP=57.93 BHP=71.23 Δp=13.3
         self.prior_dp_weight = float(inv_prior.get('dp_weight', 0.5))  # v3.6: 0.01→0.5, dp漂移到17→驱动压差坍缩, 需强约束
+        # v4.8: r_e 先验正则化 (弱约束, 允许数据驱动偏离)
+        self.prior_r_e_weight = float(inv_prior.get('r_e_weight', 0.05))  # 弱于k_frac(0.1), r_e敏感性低
         
         self._loss_qg_shape_logged = False
         self._loss_whp_shape_logged = False  # 仅首次打印 shape 诊断
@@ -788,6 +790,14 @@ class AssimilationLoss:
             dp = inversion_params['dp_wellbore']
             scale = max(self.prior_dp_center_MPa, 1.0)
             loss = loss + self.prior_dp_weight * ((dp - self.prior_dp_center_MPa) / scale) ** 2
+        
+        # v4.8: r_e 先验正则化 (log空间, 弱约束)
+        if 'r_e_m' in inversion_params:
+            r_e = inversion_params['r_e_m']
+            # r_e先验中Peaceman估算值≈128.9m, 从PeacemanWI._r_e_prior获取
+            # 这里用固定值128.9作为默认先验中心
+            r_e_prior = 128.9  # Peaceman估算先验
+            loss = loss + self.prior_r_e_weight * (torch.log(r_e / r_e_prior)) ** 2
         
         # v3.14: Corey 指数先验 — 防止 ng/nw 偏离 SY13 拟合值过远
         # log 空间正则, 权重 0.05 (温和: 允许 ±30% 微调, 防止 weight_decay 拉崩)
