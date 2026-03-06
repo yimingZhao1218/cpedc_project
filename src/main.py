@@ -269,8 +269,8 @@ def run_m6(config: dict, logger) -> bool:
         exp_config['paths']['checkpoints'] = os.path.join(m6_exp_out, 'ckpt')
         exp_config['paths']['reports'] = os.path.join(m6_exp_out, 'reports')
         exp_config['paths']['figures'] = os.path.join(m6_exp_out, 'figs')
-        exp_config['train']['max_steps'] = exp_config['train'].get(
-            'max_steps', 50000
+        exp_config['train']['max_steps'] = ablation_cfg.get(
+            'min_steps', 20000
         )
         
         for key_path, value in exp.get('overrides', {}).items():

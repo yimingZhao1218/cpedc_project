@@ -16,8 +16,8 @@ meta:
 
 reproducibility:
   seed: 20260209
-  deterministic: true
-  cudnn_benchmark: false
+  deterministic: false
+  cudnn_benchmark: true
 
 runtime:
   device: "cuda"              # cuda / cpu
@@ -619,9 +619,9 @@ m5_config:
   rar:
     enable: true
     interval: 500                   # 每 N 步执行一次
-    n_candidates: 5000              # 候选池大小
+    n_candidates: 3000              # 候选池大小 (5000→3000: 平衡精度与速度)
     n_add: 200                      # 每次加入点数
-    max_total: 8000                 # 最大 RAR 点数
+    max_total: 6000                 # 最大 RAR 点数 (8000→6000: 保守折中)
 
 # ----------------------------------------------------------
 # M6 多井 + 域分解 + 不确定性
@@ -639,6 +639,6 @@ m6_config:
     gate_hidden: 32                 # 门控网络隐层宽度
 
   uq:
-    n_ensemble: 5                   # ensemble 成员数
+    n_ensemble: 10                  # ensemble 成员数 (5→10: 提升UQ覆盖率)
     base_seed: 20260209
 

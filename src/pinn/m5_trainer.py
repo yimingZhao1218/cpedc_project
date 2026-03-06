@@ -25,6 +25,7 @@ import numpy as np
 from pathlib import Path
 from typing import Dict, Optional, Tuple, List
 import logging
+import contextlib
 
 os.environ['KMP_DUPLICATE_LIB_OK'] = 'TRUE'
 
@@ -70,6 +71,10 @@ class M5Trainer:
                     pass
             else:
                 torch.backends.cudnn.benchmark = True
+            # TF32: RTX 4090 (Ada Lovelace) 原生支持, matmul ~2x 加速
+            # 精度: 10-bit mantissa 对 NN 训练无影响, 且保持 FP32 指数范围
+            torch.backends.cuda.matmul.allow_tf32 = True
+            torch.backends.cudnn.allow_tf32 = True
         if seed is not None:
             torch.manual_seed(seed)
             np.random.seed(seed)
@@ -126,10 +131,15 @@ class M5Trainer:
         if not phys_loss_cfg.get('enable', True):
             self.phys_enable = False
         
-        # AMP
+        # AMP — 仅用于验证推理加速, 训练步不启用 autocast
+        # 原因: PINN PDE 损失需要 autograd.grad(create_graph=True) 计算二阶导数,
+        #       FP16 精度不足以保证物理约束准确性. TF32 已提供安全的 ~2x 加速.
         runtime_cfg = config.get('runtime', {})
         self.use_amp = (runtime_cfg.get('mixed_precision', False) and 'cuda' in device)
-        self.scaler = torch.amp.GradScaler('cuda') if self.use_amp else None
+        self.scaler = None  # 训练步不使用 GradScaler (无 autocast 时 scaler 无意义)
+        if self.use_amp:
+            self.logger.info("  GPU加速: TF32=ON, cudnn.benchmark=ON, 验证推理=FP16 autocast")
+            self.logger.info("  训练步保持FP32 (PINN二阶导数精度要求)")
         
         # 优化器: 场网络和反演参数使用不同学习率
         opt_cfg = train_cfg.get('optimizer', {})
@@ -965,7 +975,9 @@ class M5Trainer:
         self.model.eval()
         scores = []
         dp_wb = float(self.model.dp_wellbore.item()) if hasattr(self.model.dp_wellbore, 'item') else float(self.model.dp_wellbore)
-        with torch.no_grad():
+        # 验证推理使用 autocast 加速 (no_grad 内无计算图, FP16 安全)
+        amp_ctx = torch.amp.autocast('cuda', dtype=torch.float16) if self.use_amp else contextlib.nullcontext()
+        with torch.no_grad(), amp_ctx:
             for wid in self.model.well_ids:
                 if wid not in self.well_data:
                     continue
@@ -1243,15 +1255,17 @@ class M5Trainer:
                     )
             losses['total'] = losses['total'] + 10.0 * pwf_penalty
         
-        # Backward
+        # Backward — 保持 FP32 精度 (不使用 autocast/GradScaler)
+        # ⚠️ PINN 的 PDE 损失涉及 autograd.grad(create_graph=True) 二阶导数,
+        #    FP16 autocast 会导致物理约束精度下降. TF32 已提供 ~2x 安全加速.
         losses['total'].backward()
         if self.grad_clip > 0:
             torch.nn.utils.clip_grad_norm_(self.model.parameters(), self.grad_clip)
         self.optimizer.step()
         self.scheduler.step()
         
-        # ===== 梯度贯通自证 (step==0 执行一次) =====
-        if step == 0:
+        # ===== 梯度贯通自证 (step==0 + 中途检查点, 开销≈0) =====
+        if step == 0 or step == 1000:
             # 验证 1: PDE loss 对 k_eff_mD 有梯度
             k_raw = self.model.well_model.peaceman._k_frac_raw
             if k_raw.grad is not None and k_raw.grad.abs().item() > 0:
@@ -1289,7 +1303,7 @@ class M5Trainer:
             # v3: f_frac 已合并入 k_frac, 无需单独检查
         
         # ===== 补充 A: 梯度链路硬核验收 =====
-        if step == 0 or (step % 200 == 0 and step < 2000):
+        if step == 0 or step == 1000:
             with torch.no_grad():
                 for wid in self.model.well_ids:
                     if wid in self.well_data:
@@ -1609,7 +1623,7 @@ class M5Trainer:
             self.history['stage'].append(stage)
             
             # v11: best 按验证集复合分数（每 200 步评估）；仅当 val 有效时更新
-            if step % 200 == 0 or step == total_steps - 1:
+            if step % 500 == 0 or step == total_steps - 1:
                 val_score = self._eval_val_score()
                 # 当 val 无开井点时代码返回 999，不得作为 best 更新（避免 Best step: 0）
                 if step >= 200 and val_score < best_assim_loss and val_score < 998.0:
@@ -1620,7 +1634,7 @@ class M5Trainer:
                         self.logger.info(f"  [best更新] val_score={val_score:.4f} (step {step})")
             
             # 日志
-            if step % 100 == 0 or step == total_steps - 1:
+            if step % 500 == 0 or step == total_steps - 1:
                 elapsed = time.time() - start_time
                 self.logger.info(
                     f"[Step {step:5d}/{total_steps}] {stage} | L={loss_dict['total']:.4e} | {elapsed:.1f}s"

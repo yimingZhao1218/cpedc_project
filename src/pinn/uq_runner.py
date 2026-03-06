@@ -106,9 +106,8 @@ class UQRunner:
             config_i = copy.deepcopy(self.config)
             config_i['reproducibility']['seed'] = seed_i
             
-            # UQ 步数: 与主训练一致, 确保 k_frac 在 Stage C/D 有足够步数收敛
-            m5_steps = config_i.get('train', {}).get('max_steps', 30000)
-            config_i['train']['max_steps'] = max(m5_steps, 30000)
+            # UQ 步数: 固定30k步(消融级别), 不使用全局80k避免训练时间膨胀
+            config_i['train']['max_steps'] = 30000
             
             # --- v3: 直接扰动 k_frac_init, 避免 k_eff×f_frac 乘积爆炸 ---
             rng = np.random.RandomState(seed_i)
@@ -116,7 +115,7 @@ class UQRunner:
             # 1. 扰动 k_frac 初始值: 围绕最新收敛值 ~9.7 mD 做对数正态扰动
             #    v4.7: σ从0.3→0.5 扩大覆盖率(44%→目标>70%)
             #    k_frac ~ LogNormal(log(9.7), 0.5) → P5≈3.9, P50=9.7, P95≈24
-            k_frac_center = 9.7  # v4.7: M5最新收敛值
+            k_frac_center = 10.13  # v4.8: M5 80k全训收敛值 (MAPE=4.6%)
             k_frac_perturbed = max(rng.lognormal(math.log(k_frac_center), 0.5), 1.0)
             k_frac_perturbed = min(k_frac_perturbed, 40.0)  # v4.7: 30→40 适配更宽扰动
             # 分解为 k_eff × f_frac 写入 config (PeacemanWI 读取这两个先验)
